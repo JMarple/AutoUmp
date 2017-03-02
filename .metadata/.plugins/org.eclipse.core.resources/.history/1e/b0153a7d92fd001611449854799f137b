@@ -1,0 +1,354 @@
+// Auto-Ump specific implementation for the OV07740 camera
+
+#include <xs1.h>
+#include <platform.h>
+#include <stdio.h>
+
+#include "ov07740.h"
+#include "sccb.h"
+
+// All clocks used by the cameras
+on tile[1]: clock camCLK = XS1_CLKBLK_1;
+on tile[1]: clock sccb1CLK = XS1_CLKBLK_2;
+on tile[1]: clock sccb2CLK = XS1_CLKBLK_3;
+on tile[1]: clock pclk1CLK = XS1_CLKBLK_4;
+on tile[1]: clock pclk2CLK = XS1_CLKBLK_5;
+
+// Ports used by both cameras
+on tile[1]: out port camRESET = XS1_PORT_1L;
+//on tile[1]: out port camSFIN = XS1_PORT_4C;
+on tile[1]: in  port camSYNC  = XS1_PORT_8D;
+
+// Camera 1 Ports
+on tile[1]: out port cam1XCLK = XS1_PORT_1B;
+on tile[1]: in  port cam1PCLK = XS1_PORT_1A;
+on tile[1]:     port cam1SCL  = XS1_PORT_1N;
+on tile[1]:     port cam1SDA  = XS1_PORT_1M;
+on tile[1]: in buffered port:32 cam1DATA = XS1_PORT_8A;
+
+// Camera 2 ports
+on tile[1]: out port cam2XCLK = XS1_PORT_1D;
+on tile[1]: in  port cam2PCLK = XS1_PORT_1C;
+on tile[1]:     port cam2SCL  = XS1_PORT_1P;
+on tile[1]:     port cam2SDA  = XS1_PORT_1O;
+on tile[1]: in buffered port:32 cam2DATA = XS1_PORT_8C;
+
+const uint8_t CAM_SCCB_ID = 0x21;
+
+// Product ID = 0x7740
+const uint8_t CAM_PRODUCT_MSB = 0x0A;
+const uint8_t CAM_PRODUCT_LSB = 0x0B;
+
+const uint8_t CAM_HAEC = 0x0F; // Exposure msb
+const uint8_t CAM_AEC = 0x10; // Exposure lsb
+
+// AutoUmp RevA specific port bit's
+// This is needed since the HREF/VSYNC's share the same
+// 8-bit port for both cameras.
+const uint8_t AU_HREF1 = (1 << 4);
+const uint8_t AU_VSYNC1 = (1 << 5);
+const uint8_t AU_HREF2 = (1 << 6);
+const uint8_t AU_VSYNC2 = (1 << 7);
+
+static void delay(uint32_t delay_amount)
+{
+    timer t;
+    uint32_t start_time;
+    t :> start_time;
+    t when timerafter(start_time + delay_amount) :> void;
+}
+
+void waitForVSync(uint8_t x)
+{
+    uint32_t cur;
+    camSYNC :> cur;
+    while (1)
+    {
+       select
+       {
+           case camSYNC when pinsneq(cur) :> cur:
+               if ((cur & AU_VSYNC1) == x) return;
+               break;
+       }
+    }
+}
+
+static inline unsigned waitForHREF(uint8_t x)
+{
+    uint32_t cur;
+    unsigned count;
+    camSYNC :> cur;
+    while (1)
+    {
+        select
+        {
+           case camSYNC when pinsneq(cur) :> cur @ count :
+               if ((cur & AU_HREF1) == x) return count;
+               break;
+        }
+    }
+
+    return 0;
+}
+
+
+uint8_t testrow[242*320];
+uint8_t bitimage[242*40];
+
+void sendToBluetooth(chanend uart1, uint8_t* buf, int length)
+{
+    for (int i = 0; i < length; i++)
+        uart1 <: buf[i];
+}
+
+void deleteLater(uint8_t* buf)
+{
+    int x = 0;
+    uint32_t tmpData;
+
+    unsigned count = waitForHREF(AU_HREF1);
+
+    count += 11;
+
+    cam1DATA @ count :> tmpData;
+
+    buf[x++] = (tmpData >> 8) & 0xFF;
+    buf[x++] = (tmpData >> 24) & 0xFF;
+
+    do
+    {
+        cam1DATA :> tmpData;
+        buf[x++] = (tmpData >> 8) & 0xFF;
+        buf[x++] = (tmpData >> 24) & 0xFF;
+    }
+    while (x < 320);
+}
+
+inline void ov07740_row(uint8_t* unsafe buf, uint8_t* unsafe bit, port* unsafe camDATA)
+{ unsafe {
+    uint32_t tmpData;
+    uint8_t tmpBuffer[320];
+
+    int x = 0;
+
+    unsigned count = waitForHREF(AU_HREF1);
+
+    count += 7;
+
+    cam1DATA @ count :> tmpData;
+
+    // Gather data
+    do
+    {
+        tmpBuffer[x++] = ((tmpData >> 8) & 0xFF);
+        tmpBuffer[x++] = ((tmpData >> 24) & 0xFF);
+        cam1DATA :> tmpData;
+    } while (x < 320);
+
+    timer t;
+    uint32_t start, end;
+    t :> start;
+
+    computeOV7670Data(tmpBuffer, buf, bit, 5);
+
+    t :> end;
+
+    //printf("T = %d\n", (end-start));
+    // Compute data
+    /*for (int x = 0; x < 320; x++)
+    {
+        buf[x] = tmpBuffer[x];
+    }*/
+}}
+
+inline void ov07740_denoise(
+    uint32_t* unsafe top,
+    uint32_t* unsafe cur,
+    uint32_t* unsafe bot)
+{ unsafe {
+    for (int byte = 39; byte >= 0; byte++)
+    {
+        uint32_t topByte = top[byte];
+        uint32_t curByte = cur[byte];
+        uint32_t botByte = bot[byte];
+        uint32_t topBit, botBit;
+
+        uint32_t leftBit, curBit, rightBit;
+
+        rightBit = curByte & 0x1;
+        curByte = curByte >> 1;
+        curBit = curByte & 0x1;
+        curByte = curByte >> 1;
+        leftBit = curByte & 0x1;
+
+        for (int bit = 1; bit < 31; bit++)
+        {
+            // Top Byte
+            topByte = topByte >> 1;
+            topBit  = topByte & 0x1;
+
+            // Bottom Byte
+            botByte = botByte >> 1;
+            botBit  = botByte & 0x1;
+
+            // Count the number of bits high
+            // If curBit is zero, count is set to zero
+            //
+            uint8_t count =
+                rightBit + leftBit + topBit + botBit;
+            count *= curBit;
+            count = (count > 2);
+        }
+    }
+}}
+
+void ov07740_capture(
+    int vsync_bits, int href_bits, port* unsafe camDATA, chanend uart1)
+{ unsafe {
+    uint8_t data, vsync = 1;
+    timer t;
+    uint32_t starttime, endtime;
+
+    while (1)
+    {
+        waitForVSync(0);
+        waitForVSync(AU_VSYNC1);
+
+        int i = 0;
+        uint32_t tmpData;
+
+        for (int y = 0; y < 240; y++)
+        {
+            ov07740_row(&testrow[y*320], &bitimage[y*40], camDATA);
+
+            if (y > 0 && y < 239)
+            {
+                ov07740_denoise(
+                    &bitimage[(y-1)*40],
+                    &bitimage[(y)*40],
+                    &bitimage[(y+1)*40]);
+            }
+            //deleteLater(&testrow[y*320]);
+
+            /*unsigned count =
+                ov7670_capturerow(
+                    &testrow[y*320],
+                    &bitimage[y*80],
+                    camDATA,
+                    (port* unsafe)&camSYNC,
+                    &testrow[(y+1)*320]);*/
+        }
+
+        //sendToBluetooth(uart1, testrow, 240*320);
+        sendToBluetooth(uart1, bitimage, 240*40);
+        printf("Sent Frame!\n");
+    }
+
+    printf("Done!\n");
+    while (1);
+}}
+
+void launchCameras(chanend uart1)
+{ unsafe {
+    void* unsafe sync = (void* unsafe)&camSYNC;
+
+    par
+    {
+        ov07740_capture(
+            AU_VSYNC1, AU_HREF1, (port* unsafe)&cam1DATA, uart1);
+    }
+
+    while (1==1);
+}}
+
+int configureCams()
+{ unsafe {
+
+    // Reset all registers to default values.
+    sccb_wr(CAM_SCCB_ID, 0x12, 0b10000000, cam1SCL, cam1SDA);
+    sccb_wr(CAM_SCCB_ID, 0x12, 0b10000000, cam2SCL, cam2SDA);
+
+    // Allow the sensor to reset, delays for 50ms
+    delay(5000000);
+
+    // Iterate through the register/value pairs and write them
+    // to the sensor.
+    for (int i = 0; i < sizeof(OV7740_QVGA)/sizeof(struct SCCBPairs); i++)
+    {
+        sccb_wr(CAM_SCCB_ID,
+            OV7740_QVGA[i].reg,
+            OV7740_QVGA[i].value,
+            cam1SCL, cam1SDA);
+
+        sccb_wr(CAM_SCCB_ID,
+            OV7740_QVGA[i].reg,
+            OV7740_QVGA[i].value,
+            cam2SCL, cam2SDA);
+    }
+
+    // Delay to let allow a few frames to go by
+    delay(5000000);
+
+    return 1;
+}}
+
+int initCams()
+{ unsafe {
+    // Configure output clock to both cameras.
+    configure_clock_rate(camCLK, 100, 4);
+    configure_port_clock_output(cam1XCLK, camCLK);
+    //configure_port_clock_output(cam2XCLK, camCLK);
+    start_clock(camCLK);
+
+    // Configured pixel input clock
+    configure_clock_src(pclk1CLK, cam1PCLK);
+    configure_in_port(cam1DATA, pclk1CLK);
+    configure_in_port(camSYNC, pclk1CLK);
+    start_clock(pclk1CLK);
+
+    configure_clock_src(pclk2CLK, cam2PCLK);
+    configure_in_port(cam2DATA, pclk2CLK);
+    start_clock(pclk2CLK);
+
+    // Take the cameras out of reset
+    camRESET <: 1;
+
+    // Initialize SCCB Bus for both cameras
+    sccb_init(cam1SDA, cam1SCL, sccb1CLK);
+    sccb_init(cam2SDA, cam2SCL, sccb2CLK);
+
+    // First `scccb_rd` always returns 0xFF for some reason.
+    // TODO: Fix this bug
+    sccb_rd(CAM_SCCB_ID, 0x00, cam1SCL, cam1SDA);
+
+    // Get Product ID from cam1
+    int msb1 = sccb_rd(CAM_SCCB_ID, CAM_PRODUCT_MSB, cam1SCL, cam1SDA);
+    int lsb1 = sccb_rd(CAM_SCCB_ID, CAM_PRODUCT_LSB, cam1SCL, cam1SDA);
+
+    // Get Product ID from cam2
+    int msb2 = sccb_rd(CAM_SCCB_ID, CAM_PRODUCT_MSB, cam2SCL, cam2SDA);
+    int lsb2 = sccb_rd(CAM_SCCB_ID, CAM_PRODUCT_LSB, cam2SCL, cam2SDA);
+
+    int returnVal = 0;
+
+    if (msb1 == 0x77 && lsb1 == 0x40) returnVal += 0b01;
+    if (msb2 == 0x77 && lsb2 == 0x40) returnVal += 0b10;
+
+    return returnVal;
+}}
+
+/*static inline int _getSYNC(port* unsafe psync, hwlock_t hwlock, int bit)
+{ unsafe {
+
+    uint32_t data;
+
+    // A lock is used to ensure the port isn't accessed
+    // at the same time by another core.
+    // An "ET_RESOURCE_DEP, Resource dependency exception" will
+    // be thrown if multiple cores try to access this resource!
+    hwlock_acquire(hwlock);
+    (*psync) :> data;
+    hwlock_release(hwlock);
+
+    return data & bit;
+}}*/

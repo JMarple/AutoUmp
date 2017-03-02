@@ -1,0 +1,1 @@
+/home/jmarple/code/AutoUmp/FullImageViewer/build/CMakeFiles/auview.dir

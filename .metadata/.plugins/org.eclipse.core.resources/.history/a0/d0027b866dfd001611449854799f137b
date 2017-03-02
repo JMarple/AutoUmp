@@ -1,0 +1,77 @@
+	//.globl ov7670_capturerow.nstackwords
+	//.linkset ov7670_capturerow.nstackwords, 10
+	.globl computeOV7670Data
+	.align 4
+	.issue_mode dual
+
+// r0 is tmpBuffer
+// r1 is saved old data
+// r2 is the bit buffer
+computeOV7670Data:
+	dualentsp 12
+
+	stw r2, sp[2]
+	stw r3, sp[3]
+	stw r4, sp[4]
+	stw r5, sp[5]
+	stw r6, sp[6]
+	stw r7, sp[7]
+	stw r8, sp[8]
+	stw r9, sp[9]
+	stw r10, sp[10]
+	stw r11, sp[11]
+
+	#define tmpBufPtr r0
+	#define oldBufPtr r1
+	#define bitBufPtr r2
+	#define loopCutoff r4
+	#define x r5
+	#define lNewData r6
+	#define rNewData r7
+	#define lOldData r8
+	#define rOldData r9
+
+	ldc x, 0
+	ldc loopCutoff, 319
+
+	// Copy tmpBuffer to oldBuffer
+	/*computeloop:
+		{ldw lNewData, tmpBufPtr[x]; nop}
+		stw lNewData, oldBufPtr[x]
+		{add x, x, 1; lss lNewData, x, loopCutoff}
+		bt lNewData, computeloop*/
+
+	ldc r11, 0xFF
+	computeloop:
+
+		// Load new data
+		{ld8u lNewData, tmpBufPtr[x]; add x, x, 1}
+		{ld8u rNewData, tmpBufPtr[x]; sub x, x, 1}
+
+		// Load old data
+		{ld8u lOldData, oldBufPtr[x]; add x, x, 1}
+		{ld8u rOldData, oldBufPtr[x]; sub x, x, 1}
+
+		// Copy new data to old bufer
+		st8 lNewData, oldBufPtr[x]
+		add x, x, 1
+		st8 rNewData, oldBufPtr[x]
+		{add x, x, 1; lss lNewData, x, loopCutoff}
+
+		// BS
+
+		bt lNewData, computeloop
+
+	ldw r2, sp[2]
+	ldw r3, sp[3]
+	ldw r4, sp[4]
+	ldw r5, sp[5]
+	ldw r6, sp[6]
+	ldw r7, sp[7]
+	ldw r8, sp[8]
+	ldw r9, sp[9]
+	ldw r10, sp[10]
+	ldw r11, sp[11]
+	retsp 12
+
+

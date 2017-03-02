@@ -1,0 +1,61 @@
+<preCompilationAnalysis file="../src/AutoUmp.xc">
+<fDef name="Tile0" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="Tile1" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
+<fDef name="main" global="true" noreturn="false" doNotSpecialize="false" numParams="0"/>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="BluetoothThread" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="Tile0" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="initCams" global="true" numArgs="0">
+</fCall>
+<fCall name="configureCams" global="true" numArgs="0">
+</fCall>
+<fCall name="launchCameras" global="true" numArgs="1">
+  <arg num="0">
+    <passThroughArg param="0" caller="Tile1" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="Tile0" global="true" numArgs="1" impId="0">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="Tile1" global="true" numArgs="1" impId="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+</preCompilationAnalysis>

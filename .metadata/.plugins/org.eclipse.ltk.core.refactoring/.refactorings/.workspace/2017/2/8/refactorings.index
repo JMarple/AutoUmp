@@ -1,0 +1,5 @@
+1488053872393	Delete resource 'lib_locks'
+1488055601835	Delete resource 'lib_gpio'
+1488055684857	Delete resource 'lib_logging'
+1488055689482	Delete resource 'lib_uart'
+1488055693821	Delete resource 'lib_xassert'

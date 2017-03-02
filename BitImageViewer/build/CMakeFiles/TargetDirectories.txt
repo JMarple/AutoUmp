@@ -1,0 +1,1 @@
+/home/jmarple/code/AutoUmp/BitImageViewer/build/CMakeFiles/bitview.dir

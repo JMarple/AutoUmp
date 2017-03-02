@@ -1,0 +1,8 @@
+22:31:06 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Build Complete
+
+22:31:06 Build Finished (took 526ms)
+

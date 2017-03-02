@@ -1,0 +1,4 @@
+<preCompilationAnalysis file="../src/cameras/ov07740.S">
+  <fCall global="true" name="computeOV7670Data"/>
+  <fCall global="true" name="computeOV7670Data.nstackwords"/>
+</preCompilationAnalysis>

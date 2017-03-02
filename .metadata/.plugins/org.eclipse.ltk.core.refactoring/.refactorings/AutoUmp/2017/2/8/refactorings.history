@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;AutoUmp/src/cameras/ov07740.s&apos; to &apos;ov07740.S&apos;" description="Rename resource &apos;ov07740.s&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/cameras/ov07740.s" name="ov07740.S" stamp="1487520085912" updateReferences="true"/>
+</session>

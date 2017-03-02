@@ -1,0 +1,3532 @@
+AutoUmp.xe: file format: xcore-xe
+
+Loadable 1 for  (node "", tile 0):
+
+Disassembly of section .text (size: 324)
+
+<_start>:
+             0x00040000: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040002: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040004: 80 68:       ldc (ru6)       r2, 0x0
+             0x00040006: c0 68:       ldc (ru6)       r3, 0x0
+             0x00040008: 00 69:       ldc (ru6)       r4, 0x0
+             0x0004000a: 40 69:       ldc (ru6)       r5, 0x0
+             0x0004000c: 80 69:       ldc (ru6)       r6, 0x0
+             0x0004000e: c0 69:       ldc (ru6)       r7, 0x0
+             0x00040010: 00 6a:       ldc (ru6)       r8, 0x0
+             0x00040012: 40 6a:       ldc (ru6)       r9, 0x0
+             0x00040014: 00 f0 96 d8: ldap (lu10)     r11, 0x96 <.label0>
+             0x00040018: fb 37:       set (1r)        cp, r11
+             0x0004001a: 00 f0 9f d8: ldap (lu10)     r11, 0x9f <.label1>
+             0x0004001e: eb 37:       set (1r)        dp, r11
+             0x00040020: cb 6a:       ldc (ru6)       r11, 0xb
+             0x00040022: bb ff ec 17: get (l2r)       r10, ps[r11]
+             0x00040026: 80 f0 c0 6a: ldc (lru6)      r11, 0x2000
+             0x0004002a: be 16:       add (3r)        r11, r11, r10
+             0x0004002c: fb 2f:       set (1r)        sp, r11
+             0x0004002e: c2 86:       getr (rus)      r0, 0x2
+             0x00040030: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040032: 47 68:       ldc (ru6)       r1, 0x7
+             0x00040034: 80 68:       ldc (ru6)       r2, 0x0
+             0x00040036: 00 f0 4d d0: bl (lu10)       0x4d <write_sswitch_reg>
+             0x0004003a: 02 f0 40 69: ldc (lru6)      r5, 0x80
+             0x0004003e: 02 f0 88 69: ldc (lru6)      r6, 0x88
+
+<disableLinks>:
+             0x00040042: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040044: d4 90:       add (2rus)      r1, r5, 0x0
+             0x00040046: 80 68:       ldc (ru6)       r2, 0x0
+             0x00040048: 00 f0 44 d0: bl (lu10)       0x44 <write_sswitch_reg>
+             0x0004004c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004004e: 06 33:       eq (3r)         r0, r5, r6
+             0x00040050: 08 7c:       bf (ru6)        r0, -0x8 <disableLinks>
+             0x00040052: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040054: 45 68:       ldc (ru6)       r1, 0x5
+             0x00040056: 80 68:       ldc (ru6)       r2, 0x0
+             0x00040058: 00 f0 41 d0: bl (lu10)       0x41 <write_sswitch_reg_no_ack>
+
+<nodeIdLoop>:
+             0x0004005c: 40 68:       ldc (ru6)       r1, 0x0
+             0x0004005e: c2 86:       getr (rus)      r0, 0x2
+             0x00040060: e0 17:       freer (1r)      res[r0]
+             0x00040062: 81 ac:       shr (2rus)      r0, r0, 0x10
+             0x00040064: 01 30:       eq (3r)         r0, r0, r1
+             0x00040066: 06 7c:       bf (ru6)        r0, -0x6 <nodeIdLoop>
+             0x00040068: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004006a: 68 68:       ldc (ru6)       r1, 0x28
+             0x0004006c: 80 68:       ldc (ru6)       r2, 0x0
+             0x0004006e: 00 f0 31 d0: bl (lu10)       0x31 <write_sswitch_reg>
+             0x00040072: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040074: 02 f0 48 68: ldc (lru6)      r1, 0x88
+             0x00040078: 00 f0 80 58: ldw (lru6)      r2, dp[0x0]
+             0x0004007c: 00 f0 2a d0: bl (lu10)       0x2a <write_sswitch_reg>
+
+<setDimensionReg>:
+             0x00040080: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040082: 4c 68:       ldc (ru6)       r1, 0xc
+             0x00040084: 00 f0 81 58: ldw (lru6)      r2, dp[0x1]
+             0x00040088: 00 f0 24 d0: bl (lu10)       0x24 <write_sswitch_reg>
+             0x0004008c: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004008e: 4d 68:       ldc (ru6)       r1, 0xd
+             0x00040090: 00 f0 82 58: ldw (lru6)      r2, dp[0x2]
+             0x00040094: 00 f0 1e d0: bl (lu10)       0x1e <write_sswitch_reg>
+
+<sayHello8>:
+             0x00040098: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004009a: 02 f0 48 68: ldc (lru6)      r1, 0x88
+             0x0004009e: 00 f0 80 58: ldw (lru6)      r2, dp[0x0]
+             0x000400a2: dd a6:       mkmsk (rus)     r3, 0x1
+             0x000400a4: 58 69:       ldc (ru6)       r5, 0x18
+             0x000400a6: 7d 22:       shl (3r)        r3, r3, r5
+             0x000400a8: 2b 40:       or (3r)         r2, r2, r3
+             0x000400aa: 00 f0 13 d0: bl (lu10)       0x13 <write_sswitch_reg>
+
+<invokeXsscHello8>:
+             0x000400ae: 02 68:       ldc (ru6)       r0, 0x2
+             0x000400b0: 02 f0 40 68: ldc (lru6)      r1, 0x80
+             0x000400b4: 00 f0 83 58: ldw (lru6)      r2, dp[0x3]
+             0x000400b8: dd a6:       mkmsk (rus)     r3, 0x1
+             0x000400ba: 58 69:       ldc (ru6)       r5, 0x18
+             0x000400bc: 7d 22:       shl (3r)        r3, r3, r5
+             0x000400be: 2b 40:       or (3r)         r2, r2, r3
+             0x000400c0: 00 f0 08 d0: bl (lu10)       0x8 <write_sswitch_reg>
+
+<setXsscSysFreq8>:
+             0x000400c4: 02 68:       ldc (ru6)       r0, 0x2
+             0x000400c6: 01 f0 51 68: ldc (lru6)      r1, 0x51
+             0x000400ca: 98 68:       ldc (ru6)       r2, 0x18
+             0x000400cc: 00 f0 02 d0: bl (lu10)       0x2 <write_sswitch_reg>
+             0x000400d0: 00 f0 32 d0: bl (lu10)       0x32 <_done>
+
+<write_sswitch_reg>:
+             0x000400d4: 0c f3 cc 68: ldc (lru6)      r3, 0xc30c
+             0x000400d8: c1 6a:       ldc (ru6)       r11, 0x1
+             0x000400da: 00 f0 05 73: bu (lu6)        0x5 <write_switch_reg>
+
+<write_sswitch_reg_no_ack>:
+             0x000400de: 0c f3 cc 68: ldc (lru6)      r3, 0xc30c
+             0x000400e2: c0 6a:       ldc (ru6)       r11, 0x0
+             0x000400e4: 00 f0 00 73: bu (lu6)        0x0 <write_switch_reg>
+
+<write_switch_reg>:
+             0x000400e8: 00 55:       stw (ru6)       r4, sp[0x0]
+             0x000400ea: c1 ac:       shr (2rus)      r4, r0, 0x10
+             0x000400ec: 1e 71:       bt (ru6)        r4, 0x1e <write_switch_reg_return_0>
+             0x000400ee: c5 ac:       shr (2rus)      r4, r1, 0x10
+             0x000400f0: 1c 71:       bt (ru6)        r4, 0x1c <write_switch_reg_return_0>
+             0x000400f2: 81 a4:       shl (2rus)      r0, r0, 0x10
+             0x000400f4: 03 40:       or (3r)         r0, r0, r3
+             0x000400f6: 02 87:       getr (rus)      r4, 0x2
+             0x000400f8: 90 17:       setd (r2r)      res[r4], r0
+             0x000400fa: 03 f0 c0 68: ldc (lru6)      r3, 0xc0
+             0x000400fe: 03 4f:       outct (2r)      res[r4], r3
+             0x00040100: c3 7a:       bf (ru6)        r11, 0x3 <build_return_no_ack>
+             0x00040102: 40 ad:       shr (2rus)      r0, r4, 0x8
+             0x00040104: 80 a4:       shl (2rus)      r0, r0, 0x8
+             0x00040106: 04 73:       bu (u6)         0x4 <write_switch_reg_send>
+
+<build_return_no_ack>:
+             0x00040108: 80 ac:       shr (2rus)      r0, r0, 0x8
+             0x0004010a: 3c a7:       mkmsk (rus)     r3, 0x8
+             0x0004010c: 03 40:       or (3r)         r0, r0, r3
+             0x0004010e: 80 a4:       shl (2rus)      r0, r0, 0x8
+
+<write_switch_reg_send>:
+             0x00040110: b4 ac:       shr (2rus)      r3, r1, 0x8
+             0x00040112: 03 40:       or (3r)         r0, r0, r3
+             0x00040114: 80 af:       out (r2r)       res[r4], r0
+             0x00040116: 94 0f:       outt (r2r)      res[r4], r1
+             0x00040118: 88 af:       out (r2r)       res[r4], r2
+             0x0004011a: 11 4f:       outct (rus)     res[r4], 0x1
+             0x0004011c: c9 7a:       bf (ru6)        r11, 0x9 <write_switch_reg_free_and_return_1>
+             0x0004011e: 90 87:       inct (2r)       r0, res[r4]
+             0x00040120: 03 b0:       eq (2rus)       r0, r0, 0x3
+             0x00040122: 11 cf:       chkct (rus)     res[r4], 0x1
+             0x00040124: e4 17:       freer (1r)      res[r4]
+             0x00040126: 00 5d:       ldw (ru6)       r4, sp[0x0]
+             0x00040128: c0 77:       retsp (u6)      0x0
+
+<write_switch_reg_return_0>:
+             0x0004012a: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004012c: 00 5d:       ldw (ru6)       r4, sp[0x0]
+             0x0004012e: c0 77:       retsp (u6)      0x0
+
+<write_switch_reg_free_and_return_1>:
+             0x00040130: e4 17:       freer (1r)      res[r4]
+             0x00040132: 01 68:       ldc (ru6)       r0, 0x1
+             0x00040134: 00 5d:       ldw (ru6)       r4, sp[0x0]
+             0x00040136: c0 77:       retsp (u6)      0x0
+
+<_done>:
+             0x00040138: 07 68:       ldc (ru6)       r0, 0x7
+             0x0004013a: 00 f0 01 d0: bl (lu10)       0x1 <_DoSyscall>
+.label2      0x0004013e: 01 77:       bu (u6)         -0x1 <.label2>
+
+<_DoSyscall>:
+             0x00040140: d0 a6:       mkmsk (rus)     r0, 0x20
+             0x00040142: c0 77:       retsp (u6)      0x0
+
+Disassembly of section .cp.rodata (size: 24)
+
+<_cp>:
+<xs1g_link_ports>:
+.label0      0x00040144: 00 00 01 00: 
+             0x00040148: 00 00 20 00: 
+             0x0004014c: 00 01 01 00: 
+             0x00040150: 00 04 01 00: 
+             0x00040154: 00 00 10 00: 
+             0x00040158: 00 05 01 00: 
+
+Disassembly of section .dp.data (size: 16)
+
+<_dp>:
+<xlink8RegVal>:
+.label1      0x0004015c: 33 98 01 c0: 
+
+<dirBits0>:
+             0x00040160: 01 11 11 11: 
+
+<dirBits1>:
+             0x00040164: 11 11 11 11: 
+
+<treeLinkProgValThere8>:
+             0x00040168: 00 00 00 c0: 
+
+Loadable 1 for  (node "", tile 1):
+
+Disassembly of section .text (size: 64)
+
+<_start>:
+             0x00040000: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040002: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040004: 80 68:       ldc (ru6)       r2, 0x0
+             0x00040006: c0 68:       ldc (ru6)       r3, 0x0
+             0x00040008: 00 69:       ldc (ru6)       r4, 0x0
+             0x0004000a: 40 69:       ldc (ru6)       r5, 0x0
+             0x0004000c: 80 69:       ldc (ru6)       r6, 0x0
+             0x0004000e: c0 69:       ldc (ru6)       r7, 0x0
+             0x00040010: 00 6a:       ldc (ru6)       r8, 0x0
+             0x00040012: 40 6a:       ldc (ru6)       r9, 0x0
+             0x00040014: 00 f0 14 d8: ldap (lu10)     r11, 0x14 <.label0>
+             0x00040018: fb 37:       set (1r)        cp, r11
+             0x0004001a: 00 f0 1d d8: ldap (lu10)     r11, 0x1d <.label1>
+             0x0004001e: eb 37:       set (1r)        dp, r11
+             0x00040020: cb 6a:       ldc (ru6)       r11, 0xb
+             0x00040022: bb ff ec 17: get (l2r)       r10, ps[r11]
+             0x00040026: 80 f0 c0 6a: ldc (lru6)      r11, 0x2000
+             0x0004002a: be 16:       add (3r)        r11, r11, r10
+             0x0004002c: fb 2f:       set (1r)        sp, r11
+             0x0004002e: c2 86:       getr (rus)      r0, 0x2
+             0x00040030: 00 f0 00 d0: bl (lu10)       0x0 <_done>
+
+<_done>:
+             0x00040034: 07 68:       ldc (ru6)       r0, 0x7
+             0x00040036: 00 f0 01 d0: bl (lu10)       0x1 <_DoSyscall>
+.label2      0x0004003a: 01 77:       bu (u6)         -0x1 <.label2>
+
+<_DoSyscall>:
+             0x0004003c: d0 a6:       mkmsk (rus)     r0, 0x20
+             0x0004003e: c0 77:       retsp (u6)      0x0
+
+Disassembly of section .cp.rodata (size: 24)
+
+<_cp>:
+<xs1g_link_ports>:
+.label0      0x00040040: 00 00 01 00: 
+             0x00040044: 00 00 20 00: 
+             0x00040048: 00 01 01 00: 
+             0x0004004c: 00 04 01 00: 
+             0x00040050: 00 00 10 00: 
+             0x00040054: 00 05 01 00: 
+
+Loadable 2 for  (node "", tile 0):
+
+Disassembly of section .text (size: 1668)
+
+<_start>:
+             0x00040000: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040004: 4b 68:       ldc (ru6)       r1, 0xb
+             0x00040006: d1 fe ec 17: get (l2r)       r0, ps[r1]
+             0x0004000a: 04 f0 8b 68: ldc (lru6)      r2, 0x10b
+             0x0004000e: c2 fe ec 1f: set (lr2r)      ps[r2], r0
+             0x00040012: c3 86:       getr (rus)      r0, 0x3
+             0x00040014: 79 d8:       ldap (u10)      r11, 0x79 <_InitChildThread>
+             0x00040016: 02 73:       bu (u6)         0x2 <.label0>
+.label1      0x00040018: 5d ff ec 07: init (l2r)      t[r1]:pc, r11
+.label0      0x0004001c: d4 06:       getst (2r)      r1, res[r0]
+             0x0004001e: 44 74:       bt (ru6)        r1, -0x4 <.label1>
+             0x00040020: f0 1f:       msync (1r)      res[r0]
+             0x00040022: 74 d0:       bl (u10)        0x74 <_SetupThread>
+             0x00040024: 00 f0 89 6f: ldw (lru6)      sp, cp[0x9]
+             0x00040028: f0 17:       mjoin (1r)      res[r0]
+             0x0004002a: e0 17:       freer (1r)      res[r0]
+             0x0004002c: 00 f0 0e 60: ldaw (lru6)     r0, dp[0xe]
+             0x00040030: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040032: 00 f0 8a 6c: ldw (lru6)      r2, cp[0xa]
+             0x00040036: 00 f0 cb d2: bl (lu10)       0x2cb <memset>
+             0x0004003a: 00 f0 06 6c: ldw (lru6)      r0, cp[0x6]
+             0x0004003e: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040040: 00 f0 8b 6c: ldw (lru6)      r2, cp[0xb]
+             0x00040044: 00 f0 c4 d2: bl (lu10)       0x2c4 <memset>
+             0x00040048: 00 f0 c6 d2: bl (lu10)       0x2c6 <__init_threadlocal_timer>
+             0x0004004c: 00 f0 1a d3: bl (lu10)       0x31a <.label2>
+             0x00040050: 00 f0 c6 6a: ldc (lru6)      r11, 0x6
+             0x00040054: c8 ea:       setc (ru6)      res[r11], 0x8
+             0x00040056: cf ea:       setc (ru6)      res[r11], 0xf
+             0x00040058: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004005a: 01 54:       stw (ru6)       r0, sp[0x1]
+             0x0004005c: 00 f0 40 68: ldc (lru6)      r1, 0x0
+             0x00040060: 48 78:       bf (ru6)        r1, 0x8 <.label3>
+             0x00040062: 01 64:       ldaw (ru6)      r0, sp[0x1]
+             0x00040064: 00 f0 8e d2: bl (lu10)       0x28e <_get_cmdline>
+             0x00040068: b0 f8 ec 97: ashr (l2rus)    r11, r0, 0x20
+             0x0004006c: c2 7a:       bf (ru6)        r11, 0x2 <.label3>
+             0x0004006e: 01 90:       add (2rus)      r0, r0, 0x1
+             0x00040070: f0 4f:       ecallt (1r)     r0
+.label3      0x00040072: 41 64:       ldaw (ru6)      r1, sp[0x1]
+             0x00040074: 00 f0 3f d2: bl (lu10)       0x23f <main>
+             0x00040078: 02 70:       bt (ru6)        r0, 0x2 <.label4>
+             0x0004007a: 00 f0 8b d2: bl (lu10)       0x28b <__libc_done>
+.label4      0x0004007e: 00 f0 95 d2: bl (lu10)       0x295 <_exit_unlocked>
+             0x00040082: ff 17:       nop (0r)        
+             0x00040084: ff 17:       nop (0r)        
+             0x00040086: ff 17:       nop (0r)        
+             0x00040088: ff 17:       nop (0r)        
+             0x0004008a: ff 17:       nop (0r)        
+             0x0004008c: ff 17:       nop (0r)        
+             0x0004008e: ff 17:       nop (0r)        
+             0x00040090: ff 17:       nop (0r)        
+             0x00040092: ff 17:       nop (0r)        
+             0x00040094: ff 17:       nop (0r)        
+             0x00040096: ff 17:       nop (0r)        
+             0x00040098: ff 17:       nop (0r)        
+             0x0004009a: ff 17:       nop (0r)        
+             0x0004009c: ff 17:       nop (0r)        
+             0x0004009e: ff 17:       nop (0r)        
+             0x000400a0: ff 17:       nop (0r)        
+             0x000400a2: ff 17:       nop (0r)        
+             0x000400a4: ff 17:       nop (0r)        
+             0x000400a6: ff 17:       nop (0r)        
+             0x000400a8: ff 17:       nop (0r)        
+             0x000400aa: ff 17:       nop (0r)        
+             0x000400ac: ff 17:       nop (0r)        
+             0x000400ae: ff 17:       nop (0r)        
+             0x000400b0: ff 17:       nop (0r)        
+             0x000400b2: ff 17:       nop (0r)        
+             0x000400b4: ff 17:       nop (0r)        
+             0x000400b6: ff 17:       nop (0r)        
+             0x000400b8: ff 17:       nop (0r)        
+             0x000400ba: ff 17:       nop (0r)        
+             0x000400bc: ff 17:       nop (0r)        
+             0x000400be: ff 17:       nop (0r)        
+             0x000400c0: ff 17:       nop (0r)        
+             0x000400c2: ff 17:       nop (0r)        
+             0x000400c4: ff 17:       nop (0r)        
+             0x000400c6: ff 17:       nop (0r)        
+             0x000400c8: ff 17:       nop (0r)        
+             0x000400ca: ff 17:       nop (0r)        
+             0x000400cc: ff 17:       nop (0r)        
+             0x000400ce: ff 17:       nop (0r)        
+             0x000400d0: ff 17:       nop (0r)        
+             0x000400d2: ff 17:       nop (0r)        
+             0x000400d4: ff 17:       nop (0r)        
+             0x000400d6: ff 17:       nop (0r)        
+             0x000400d8: ff 17:       nop (0r)        
+             0x000400da: ff 17:       nop (0r)        
+             0x000400dc: ff 17:       nop (0r)        
+             0x000400de: ff 17:       nop (0r)        
+             0x000400e0: ff 17:       nop (0r)        
+             0x000400e2: ff 17:       nop (0r)        
+             0x000400e4: ff 17:       nop (0r)        
+             0x000400e6: ff 17:       nop (0r)        
+             0x000400e8: ff 17:       nop (0r)        
+             0x000400ea: ff 17:       nop (0r)        
+             0x000400ec: ff 17:       nop (0r)        
+             0x000400ee: ff 17:       nop (0r)        
+             0x000400f0: ff 17:       nop (0r)        
+             0x000400f2: ff 17:       nop (0r)        
+             0x000400f4: ff 17:       nop (0r)        
+             0x000400f6: ff 17:       nop (0r)        
+             0x000400f8: ff 17:       nop (0r)        
+             0x000400fa: ff 17:       nop (0r)        
+             0x000400fc: ff 17:       nop (0r)        
+             0x000400fe: ff 17:       nop (0r)        
+
+<_TrapHandler>:
+             0x00040100: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040104: 00 f0 60 d2: bl (lu10)       0x260 <_DoException>
+
+<_InitChildThread>:
+             0x00040108: 01 d0:       bl (u10)        0x1 <_SetupThread>
+             0x0004010a: ee 07:       ssync (0r)      
+
+<_SetupThread>:
+             0x0004010c: 07 dc:       ldap (u10)      r11, -0x7 <_TrapHandler>
+             0x0004010e: ff 07:       set (0r)        kep, r11
+             0x00040110: 00 f0 de da: ldap (lu10)     r11, 0x2de <.label5>
+             0x00040114: fb 37:       set (1r)        cp, r11
+             0x00040116: 00 f0 45 6f: ldw (lru6)      dp, cp[0x5]
+             0x0004011a: c0 6a:       ldc (ru6)       r11, 0x0
+             0x0004011c: fb 2f:       set (1r)        sp, r11
+             0x0004011e: c0 77:       retsp (u6)      0x0
+
+<__register_frame_info_bases>:
+             0x00040120: c0 77:       retsp (u6)      0x0
+             0x00040122: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__main__main_tile_0>:
+             0x00040124: ff 17:       nop (0r)        
+             0x00040126: 82 7f:       dualentsp (u6)  0x2
+             0x00040128: 00 f0 45 d0: bl (lu10)       0x45 <BluetoothThread>
+             0x0004012c: ff 17:       nop (0r)        
+             0x0004012e: c2 77:       retsp (u6)      0x2
+
+<BluetoothSendByte>:
+             0x00040130: ff 17:       nop (0r)        
+             0x00040132: 80 7f:       dualentsp (u6)  0x0
+             0x00040134: 86 77:       extsp (u6)      0x6
+             0x00040136: ff 17:       nop (0r)        
+             0x00040138: 04 f9 ec f7: std (l2rus)     r5, r4, sp[0x0]
+             0x0004013c: 2d f9 ec f7: std (l2rus)     r7, r6, sp[0x1]
+             0x00040140: 06 fa ec f7: std (l2rus)     r9, r8, sp[0x2]
+             0x00040144: 00 f0 4f 58: ldw (lru6)      r1, dp[0xf]
+             0x00040148: c5 b6:       in (2r)         r1, res[r1]
+             0x0004014a: ff 17:       nop (0r)        
+             0x0004014c: 00 f0 4e 60: ldaw (lru6)     r1, dp[0xe]
+             0x00040150: 00 69:       ldc (ru6)       r4, 0x0
+             0x00040152: ff 17:       nop (0r)        
+             0x00040154: ff 17:       nop (0r)        
+             0x00040156: 64 8a:       ld8u (3r)       r2, r1[r4]
+             0x00040158: 03 f0 7e 69: ldc (lru6)      r5, 0xfe
+             0x0004015c: 79 3a:       and (3r)        r3, r2, r5
+             0x0004015e: ff 17:       nop (0r)        
+             0x00040160: 74 fa ec 8f: st8 (l3r)       r3, r1[r4]
+             0x00040164: 00 f0 88 58: ldw (lru6)      r2, dp[0x8]
+             0x00040168: ce ae:       out (r2r)       res[r2], r3
+             0x0004016a: ff 17:       nop (0r)        
+             0x0004016c: 00 f0 cf 58: ldw (lru6)      r3, dp[0xf]
+             0x00040170: cf ae:       out (r2r)       res[r3], r3
+             0x00040172: ff 17:       nop (0r)        
+             0x00040174: eb 8f:       gettime (1r)    r11
+             0x00040176: ff 17:       nop (0r)        
+             0x00040178: 01 f0 ec 68: ldc (lru6)      r3, 0x6c
+             0x0004017c: ef 11:       add (3r)        r6, r11, r3
+             0x0004017e: ff 17:       nop (0r)        
+             0x00040180: 00 f0 90 51: stw (lru6)      r6, dp[0x10]
+             0x00040184: ee 17:       get (0r)        r11, id
+             0x00040186: ff 17:       nop (0r)        
+             0x00040188: 00 f0 c0 61: ldaw (lru6)     r7, dp[0x0]
+             0x0004018c: ff 17:       nop (0r)        
+             0x0004018e: ff 4d:       ldw (3r)        r11, r7[r11]
+             0x00040190: 7b 17:       setd (r2r)      res[r11], r6
+             0x00040192: ff 17:       nop (0r)        
+             0x00040194: c9 ea:       setc (ru6)      res[r11], 0x9
+             0x00040196: ff 17:       nop (0r)        
+             0x00040198: 6b b7:       in (2r)         r6, res[r11]
+             0x0004019a: ff 17:       nop (0r)        
+             0x0004019c: 19 a7:       mkmsk (rus)     r6, 0x1
+             0x0004019e: 30 91:       add (2rus)      r7, r4, 0x0
+.label8      0x000401a0: 00 f0 0f 5a: ldw (lru6)      r8, dp[0xf]
+             0x000401a4: a0 b7:       in (2r)         r8, res[r8]
+             0x000401a6: ff 17:       nop (0r)        
+             0x000401a8: 8b 23:       shl (3r)        r8, r6, r7
+             0x000401aa: ff 17:       nop (0r)        
+             0x000401ac: 10 3a:       and (3r)        r9, r8, r0
+             0x000401ae: c4 8a:       ld8u (3r)       r8, r1[r4]
+             0x000401b0: 00 f0 42 72: bt (lru6)       r9, 0x2 <.label6>
+             0x000401b4: 41 3c:       and (3r)        r8, r8, r5
+             0x000401b6: ff 17:       nop (0r)        
+             0x000401b8: 00 f0 01 73: bu (lu6)        0x1 <.label7>
+.label6      0x000401bc: 42 44:       or (3r)         r8, r8, r6
+             0x000401be: ff 17:       nop (0r)        
+.label7      0x000401c0: c4 fa ec 8f: st8 (l3r)       r8, r1[r4]
+             0x000401c4: 42 af:       out (r2r)       res[r2], r8
+             0x000401c6: ff 17:       nop (0r)        
+             0x000401c8: 00 f0 0f 5a: ldw (lru6)      r8, dp[0xf]
+             0x000401cc: a0 af:       out (r2r)       res[r8], r8
+             0x000401ce: ff 17:       nop (0r)        
+             0x000401d0: 00 f0 10 5a: ldw (lru6)      r8, dp[0x10]
+             0x000401d4: 03 12:       add (3r)        r8, r8, r3
+             0x000401d6: ff 17:       nop (0r)        
+             0x000401d8: 00 f0 10 52: stw (lru6)      r8, dp[0x10]
+             0x000401dc: b3 17:       setd (r2r)      res[r11], r8
+             0x000401de: ff 17:       nop (0r)        
+             0x000401e0: c9 ea:       setc (ru6)      res[r11], 0x9
+             0x000401e2: ff 17:       nop (0r)        
+             0x000401e4: a3 b7:       in (2r)         r8, res[r11]
+             0x000401e6: 3d 91:       add (2rus)      r7, r7, 0x1
+             0x000401e8: cc b5:       eq (2rus)       r8, r7, 0x8
+             0x000401ea: ff 17:       nop (0r)        
+             0x000401ec: 00 f0 14 7e: bf (lru6)       r8, -0x14 <.label8>
+             0x000401f0: 00 f0 0f 58: ldw (lru6)      r0, dp[0xf]
+             0x000401f4: c0 b6:       in (2r)         r0, res[r0]
+             0x000401f6: ff 17:       nop (0r)        
+             0x000401f8: 00 68:       ldc (ru6)       r0, 0x0
+             0x000401fa: ff 17:       nop (0r)        
+             0x000401fc: ff 17:       nop (0r)        
+             0x000401fe: 44 88:       ld8u (3r)       r4, r1[r0]
+             0x00040200: 42 43:       or (3r)         r4, r4, r6
+             0x00040202: ff 17:       nop (0r)        
+             0x00040204: 44 f8 ec 8f: st8 (l3r)       r4, r1[r0]
+             0x00040208: 02 af:       out (r2r)       res[r2], r4
+             0x0004020a: ff 17:       nop (0r)        
+             0x0004020c: 00 f0 0f 58: ldw (lru6)      r0, dp[0xf]
+             0x00040210: c0 ae:       out (r2r)       res[r0], r0
+             0x00040212: ff 17:       nop (0r)        
+             0x00040214: 00 f0 10 58: ldw (lru6)      r0, dp[0x10]
+             0x00040218: 03 10:       add (3r)        r0, r0, r3
+             0x0004021a: ff 17:       nop (0r)        
+             0x0004021c: 00 f0 10 50: stw (lru6)      r0, dp[0x10]
+             0x00040220: 33 17:       setd (r2r)      res[r11], r0
+             0x00040222: ff 17:       nop (0r)        
+             0x00040224: c9 ea:       setc (ru6)      res[r11], 0x9
+             0x00040226: ff 17:       nop (0r)        
+             0x00040228: 23 b7:       in (2r)         r0, res[r11]
+             0x0004022a: ff 17:       nop (0r)        
+             0x0004022c: 06 fa ec ef: ldd (l2rus)     r9, r8, sp[0x2]
+             0x00040230: 2d f9 ec ef: ldd (l2rus)     r7, r6, sp[0x1]
+             0x00040234: 04 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x0]
+             0x00040238: 86 67:       ldaw (ru6)      sp, sp[0x6]
+             0x0004023a: ff 17:       nop (0r)        
+             0x0004023c: ff 17:       nop (0r)        
+             0x0004023e: c0 77:       retsp (u6)      0x0
+
+<BluetoothThread>:
+             0x00040240: ff 17:       nop (0r)        
+             0x00040242: 84 7f:       dualentsp (u6)  0x4
+             0x00040244: 40 90:       add (2rus)      r4, r0, 0x0
+             0x00040246: 02 55:       stw (ru6)       r4, sp[0x2]
+             0x00040248: 81 87:       getr (rus)      r0, 0x5
+             0x0004024a: ff 17:       nop (0r)        
+             0x0004024c: 00 f0 0f 50: stw (lru6)      r0, dp[0xf]
+.label9      0x00040250: 11 cf:       chkct (rus)     res[r4], 0x1
+             0x00040252: ff 17:       nop (0r)        
+             0x00040254: 11 4f:       outct (rus)     res[r4], 0x1
+             0x00040256: ff 17:       nop (0r)        
+             0x00040258: 90 8f:       int (2r)        r0, res[r4]
+             0x0004025a: ff 17:       nop (0r)        
+             0x0004025c: 11 cf:       chkct (rus)     res[r4], 0x1
+             0x0004025e: ff 17:       nop (0r)        
+             0x00040260: 11 4f:       outct (rus)     res[r4], 0x1
+             0x00040262: ff 17:       nop (0r)        
+             0x00040264: 00 f0 4e d4: bl (lu10)       -0x4e <BluetoothSendByte>
+             0x00040268: 00 f0 07 77: bu (lu6)        -0x7 <.label9>
+
+<computeOV7670Data>:
+             0x0004026c: 00 f0 8c 7f: dualentsp (lu6) 0xc
+             0x00040270: 00 f0 82 54: stw (lru6)      r2, sp[0x2]
+             0x00040274: 00 f0 c3 54: stw (lru6)      r3, sp[0x3]
+             0x00040278: 00 f0 04 55: stw (lru6)      r4, sp[0x4]
+             0x0004027c: 00 f0 45 55: stw (lru6)      r5, sp[0x5]
+             0x00040280: 00 f0 86 55: stw (lru6)      r6, sp[0x6]
+             0x00040284: 00 f0 c7 55: stw (lru6)      r7, sp[0x7]
+             0x00040288: 00 f0 08 56: stw (lru6)      r8, sp[0x8]
+             0x0004028c: 00 f0 49 56: stw (lru6)      r9, sp[0x9]
+             0x00040290: 00 f0 8a 56: stw (lru6)      r10, sp[0xa]
+             0x00040294: 00 f0 cb 56: stw (lru6)      r11, sp[0xb]
+             0x00040298: 00 f0 40 69: ldc (lru6)      r5, 0x0
+             0x0004029c: 04 f0 3f 69: ldc (lru6)      r4, 0x13f
+             0x000402a0: 00 f0 c0 6a: ldc (lru6)      r11, 0x0
+
+<computeloop>:
+             0x000402a4: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000402a6: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x000402a8: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x000402aa: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x000402ac: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000402ae: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x000402b0: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000402b2: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x000402b4: 42 1c:       sub (3r)        r8, r8, r6
+             0x000402b6: 57 1c:       sub (3r)        r9, r9, r7
+             0x000402b8: 68 97:       neg (2r)        r6, r8
+             0x000402ba: 6d 97:       neg (2r)        r7, r9
+             0x000402bc: 0c c5:       lss (3r)        r8, r3, r8
+             0x000402be: 1d c5:       lss (3r)        r9, r3, r9
+             0x000402c0: ae c2:       lss (3r)        r6, r3, r6
+             0x000402c2: bf c2:       lss (3r)        r7, r3, r7
+             0x000402c4: 22 44:       or (3r)         r6, r8, r6
+             0x000402c6: 37 44:       or (3r)         r7, r9, r7
+             0x000402c8: 68 91:       add (2rus)      r10, r6, 0x0
+             0x000402ca: 3d a1:       shl (2rus)      r7, r7, 0x1
+             0x000402cc: 6b 44:       or (3r)         r10, r10, r7
+             0x000402ce: ff 17:       nop (0r)        
+             0x000402d0: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000402d2: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x000402d4: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x000402d6: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x000402d8: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000402da: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x000402dc: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000402de: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x000402e0: 42 1c:       sub (3r)        r8, r8, r6
+             0x000402e2: 57 1c:       sub (3r)        r9, r9, r7
+             0x000402e4: 68 97:       neg (2r)        r6, r8
+             0x000402e6: 6d 97:       neg (2r)        r7, r9
+             0x000402e8: 0c c5:       lss (3r)        r8, r3, r8
+             0x000402ea: 1d c5:       lss (3r)        r9, r3, r9
+             0x000402ec: ae c2:       lss (3r)        r6, r3, r6
+             0x000402ee: bf c2:       lss (3r)        r7, r3, r7
+             0x000402f0: 22 44:       or (3r)         r6, r8, r6
+             0x000402f2: 37 44:       or (3r)         r7, r9, r7
+             0x000402f4: 2a a1:       shl (2rus)      r6, r6, 0x2
+             0x000402f6: 3f a1:       shl (2rus)      r7, r7, 0x3
+             0x000402f8: 6a 44:       or (3r)         r10, r10, r6
+             0x000402fa: ff 17:       nop (0r)        
+             0x000402fc: 6b 44:       or (3r)         r10, r10, r7
+             0x000402fe: ff 17:       nop (0r)        
+             0x00040300: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040302: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x00040304: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x00040306: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x00040308: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004030a: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x0004030c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004030e: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x00040310: 42 1c:       sub (3r)        r8, r8, r6
+             0x00040312: 57 1c:       sub (3r)        r9, r9, r7
+             0x00040314: 68 97:       neg (2r)        r6, r8
+             0x00040316: 6d 97:       neg (2r)        r7, r9
+             0x00040318: 0c c5:       lss (3r)        r8, r3, r8
+             0x0004031a: 1d c5:       lss (3r)        r9, r3, r9
+             0x0004031c: ae c2:       lss (3r)        r6, r3, r6
+             0x0004031e: bf c2:       lss (3r)        r7, r3, r7
+             0x00040320: 22 44:       or (3r)         r6, r8, r6
+             0x00040322: 37 44:       or (3r)         r7, r9, r7
+             0x00040324: 68 a3:       shl (2rus)      r6, r6, 0x4
+             0x00040326: 7d a3:       shl (2rus)      r7, r7, 0x5
+             0x00040328: 6a 44:       or (3r)         r10, r10, r6
+             0x0004032a: ff 17:       nop (0r)        
+             0x0004032c: 6b 44:       or (3r)         r10, r10, r7
+             0x0004032e: ff 17:       nop (0r)        
+             0x00040330: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040332: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x00040334: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x00040336: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x00040338: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004033a: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x0004033c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004033e: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x00040340: 42 1c:       sub (3r)        r8, r8, r6
+             0x00040342: 57 1c:       sub (3r)        r9, r9, r7
+             0x00040344: 68 97:       neg (2r)        r6, r8
+             0x00040346: 6d 97:       neg (2r)        r7, r9
+             0x00040348: 0c c5:       lss (3r)        r8, r3, r8
+             0x0004034a: 1d c5:       lss (3r)        r9, r3, r9
+             0x0004034c: ae c2:       lss (3r)        r6, r3, r6
+             0x0004034e: bf c2:       lss (3r)        r7, r3, r7
+             0x00040350: 22 44:       or (3r)         r6, r8, r6
+             0x00040352: 37 44:       or (3r)         r7, r9, r7
+             0x00040354: 6a a3:       shl (2rus)      r6, r6, 0x6
+             0x00040356: 7f a3:       shl (2rus)      r7, r7, 0x7
+             0x00040358: 6a 44:       or (3r)         r10, r10, r6
+             0x0004035a: ff 17:       nop (0r)        
+             0x0004035c: 6b 44:       or (3r)         r10, r10, r7
+             0x0004035e: ff 17:       nop (0r)        
+             0x00040360: 2b fd ec 8f: st8 (l3r)       r10, r2[r11]
+             0x00040364: 3d 92:       add (2rus)      r11, r11, 0x1
+             0x00040366: ff 17:       nop (0r)        
+             0x00040368: 64 c3:       lss (3r)        r6, r5, r4
+             0x0004036a: ff 17:       nop (0r)        
+             0x0004036c: 00 f0 b3 75: bt (lru6)       r6, -0x33 <computeloop>
+             0x00040370: 00 f0 40 69: ldc (lru6)      r5, 0x0
+             0x00040374: 00 f0 27 69: ldc (lru6)      r4, 0x27
+
+<copyNewDataToOldBuffer>:
+             0x00040378: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x0004037c: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x00040380: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040382: ff 17:       nop (0r)        
+             0x00040384: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x00040388: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x0004038c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004038e: ff 17:       nop (0r)        
+             0x00040390: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x00040394: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x00040398: 15 91:       add (2rus)      r5, r5, 0x1
+             0x0004039a: ff 17:       nop (0r)        
+             0x0004039c: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x000403a0: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x000403a4: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000403a6: 64 c3:       lss (3r)        r6, r5, r4
+             0x000403a8: 00 f0 8d 75: bt (lru6)       r6, -0xd <copyNewDataToOldBuffer>
+             0x000403ac: 00 f0 82 5c: ldw (lru6)      r2, sp[0x2]
+             0x000403b0: 00 f0 c3 5c: ldw (lru6)      r3, sp[0x3]
+             0x000403b4: 00 f0 04 5d: ldw (lru6)      r4, sp[0x4]
+             0x000403b8: 00 f0 45 5d: ldw (lru6)      r5, sp[0x5]
+             0x000403bc: 00 f0 86 5d: ldw (lru6)      r6, sp[0x6]
+             0x000403c0: 00 f0 c7 5d: ldw (lru6)      r7, sp[0x7]
+             0x000403c4: 00 f0 08 5e: ldw (lru6)      r8, sp[0x8]
+             0x000403c8: 00 f0 49 5e: ldw (lru6)      r9, sp[0x9]
+             0x000403cc: 00 f0 8a 5e: ldw (lru6)      r10, sp[0xa]
+             0x000403d0: 00 f0 cb 5e: ldw (lru6)      r11, sp[0xb]
+             0x000403d4: 00 f0 cc 77: retsp (lu6)     0xc
+
+<IOPortOut1.ctor>:
+             0x000403d8: 00 f0 40 77: entsp (lu6)     0x0
+             0x000403dc: 00 73:       bu (u6)         0x0 <.label10>
+.label10     0x000403de: 00 73:       bu (u6)         0x0 <.label11>
+.label11     0x000403e0: 00 f0 08 58: ldw (lru6)      r0, dp[0x8]
+             0x000403e4: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x000403e6: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x000403ea: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x000403ee: 00 73:       bu (u6)         0x0 <.label12>
+.label12     0x000403f0: c0 77:       retsp (u6)      0x0
+             0x000403f2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<IOPortOut1.dtor>:
+             0x000403f4: 00 f0 40 77: entsp (lu6)     0x0
+             0x000403f8: 00 73:       bu (u6)         0x0 <.label13>
+.label13     0x000403fa: 00 73:       bu (u6)         0x0 <.label14>
+.label14     0x000403fc: 00 f0 08 58: ldw (lru6)      r0, dp[0x8]
+             0x00040400: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040402: 00 73:       bu (u6)         0x0 <.label15>
+.label15     0x00040404: c0 77:       retsp (u6)      0x0
+             0x00040406: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<IOPortIn1.ctor>:
+             0x00040408: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004040c: 00 73:       bu (u6)         0x0 <.label16>
+.label16     0x0004040e: 00 73:       bu (u6)         0x0 <.label17>
+.label17     0x00040410: 00 f0 09 58: ldw (lru6)      r0, dp[0x9]
+             0x00040414: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040416: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x0004041a: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x0004041e: 00 73:       bu (u6)         0x0 <.label18>
+.label18     0x00040420: c0 77:       retsp (u6)      0x0
+             0x00040422: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<IOPortIn1.dtor>:
+             0x00040424: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040428: 00 73:       bu (u6)         0x0 <.label19>
+.label19     0x0004042a: 00 73:       bu (u6)         0x0 <.label20>
+.label20     0x0004042c: 00 f0 09 58: ldw (lru6)      r0, dp[0x9]
+             0x00040430: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040432: 00 73:       bu (u6)         0x0 <.label21>
+.label21     0x00040434: c0 77:       retsp (u6)      0x0
+             0x00040436: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<X_TX.ctor>:
+             0x00040438: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004043c: 00 73:       bu (u6)         0x0 <.label22>
+.label22     0x0004043e: 00 73:       bu (u6)         0x0 <.label23>
+.label23     0x00040440: 00 f0 0a 58: ldw (lru6)      r0, dp[0xa]
+             0x00040444: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040446: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x0004044a: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x0004044e: 00 73:       bu (u6)         0x0 <.label24>
+.label24     0x00040450: c0 77:       retsp (u6)      0x0
+             0x00040452: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<X_TX.dtor>:
+             0x00040454: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040458: 00 73:       bu (u6)         0x0 <.label25>
+.label25     0x0004045a: 00 73:       bu (u6)         0x0 <.label26>
+.label26     0x0004045c: 00 f0 0a 58: ldw (lru6)      r0, dp[0xa]
+             0x00040460: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040462: 00 73:       bu (u6)         0x0 <.label27>
+.label27     0x00040464: c0 77:       retsp (u6)      0x0
+             0x00040466: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<X_RX.ctor>:
+             0x00040468: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004046c: 00 73:       bu (u6)         0x0 <.label28>
+.label28     0x0004046e: 00 73:       bu (u6)         0x0 <.label29>
+.label29     0x00040470: 00 f0 0b 58: ldw (lru6)      r0, dp[0xb]
+             0x00040474: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040476: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x0004047a: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x0004047e: 00 73:       bu (u6)         0x0 <.label30>
+.label30     0x00040480: c0 77:       retsp (u6)      0x0
+             0x00040482: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<X_RX.dtor>:
+             0x00040484: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040488: 00 73:       bu (u6)         0x0 <.label31>
+.label31     0x0004048a: 00 73:       bu (u6)         0x0 <.label32>
+.label32     0x0004048c: 00 f0 0b 58: ldw (lru6)      r0, dp[0xb]
+             0x00040490: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040492: 00 73:       bu (u6)         0x0 <.label33>
+.label33     0x00040494: c0 77:       retsp (u6)      0x0
+             0x00040496: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<LED_SDI.ctor>:
+             0x00040498: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004049c: 00 73:       bu (u6)         0x0 <.label34>
+.label34     0x0004049e: 00 73:       bu (u6)         0x0 <.label35>
+.label35     0x000404a0: 00 f0 0c 58: ldw (lru6)      r0, dp[0xc]
+             0x000404a4: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x000404a6: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x000404aa: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x000404ae: 00 73:       bu (u6)         0x0 <.label36>
+.label36     0x000404b0: c0 77:       retsp (u6)      0x0
+             0x000404b2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<LED_SDI.dtor>:
+             0x000404b4: 00 f0 40 77: entsp (lu6)     0x0
+             0x000404b8: 00 73:       bu (u6)         0x0 <.label37>
+.label37     0x000404ba: 00 73:       bu (u6)         0x0 <.label38>
+.label38     0x000404bc: 00 f0 0c 58: ldw (lru6)      r0, dp[0xc]
+             0x000404c0: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x000404c2: 00 73:       bu (u6)         0x0 <.label39>
+.label39     0x000404c4: c0 77:       retsp (u6)      0x0
+             0x000404c6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<BAT_STATUS.ctor>:
+             0x000404c8: 00 f0 40 77: entsp (lu6)     0x0
+             0x000404cc: 00 73:       bu (u6)         0x0 <.label40>
+.label40     0x000404ce: 00 73:       bu (u6)         0x0 <.label41>
+.label41     0x000404d0: 00 f0 0d 58: ldw (lru6)      r0, dp[0xd]
+             0x000404d4: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x000404d6: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x000404da: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x000404de: 00 73:       bu (u6)         0x0 <.label42>
+.label42     0x000404e0: c0 77:       retsp (u6)      0x0
+             0x000404e2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<BAT_STATUS.dtor>:
+             0x000404e4: 00 f0 40 77: entsp (lu6)     0x0
+             0x000404e8: 00 73:       bu (u6)         0x0 <.label43>
+.label43     0x000404ea: 00 73:       bu (u6)         0x0 <.label44>
+.label44     0x000404ec: 00 f0 0d 58: ldw (lru6)      r0, dp[0xd]
+             0x000404f0: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x000404f2: 00 73:       bu (u6)         0x0 <.label45>
+.label45     0x000404f4: c0 77:       retsp (u6)      0x0
+
+<main>:
+             0x000404f6: 42 77:       entsp (u6)      0x2
+.label46     0x000404f8: c2 86:       getr (rus)      r0, 0x2
+             0x000404fa: 02 74:       bt (ru6)        r0, -0x2 <.label46>
+             0x000404fc: 7c f0 02 68: ldc (lru6)      r0, 0x1f02
+             0x00040500: 00 f0 ce 6e: ldw (lru6)      r11, cp[0xe]
+             0x00040504: 5c 17:       setd (r2r)      res[r0], r11
+             0x00040506: d1 4e:       outct (rus)     res[r0], 0x1
+             0x00040508: d1 ce:       chkct (rus)     res[r0], 0x1
+             0x0004050a: 00 f0 40 58: ldw (lru6)      r1, dp[0x0]
+             0x0004050e: 41 e8:       setc (ru6)      res[r1], 0x1
+             0x00040510: c9 b6:       in (2r)         r2, res[r1]
+             0x00040512: ed 07:       clre (0r)       
+             0x00040514: ca 6a:       ldc (ru6)       r11, 0xa
+             0x00040516: ab 14:       add (3r)        r2, r2, r11
+             0x00040518: 49 e8:       setc (ru6)      res[r1], 0x9
+             0x0004051a: d9 16:       setd (r2r)      res[r1], r2
+             0x0004051c: 09 d8:       ldap (u10)      r11, 0x9 <.label47>
+             0x0004051e: f1 47:       setv (1r)       res[r1], r11
+             0x00040520: 06 d8:       ldap (u10)      r11, 0x6 <.label48>
+             0x00040522: f0 47:       setv (1r)       res[r0], r11
+             0x00040524: 41 7b:       setsr (u6)      0x1
+             0x00040526: f0 07:       eeu (1r)        res[r0]
+             0x00040528: ff 17:       nop (0r)        
+             0x0004052a: f1 07:       eeu (1r)        res[r1]
+             0x0004052c: ec 07:       waiteu (0r)     
+.label48     0x0004052e: d1 ce:       chkct (rus)     res[r0], 0x1
+.label47     0x00040530: 02 68:       ldc (ru6)       r0, 0x2
+             0x00040532: 41 68:       ldc (ru6)       r1, 0x1
+             0x00040534: 00 f0 40 7f: ldaw (lu6)      r11, cp[0x0]
+.label49     0x00040538: 15 98:       sub (2rus)      r1, r1, 0x1
+             0x0004053a: ad 49:       ldw (3r)        r2, r11[r1]
+             0x0004053c: d8 16:       setd (r2r)      res[r0], r2
+             0x0004053e: d0 0e:       outt (r2r)      res[r0], r0
+             0x00040540: d1 4e:       outct (rus)     res[r0], 0x1
+             0x00040542: 46 74:       bt (ru6)        r1, -0x6 <.label49>
+             0x00040544: 05 68:       ldc (ru6)       r0, 0x5
+             0x00040546: 00 f0 59 d0: bl (lu10)       0x59 <delay_ticks>
+             0x0004054a: 00 f0 41 7f: ldaw (lu6)      r11, cp[0x1]
+             0x0004054e: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040550: 60 68:       ldc (ru6)       r1, 0x20
+             0x00040552: 02 69:       ldc (ru6)       r4, 0x2
+.label52     0x00040554: ac 09:       ldw (2rus)      r2, r11[0x0]
+             0x00040556: b8 ac:       shr (2rus)      r3, r2, 0x8
+             0x00040558: 38 47:       zext (rus)      r2, 0x8
+             0x0004055a: 58 30:       eq (3r)         r5, r2, r0
+             0x0004055c: 47 79:       bf (ru6)        r5, 0x7 <.label50>
+             0x0004055e: a8 a4:       shl (2rus)      r2, r2, 0x8
+             0x00040560: 68 42:       or (3r)         r2, r2, r4
+             0x00040562: bc a4:       shl (2rus)      r3, r3, 0x8
+             0x00040564: 7c 42:       or (3r)         r3, r3, r4
+             0x00040566: de 16:       setd (r2r)      res[r2], r3
+             0x00040568: 7c 94:       add (2rus)      r11, r11, 0x4
+             0x0004056a: 03 73:       bu (u6)         0x3 <.label51>
+.label50     0x0004056c: a0 a4:       shl (2rus)      r2, r0, 0x8
+             0x0004056e: 68 42:       or (3r)         r2, r2, r4
+             0x00040570: e2 17:       freer (1r)      res[r2]
+.label51     0x00040572: 01 90:       add (2rus)      r0, r0, 0x1
+             0x00040574: 21 30:       eq (3r)         r2, r0, r1
+             0x00040576: 92 7c:       bf (ru6)        r2, -0x12 <.label52>
+             0x00040578: 02 68:       ldc (ru6)       r0, 0x2
+             0x0004057a: 00 f0 2d d6: bl (lu10)       -0x22d <__main__main_tile_0>
+             0x0004057e: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040580: c2 77:       retsp (u6)      0x2
+             0x00040582: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_get_cmdline>:
+             0x00040584: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040588: 24 90:       add (2rus)      r2, r1, 0x0
+             0x0004058a: 10 90:       add (2rus)      r1, r0, 0x0
+             0x0004058c: 0d 68:       ldc (ru6)       r0, 0xd
+             0x0004058e: 00 f0 4b d8: ldap (lu10)     r11, 0x4b <_DoSyscall>
+             0x00040592: fb 27:       bau (1r)        r11
+
+<__libc_done>:
+             0x00040594: 00 f0 42 77: entsp (lu6)     0x2
+             0x00040598: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004059a: 10 90:       add (2rus)      r1, r0, 0x0
+             0x0004059c: 00 f0 4c d0: bl (lu10)       0x4c <__call_exitprocs>
+             0x000405a0: 00 f0 54 d0: bl (lu10)       0x54 <_cleanup>
+             0x000405a4: 00 f0 7c d0: bl (lu10)       0x7c <.label53>
+             0x000405a8: 00 f0 56 d0: bl (lu10)       0x56 <_done>
+
+<_exit_unlocked>:
+             0x000405ac: 00 f0 44 77: entsp (lu6)     0x4
+             0x000405b0: 02 55:       stw (ru6)       r4, sp[0x2]
+             0x000405b2: 40 90:       add (2rus)      r4, r0, 0x0
+             0x000405b4: 40 68:       ldc (ru6)       r1, 0x0
+             0x000405b6: 00 f0 3f d0: bl (lu10)       0x3f <__call_exitprocs>
+             0x000405ba: 00 f0 47 d0: bl (lu10)       0x47 <_cleanup>
+             0x000405be: 00 f0 6f d0: bl (lu10)       0x6f <.label53>
+             0x000405c2: c0 90:       add (2rus)      r0, r4, 0x0
+             0x000405c4: 00 f0 50 d0: bl (lu10)       0x50 <_exit>
+
+<_DoException>:
+             0x000405c8: 00 f0 40 77: entsp (lu6)     0x0
+             0x000405cc: ed 07:       clre (0r)       
+             0x000405ce: ec 07:       waiteu (0r)     
+
+<memset>:
+             0x000405d0: 00 f0 c3 6e: ldw (lru6)      r11, cp[0x3]
+             0x000405d4: ff 17:       nop (0r)        
+             0x000405d6: fb 27:       bau (1r)        r11
+
+<__init_threadlocal_timer>:
+             0x000405d8: 00 f0 40 77: entsp (lu6)     0x0
+             0x000405dc: c9 86:       getr (rus)      r2, 0x1
+             0x000405de: 00 f0 40 60: ldaw (lru6)     r1, dp[0x0]
+             0x000405e2: ee 17:       get (0r)        r11, id
+             0x000405e4: a7 fc ec 07: stw (l3r)       r2, r1[r11]
+             0x000405e8: c0 77:       retsp (u6)      0x0
+             0x000405ea: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__free_threadlocal_timer>:
+.label56     0x000405ec: 00 f0 40 77: entsp (lu6)     0x0
+             0x000405f0: 00 f0 80 60: ldaw (lru6)     r2, dp[0x0]
+             0x000405f4: ee 17:       get (0r)        r11, id
+             0x000405f6: ab 4c:       ldw (3r)        r2, r2[r11]
+             0x000405f8: e2 17:       freer (1r)      res[r2]
+             0x000405fa: c0 77:       retsp (u6)      0x0
+
+<delay_ticks>:
+             0x000405fc: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040600: e1 8f:       gettime (1r)    r1
+             0x00040602: ee 17:       get (0r)        r11, id
+             0x00040604: 00 f0 80 60: ldaw (lru6)     r2, dp[0x0]
+             0x00040608: ab 4c:       ldw (3r)        r2, r2[r11]
+             0x0004060a: 30 f8 ec 97: ashr (l2rus)    r3, r0, 0x20
+             0x0004060e: c6 78:       bf (ru6)        r3, 0x6 <.label54>
+             0x00040610: 00 f0 cf 6c: ldw (lru6)      r3, cp[0xf]
+             0x00040614: 37 10:       add (3r)        r3, r1, r3
+             0x00040616: de 16:       setd (r2r)      res[r2], r3
+             0x00040618: 89 e8:       setc (ru6)      res[r2], 0x9
+             0x0004061a: ce b6:       in (2r)         r3, res[r2]
+.label54     0x0004061c: 04 10:       add (3r)        r0, r1, r0
+             0x0004061e: d2 16:       setd (r2r)      res[r2], r0
+             0x00040620: 89 e8:       setc (ru6)      res[r2], 0x9
+             0x00040622: c2 b6:       in (2r)         r0, res[r2]
+             0x00040624: c0 77:       retsp (u6)      0x0
+             0x00040626: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_DoSyscall>:
+             0x00040628: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004062c: d0 a6:       mkmsk (rus)     r0, 0x20
+             0x0004062e: c0 77:       retsp (u6)      0x0
+
+<__call_exitprocs_impl>:
+             0x00040630: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040634: c0 77:       retsp (u6)      0x0
+             0x00040636: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__call_exitprocs>:
+             0x00040638: 00 f0 42 77: entsp (lu6)     0x2
+             0x0004063c: 00 f0 08 d4: bl (lu10)       -0x8 <__call_exitprocs_impl>
+             0x00040640: c2 77:       retsp (u6)      0x2
+             0x00040642: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_cleanup_impl>:
+             0x00040644: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040648: c0 77:       retsp (u6)      0x0
+             0x0004064a: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_cleanup>:
+             0x0004064c: 00 f0 42 77: entsp (lu6)     0x2
+             0x00040650: 00 f0 08 d4: bl (lu10)       -0x8 <_cleanup_impl>
+             0x00040654: c2 77:       retsp (u6)      0x2
+             0x00040656: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_done>:
+             0x00040658: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004065c: 07 68:       ldc (ru6)       r0, 0x7
+             0x0004065e: 00 f0 1d d4: bl (lu10)       -0x1d <_DoSyscall>
+             0x00040662: ed 07:       clre (0r)       
+             0x00040664: ec 07:       waiteu (0r)     
+             0x00040666: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_exit>:
+             0x00040668: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004066c: 10 90:       add (2rus)      r1, r0, 0x0
+             0x0004066e: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040670: 00 f0 26 d4: bl (lu10)       -0x26 <_DoSyscall>
+             0x00040674: ed 07:       clre (0r)       
+             0x00040676: ec 07:       waiteu (0r)     
+
+<__alloc_libc_hwlock>:
+.label55     0x00040678: 00 f0 40 77: entsp (lu6)     0x0
+             0x0004067c: 81 87:       getr (rus)      r0, 0x5
+             0x0004067e: 00 f0 11 50: stw (lru6)      r0, dp[0x11]
+             0x00040682: c0 77:       retsp (u6)      0x0
+
+Disassembly of section .init (size: 28)
+
+<_init>:
+.label2      0x00040684: 00 f0 42 77: entsp (lu6)     0x2
+             0x00040688: 00 f0 0a d4: bl (lu10)       -0xa <.label55>
+             0x0004068c: 00 f0 0d 6d: ldw (lru6)      r4, cp[0xd]
+             0x00040690: 06 79:       bf (ru6)        r4, 0x6 <do_ctors_end>
+             0x00040692: 00 f0 47 6d: ldw (lru6)      r5, cp[0x7]
+
+<do_ctors_loop>:
+             0x00040696: 01 99:       sub (2rus)      r4, r4, 0x1
+             0x00040698: 04 4b:       ldw (3r)        r0, r5[r4]
+             0x0004069a: e0 27:       bla (1r)        r0
+             0x0004069c: 04 75:       bt (ru6)        r4, -0x4 <do_ctors_loop>
+
+<do_ctors_end>:
+             0x0004069e: c2 77:       retsp (u6)      0x2
+
+Disassembly of section .fini (size: 48)
+
+<_fini>:
+.label53     0x000406a0: 00 f0 42 77: entsp (lu6)     0x2
+             0x000406a4: 84 77:       extsp (u6)      0x4
+             0x000406a6: 01 55:       stw (ru6)       r4, sp[0x1]
+             0x000406a8: 42 55:       stw (ru6)       r5, sp[0x2]
+             0x000406aa: 83 55:       stw (ru6)       r6, sp[0x3]
+             0x000406ac: 00 f0 8c 6d: ldw (lru6)      r6, cp[0xc]
+             0x000406b0: 88 79:       bf (ru6)        r6, 0x8 <do_dtors_end>
+             0x000406b2: 00 69:       ldc (ru6)       r4, 0x0
+             0x000406b4: 00 f0 48 6d: ldw (lru6)      r5, cp[0x8]
+
+<do_dtors_loop>:
+             0x000406b8: 04 4b:       ldw (3r)        r0, r5[r4]
+             0x000406ba: e0 27:       bla (1r)        r0
+             0x000406bc: 01 91:       add (2rus)      r4, r4, 0x1
+             0x000406be: b2 cb:       lsu (3r)        r11, r4, r6
+             0x000406c0: c5 76:       bt (ru6)        r11, -0x5 <do_dtors_loop>
+
+<do_dtors_end>:
+             0x000406c2: 00 f0 6d d4: bl (lu10)       -0x6d <.label56>
+             0x000406c6: 01 5d:       ldw (ru6)       r4, sp[0x1]
+             0x000406c8: 42 5d:       ldw (ru6)       r5, sp[0x2]
+             0x000406ca: 83 5d:       ldw (ru6)       r6, sp[0x3]
+             0x000406cc: 84 67:       ldaw (ru6)      sp, sp[0x4]
+             0x000406ce: c2 77:       retsp (u6)      0x2
+
+Disassembly of section .cp.rodata (size: 20)
+
+<_cp>:
+<tiles_to_wake>:
+.label5      0x000406d0: 02 1e 01 00: 
+
+<chanends_to_setup>:
+             0x000406d4: 00 00 01 00: 
+             0x000406d8: ff 00 00 00: 
+             0x000406dc: 70 17 f0 ff: 
+
+<tile>:
+             0x000406e0: 00 00 01 00: 
+
+Disassembly of section .cp.const4 (size: 40)
+
+<initial_dp>:
+             0x000406e4: 40 07 04 00: 
+
+<dp_bss_large_start>:
+             0x000406e8: 88 07 04 00: 
+
+<ctor_list_ptr>:
+             0x000406ec: 10 07 04 00: 
+
+<dtor_list_ptr>:
+             0x000406f0: 28 07 04 00: 
+
+<initial_sp>:
+             0x000406f4: 78 ff 05 00: 
+
+<dp_bss_size>:
+             0x000406f8: 10 00 00 00: 
+
+<dp_bss_large_size>:
+             0x000406fc: 00 00 00 00: 
+
+<dtors_size>:
+             0x00040700: 06 00 00 00: 
+
+<ctors_size>:
+             0x00040704: 06 00 00 00: 
+             0x00040708: 02 1e 01 00: 
+
+Disassembly of section .cp.rodata.cst4 (size: 4)
+
+             0x0004070c: ff ff ff 7f: 
+
+Disassembly of section .ctors (size: 24)
+
+<_CTOR_LIST_>:
+             0x00040710: d8 03 04 00: 
+             0x00040714: 08 04 04 00: 
+             0x00040718: 38 04 04 00: 
+             0x0004071c: 68 04 04 00: 
+             0x00040720: 98 04 04 00: 
+             0x00040724: c8 04 04 00: 
+
+Disassembly of section .dtors (size: 24)
+
+<_DTOR_LIST_>:
+             0x00040728: f4 03 04 00: 
+             0x0004072c: 24 04 04 00: 
+             0x00040730: 54 04 04 00: 
+             0x00040734: 84 04 04 00: 
+             0x00040738: b4 04 04 00: 
+             0x0004073c: e4 04 04 00: 
+
+Disassembly of section .dp.data (size: 32)
+
+<_dp>:
+<cam2DATA>:
+<camSYNC>:
+<cam1DATA>:
+<cam2SDA>:
+<cam2SCL>:
+<cam2PCLK>:
+<cam2XCLK>:
+<cam1SDA>:
+<cam1SCL>:
+<cam1PCLK>:
+<cam1XCLK>:
+<camRESET>:
+<pclk2CLK>:
+<pclk1CLK>:
+<sccb2CLK>:
+<sccb1CLK>:
+<camCLK>:
+<camSFIN>:
+<__timers>:
+             0x00040740: 01 00 00 00: 
+             0x00040744: 00 00 00 00: 
+             0x00040748: 00 00 00 00: 
+             0x0004074c: 00 00 00 00: 
+             0x00040750: 00 00 00 00: 
+             0x00040754: 00 00 00 00: 
+             0x00040758: 00 00 00 00: 
+             0x0004075c: 00 00 00 00: 
+
+Disassembly of section .dp.rodata.4 (size: 24)
+
+<IOPortOut1>:
+             0x00040760: 00 05 04 00: 
+
+<IOPortIn1>:
+             0x00040764: 00 04 04 00: 
+
+<X_TX>:
+             0x00040768: 00 0c 01 00: 
+
+<X_RX>:
+             0x0004076c: 00 0d 01 00: 
+
+<LED_SDI>:
+             0x00040770: 00 08 01 00: 
+
+<BAT_STATUS>:
+             0x00040774: 00 0b 01 00: 
+
+Loadable 2 for  (node "", tile 1):
+
+Disassembly of section .text (size: 4886)
+
+<_start>:
+             0x00040000: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040004: 4b 68:       ldc (ru6)       r1, 0xb
+             0x00040006: d1 fe ec 17: get (l2r)       r0, ps[r1]
+             0x0004000a: 04 f0 8b 68: ldc (lru6)      r2, 0x10b
+             0x0004000e: c2 fe ec 1f: set (lr2r)      ps[r2], r0
+             0x00040012: c3 86:       getr (rus)      r0, 0x3
+             0x00040014: 79 d8:       ldap (u10)      r11, 0x79 <_InitChildThread>
+             0x00040016: 02 73:       bu (u6)         0x2 <.label0>
+.label1      0x00040018: 5d ff ec 07: init (l2r)      t[r1]:pc, r11
+.label0      0x0004001c: d4 06:       getst (2r)      r1, res[r0]
+             0x0004001e: 44 74:       bt (ru6)        r1, -0x4 <.label1>
+             0x00040020: f0 1f:       msync (1r)      res[r0]
+             0x00040022: 74 d0:       bl (u10)        0x74 <_SetupThread>
+             0x00040024: 00 f0 b0 6f: ldw (lru6)      sp, cp[0x30]
+             0x00040028: f0 17:       mjoin (1r)      res[r0]
+             0x0004002a: e0 17:       freer (1r)      res[r0]
+             0x0004002c: 00 f0 1c 60: ldaw (lru6)     r0, dp[0x1c]
+             0x00040030: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040032: 00 f0 b1 6c: ldw (lru6)      r2, cp[0x31]
+             0x00040036: 01 f0 71 d3: bl (lu10)       0x771 <memset>
+             0x0004003a: 00 f0 2d 6c: ldw (lru6)      r0, cp[0x2d]
+             0x0004003e: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040040: 00 f0 b2 6c: ldw (lru6)      r2, cp[0x32]
+             0x00040044: 01 f0 6a d3: bl (lu10)       0x76a <memset>
+             0x00040048: 01 f0 6c d3: bl (lu10)       0x76c <__init_threadlocal_timer>
+             0x0004004c: 02 f0 64 d1: bl (lu10)       0x964 <.label2>
+             0x00040050: 00 f0 c6 6a: ldc (lru6)      r11, 0x6
+             0x00040054: c8 ea:       setc (ru6)      res[r11], 0x8
+             0x00040056: cf ea:       setc (ru6)      res[r11], 0xf
+             0x00040058: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004005a: 01 54:       stw (ru6)       r0, sp[0x1]
+             0x0004005c: 00 f0 40 68: ldc (lru6)      r1, 0x0
+             0x00040060: 48 78:       bf (ru6)        r1, 0x8 <.label3>
+             0x00040062: 01 64:       ldaw (ru6)      r0, sp[0x1]
+             0x00040064: 01 f0 34 d3: bl (lu10)       0x734 <_get_cmdline>
+             0x00040068: b0 f8 ec 97: ashr (l2rus)    r11, r0, 0x20
+             0x0004006c: c2 7a:       bf (ru6)        r11, 0x2 <.label3>
+             0x0004006e: 01 90:       add (2rus)      r0, r0, 0x1
+             0x00040070: f0 4f:       ecallt (1r)     r0
+.label3      0x00040072: 41 64:       ldaw (ru6)      r1, sp[0x1]
+             0x00040074: 01 f0 fd d2: bl (lu10)       0x6fd <main>
+             0x00040078: 02 70:       bt (ru6)        r0, 0x2 <.label4>
+             0x0004007a: 01 f0 31 d3: bl (lu10)       0x731 <__libc_done>
+.label4      0x0004007e: 01 f0 3b d3: bl (lu10)       0x73b <_exit_unlocked>
+             0x00040082: ff 17:       nop (0r)        
+             0x00040084: ff 17:       nop (0r)        
+             0x00040086: ff 17:       nop (0r)        
+             0x00040088: ff 17:       nop (0r)        
+             0x0004008a: ff 17:       nop (0r)        
+             0x0004008c: ff 17:       nop (0r)        
+             0x0004008e: ff 17:       nop (0r)        
+             0x00040090: ff 17:       nop (0r)        
+             0x00040092: ff 17:       nop (0r)        
+             0x00040094: ff 17:       nop (0r)        
+             0x00040096: ff 17:       nop (0r)        
+             0x00040098: ff 17:       nop (0r)        
+             0x0004009a: ff 17:       nop (0r)        
+             0x0004009c: ff 17:       nop (0r)        
+             0x0004009e: ff 17:       nop (0r)        
+             0x000400a0: ff 17:       nop (0r)        
+             0x000400a2: ff 17:       nop (0r)        
+             0x000400a4: ff 17:       nop (0r)        
+             0x000400a6: ff 17:       nop (0r)        
+             0x000400a8: ff 17:       nop (0r)        
+             0x000400aa: ff 17:       nop (0r)        
+             0x000400ac: ff 17:       nop (0r)        
+             0x000400ae: ff 17:       nop (0r)        
+             0x000400b0: ff 17:       nop (0r)        
+             0x000400b2: ff 17:       nop (0r)        
+             0x000400b4: ff 17:       nop (0r)        
+             0x000400b6: ff 17:       nop (0r)        
+             0x000400b8: ff 17:       nop (0r)        
+             0x000400ba: ff 17:       nop (0r)        
+             0x000400bc: ff 17:       nop (0r)        
+             0x000400be: ff 17:       nop (0r)        
+             0x000400c0: ff 17:       nop (0r)        
+             0x000400c2: ff 17:       nop (0r)        
+             0x000400c4: ff 17:       nop (0r)        
+             0x000400c6: ff 17:       nop (0r)        
+             0x000400c8: ff 17:       nop (0r)        
+             0x000400ca: ff 17:       nop (0r)        
+             0x000400cc: ff 17:       nop (0r)        
+             0x000400ce: ff 17:       nop (0r)        
+             0x000400d0: ff 17:       nop (0r)        
+             0x000400d2: ff 17:       nop (0r)        
+             0x000400d4: ff 17:       nop (0r)        
+             0x000400d6: ff 17:       nop (0r)        
+             0x000400d8: ff 17:       nop (0r)        
+             0x000400da: ff 17:       nop (0r)        
+             0x000400dc: ff 17:       nop (0r)        
+             0x000400de: ff 17:       nop (0r)        
+             0x000400e0: ff 17:       nop (0r)        
+             0x000400e2: ff 17:       nop (0r)        
+             0x000400e4: ff 17:       nop (0r)        
+             0x000400e6: ff 17:       nop (0r)        
+             0x000400e8: ff 17:       nop (0r)        
+             0x000400ea: ff 17:       nop (0r)        
+             0x000400ec: ff 17:       nop (0r)        
+             0x000400ee: ff 17:       nop (0r)        
+             0x000400f0: ff 17:       nop (0r)        
+             0x000400f2: ff 17:       nop (0r)        
+             0x000400f4: ff 17:       nop (0r)        
+             0x000400f6: ff 17:       nop (0r)        
+             0x000400f8: ff 17:       nop (0r)        
+             0x000400fa: ff 17:       nop (0r)        
+             0x000400fc: ff 17:       nop (0r)        
+             0x000400fe: ff 17:       nop (0r)        
+
+<_TrapHandler>:
+             0x00040100: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040104: 01 f0 06 d3: bl (lu10)       0x706 <_DoException>
+
+<_InitChildThread>:
+             0x00040108: 01 d0:       bl (u10)        0x1 <_SetupThread>
+             0x0004010a: ee 07:       ssync (0r)      
+
+<_SetupThread>:
+             0x0004010c: 07 dc:       ldap (u10)      r11, -0x7 <_TrapHandler>
+             0x0004010e: ff 07:       set (0r)        kep, r11
+             0x00040110: 02 f0 28 d9: ldap (lu10)     r11, 0x928 <.label5>
+             0x00040114: fb 37:       set (1r)        cp, r11
+             0x00040116: 00 f0 6c 6f: ldw (lru6)      dp, cp[0x2c]
+             0x0004011a: c0 6a:       ldc (ru6)       r11, 0x0
+             0x0004011c: fb 2f:       set (1r)        sp, r11
+             0x0004011e: c0 77:       retsp (u6)      0x0
+
+<__register_frame_info_bases>:
+             0x00040120: c0 77:       retsp (u6)      0x0
+             0x00040122: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<Tile1>:
+             0x00040124: ff 17:       nop (0r)        
+             0x00040126: 84 7f:       dualentsp (u6)  0x4
+             0x00040128: 40 90:       add (2rus)      r4, r0, 0x0
+             0x0004012a: 02 55:       stw (ru6)       r4, sp[0x2]
+             0x0004012c: 00 f0 08 d0: bl (lu10)       0x8 <initCams>
+             0x00040130: 00 f0 58 d0: bl (lu10)       0x58 <configureCams>
+             0x00040134: c0 90:       add (2rus)      r0, r4, 0x0
+             0x00040136: ff 17:       nop (0r)        
+             0x00040138: 00 f0 8b d0: bl (lu10)       0x8b <launchCameras>
+             0x0004013c: ff 17:       nop (0r)        
+             0x0004013e: 02 5d:       ldw (ru6)       r4, sp[0x2]
+             0x00040140: ff 17:       nop (0r)        
+             0x00040142: c4 77:       retsp (u6)      0x4
+
+<__main__main_tile_1>:
+             0x00040144: ff 17:       nop (0r)        
+             0x00040146: 82 7f:       dualentsp (u6)  0x2
+             0x00040148: 00 f0 0a d4: bl (lu10)       -0xa <Tile1>
+             0x0004014c: ff 17:       nop (0r)        
+             0x0004014e: c2 77:       retsp (u6)      0x2
+
+<initCams>:
+             0x00040150: ff 17:       nop (0r)        
+             0x00040152: 8a 7f:       dualentsp (u6)  0xa
+             0x00040154: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x00040158: 2e f9 ec f7: std (l2rus)     r7, r6, sp[0x2]
+             0x0004015c: 07 fa ec f7: std (l2rus)     r9, r8, sp[0x3]
+             0x00040160: ff 17:       nop (0r)        
+             0x00040162: 88 56:       stw (ru6)       r10, sp[0x8]
+             0x00040164: 00 f0 0a 59: ldw (lru6)      r4, dp[0xa]
+             0x00040168: 01 f0 64 68: ldc (lru6)      r1, 0x64
+             0x0004016c: 88 68:       ldc (ru6)       r2, 0x8
+             0x0004016e: c0 90:       add (2rus)      r0, r4, 0x0
+             0x00040170: 00 f0 91 d3: bl (lu10)       0x391 <configure_clock_rate>
+             0x00040174: 00 f0 12 58: ldw (lru6)      r0, dp[0x12]
+             0x00040178: d0 90:       add (2rus)      r1, r4, 0x0
+             0x0004017a: ff 17:       nop (0r)        
+             0x0004017c: 00 f0 86 d3: bl (lu10)       0x386 <configure_port_clock_output>
+             0x00040180: 00 f0 17 58: ldw (lru6)      r0, dp[0x17]
+             0x00040184: d0 90:       add (2rus)      r1, r4, 0x0
+             0x00040186: ff 17:       nop (0r)        
+             0x00040188: 00 f0 83 d3: bl (lu10)       0x383 <configure_port_clock_output>
+             0x0004018c: 0f e9:       setc (ru6)      res[r4], 0xf
+             0x0004018e: ff 17:       nop (0r)        
+             0x00040190: 00 f0 0d 59: ldw (lru6)      r4, dp[0xd]
+             0x00040194: 00 f0 53 58: ldw (lru6)      r1, dp[0x13]
+             0x00040198: c0 90:       add (2rus)      r0, r4, 0x0
+             0x0004019a: ff 17:       nop (0r)        
+             0x0004019c: 00 f0 82 d3: bl (lu10)       0x382 <configure_clock_src>
+             0x000401a0: 00 f0 16 58: ldw (lru6)      r0, dp[0x16]
+             0x000401a4: d0 90:       add (2rus)      r1, r4, 0x0
+             0x000401a6: ff 17:       nop (0r)        
+             0x000401a8: 00 f0 72 d3: bl (lu10)       0x372 <configure_in_port>
+             0x000401ac: 00 f0 1b 58: ldw (lru6)      r0, dp[0x1b]
+             0x000401b0: d0 90:       add (2rus)      r1, r4, 0x0
+             0x000401b2: ff 17:       nop (0r)        
+             0x000401b4: 00 f0 6f d3: bl (lu10)       0x36f <configure_in_port>
+             0x000401b8: 00 f0 11 58: ldw (lru6)      r0, dp[0x11]
+             0x000401bc: d0 90:       add (2rus)      r1, r4, 0x0
+             0x000401be: ff 17:       nop (0r)        
+             0x000401c0: 00 f0 6c d3: bl (lu10)       0x36c <configure_in_port>
+             0x000401c4: 0f e9:       setc (ru6)      res[r4], 0xf
+             0x000401c6: ff 17:       nop (0r)        
+             0x000401c8: 00 f0 0e 59: ldw (lru6)      r4, dp[0xe]
+             0x000401cc: 00 f0 58 58: ldw (lru6)      r1, dp[0x18]
+             0x000401d0: c0 90:       add (2rus)      r0, r4, 0x0
+             0x000401d2: ff 17:       nop (0r)        
+             0x000401d4: 00 f0 74 d3: bl (lu10)       0x374 <configure_clock_src>
+             0x000401d8: 0f e9:       setc (ru6)      res[r4], 0xf
+             0x000401da: ff 17:       nop (0r)        
+             0x000401dc: 00 f0 0f 58: ldw (lru6)      r0, dp[0xf]
+             0x000401e0: d5 a6:       mkmsk (rus)     r1, 0x1
+             0x000401e2: ff 17:       nop (0r)        
+             0x000401e4: c4 ae:       out (r2r)       res[r0], r1
+             0x000401e6: ff 17:       nop (0r)        
+             0x000401e8: 00 f0 95 59: ldw (lru6)      r6, dp[0x15]
+             0x000401ec: 00 f0 d4 59: ldw (lru6)      r7, dp[0x14]
+             0x000401f0: 00 f0 8b 58: ldw (lru6)      r2, dp[0xb]
+             0x000401f4: c8 90:       add (2rus)      r0, r6, 0x0
+             0x000401f6: dc 90:       add (2rus)      r1, r7, 0x0
+             0x000401f8: 00 f0 d1 d0: bl (lu10)       0xd1 <sccb_init>
+             0x000401fc: 00 f0 1a 59: ldw (lru6)      r4, dp[0x1a]
+             0x00040200: 00 f0 59 59: ldw (lru6)      r5, dp[0x19]
+             0x00040204: 00 f0 8c 58: ldw (lru6)      r2, dp[0xc]
+             0x00040208: c0 90:       add (2rus)      r0, r4, 0x0
+             0x0004020a: d4 90:       add (2rus)      r1, r5, 0x0
+             0x0004020c: 00 f0 cc d0: bl (lu10)       0xcc <sccb_init>
+             0x00040210: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040212: dc 90:       add (2rus)      r1, r7, 0x0
+             0x00040214: e8 90:       add (2rus)      r2, r6, 0x0
+             0x00040216: ff 17:       nop (0r)        
+             0x00040218: 00 f0 02 d1: bl (lu10)       0x102 <_Ssccb_rd_0>
+             0x0004021c: 0a 6a:       ldc (ru6)       r8, 0xa
+             0x0004021e: ff 17:       nop (0r)        
+             0x00040220: 80 91:       add (2rus)      r0, r8, 0x0
+             0x00040222: dc 90:       add (2rus)      r1, r7, 0x0
+             0x00040224: e8 90:       add (2rus)      r2, r6, 0x0
+             0x00040226: ff 17:       nop (0r)        
+             0x00040228: 00 f0 fe d0: bl (lu10)       0xfe <_Ssccb_rd_0>
+             0x0004022c: 90 90:       add (2rus)      r9, r0, 0x0
+             0x0004022e: 8b 6a:       ldc (ru6)       r10, 0xb
+             0x00040230: 88 91:       add (2rus)      r0, r10, 0x0
+             0x00040232: dc 90:       add (2rus)      r1, r7, 0x0
+             0x00040234: e8 90:       add (2rus)      r2, r6, 0x0
+             0x00040236: ff 17:       nop (0r)        
+             0x00040238: 00 f0 fa d0: bl (lu10)       0xfa <_Ssccb_rd_0>
+             0x0004023c: 60 90:       add (2rus)      r6, r0, 0x0
+             0x0004023e: 80 91:       add (2rus)      r0, r8, 0x0
+             0x00040240: d4 90:       add (2rus)      r1, r5, 0x0
+             0x00040242: e0 90:       add (2rus)      r2, r4, 0x0
+             0x00040244: 00 f0 f7 d0: bl (lu10)       0xf7 <_Ssccb_rd_0>
+             0x00040248: 70 90:       add (2rus)      r7, r0, 0x0
+             0x0004024a: 88 91:       add (2rus)      r0, r10, 0x0
+             0x0004024c: d4 90:       add (2rus)      r1, r5, 0x0
+             0x0004024e: e0 90:       add (2rus)      r2, r4, 0x0
+             0x00040250: 00 f0 f4 d0: bl (lu10)       0xf4 <_Ssccb_rd_0>
+             0x00040254: 10 90:       add (2rus)      r1, r0, 0x0
+             0x00040256: ff 17:       nop (0r)        
+             0x00040258: 01 f0 b7 68: ldc (lru6)      r2, 0x77
+             0x0004025c: 86 31:       eq (3r)         r0, r9, r2
+             0x0004025e: ff 17:       nop (0r)        
+             0x00040260: 01 f0 c0 68: ldc (lru6)      r3, 0x40
+             0x00040264: 7b 31:       eq (3r)         r11, r6, r3
+             0x00040266: ff 17:       nop (0r)        
+             0x00040268: 83 3c:       and (3r)        r0, r0, r11
+             0x0004026a: ee 30:       eq (3r)         r2, r7, r2
+             0x0004026c: 17 30:       eq (3r)         r1, r1, r3
+             0x0004026e: ff 17:       nop (0r)        
+             0x00040270: 19 38:       and (3r)        r1, r2, r1
+             0x00040272: ff 17:       nop (0r)        
+             0x00040274: 00 f0 42 78: bf (lru6)       r1, 0x2 <.label6>
+             0x00040278: 42 68:       ldc (ru6)       r1, 0x2
+             0x0004027a: ff 17:       nop (0r)        
+             0x0004027c: 01 40:       or (3r)         r0, r0, r1
+             0x0004027e: ff 17:       nop (0r)        
+.label6      0x00040280: ff 17:       nop (0r)        
+             0x00040282: 88 5e:       ldw (ru6)       r10, sp[0x8]
+             0x00040284: 07 fa ec ef: ldd (l2rus)     r9, r8, sp[0x3]
+             0x00040288: 2e f9 ec ef: ldd (l2rus)     r7, r6, sp[0x2]
+             0x0004028c: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x00040290: ff 17:       nop (0r)        
+             0x00040292: ca 77:       retsp (u6)      0xa
+
+<configureCams>:
+             0x00040294: ff 17:       nop (0r)        
+             0x00040296: 8a 7f:       dualentsp (u6)  0xa
+             0x00040298: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x0004029c: 2e f9 ec f7: std (l2rus)     r7, r6, sp[0x2]
+             0x000402a0: 07 fa ec f7: std (l2rus)     r9, r8, sp[0x3]
+             0x000402a4: ff 17:       nop (0r)        
+             0x000402a6: 88 56:       stw (ru6)       r10, sp[0x8]
+             0x000402a8: 00 f0 94 58: ldw (lru6)      r2, dp[0x14]
+             0x000402ac: 00 f0 d5 58: ldw (lru6)      r3, dp[0x15]
+             0x000402b0: 12 6a:       ldc (ru6)       r8, 0x12
+             0x000402b2: ff 17:       nop (0r)        
+             0x000402b4: 02 f0 40 6a: ldc (lru6)      r9, 0x80
+             0x000402b8: 80 91:       add (2rus)      r0, r8, 0x0
+             0x000402ba: 94 91:       add (2rus)      r1, r9, 0x0
+             0x000402bc: 00 f0 a7 d0: bl (lu10)       0xa7 <_Ssccb_wr_0>
+             0x000402c0: 00 f0 99 58: ldw (lru6)      r2, dp[0x19]
+             0x000402c4: 00 f0 da 58: ldw (lru6)      r3, dp[0x1a]
+             0x000402c8: 80 91:       add (2rus)      r0, r8, 0x0
+             0x000402ca: 94 91:       add (2rus)      r1, r9, 0x0
+             0x000402cc: 68 90:       add (2rus)      r6, r2, 0x0
+             0x000402ce: 7c 90:       add (2rus)      r7, r3, 0x0
+             0x000402d0: 00 f0 a2 d0: bl (lu10)       0xa2 <_Ssccb_wr_0>
+             0x000402d4: e0 8f:       gettime (1r)    r0
+             0x000402d6: ee 17:       get (0r)        r11, id
+             0x000402d8: 00 f0 40 60: ldaw (lru6)     r1, dp[0x0]
+             0x000402dc: ff 17:       nop (0r)        
+             0x000402de: 97 4c:       ldw (3r)        r1, r1[r11]
+             0x000402e0: ff 17:       nop (0r)        
+             0x000402e2: 41 54:       stw (ru6)       r1, sp[0x1]
+             0x000402e4: 00 f0 b8 6c: ldw (lru6)      r2, cp[0x38]
+             0x000402e8: 02 10:       add (3r)        r0, r0, r2
+             0x000402ea: ff 17:       nop (0r)        
+             0x000402ec: d1 16:       setd (r2r)      res[r1], r0
+             0x000402ee: ff 17:       nop (0r)        
+             0x000402f0: 49 e8:       setc (ru6)      res[r1], 0x9
+             0x000402f2: ff 17:       nop (0r)        
+             0x000402f4: c1 b6:       in (2r)         r0, res[r1]
+             0x000402f6: ff 17:       nop (0r)        
+             0x000402f8: 00 68:       ldc (ru6)       r0, 0x0
+             0x000402fa: ff 17:       nop (0r)        
+             0x000402fc: 00 f0 44 7f: ldaw (lu6)      r11, cp[0x4]
+             0x00040300: 0c 92:       add (2rus)      r8, r11, 0x0
+             0x00040302: 40 90:       add (2rus)      r4, r0, 0x0
+             0x00040304: 50 90:       add (2rus)      r5, r0, 0x0
+             0x00040306: ff 17:       nop (0r)        
+.label7      0x00040308: d1 a6:       mkmsk (rus)     r0, 0x1
+             0x0004030a: 51 8c:       ld8u (3r)       r9, r8[r5]
+             0x0004030c: 84 91:       add (2rus)      r0, r9, 0x0
+             0x0004030e: 20 8a:       ld8u (3r)       r10, r8[r0]
+             0x00040310: 98 91:       add (2rus)      r1, r10, 0x0
+             0x00040312: ff 17:       nop (0r)        
+             0x00040314: 00 f0 94 58: ldw (lru6)      r2, dp[0x14]
+             0x00040318: 00 f0 d5 58: ldw (lru6)      r3, dp[0x15]
+             0x0004031c: 00 f0 8f d0: bl (lu10)       0x8f <_Ssccb_wr_0>
+             0x00040320: 84 91:       add (2rus)      r0, r9, 0x0
+             0x00040322: 98 91:       add (2rus)      r1, r10, 0x0
+             0x00040324: e8 90:       add (2rus)      r2, r6, 0x0
+             0x00040326: fc 90:       add (2rus)      r3, r7, 0x0
+             0x00040328: 00 f0 8c d0: bl (lu10)       0x8c <_Ssccb_wr_0>
+             0x0004032c: 01 91:       add (2rus)      r4, r4, 0x1
+             0x0004032e: 02 92:       add (2rus)      r8, r8, 0x2
+             0x00040330: 01 f0 0f 68: ldc (lru6)      r0, 0x4f
+             0x00040334: c0 c8:       lsu (3r)        r0, r4, r0
+             0x00040336: ff 17:       nop (0r)        
+             0x00040338: 00 f0 0d 74: bt (lru6)       r0, -0xd <.label7>
+             0x0004033c: e0 8f:       gettime (1r)    r0
+             0x0004033e: ff 17:       nop (0r)        
+             0x00040340: 00 f0 78 6c: ldw (lru6)      r1, cp[0x38]
+             0x00040344: 01 10:       add (3r)        r0, r0, r1
+             0x00040346: 41 5c:       ldw (ru6)       r1, sp[0x1]
+             0x00040348: d1 16:       setd (r2r)      res[r1], r0
+             0x0004034a: ff 17:       nop (0r)        
+             0x0004034c: 49 e8:       setc (ru6)      res[r1], 0x9
+             0x0004034e: ff 17:       nop (0r)        
+             0x00040350: c1 b6:       in (2r)         r0, res[r1]
+             0x00040352: ff 17:       nop (0r)        
+             0x00040354: d1 a6:       mkmsk (rus)     r0, 0x1
+             0x00040356: 88 5e:       ldw (ru6)       r10, sp[0x8]
+             0x00040358: 07 fa ec ef: ldd (l2rus)     r9, r8, sp[0x3]
+             0x0004035c: 2e f9 ec ef: ldd (l2rus)     r7, r6, sp[0x2]
+             0x00040360: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x00040364: ff 17:       nop (0r)        
+             0x00040366: ca 77:       retsp (u6)      0xa
+
+<launchCameras>:
+             0x00040368: 10 90:       add (2rus)      r1, r0, 0x0
+             0x0004036a: 82 7f:       dualentsp (u6)  0x2
+             0x0004036c: 00 f0 40 d0: bl (lu10)       0x40 <_Sov07740_capture_0>
+
+<waitForVSync>:
+             0x00040370: ff 17:       nop (0r)        
+             0x00040372: 80 7f:       dualentsp (u6)  0x0
+             0x00040374: 00 f0 91 58: ldw (lru6)      r2, dp[0x11]
+             0x00040378: 81 e8:       setc (ru6)      res[r2], 0x1
+             0x0004037a: ff 17:       nop (0r)        
+             0x0004037c: ce b6:       in (2r)         r3, res[r2]
+             0x0004037e: ff 17:       nop (0r)        
+             0x00040380: ed 07:       clre (0r)       
+             0x00040382: ff 17:       nop (0r)        
+             0x00040384: f2 07:       eeu (1r)        res[r2]
+             0x00040386: ff 17:       nop (0r)        
+             0x00040388: 99 e8:       setc (ru6)      res[r2], 0x19
+             0x0004038a: ff 17:       nop (0r)        
+             0x0004038c: 00 f0 03 d8: ldap (lu10)     r11, 0x3 <.label8>
+             0x00040390: f2 47:       setv (1r)       res[r2], r11
+             0x00040392: ff 17:       nop (0r)        
+.label9      0x00040394: de 16:       setd (r2r)      res[r2], r3
+             0x00040396: ff 17:       nop (0r)        
+             0x00040398: ec 07:       waiteu (0r)     
+             0x0004039a: ff 17:       nop (0r)        
+.label8      0x0004039c: ce b6:       in (2r)         r3, res[r2]
+             0x0004039e: ff 17:       nop (0r)        
+             0x000403a0: bd 38:       and (3r)        r11, r3, r1
+             0x000403a2: ff 17:       nop (0r)        
+             0x000403a4: 3c 32:       eq (3r)         r11, r11, r0
+             0x000403a6: ff 17:       nop (0r)        
+             0x000403a8: 00 f0 c6 7e: bf (lru6)       r11, -0x6 <.label9>
+             0x000403ac: ff 17:       nop (0r)        
+             0x000403ae: c0 77:       retsp (u6)      0x0
+
+<waitForHREF>:
+             0x000403b0: ff 17:       nop (0r)        
+             0x000403b2: 80 7f:       dualentsp (u6)  0x0
+             0x000403b4: 82 77:       extsp (u6)      0x2
+             0x000403b6: ff 17:       nop (0r)        
+             0x000403b8: ff 17:       nop (0r)        
+             0x000403ba: 00 55:       stw (ru6)       r4, sp[0x0]
+             0x000403bc: 00 f0 d1 58: ldw (lru6)      r3, dp[0x11]
+             0x000403c0: c1 e8:       setc (ru6)      res[r3], 0x1
+             0x000403c2: ff 17:       nop (0r)        
+             0x000403c4: 03 b7:       in (2r)         r4, res[r3]
+             0x000403c6: ff 17:       nop (0r)        
+             0x000403c8: ed 07:       clre (0r)       
+             0x000403ca: ff 17:       nop (0r)        
+             0x000403cc: f3 07:       eeu (1r)        res[r3]
+             0x000403ce: ff 17:       nop (0r)        
+             0x000403d0: d9 e8:       setc (ru6)      res[r3], 0x19
+             0x000403d2: ff 17:       nop (0r)        
+             0x000403d4: 00 f0 03 d8: ldap (lu10)     r11, 0x3 <.label10>
+             0x000403d8: f3 47:       setv (1r)       res[r3], r11
+             0x000403da: ff 17:       nop (0r)        
+.label11     0x000403dc: 13 17:       setd (r2r)      res[r3], r4
+             0x000403de: ff 17:       nop (0r)        
+             0x000403e0: ec 07:       waiteu (0r)     
+             0x000403e2: ff 17:       nop (0r)        
+.label10     0x000403e4: cb 3e:       getts (2r)      r2, res[r3]
+             0x000403e6: ff 17:       nop (0r)        
+             0x000403e8: 03 b7:       in (2r)         r4, res[r3]
+             0x000403ea: ff 17:       nop (0r)        
+             0x000403ec: 71 39:       and (3r)        r11, r4, r1
+             0x000403ee: ff 17:       nop (0r)        
+             0x000403f0: 3c 32:       eq (3r)         r11, r11, r0
+             0x000403f2: ff 17:       nop (0r)        
+             0x000403f4: 00 f0 c7 7e: bf (lru6)       r11, -0x7 <.label11>
+             0x000403f8: 08 90:       add (2rus)      r0, r2, 0x0
+             0x000403fa: 00 5d:       ldw (ru6)       r4, sp[0x0]
+             0x000403fc: 82 67:       ldaw (ru6)      sp, sp[0x2]
+             0x000403fe: ff 17:       nop (0r)        
+             0x00040400: ff 17:       nop (0r)        
+             0x00040402: c0 77:       retsp (u6)      0x0
+
+<gatherData>:
+             0x00040404: 01 f0 98 7f: dualentsp (lu6) 0x58
+             0x00040408: 01 f0 12 55: stw (lru6)      r4, sp[0x52]
+             0x0004040c: 01 f0 53 55: stw (lru6)      r5, sp[0x53]
+             0x00040410: 01 f0 94 55: stw (lru6)      r6, sp[0x54]
+             0x00040414: 01 f0 d5 55: stw (lru6)      r7, sp[0x55]
+             0x00040418: 01 f0 16 56: stw (lru6)      r8, sp[0x56]
+             0x0004041c: ff 17:       nop (0r)        
+             0x0004041e: 3c 08:       ldw (2rus)      r3, r3[0x0]
+             0x00040420: c1 e8:       setc (ru6)      res[r3], 0x1
+             0x00040422: ff 17:       nop (0r)        
+             0x00040424: d3 3e:       setpt (r2r)     res[r3], r0
+             0x00040426: ff 17:       nop (0r)        
+             0x00040428: 07 b7:       in (2r)         r5, res[r3]
+             0x0004042a: 00 68:       ldc (ru6)       r0, 0x0
+             0x0004042c: c2 66:       ldaw (ru6)      r11, sp[0x2]
+             0x0004042e: 11 a7:       mkmsk (rus)     r4, 0x1
+             0x00040430: 05 f0 80 69: ldc (lru6)      r6, 0x140
+.label12     0x00040434: b4 ad:       shr (2rus)      r7, r5, 0x8
+             0x00040436: 0c 12:       add (3r)        r8, r11, r0
+             0x00040438: fc f9 ec 8f: st8 (l3r)       r7, r11[r0]
+             0x0004043c: 02 90:       add (2rus)      r0, r0, 0x2
+             0x0004043e: 96 ad:       shr (2rus)      r5, r5, 0x18
+             0x00040440: 10 fc ec 8f: st8 (l3r)       r5, r8[r4]
+             0x00040444: c1 e8:       setc (ru6)      res[r3], 0x1
+             0x00040446: ff 17:       nop (0r)        
+             0x00040448: 07 b7:       in (2r)         r5, res[r3]
+             0x0004044a: b2 c2:       lss (3r)        r7, r0, r6
+             0x0004044c: 00 f0 c7 75: bt (lru6)       r7, -0x7 <.label12>
+             0x00040450: 02 64:       ldaw (ru6)      r0, sp[0x2]
+             0x00040452: c5 68:       ldc (ru6)       r3, 0x5
+             0x00040454: 00 f0 5a d1: bl (lu10)       0x15a <computeOV7670Data>
+             0x00040458: 01 f0 16 5e: ldw (lru6)      r8, sp[0x56]
+             0x0004045c: 01 f0 94 5d: ldw (lru6)      r6, sp[0x54]
+             0x00040460: 01 f0 d5 5d: ldw (lru6)      r7, sp[0x55]
+             0x00040464: 01 f0 12 5d: ldw (lru6)      r4, sp[0x52]
+             0x00040468: 01 f0 53 5d: ldw (lru6)      r5, sp[0x53]
+             0x0004046c: 01 f0 d8 77: retsp (lu6)     0x58
+
+<_Sov07740_capture_0>:
+             0x00040470: ff 17:       nop (0r)        
+             0x00040472: 90 7f:       dualentsp (u6)  0x10
+             0x00040474: 44 fb ec f7: std (l2rus)     r5, r4, sp[0x4]
+             0x00040478: 6d fb ec f7: std (l2rus)     r7, r6, sp[0x5]
+             0x0004047c: 46 fc ec f7: std (l2rus)     r9, r8, sp[0x6]
+             0x00040480: 44 90:       add (2rus)      r4, r1, 0x0
+             0x00040482: 8e 56:       stw (ru6)       r10, sp[0xe]
+             0x00040484: ee 17:       get (0r)        r11, id
+             0x00040486: ff 17:       nop (0r)        
+             0x00040488: 00 f0 00 60: ldaw (lru6)     r0, dp[0x0]
+             0x0004048c: ff 17:       nop (0r)        
+             0x0004048e: 83 4c:       ldw (3r)        r0, r0[r11]
+             0x00040490: c0 68:       ldc (ru6)       r3, 0x0
+             0x00040492: 07 54:       stw (ru6)       r0, sp[0x7]
+             0x00040494: 00 f0 5c 62: ldaw (lru6)     r9, dp[0x1c]
+             0x00040498: 00 f0 56 61: ldaw (lru6)     r5, dp[0x16]
+             0x0004049c: 05 f0 c0 69: ldc (lru6)      r7, 0x140
+             0x000404a0: 01 f0 00 6a: ldc (lru6)      r8, 0x40
+.label15     0x000404a4: 00 f0 10 58: ldw (lru6)      r0, dp[0x10]
+             0x000404a8: 10 90:       add (2rus)      r1, r0, 0x0
+             0x000404aa: ff 17:       nop (0r)        
+             0x000404ac: cd ae:       out (r2r)       res[r1], r3
+             0x000404ae: e0 8f:       gettime (1r)    r0
+             0x000404b0: 0f f0 a8 68: ldc (lru6)      r2, 0x3e8
+             0x000404b4: 02 10:       add (3r)        r0, r0, r2
+             0x000404b6: 87 5c:       ldw (ru6)       r2, sp[0x7]
+             0x000404b8: d2 16:       setd (r2r)      res[r2], r0
+             0x000404ba: ff 17:       nop (0r)        
+             0x000404bc: 89 e8:       setc (ru6)      res[r2], 0x9
+             0x000404be: ff 17:       nop (0r)        
+             0x000404c0: c2 b6:       in (2r)         r0, res[r2]
+             0x000404c2: ff 17:       nop (0r)        
+             0x000404c4: d1 a6:       mkmsk (rus)     r0, 0x1
+             0x000404c6: ff 17:       nop (0r)        
+             0x000404c8: c1 ae:       out (r2r)       res[r1], r0
+             0x000404ca: 0c 90:       add (2rus)      r0, r3, 0x0
+             0x000404cc: 02 f0 80 69: ldc (lru6)      r6, 0x80
+             0x000404d0: d8 90:       add (2rus)      r1, r6, 0x0
+             0x000404d2: ff 17:       nop (0r)        
+             0x000404d4: 00 f0 5a d4: bl (lu10)       -0x5a <waitForVSync>
+             0x000404d8: c8 90:       add (2rus)      r0, r6, 0x0
+             0x000404da: d8 90:       add (2rus)      r1, r6, 0x0
+             0x000404dc: 00 f0 5c d4: bl (lu10)       -0x5c <waitForVSync>
+             0x000404e0: 2e f1 bc 62: ldaw (lru6)     r10, dp[0x4bbc]
+             0x000404e4: 03 f0 b0 69: ldc (lru6)      r6, 0xf0
+.label13     0x000404e8: 80 91:       add (2rus)      r0, r8, 0x0
+             0x000404ea: 90 91:       add (2rus)      r1, r8, 0x0
+             0x000404ec: 00 f0 50 d4: bl (lu10)       -0x50 <waitForHREF>
+             0x000404f0: 53 68:       ldc (ru6)       r1, 0x13
+             0x000404f2: ff 17:       nop (0r)        
+             0x000404f4: 01 10:       add (3r)        r0, r0, r1
+             0x000404f6: 94 91:       add (2rus)      r1, r9, 0x0
+             0x000404f8: a8 91:       add (2rus)      r2, r10, 0x0
+             0x000404fa: f4 90:       add (2rus)      r3, r5, 0x0
+             0x000404fc: 00 f0 3f d4: bl (lu10)       -0x3f <gatherData>
+             0x00040500: 29 99:       sub (2rus)      r6, r6, 0x1
+             0x00040502: ff 17:       nop (0r)        
+             0x00040504: aa fe ec 9f: ldaw (l2rus)    r10, r10[0xa]
+             0x00040508: 57 14:       add (3r)        r9, r9, r7
+             0x0004050a: ff 17:       nop (0r)        
+             0x0004050c: 00 f0 8a 75: bt (lru6)       r6, -0xa <.label13>
+             0x00040510: 00 f0 5c 62: ldaw (lru6)     r9, dp[0x1c]
+             0x00040514: 84 91:       add (2rus)      r0, r9, 0x0
+             0x00040516: ff 17:       nop (0r)        
+             0x00040518: 00 f0 76 6c: ldw (lru6)      r1, cp[0x36]
+             0x0004051c: c0 68:       ldc (ru6)       r3, 0x0
+             0x0004051e: ff 17:       nop (0r)        
+.label14     0x00040520: 11 4f:       outct (rus)     res[r4], 0x1
+             0x00040522: 23 88:       ld8u (3r)       r2, r0[r3]
+             0x00040524: 11 cf:       chkct (rus)     res[r4], 0x1
+             0x00040526: ff 17:       nop (0r)        
+             0x00040528: 98 0f:       outt (r2r)      res[r4], r2
+             0x0004052a: ff 17:       nop (0r)        
+             0x0004052c: 11 4f:       outct (rus)     res[r4], 0x1
+             0x0004052e: ff 17:       nop (0r)        
+             0x00040530: 11 cf:       chkct (rus)     res[r4], 0x1
+             0x00040532: 15 98:       sub (2rus)      r1, r1, 0x1
+             0x00040534: 01 90:       add (2rus)      r0, r0, 0x1
+             0x00040536: ff 17:       nop (0r)        
+             0x00040538: 00 f0 47 74: bt (lru6)       r1, -0x7 <.label14>
+             0x0004053c: 00 f0 27 77: bu (lu6)        -0x27 <.label15>
+
+<sccb_init>:
+             0x00040540: d0 68:       ldc (ru6)       r3, 0x10
+             0x00040542: 80 7f:       dualentsp (u6)  0x0
+             0x00040544: de 16:       setd (r2r)      res[r2], r3
+             0x00040546: ff 17:       nop (0r)        
+             0x00040548: d8 fe ec 0f: setclk (lr2r)   res[r0], r2
+             0x0004054c: d9 fe ec 0f: setclk (lr2r)   res[r1], r2
+             0x00040550: 8f e8:       setc (ru6)      res[r2], 0xf
+             0x00040552: d9 a6:       mkmsk (rus)     r2, 0x1
+             0x00040554: c8 ae:       out (r2r)       res[r0], r2
+             0x00040556: ff 17:       nop (0r)        
+             0x00040558: c9 ae:       out (r2r)       res[r1], r2
+             0x0004055a: c0 77:       retsp (u6)      0x0
+
+<_Ssccb_wr_0>:
+             0x0004055c: ff 17:       nop (0r)        
+             0x0004055e: 88 7f:       dualentsp (u6)  0x8
+             0x00040560: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x00040564: 2e f9 ec f7: std (l2rus)     r7, r6, sp[0x2]
+             0x00040568: 07 fa ec f7: std (l2rus)     r9, r8, sp[0x3]
+             0x0004056c: 4c 90:       add (2rus)      r4, r3, 0x0
+             0x0004056e: 58 90:       add (2rus)      r5, r2, 0x0
+             0x00040570: 74 90:       add (2rus)      r7, r1, 0x0
+             0x00040572: 80 90:       add (2rus)      r8, r0, 0x0
+             0x00040574: 55 a7:       mkmsk (rus)     r9, 0x1
+             0x00040576: ff 17:       nop (0r)        
+             0x00040578: e5 ae:       out (r2r)       res[r5], r9
+             0x0004057a: ff 17:       nop (0r)        
+             0x0004057c: e4 ae:       out (r2r)       res[r4], r9
+             0x0004057e: ff 17:       nop (0r)        
+             0x00040580: f5 87:       syncr (1r)      res[r5]
+             0x00040582: ff 17:       nop (0r)        
+             0x00040584: e5 ae:       out (r2r)       res[r5], r9
+             0x00040586: ff 17:       nop (0r)        
+             0x00040588: f5 87:       syncr (1r)      res[r5]
+             0x0004058a: ff 17:       nop (0r)        
+             0x0004058c: 81 3f:       getts (2r)      r0, res[r5]
+             0x0004058e: ff 17:       nop (0r)        
+             0x00040590: 50 fa ec 9f: ldaw (l2rus)    r1, r0[0x4]
+             0x00040594: 94 3f:       setpt (r2r)     res[r4], r1
+             0x00040596: ff 17:       nop (0r)        
+             0x00040598: e4 ae:       out (r2r)       res[r4], r9
+             0x0004059a: 70 68:       ldc (ru6)       r1, 0x30
+             0x0004059c: 01 10:       add (3r)        r0, r0, r1
+             0x0004059e: ff 17:       nop (0r)        
+             0x000405a0: 90 3f:       setpt (r2r)     res[r4], r0
+             0x000405a2: 80 69:       ldc (ru6)       r6, 0x0
+             0x000405a4: c8 af:       out (r2r)       res[r4], r6
+             0x000405a6: ff 17:       nop (0r)        
+             0x000405a8: f4 87:       syncr (1r)      res[r4]
+             0x000405aa: ff 17:       nop (0r)        
+             0x000405ac: 01 f0 37 68: ldc (lru6)      r0, 0x77
+             0x000405b0: d4 90:       add (2rus)      r1, r5, 0x0
+             0x000405b2: e0 90:       add (2rus)      r2, r4, 0x0
+             0x000405b4: 00 f0 69 d0: bl (lu10)       0x69 <_Sphase1_0>
+             0x000405b8: 80 91:       add (2rus)      r0, r8, 0x0
+             0x000405ba: d4 90:       add (2rus)      r1, r5, 0x0
+             0x000405bc: e0 90:       add (2rus)      r2, r4, 0x0
+             0x000405be: ff 17:       nop (0r)        
+             0x000405c0: 00 f0 8e d0: bl (lu10)       0x8e <phase2w>
+             0x000405c4: cc 90:       add (2rus)      r0, r7, 0x0
+             0x000405c6: d4 90:       add (2rus)      r1, r5, 0x0
+             0x000405c8: e0 90:       add (2rus)      r2, r4, 0x0
+             0x000405ca: ff 17:       nop (0r)        
+             0x000405cc: 00 f0 d7 d0: bl (lu10)       0xd7 <phase3>
+             0x000405d0: f5 87:       syncr (1r)      res[r5]
+             0x000405d2: ff 17:       nop (0r)        
+             0x000405d4: e5 ae:       out (r2r)       res[r5], r9
+             0x000405d6: ff 17:       nop (0r)        
+             0x000405d8: f5 87:       syncr (1r)      res[r5]
+             0x000405da: ff 17:       nop (0r)        
+             0x000405dc: 81 3f:       getts (2r)      r0, res[r5]
+             0x000405de: ff 17:       nop (0r)        
+             0x000405e0: 90 94:       add (2rus)      r1, r0, 0x8
+             0x000405e2: ff 17:       nop (0r)        
+             0x000405e4: 95 3f:       setpt (r2r)     res[r5], r1
+             0x000405e6: ff 17:       nop (0r)        
+             0x000405e8: c9 af:       out (r2r)       res[r5], r6
+             0x000405ea: ff 17:       nop (0r)        
+             0x000405ec: 13 f8 ec 9f: ldaw (l2rus)    r1, r0[0x3]
+             0x000405f0: 94 3f:       setpt (r2r)     res[r4], r1
+             0x000405f2: ff 17:       nop (0r)        
+             0x000405f4: c8 af:       out (r2r)       res[r4], r6
+             0x000405f6: ff 17:       nop (0r)        
+             0x000405f8: 50 fa ec 9f: ldaw (l2rus)    r1, r0[0x4]
+             0x000405fc: 95 3f:       setpt (r2r)     res[r5], r1
+             0x000405fe: ff 17:       nop (0r)        
+             0x00040600: e5 ae:       out (r2r)       res[r5], r9
+             0x00040602: ff 17:       nop (0r)        
+             0x00040604: 80 fc ec 9f: ldaw (l2rus)    r0, r0[0x8]
+             0x00040608: 90 3f:       setpt (r2r)     res[r4], r0
+             0x0004060a: ff 17:       nop (0r)        
+             0x0004060c: e4 ae:       out (r2r)       res[r4], r9
+             0x0004060e: ff 17:       nop (0r)        
+             0x00040610: f4 87:       syncr (1r)      res[r4]
+             0x00040612: c8 90:       add (2rus)      r0, r6, 0x0
+             0x00040614: 07 fa ec ef: ldd (l2rus)     r9, r8, sp[0x3]
+             0x00040618: 2e f9 ec ef: ldd (l2rus)     r7, r6, sp[0x2]
+             0x0004061c: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x00040620: ff 17:       nop (0r)        
+             0x00040622: c8 77:       retsp (u6)      0x8
+
+<_Ssccb_rd_0>:
+             0x00040624: ff 17:       nop (0r)        
+             0x00040626: 88 7f:       dualentsp (u6)  0x8
+             0x00040628: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x0004062c: 2e f9 ec f7: std (l2rus)     r7, r6, sp[0x2]
+             0x00040630: 07 fa ec f7: std (l2rus)     r9, r8, sp[0x3]
+             0x00040634: 48 90:       add (2rus)      r4, r2, 0x0
+             0x00040636: 54 90:       add (2rus)      r5, r1, 0x0
+             0x00040638: 60 90:       add (2rus)      r6, r0, 0x0
+             0x0004063a: 1d a7:       mkmsk (rus)     r7, 0x1
+             0x0004063c: cd af:       out (r2r)       res[r5], r7
+             0x0004063e: ff 17:       nop (0r)        
+             0x00040640: cc af:       out (r2r)       res[r4], r7
+             0x00040642: ff 17:       nop (0r)        
+             0x00040644: f5 87:       syncr (1r)      res[r5]
+             0x00040646: ff 17:       nop (0r)        
+             0x00040648: cd af:       out (r2r)       res[r5], r7
+             0x0004064a: ff 17:       nop (0r)        
+             0x0004064c: f5 87:       syncr (1r)      res[r5]
+             0x0004064e: ff 17:       nop (0r)        
+             0x00040650: 81 3f:       getts (2r)      r0, res[r5]
+             0x00040652: ff 17:       nop (0r)        
+             0x00040654: 50 fa ec 9f: ldaw (l2rus)    r1, r0[0x4]
+             0x00040658: 94 3f:       setpt (r2r)     res[r4], r1
+             0x0004065a: ff 17:       nop (0r)        
+             0x0004065c: cc af:       out (r2r)       res[r4], r7
+             0x0004065e: 70 6a:       ldc (ru6)       r9, 0x30
+             0x00040660: 81 14:       add (3r)        r0, r0, r9
+             0x00040662: ff 17:       nop (0r)        
+             0x00040664: 90 3f:       setpt (r2r)     res[r4], r0
+             0x00040666: 00 6a:       ldc (ru6)       r8, 0x0
+             0x00040668: e0 ae:       out (r2r)       res[r4], r8
+             0x0004066a: ff 17:       nop (0r)        
+             0x0004066c: f4 87:       syncr (1r)      res[r4]
+             0x0004066e: ff 17:       nop (0r)        
+             0x00040670: 01 f0 37 68: ldc (lru6)      r0, 0x77
+             0x00040674: d4 90:       add (2rus)      r1, r5, 0x0
+             0x00040676: ff 17:       nop (0r)        
+             0x00040678: 00 f0 38 d0: bl (lu10)       0x38 <_Sphase1_0>
+             0x0004067c: c8 90:       add (2rus)      r0, r6, 0x0
+             0x0004067e: d4 90:       add (2rus)      r1, r5, 0x0
+             0x00040680: e0 90:       add (2rus)      r2, r4, 0x0
+             0x00040682: ff 17:       nop (0r)        
+             0x00040684: 00 f0 5d d0: bl (lu10)       0x5d <phase2w>
+             0x00040688: f5 87:       syncr (1r)      res[r5]
+             0x0004068a: ff 17:       nop (0r)        
+             0x0004068c: cd af:       out (r2r)       res[r5], r7
+             0x0004068e: ff 17:       nop (0r)        
+             0x00040690: f5 87:       syncr (1r)      res[r5]
+             0x00040692: ff 17:       nop (0r)        
+             0x00040694: 81 3f:       getts (2r)      r0, res[r5]
+             0x00040696: ff 17:       nop (0r)        
+             0x00040698: 90 94:       add (2rus)      r1, r0, 0x8
+             0x0004069a: ff 17:       nop (0r)        
+             0x0004069c: 95 3f:       setpt (r2r)     res[r5], r1
+             0x0004069e: ff 17:       nop (0r)        
+             0x000406a0: e1 ae:       out (r2r)       res[r5], r8
+             0x000406a2: ff 17:       nop (0r)        
+             0x000406a4: 13 f8 ec 9f: ldaw (l2rus)    r1, r0[0x3]
+             0x000406a8: 94 3f:       setpt (r2r)     res[r4], r1
+             0x000406aa: ff 17:       nop (0r)        
+             0x000406ac: e0 ae:       out (r2r)       res[r4], r8
+             0x000406ae: ff 17:       nop (0r)        
+             0x000406b0: 50 fa ec 9f: ldaw (l2rus)    r1, r0[0x4]
+             0x000406b4: 95 3f:       setpt (r2r)     res[r5], r1
+             0x000406b6: ff 17:       nop (0r)        
+             0x000406b8: cd af:       out (r2r)       res[r5], r7
+             0x000406ba: ff 17:       nop (0r)        
+             0x000406bc: 80 fc ec 9f: ldaw (l2rus)    r0, r0[0x8]
+             0x000406c0: 90 3f:       setpt (r2r)     res[r4], r0
+             0x000406c2: ff 17:       nop (0r)        
+             0x000406c4: cc af:       out (r2r)       res[r4], r7
+             0x000406c6: ff 17:       nop (0r)        
+             0x000406c8: f4 87:       syncr (1r)      res[r4]
+             0x000406ca: ff 17:       nop (0r)        
+             0x000406cc: f5 87:       syncr (1r)      res[r5]
+             0x000406ce: ff 17:       nop (0r)        
+             0x000406d0: cd af:       out (r2r)       res[r5], r7
+             0x000406d2: ff 17:       nop (0r)        
+             0x000406d4: f5 87:       syncr (1r)      res[r5]
+             0x000406d6: ff 17:       nop (0r)        
+             0x000406d8: 81 3f:       getts (2r)      r0, res[r5]
+             0x000406da: ff 17:       nop (0r)        
+             0x000406dc: 50 fa ec 9f: ldaw (l2rus)    r1, r0[0x4]
+             0x000406e0: 94 3f:       setpt (r2r)     res[r4], r1
+             0x000406e2: ff 17:       nop (0r)        
+             0x000406e4: cc af:       out (r2r)       res[r4], r7
+             0x000406e6: 81 14:       add (3r)        r0, r0, r9
+             0x000406e8: 90 3f:       setpt (r2r)     res[r4], r0
+             0x000406ea: ff 17:       nop (0r)        
+             0x000406ec: e0 ae:       out (r2r)       res[r4], r8
+             0x000406ee: ff 17:       nop (0r)        
+             0x000406f0: f4 87:       syncr (1r)      res[r4]
+             0x000406f2: ff 17:       nop (0r)        
+             0x000406f4: 01 f0 32 68: ldc (lru6)      r0, 0x72
+             0x000406f8: d4 90:       add (2rus)      r1, r5, 0x0
+             0x000406fa: e0 90:       add (2rus)      r2, r4, 0x0
+             0x000406fc: 00 f0 17 d0: bl (lu10)       0x17 <_Sphase1_0>
+             0x00040700: c4 90:       add (2rus)      r0, r5, 0x0
+             0x00040702: d0 90:       add (2rus)      r1, r4, 0x0
+             0x00040704: 00 f0 62 d0: bl (lu10)       0x62 <phase2r>
+             0x00040708: f5 87:       syncr (1r)      res[r5]
+             0x0004070a: ff 17:       nop (0r)        
+             0x0004070c: cd af:       out (r2r)       res[r5], r7
+             0x0004070e: ff 17:       nop (0r)        
+             0x00040710: f5 87:       syncr (1r)      res[r5]
+             0x00040712: ff 17:       nop (0r)        
+             0x00040714: 85 3f:       getts (2r)      r1, res[r5]
+             0x00040716: ff 17:       nop (0r)        
+             0x00040718: a4 94:       add (2rus)      r2, r1, 0x8
+             0x0004071a: ff 17:       nop (0r)        
+             0x0004071c: 99 3f:       setpt (r2r)     res[r5], r2
+             0x0004071e: ff 17:       nop (0r)        
+             0x00040720: e1 ae:       out (r2r)       res[r5], r8
+             0x00040722: ff 17:       nop (0r)        
+             0x00040724: 27 f8 ec 9f: ldaw (l2rus)    r2, r1[0x3]
+             0x00040728: 98 3f:       setpt (r2r)     res[r4], r2
+             0x0004072a: ff 17:       nop (0r)        
+             0x0004072c: e0 ae:       out (r2r)       res[r4], r8
+             0x0004072e: ff 17:       nop (0r)        
+             0x00040730: 64 fa ec 9f: ldaw (l2rus)    r2, r1[0x4]
+             0x00040734: 99 3f:       setpt (r2r)     res[r5], r2
+             0x00040736: ff 17:       nop (0r)        
+             0x00040738: cd af:       out (r2r)       res[r5], r7
+             0x0004073a: ff 17:       nop (0r)        
+             0x0004073c: 94 fc ec 9f: ldaw (l2rus)    r1, r1[0x8]
+             0x00040740: 94 3f:       setpt (r2r)     res[r4], r1
+             0x00040742: ff 17:       nop (0r)        
+             0x00040744: cc af:       out (r2r)       res[r4], r7
+             0x00040746: ff 17:       nop (0r)        
+             0x00040748: f4 87:       syncr (1r)      res[r4]
+             0x0004074a: ff 17:       nop (0r)        
+             0x0004074c: 07 fa ec ef: ldd (l2rus)     r9, r8, sp[0x3]
+             0x00040750: 2e f9 ec ef: ldd (l2rus)     r7, r6, sp[0x2]
+             0x00040754: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x00040758: ff 17:       nop (0r)        
+             0x0004075a: c8 77:       retsp (u6)      0x8
+
+<_Sphase1_0>:
+             0x0004075c: ff 17:       nop (0r)        
+             0x0004075e: 80 7f:       dualentsp (u6)  0x0
+             0x00040760: 84 77:       extsp (u6)      0x4
+             0x00040762: ff 17:       nop (0r)        
+             0x00040764: 04 f9 ec f7: std (l2rus)     r5, r4, sp[0x0]
+             0x00040768: 2d f9 ec f7: std (l2rus)     r7, r6, sp[0x1]
+             0x0004076c: 01 f0 f2 68: ldc (lru6)      r3, 0x72
+             0x00040770: 03 30:       eq (3r)         r0, r0, r3
+             0x00040772: ff 17:       nop (0r)        
+             0x00040774: 01 f0 c2 68: ldc (lru6)      r3, 0x42
+             0x00040778: b3 40:       or (3r)         r11, r0, r3
+             0x0004077a: d1 a6:       mkmsk (rus)     r0, 0x1
+             0x0004077c: c1 ae:       out (r2r)       res[r1], r0
+             0x0004077e: ff 17:       nop (0r)        
+             0x00040780: f1 87:       syncr (1r)      res[r1]
+             0x00040782: ff 17:       nop (0r)        
+             0x00040784: cd 3e:       getts (2r)      r3, res[r1]
+             0x00040786: ff 17:       nop (0r)        
+             0x00040788: 9e fa ec 9f: ldaw (l2rus)    r5, r3[0x6]
+             0x0004078c: 88 69:       ldc (ru6)       r6, 0x8
+             0x0004078e: 00 69:       ldc (ru6)       r4, 0x0
+.label16     0x00040790: b4 9d:       sub (2rus)      r7, r5, 0x8
+             0x00040792: ff 17:       nop (0r)        
+             0x00040794: 1d 3f:       setpt (r2r)     res[r1], r7
+             0x00040796: ff 17:       nop (0r)        
+             0x00040798: 01 af:       out (r2r)       res[r1], r4
+             0x0004079a: 74 9b:       sub (2rus)      r7, r5, 0x4
+             0x0004079c: 1e 3f:       setpt (r2r)     res[r2], r7
+             0x0004079e: 29 99:       sub (2rus)      r6, r6, 0x1
+             0x000407a0: 3e 2c:       shr (3r)        r7, r11, r6
+             0x000407a2: ff 17:       nop (0r)        
+             0x000407a4: 0e af:       out (r2r)       res[r2], r7
+             0x000407a6: ff 17:       nop (0r)        
+             0x000407a8: 15 3f:       setpt (r2r)     res[r1], r5
+             0x000407aa: ff 17:       nop (0r)        
+             0x000407ac: c1 ae:       out (r2r)       res[r1], r0
+             0x000407ae: ff 17:       nop (0r)        
+             0x000407b0: 54 fb ec 9f: ldaw (l2rus)    r5, r5[0x4]
+             0x000407b4: 00 f0 8a 75: bt (lru6)       r6, -0xa <.label16>
+             0x000407b8: 02 f0 d0 6a: ldc (lru6)      r11, 0x90
+             0x000407bc: 3f 15:       add (3r)        r11, r3, r11
+             0x000407be: ff 17:       nop (0r)        
+             0x000407c0: 5d 3f:       setpt (r2r)     res[r1], r11
+             0x000407c2: ff 17:       nop (0r)        
+             0x000407c4: 01 af:       out (r2r)       res[r1], r4
+             0x000407c6: ff 17:       nop (0r)        
+             0x000407c8: 81 e8:       setc (ru6)      res[r2], 0x1
+             0x000407ca: ff 17:       nop (0r)        
+             0x000407cc: 02 f0 d4 6a: ldc (lru6)      r11, 0x94
+             0x000407d0: 3f 15:       add (3r)        r11, r3, r11
+             0x000407d2: ff 17:       nop (0r)        
+             0x000407d4: 5e 3f:       setpt (r2r)     res[r2], r11
+             0x000407d6: ff 17:       nop (0r)        
+             0x000407d8: ca b6:       in (2r)         r2, res[r2]
+             0x000407da: ff 17:       nop (0r)        
+             0x000407dc: 02 f0 98 68: ldc (lru6)      r2, 0x98
+             0x000407e0: 2e 10:       add (3r)        r2, r3, r2
+             0x000407e2: ff 17:       nop (0r)        
+             0x000407e4: d9 3e:       setpt (r2r)     res[r1], r2
+             0x000407e6: ff 17:       nop (0r)        
+             0x000407e8: c1 ae:       out (r2r)       res[r1], r0
+             0x000407ea: ff 17:       nop (0r)        
+             0x000407ec: 2d f9 ec ef: ldd (l2rus)     r7, r6, sp[0x1]
+             0x000407f0: 04 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x0]
+             0x000407f4: 84 67:       ldaw (ru6)      sp, sp[0x4]
+             0x000407f6: ff 17:       nop (0r)        
+             0x000407f8: ff 17:       nop (0r)        
+             0x000407fa: c0 77:       retsp (u6)      0x0
+
+<phase2w>:
+             0x000407fc: ff 17:       nop (0r)        
+             0x000407fe: 80 7f:       dualentsp (u6)  0x0
+             0x00040800: 84 77:       extsp (u6)      0x4
+             0x00040802: ff 17:       nop (0r)        
+             0x00040804: 04 f9 ec f7: std (l2rus)     r5, r4, sp[0x0]
+             0x00040808: 2d f9 ec f7: std (l2rus)     r7, r6, sp[0x1]
+             0x0004080c: dd a6:       mkmsk (rus)     r3, 0x1
+             0x0004080e: ff 17:       nop (0r)        
+             0x00040810: cd ae:       out (r2r)       res[r1], r3
+             0x00040812: ff 17:       nop (0r)        
+             0x00040814: f1 87:       syncr (1r)      res[r1]
+             0x00040816: ff 17:       nop (0r)        
+             0x00040818: 4d 3f:       getts (2r)      r11, res[r1]
+             0x0004081a: ff 17:       nop (0r)        
+             0x0004081c: 1e fc ec 9f: ldaw (l2rus)    r5, r11[0x6]
+             0x00040820: 88 69:       ldc (ru6)       r6, 0x8
+             0x00040822: 00 69:       ldc (ru6)       r4, 0x0
+.label17     0x00040824: b4 9d:       sub (2rus)      r7, r5, 0x8
+             0x00040826: ff 17:       nop (0r)        
+             0x00040828: 1d 3f:       setpt (r2r)     res[r1], r7
+             0x0004082a: ff 17:       nop (0r)        
+             0x0004082c: 01 af:       out (r2r)       res[r1], r4
+             0x0004082e: 74 9b:       sub (2rus)      r7, r5, 0x4
+             0x00040830: 1e 3f:       setpt (r2r)     res[r2], r7
+             0x00040832: 29 99:       sub (2rus)      r6, r6, 0x1
+             0x00040834: b2 fa ec 17: ashr (l3r)      r7, r0, r6
+             0x00040838: 0e af:       out (r2r)       res[r2], r7
+             0x0004083a: ff 17:       nop (0r)        
+             0x0004083c: 15 3f:       setpt (r2r)     res[r1], r5
+             0x0004083e: ff 17:       nop (0r)        
+             0x00040840: cd ae:       out (r2r)       res[r1], r3
+             0x00040842: ff 17:       nop (0r)        
+             0x00040844: 54 fb ec 9f: ldaw (l2rus)    r5, r5[0x4]
+             0x00040848: 00 f0 8a 75: bt (lru6)       r6, -0xa <.label17>
+             0x0004084c: 02 f0 10 68: ldc (lru6)      r0, 0x90
+             0x00040850: 8c 11:       add (3r)        r0, r11, r0
+             0x00040852: ff 17:       nop (0r)        
+             0x00040854: d1 3e:       setpt (r2r)     res[r1], r0
+             0x00040856: ff 17:       nop (0r)        
+             0x00040858: 01 af:       out (r2r)       res[r1], r4
+             0x0004085a: ff 17:       nop (0r)        
+             0x0004085c: 81 e8:       setc (ru6)      res[r2], 0x1
+             0x0004085e: ff 17:       nop (0r)        
+             0x00040860: 02 f0 14 68: ldc (lru6)      r0, 0x94
+             0x00040864: 8c 11:       add (3r)        r0, r11, r0
+             0x00040866: ff 17:       nop (0r)        
+             0x00040868: d2 3e:       setpt (r2r)     res[r2], r0
+             0x0004086a: ff 17:       nop (0r)        
+             0x0004086c: c2 b6:       in (2r)         r0, res[r2]
+             0x0004086e: ff 17:       nop (0r)        
+             0x00040870: 02 f0 18 68: ldc (lru6)      r0, 0x98
+             0x00040874: 8c 11:       add (3r)        r0, r11, r0
+             0x00040876: ff 17:       nop (0r)        
+             0x00040878: d1 3e:       setpt (r2r)     res[r1], r0
+             0x0004087a: ff 17:       nop (0r)        
+             0x0004087c: cd ae:       out (r2r)       res[r1], r3
+             0x0004087e: ff 17:       nop (0r)        
+             0x00040880: 2d f9 ec ef: ldd (l2rus)     r7, r6, sp[0x1]
+             0x00040884: 04 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x0]
+             0x00040888: 84 67:       ldaw (ru6)      sp, sp[0x4]
+             0x0004088a: ff 17:       nop (0r)        
+             0x0004088c: ff 17:       nop (0r)        
+             0x0004088e: c0 77:       retsp (u6)      0x0
+
+<phase2r>:
+             0x00040890: ff 17:       nop (0r)        
+             0x00040892: 80 7f:       dualentsp (u6)  0x0
+             0x00040894: 84 77:       extsp (u6)      0x4
+             0x00040896: ff 17:       nop (0r)        
+             0x00040898: 04 f9 ec f7: std (l2rus)     r5, r4, sp[0x0]
+             0x0004089c: 2d f9 ec f7: std (l2rus)     r7, r6, sp[0x1]
+             0x000408a0: dd a6:       mkmsk (rus)     r3, 0x1
+             0x000408a2: ff 17:       nop (0r)        
+             0x000408a4: cc ae:       out (r2r)       res[r0], r3
+             0x000408a6: ff 17:       nop (0r)        
+             0x000408a8: f0 87:       syncr (1r)      res[r0]
+             0x000408aa: ff 17:       nop (0r)        
+             0x000408ac: 4c 3f:       getts (2r)      r11, res[r0]
+             0x000408ae: ff 17:       nop (0r)        
+             0x000408b0: 41 e8:       setc (ru6)      res[r1], 0x1
+             0x000408b2: ff 17:       nop (0r)        
+             0x000408b4: 0f fc ec 9f: ldaw (l2rus)    r4, r11[0x7]
+             0x000408b8: 40 69:       ldc (ru6)       r5, 0x0
+             0x000408ba: 88 69:       ldc (ru6)       r6, 0x8
+             0x000408bc: e4 90:       add (2rus)      r2, r5, 0x0
+             0x000408be: ff 17:       nop (0r)        
+.label18     0x000408c0: 33 f9 ec a7: ldaw (l2rus)    r7, r4[-0x3]
+             0x000408c4: 1c 3f:       setpt (r2r)     res[r0], r7
+             0x000408c6: ff 17:       nop (0r)        
+             0x000408c8: 04 af:       out (r2r)       res[r0], r5
+             0x000408ca: 70 9b:       sub (2rus)      r7, r4, 0x4
+             0x000408cc: 1c 3f:       setpt (r2r)     res[r0], r7
+             0x000408ce: ff 17:       nop (0r)        
+             0x000408d0: cc ae:       out (r2r)       res[r0], r3
+             0x000408d2: ff 17:       nop (0r)        
+             0x000408d4: 11 3f:       setpt (r2r)     res[r1], r4
+             0x000408d6: ff 17:       nop (0r)        
+             0x000408d8: 0d b7:       in (2r)         r7, res[r1]
+             0x000408da: 29 99:       sub (2rus)      r6, r6, 0x1
+             0x000408dc: 7e 23:       shl (3r)        r7, r7, r6
+             0x000408de: ff 17:       nop (0r)        
+             0x000408e0: ee 40:       or (3r)         r2, r7, r2
+             0x000408e2: ff 17:       nop (0r)        
+             0x000408e4: 40 fb ec 9f: ldaw (l2rus)    r4, r4[0x4]
+             0x000408e8: 00 f0 8b 75: bt (lru6)       r6, -0xb <.label18>
+             0x000408ec: 02 f0 10 69: ldc (lru6)      r4, 0x90
+             0x000408f0: 0c 14:       add (3r)        r4, r11, r4
+             0x000408f2: ff 17:       nop (0r)        
+             0x000408f4: 10 3f:       setpt (r2r)     res[r0], r4
+             0x000408f6: 00 69:       ldc (ru6)       r4, 0x0
+             0x000408f8: 00 af:       out (r2r)       res[r0], r4
+             0x000408fa: ff 17:       nop (0r)        
+             0x000408fc: 02 f0 14 69: ldc (lru6)      r4, 0x94
+             0x00040900: 0c 14:       add (3r)        r4, r11, r4
+             0x00040902: ff 17:       nop (0r)        
+             0x00040904: 11 3f:       setpt (r2r)     res[r1], r4
+             0x00040906: ff 17:       nop (0r)        
+             0x00040908: cd ae:       out (r2r)       res[r1], r3
+             0x0004090a: ff 17:       nop (0r)        
+             0x0004090c: 02 f0 58 68: ldc (lru6)      r1, 0x98
+             0x00040910: 9d 11:       add (3r)        r1, r11, r1
+             0x00040912: ff 17:       nop (0r)        
+             0x00040914: d4 3e:       setpt (r2r)     res[r0], r1
+             0x00040916: ff 17:       nop (0r)        
+             0x00040918: cc ae:       out (r2r)       res[r0], r3
+             0x0004091a: 08 90:       add (2rus)      r0, r2, 0x0
+             0x0004091c: 2d f9 ec ef: ldd (l2rus)     r7, r6, sp[0x1]
+             0x00040920: 04 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x0]
+             0x00040924: 84 67:       ldaw (ru6)      sp, sp[0x4]
+             0x00040926: ff 17:       nop (0r)        
+             0x00040928: ff 17:       nop (0r)        
+             0x0004092a: c0 77:       retsp (u6)      0x0
+
+<phase3>:
+             0x0004092c: ff 17:       nop (0r)        
+             0x0004092e: 80 7f:       dualentsp (u6)  0x0
+             0x00040930: 84 77:       extsp (u6)      0x4
+             0x00040932: ff 17:       nop (0r)        
+             0x00040934: 04 f9 ec f7: std (l2rus)     r5, r4, sp[0x0]
+             0x00040938: 2d f9 ec f7: std (l2rus)     r7, r6, sp[0x1]
+             0x0004093c: dd a6:       mkmsk (rus)     r3, 0x1
+             0x0004093e: ff 17:       nop (0r)        
+             0x00040940: cd ae:       out (r2r)       res[r1], r3
+             0x00040942: ff 17:       nop (0r)        
+             0x00040944: f1 87:       syncr (1r)      res[r1]
+             0x00040946: ff 17:       nop (0r)        
+             0x00040948: 4d 3f:       getts (2r)      r11, res[r1]
+             0x0004094a: ff 17:       nop (0r)        
+             0x0004094c: 1e fc ec 9f: ldaw (l2rus)    r5, r11[0x6]
+             0x00040950: 88 69:       ldc (ru6)       r6, 0x8
+             0x00040952: 00 69:       ldc (ru6)       r4, 0x0
+.label19     0x00040954: b4 9d:       sub (2rus)      r7, r5, 0x8
+             0x00040956: ff 17:       nop (0r)        
+             0x00040958: 1d 3f:       setpt (r2r)     res[r1], r7
+             0x0004095a: ff 17:       nop (0r)        
+             0x0004095c: 01 af:       out (r2r)       res[r1], r4
+             0x0004095e: 74 9b:       sub (2rus)      r7, r5, 0x4
+             0x00040960: 1e 3f:       setpt (r2r)     res[r2], r7
+             0x00040962: 29 99:       sub (2rus)      r6, r6, 0x1
+             0x00040964: b2 fa ec 17: ashr (l3r)      r7, r0, r6
+             0x00040968: 0e af:       out (r2r)       res[r2], r7
+             0x0004096a: ff 17:       nop (0r)        
+             0x0004096c: 15 3f:       setpt (r2r)     res[r1], r5
+             0x0004096e: ff 17:       nop (0r)        
+             0x00040970: cd ae:       out (r2r)       res[r1], r3
+             0x00040972: ff 17:       nop (0r)        
+             0x00040974: 54 fb ec 9f: ldaw (l2rus)    r5, r5[0x4]
+             0x00040978: 00 f0 8a 75: bt (lru6)       r6, -0xa <.label19>
+             0x0004097c: 02 f0 10 68: ldc (lru6)      r0, 0x90
+             0x00040980: 8c 11:       add (3r)        r0, r11, r0
+             0x00040982: ff 17:       nop (0r)        
+             0x00040984: d1 3e:       setpt (r2r)     res[r1], r0
+             0x00040986: ff 17:       nop (0r)        
+             0x00040988: 01 af:       out (r2r)       res[r1], r4
+             0x0004098a: ff 17:       nop (0r)        
+             0x0004098c: 81 e8:       setc (ru6)      res[r2], 0x1
+             0x0004098e: ff 17:       nop (0r)        
+             0x00040990: 02 f0 14 68: ldc (lru6)      r0, 0x94
+             0x00040994: 8c 11:       add (3r)        r0, r11, r0
+             0x00040996: ff 17:       nop (0r)        
+             0x00040998: d2 3e:       setpt (r2r)     res[r2], r0
+             0x0004099a: ff 17:       nop (0r)        
+             0x0004099c: c2 b6:       in (2r)         r0, res[r2]
+             0x0004099e: ff 17:       nop (0r)        
+             0x000409a0: 02 f0 18 68: ldc (lru6)      r0, 0x98
+             0x000409a4: 8c 11:       add (3r)        r0, r11, r0
+             0x000409a6: ff 17:       nop (0r)        
+             0x000409a8: d1 3e:       setpt (r2r)     res[r1], r0
+             0x000409aa: ff 17:       nop (0r)        
+             0x000409ac: cd ae:       out (r2r)       res[r1], r3
+             0x000409ae: ff 17:       nop (0r)        
+             0x000409b0: 2d f9 ec ef: ldd (l2rus)     r7, r6, sp[0x1]
+             0x000409b4: 04 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x0]
+             0x000409b8: 84 67:       ldaw (ru6)      sp, sp[0x4]
+             0x000409ba: ff 17:       nop (0r)        
+             0x000409bc: ff 17:       nop (0r)        
+             0x000409be: c0 77:       retsp (u6)      0x0
+
+<computeOV7670Data>:
+             0x000409c0: 00 f0 8c 7f: dualentsp (lu6) 0xc
+             0x000409c4: 00 f0 82 54: stw (lru6)      r2, sp[0x2]
+             0x000409c8: 00 f0 c3 54: stw (lru6)      r3, sp[0x3]
+             0x000409cc: 00 f0 04 55: stw (lru6)      r4, sp[0x4]
+             0x000409d0: 00 f0 45 55: stw (lru6)      r5, sp[0x5]
+             0x000409d4: 00 f0 86 55: stw (lru6)      r6, sp[0x6]
+             0x000409d8: 00 f0 c7 55: stw (lru6)      r7, sp[0x7]
+             0x000409dc: 00 f0 08 56: stw (lru6)      r8, sp[0x8]
+             0x000409e0: 00 f0 49 56: stw (lru6)      r9, sp[0x9]
+             0x000409e4: 00 f0 8a 56: stw (lru6)      r10, sp[0xa]
+             0x000409e8: 00 f0 cb 56: stw (lru6)      r11, sp[0xb]
+             0x000409ec: 00 f0 40 69: ldc (lru6)      r5, 0x0
+             0x000409f0: 04 f0 3f 69: ldc (lru6)      r4, 0x13f
+             0x000409f4: 00 f0 c0 6a: ldc (lru6)      r11, 0x0
+
+<computeloop>:
+             0x000409f8: 15 91:       add (2rus)      r5, r5, 0x1
+             0x000409fa: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x000409fc: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x000409fe: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x00040a00: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a02: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x00040a04: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a06: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x00040a08: 42 1c:       sub (3r)        r8, r8, r6
+             0x00040a0a: 57 1c:       sub (3r)        r9, r9, r7
+             0x00040a0c: 68 97:       neg (2r)        r6, r8
+             0x00040a0e: 6d 97:       neg (2r)        r7, r9
+             0x00040a10: 0c c5:       lss (3r)        r8, r3, r8
+             0x00040a12: 1d c5:       lss (3r)        r9, r3, r9
+             0x00040a14: ae c2:       lss (3r)        r6, r3, r6
+             0x00040a16: bf c2:       lss (3r)        r7, r3, r7
+             0x00040a18: 22 44:       or (3r)         r6, r8, r6
+             0x00040a1a: 37 44:       or (3r)         r7, r9, r7
+             0x00040a1c: 68 91:       add (2rus)      r10, r6, 0x0
+             0x00040a1e: 3d a1:       shl (2rus)      r7, r7, 0x1
+             0x00040a20: 6b 44:       or (3r)         r10, r10, r7
+             0x00040a22: ff 17:       nop (0r)        
+             0x00040a24: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a26: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x00040a28: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x00040a2a: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x00040a2c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a2e: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x00040a30: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a32: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x00040a34: 42 1c:       sub (3r)        r8, r8, r6
+             0x00040a36: 57 1c:       sub (3r)        r9, r9, r7
+             0x00040a38: 68 97:       neg (2r)        r6, r8
+             0x00040a3a: 6d 97:       neg (2r)        r7, r9
+             0x00040a3c: 0c c5:       lss (3r)        r8, r3, r8
+             0x00040a3e: 1d c5:       lss (3r)        r9, r3, r9
+             0x00040a40: ae c2:       lss (3r)        r6, r3, r6
+             0x00040a42: bf c2:       lss (3r)        r7, r3, r7
+             0x00040a44: 22 44:       or (3r)         r6, r8, r6
+             0x00040a46: 37 44:       or (3r)         r7, r9, r7
+             0x00040a48: 2a a1:       shl (2rus)      r6, r6, 0x2
+             0x00040a4a: 3f a1:       shl (2rus)      r7, r7, 0x3
+             0x00040a4c: 6a 44:       or (3r)         r10, r10, r6
+             0x00040a4e: ff 17:       nop (0r)        
+             0x00040a50: 6b 44:       or (3r)         r10, r10, r7
+             0x00040a52: ff 17:       nop (0r)        
+             0x00040a54: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a56: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x00040a58: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x00040a5a: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x00040a5c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a5e: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x00040a60: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a62: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x00040a64: 42 1c:       sub (3r)        r8, r8, r6
+             0x00040a66: 57 1c:       sub (3r)        r9, r9, r7
+             0x00040a68: 68 97:       neg (2r)        r6, r8
+             0x00040a6a: 6d 97:       neg (2r)        r7, r9
+             0x00040a6c: 0c c5:       lss (3r)        r8, r3, r8
+             0x00040a6e: 1d c5:       lss (3r)        r9, r3, r9
+             0x00040a70: ae c2:       lss (3r)        r6, r3, r6
+             0x00040a72: bf c2:       lss (3r)        r7, r3, r7
+             0x00040a74: 22 44:       or (3r)         r6, r8, r6
+             0x00040a76: 37 44:       or (3r)         r7, r9, r7
+             0x00040a78: 68 a3:       shl (2rus)      r6, r6, 0x4
+             0x00040a7a: 7d a3:       shl (2rus)      r7, r7, 0x5
+             0x00040a7c: 6a 44:       or (3r)         r10, r10, r6
+             0x00040a7e: ff 17:       nop (0r)        
+             0x00040a80: 6b 44:       or (3r)         r10, r10, r7
+             0x00040a82: ff 17:       nop (0r)        
+             0x00040a84: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a86: a1 8a:       ld8u (3r)       r6, r0[r5]
+             0x00040a88: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x00040a8a: b1 8a:       ld8u (3r)       r7, r0[r5]
+             0x00040a8c: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a8e: c5 8a:       ld8u (3r)       r8, r1[r5]
+             0x00040a90: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040a92: d5 8a:       ld8u (3r)       r9, r1[r5]
+             0x00040a94: 42 1c:       sub (3r)        r8, r8, r6
+             0x00040a96: 57 1c:       sub (3r)        r9, r9, r7
+             0x00040a98: 68 97:       neg (2r)        r6, r8
+             0x00040a9a: 6d 97:       neg (2r)        r7, r9
+             0x00040a9c: 0c c5:       lss (3r)        r8, r3, r8
+             0x00040a9e: 1d c5:       lss (3r)        r9, r3, r9
+             0x00040aa0: ae c2:       lss (3r)        r6, r3, r6
+             0x00040aa2: bf c2:       lss (3r)        r7, r3, r7
+             0x00040aa4: 22 44:       or (3r)         r6, r8, r6
+             0x00040aa6: 37 44:       or (3r)         r7, r9, r7
+             0x00040aa8: 6a a3:       shl (2rus)      r6, r6, 0x6
+             0x00040aaa: 7f a3:       shl (2rus)      r7, r7, 0x7
+             0x00040aac: 6a 44:       or (3r)         r10, r10, r6
+             0x00040aae: ff 17:       nop (0r)        
+             0x00040ab0: 6b 44:       or (3r)         r10, r10, r7
+             0x00040ab2: ff 17:       nop (0r)        
+             0x00040ab4: 2b fd ec 8f: st8 (l3r)       r10, r2[r11]
+             0x00040ab8: 3d 92:       add (2rus)      r11, r11, 0x1
+             0x00040aba: ff 17:       nop (0r)        
+             0x00040abc: 64 c3:       lss (3r)        r6, r5, r4
+             0x00040abe: ff 17:       nop (0r)        
+             0x00040ac0: 00 f0 b3 75: bt (lru6)       r6, -0x33 <computeloop>
+             0x00040ac4: 00 f0 40 69: ldc (lru6)      r5, 0x0
+             0x00040ac8: 00 f0 27 69: ldc (lru6)      r4, 0x27
+
+<copyNewDataToOldBuffer>:
+             0x00040acc: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x00040ad0: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x00040ad4: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040ad6: ff 17:       nop (0r)        
+             0x00040ad8: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x00040adc: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x00040ae0: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040ae2: ff 17:       nop (0r)        
+             0x00040ae4: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x00040ae8: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x00040aec: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040aee: ff 17:       nop (0r)        
+             0x00040af0: b1 fa e6 27: ldd (l4r)       r6, r7, r0[r5]
+             0x00040af4: b5 fa e6 17: std (l4r)       r6, r7, r1[r5]
+             0x00040af8: 15 91:       add (2rus)      r5, r5, 0x1
+             0x00040afa: 64 c3:       lss (3r)        r6, r5, r4
+             0x00040afc: 00 f0 8d 75: bt (lru6)       r6, -0xd <copyNewDataToOldBuffer>
+             0x00040b00: 00 f0 82 5c: ldw (lru6)      r2, sp[0x2]
+             0x00040b04: 00 f0 c3 5c: ldw (lru6)      r3, sp[0x3]
+             0x00040b08: 00 f0 04 5d: ldw (lru6)      r4, sp[0x4]
+             0x00040b0c: 00 f0 45 5d: ldw (lru6)      r5, sp[0x5]
+             0x00040b10: 00 f0 86 5d: ldw (lru6)      r6, sp[0x6]
+             0x00040b14: 00 f0 c7 5d: ldw (lru6)      r7, sp[0x7]
+             0x00040b18: 00 f0 08 5e: ldw (lru6)      r8, sp[0x8]
+             0x00040b1c: 00 f0 49 5e: ldw (lru6)      r9, sp[0x9]
+             0x00040b20: 00 f0 8a 5e: ldw (lru6)      r10, sp[0xa]
+             0x00040b24: 00 f0 cb 5e: ldw (lru6)      r11, sp[0xb]
+             0x00040b28: 00 f0 cc 77: retsp (lu6)     0xc
+
+<camCLK.ctor>:
+             0x00040b2c: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040b30: 00 73:       bu (u6)         0x0 <.label20>
+.label20     0x00040b32: 00 73:       bu (u6)         0x0 <.label21>
+.label21     0x00040b34: 00 f0 0a 58: ldw (lru6)      r0, dp[0xa]
+             0x00040b38: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040b3a: 00 73:       bu (u6)         0x0 <.label22>
+.label22     0x00040b3c: c0 77:       retsp (u6)      0x0
+             0x00040b3e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camCLK.dtor>:
+             0x00040b40: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040b44: 00 73:       bu (u6)         0x0 <.label23>
+.label23     0x00040b46: 00 73:       bu (u6)         0x0 <.label24>
+.label24     0x00040b48: 00 f0 0a 58: ldw (lru6)      r0, dp[0xa]
+             0x00040b4c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040b4e: 00 73:       bu (u6)         0x0 <.label25>
+.label25     0x00040b50: c0 77:       retsp (u6)      0x0
+             0x00040b52: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<sccb1CLK.ctor>:
+             0x00040b54: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040b58: 00 73:       bu (u6)         0x0 <.label26>
+.label26     0x00040b5a: 00 73:       bu (u6)         0x0 <.label27>
+.label27     0x00040b5c: 00 f0 0b 58: ldw (lru6)      r0, dp[0xb]
+             0x00040b60: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040b62: 00 73:       bu (u6)         0x0 <.label28>
+.label28     0x00040b64: c0 77:       retsp (u6)      0x0
+             0x00040b66: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<sccb1CLK.dtor>:
+             0x00040b68: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040b6c: 00 73:       bu (u6)         0x0 <.label29>
+.label29     0x00040b6e: 00 73:       bu (u6)         0x0 <.label30>
+.label30     0x00040b70: 00 f0 0b 58: ldw (lru6)      r0, dp[0xb]
+             0x00040b74: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040b76: 00 73:       bu (u6)         0x0 <.label31>
+.label31     0x00040b78: c0 77:       retsp (u6)      0x0
+             0x00040b7a: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<sccb2CLK.ctor>:
+             0x00040b7c: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040b80: 00 73:       bu (u6)         0x0 <.label32>
+.label32     0x00040b82: 00 73:       bu (u6)         0x0 <.label33>
+.label33     0x00040b84: 00 f0 0c 58: ldw (lru6)      r0, dp[0xc]
+             0x00040b88: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040b8a: 00 73:       bu (u6)         0x0 <.label34>
+.label34     0x00040b8c: c0 77:       retsp (u6)      0x0
+             0x00040b8e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<sccb2CLK.dtor>:
+             0x00040b90: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040b94: 00 73:       bu (u6)         0x0 <.label35>
+.label35     0x00040b96: 00 73:       bu (u6)         0x0 <.label36>
+.label36     0x00040b98: 00 f0 0c 58: ldw (lru6)      r0, dp[0xc]
+             0x00040b9c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040b9e: 00 73:       bu (u6)         0x0 <.label37>
+.label37     0x00040ba0: c0 77:       retsp (u6)      0x0
+             0x00040ba2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<pclk1CLK.ctor>:
+             0x00040ba4: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040ba8: 00 73:       bu (u6)         0x0 <.label38>
+.label38     0x00040baa: 00 73:       bu (u6)         0x0 <.label39>
+.label39     0x00040bac: 00 f0 0d 58: ldw (lru6)      r0, dp[0xd]
+             0x00040bb0: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040bb2: 00 73:       bu (u6)         0x0 <.label40>
+.label40     0x00040bb4: c0 77:       retsp (u6)      0x0
+             0x00040bb6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<pclk1CLK.dtor>:
+             0x00040bb8: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040bbc: 00 73:       bu (u6)         0x0 <.label41>
+.label41     0x00040bbe: 00 73:       bu (u6)         0x0 <.label42>
+.label42     0x00040bc0: 00 f0 0d 58: ldw (lru6)      r0, dp[0xd]
+             0x00040bc4: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040bc6: 00 73:       bu (u6)         0x0 <.label43>
+.label43     0x00040bc8: c0 77:       retsp (u6)      0x0
+             0x00040bca: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<pclk2CLK.ctor>:
+             0x00040bcc: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040bd0: 00 73:       bu (u6)         0x0 <.label44>
+.label44     0x00040bd2: 00 73:       bu (u6)         0x0 <.label45>
+.label45     0x00040bd4: 00 f0 0e 58: ldw (lru6)      r0, dp[0xe]
+             0x00040bd8: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040bda: 00 73:       bu (u6)         0x0 <.label46>
+.label46     0x00040bdc: c0 77:       retsp (u6)      0x0
+             0x00040bde: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<pclk2CLK.dtor>:
+             0x00040be0: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040be4: 00 73:       bu (u6)         0x0 <.label47>
+.label47     0x00040be6: 00 73:       bu (u6)         0x0 <.label48>
+.label48     0x00040be8: 00 f0 0e 58: ldw (lru6)      r0, dp[0xe]
+             0x00040bec: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040bee: 00 73:       bu (u6)         0x0 <.label49>
+.label49     0x00040bf0: c0 77:       retsp (u6)      0x0
+             0x00040bf2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camRESET.ctor>:
+             0x00040bf4: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040bf8: 00 73:       bu (u6)         0x0 <.label50>
+.label50     0x00040bfa: 00 73:       bu (u6)         0x0 <.label51>
+.label51     0x00040bfc: 00 f0 0f 58: ldw (lru6)      r0, dp[0xf]
+             0x00040c00: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040c02: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040c06: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040c0a: 00 73:       bu (u6)         0x0 <.label52>
+.label52     0x00040c0c: c0 77:       retsp (u6)      0x0
+             0x00040c0e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camRESET.dtor>:
+             0x00040c10: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040c14: 00 73:       bu (u6)         0x0 <.label53>
+.label53     0x00040c16: 00 73:       bu (u6)         0x0 <.label54>
+.label54     0x00040c18: 00 f0 0f 58: ldw (lru6)      r0, dp[0xf]
+             0x00040c1c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040c1e: 00 73:       bu (u6)         0x0 <.label55>
+.label55     0x00040c20: c0 77:       retsp (u6)      0x0
+             0x00040c22: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camSFIN.ctor>:
+             0x00040c24: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040c28: 00 73:       bu (u6)         0x0 <.label56>
+.label56     0x00040c2a: 00 73:       bu (u6)         0x0 <.label57>
+.label57     0x00040c2c: 00 f0 10 58: ldw (lru6)      r0, dp[0x10]
+             0x00040c30: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040c32: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040c36: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040c3a: 00 73:       bu (u6)         0x0 <.label58>
+.label58     0x00040c3c: c0 77:       retsp (u6)      0x0
+             0x00040c3e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camSFIN.dtor>:
+             0x00040c40: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040c44: 00 73:       bu (u6)         0x0 <.label59>
+.label59     0x00040c46: 00 73:       bu (u6)         0x0 <.label60>
+.label60     0x00040c48: 00 f0 10 58: ldw (lru6)      r0, dp[0x10]
+             0x00040c4c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040c4e: 00 73:       bu (u6)         0x0 <.label61>
+.label61     0x00040c50: c0 77:       retsp (u6)      0x0
+             0x00040c52: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camSYNC.ctor>:
+             0x00040c54: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040c58: 00 73:       bu (u6)         0x0 <.label62>
+.label62     0x00040c5a: 00 73:       bu (u6)         0x0 <.label63>
+.label63     0x00040c5c: 00 f0 11 58: ldw (lru6)      r0, dp[0x11]
+             0x00040c60: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040c62: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040c66: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040c6a: 00 73:       bu (u6)         0x0 <.label64>
+.label64     0x00040c6c: c0 77:       retsp (u6)      0x0
+             0x00040c6e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<camSYNC.dtor>:
+             0x00040c70: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040c74: 00 73:       bu (u6)         0x0 <.label65>
+.label65     0x00040c76: 00 73:       bu (u6)         0x0 <.label66>
+.label66     0x00040c78: 00 f0 11 58: ldw (lru6)      r0, dp[0x11]
+             0x00040c7c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040c7e: 00 73:       bu (u6)         0x0 <.label67>
+.label67     0x00040c80: c0 77:       retsp (u6)      0x0
+             0x00040c82: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1XCLK.ctor>:
+             0x00040c84: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040c88: 00 73:       bu (u6)         0x0 <.label68>
+.label68     0x00040c8a: 00 73:       bu (u6)         0x0 <.label69>
+.label69     0x00040c8c: 00 f0 12 58: ldw (lru6)      r0, dp[0x12]
+             0x00040c90: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040c92: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040c96: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040c9a: 00 73:       bu (u6)         0x0 <.label70>
+.label70     0x00040c9c: c0 77:       retsp (u6)      0x0
+             0x00040c9e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1XCLK.dtor>:
+             0x00040ca0: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040ca4: 00 73:       bu (u6)         0x0 <.label71>
+.label71     0x00040ca6: 00 73:       bu (u6)         0x0 <.label72>
+.label72     0x00040ca8: 00 f0 12 58: ldw (lru6)      r0, dp[0x12]
+             0x00040cac: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040cae: 00 73:       bu (u6)         0x0 <.label73>
+.label73     0x00040cb0: c0 77:       retsp (u6)      0x0
+             0x00040cb2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1PCLK.ctor>:
+             0x00040cb4: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040cb8: 00 73:       bu (u6)         0x0 <.label74>
+.label74     0x00040cba: 00 73:       bu (u6)         0x0 <.label75>
+.label75     0x00040cbc: 00 f0 13 58: ldw (lru6)      r0, dp[0x13]
+             0x00040cc0: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040cc2: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040cc6: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040cca: 00 73:       bu (u6)         0x0 <.label76>
+.label76     0x00040ccc: c0 77:       retsp (u6)      0x0
+             0x00040cce: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1PCLK.dtor>:
+             0x00040cd0: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040cd4: 00 73:       bu (u6)         0x0 <.label77>
+.label77     0x00040cd6: 00 73:       bu (u6)         0x0 <.label78>
+.label78     0x00040cd8: 00 f0 13 58: ldw (lru6)      r0, dp[0x13]
+             0x00040cdc: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040cde: 00 73:       bu (u6)         0x0 <.label79>
+.label79     0x00040ce0: c0 77:       retsp (u6)      0x0
+             0x00040ce2: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1SCL.ctor>:
+             0x00040ce4: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040ce8: 00 73:       bu (u6)         0x0 <.label80>
+.label80     0x00040cea: 00 73:       bu (u6)         0x0 <.label81>
+.label81     0x00040cec: 00 f0 14 58: ldw (lru6)      r0, dp[0x14]
+             0x00040cf0: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040cf2: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040cf6: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040cfa: 00 73:       bu (u6)         0x0 <.label82>
+.label82     0x00040cfc: c0 77:       retsp (u6)      0x0
+             0x00040cfe: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1SCL.dtor>:
+             0x00040d00: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d04: 00 73:       bu (u6)         0x0 <.label83>
+.label83     0x00040d06: 00 73:       bu (u6)         0x0 <.label84>
+.label84     0x00040d08: 00 f0 14 58: ldw (lru6)      r0, dp[0x14]
+             0x00040d0c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040d0e: 00 73:       bu (u6)         0x0 <.label85>
+.label85     0x00040d10: c0 77:       retsp (u6)      0x0
+             0x00040d12: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1SDA.ctor>:
+             0x00040d14: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d18: 00 73:       bu (u6)         0x0 <.label86>
+.label86     0x00040d1a: 00 73:       bu (u6)         0x0 <.label87>
+.label87     0x00040d1c: 00 f0 15 58: ldw (lru6)      r0, dp[0x15]
+             0x00040d20: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040d22: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040d26: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040d2a: 00 73:       bu (u6)         0x0 <.label88>
+.label88     0x00040d2c: c0 77:       retsp (u6)      0x0
+             0x00040d2e: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1SDA.dtor>:
+             0x00040d30: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d34: 00 73:       bu (u6)         0x0 <.label89>
+.label89     0x00040d36: 00 73:       bu (u6)         0x0 <.label90>
+.label90     0x00040d38: 00 f0 15 58: ldw (lru6)      r0, dp[0x15]
+             0x00040d3c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040d3e: 00 73:       bu (u6)         0x0 <.label91>
+.label91     0x00040d40: c0 77:       retsp (u6)      0x0
+             0x00040d42: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam1DATA.ctor>:
+             0x00040d44: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d48: 00 73:       bu (u6)         0x0 <.label92>
+.label92     0x00040d4a: 00 73:       bu (u6)         0x0 <.label93>
+.label93     0x00040d4c: 00 f0 16 58: ldw (lru6)      r0, dp[0x16]
+             0x00040d50: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040d52: 80 f0 0f e8: setc (lru6)     res[r0], 0x200f
+             0x00040d56: 60 68:       ldc (ru6)       r1, 0x20
+             0x00040d58: d4 fe ec 27: settw (lr2r)    res[r0], r1
+             0x00040d5c: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040d60: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040d64: 00 73:       bu (u6)         0x0 <.label94>
+.label94     0x00040d66: c0 77:       retsp (u6)      0x0
+
+<cam1DATA.dtor>:
+             0x00040d68: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d6c: 00 73:       bu (u6)         0x0 <.label95>
+.label95     0x00040d6e: 00 73:       bu (u6)         0x0 <.label96>
+.label96     0x00040d70: 00 f0 16 58: ldw (lru6)      r0, dp[0x16]
+             0x00040d74: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040d76: 00 73:       bu (u6)         0x0 <.label97>
+.label97     0x00040d78: c0 77:       retsp (u6)      0x0
+             0x00040d7a: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2XCLK.ctor>:
+             0x00040d7c: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d80: 00 73:       bu (u6)         0x0 <.label98>
+.label98     0x00040d82: 00 73:       bu (u6)         0x0 <.label99>
+.label99     0x00040d84: 00 f0 17 58: ldw (lru6)      r0, dp[0x17]
+             0x00040d88: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040d8a: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040d8e: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040d92: 00 73:       bu (u6)         0x0 <.label100>
+.label100    0x00040d94: c0 77:       retsp (u6)      0x0
+             0x00040d96: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2XCLK.dtor>:
+             0x00040d98: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040d9c: 00 73:       bu (u6)         0x0 <.label101>
+.label101    0x00040d9e: 00 73:       bu (u6)         0x0 <.label102>
+.label102    0x00040da0: 00 f0 17 58: ldw (lru6)      r0, dp[0x17]
+             0x00040da4: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040da6: 00 73:       bu (u6)         0x0 <.label103>
+.label103    0x00040da8: c0 77:       retsp (u6)      0x0
+             0x00040daa: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2PCLK.ctor>:
+             0x00040dac: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040db0: 00 73:       bu (u6)         0x0 <.label104>
+.label104    0x00040db2: 00 73:       bu (u6)         0x0 <.label105>
+.label105    0x00040db4: 00 f0 18 58: ldw (lru6)      r0, dp[0x18]
+             0x00040db8: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040dba: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040dbe: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040dc2: 00 73:       bu (u6)         0x0 <.label106>
+.label106    0x00040dc4: c0 77:       retsp (u6)      0x0
+             0x00040dc6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2PCLK.dtor>:
+             0x00040dc8: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040dcc: 00 73:       bu (u6)         0x0 <.label107>
+.label107    0x00040dce: 00 73:       bu (u6)         0x0 <.label108>
+.label108    0x00040dd0: 00 f0 18 58: ldw (lru6)      r0, dp[0x18]
+             0x00040dd4: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040dd6: 00 73:       bu (u6)         0x0 <.label109>
+.label109    0x00040dd8: c0 77:       retsp (u6)      0x0
+             0x00040dda: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2SCL.ctor>:
+             0x00040ddc: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040de0: 00 73:       bu (u6)         0x0 <.label110>
+.label110    0x00040de2: 00 73:       bu (u6)         0x0 <.label111>
+.label111    0x00040de4: 00 f0 19 58: ldw (lru6)      r0, dp[0x19]
+             0x00040de8: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040dea: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040dee: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040df2: 00 73:       bu (u6)         0x0 <.label112>
+.label112    0x00040df4: c0 77:       retsp (u6)      0x0
+             0x00040df6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2SCL.dtor>:
+             0x00040df8: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040dfc: 00 73:       bu (u6)         0x0 <.label113>
+.label113    0x00040dfe: 00 73:       bu (u6)         0x0 <.label114>
+.label114    0x00040e00: 00 f0 19 58: ldw (lru6)      r0, dp[0x19]
+             0x00040e04: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040e06: 00 73:       bu (u6)         0x0 <.label115>
+.label115    0x00040e08: c0 77:       retsp (u6)      0x0
+             0x00040e0a: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2SDA.ctor>:
+             0x00040e0c: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040e10: 00 73:       bu (u6)         0x0 <.label116>
+.label116    0x00040e12: 00 73:       bu (u6)         0x0 <.label117>
+.label117    0x00040e14: 00 f0 1a 58: ldw (lru6)      r0, dp[0x1a]
+             0x00040e18: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040e1a: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040e1e: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040e22: 00 73:       bu (u6)         0x0 <.label118>
+.label118    0x00040e24: c0 77:       retsp (u6)      0x0
+             0x00040e26: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2SDA.dtor>:
+             0x00040e28: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040e2c: 00 73:       bu (u6)         0x0 <.label119>
+.label119    0x00040e2e: 00 73:       bu (u6)         0x0 <.label120>
+.label120    0x00040e30: 00 f0 1a 58: ldw (lru6)      r0, dp[0x1a]
+             0x00040e34: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040e36: 00 73:       bu (u6)         0x0 <.label121>
+.label121    0x00040e38: c0 77:       retsp (u6)      0x0
+             0x00040e3a: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<cam2DATA.ctor>:
+             0x00040e3c: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040e40: 00 73:       bu (u6)         0x0 <.label122>
+.label122    0x00040e42: 00 73:       bu (u6)         0x0 <.label123>
+.label123    0x00040e44: 00 f0 1b 58: ldw (lru6)      r0, dp[0x1b]
+             0x00040e48: 08 e8:       setc (ru6)      res[r0], 0x8
+             0x00040e4a: 80 f0 0f e8: setc (lru6)     res[r0], 0x200f
+             0x00040e4e: 60 68:       ldc (ru6)       r1, 0x20
+             0x00040e50: d4 fe ec 27: settw (lr2r)    res[r0], r1
+             0x00040e54: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00040e58: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040e5c: 00 73:       bu (u6)         0x0 <.label124>
+.label124    0x00040e5e: c0 77:       retsp (u6)      0x0
+
+<cam2DATA.dtor>:
+             0x00040e60: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040e64: 00 73:       bu (u6)         0x0 <.label125>
+.label125    0x00040e66: 00 73:       bu (u6)         0x0 <.label126>
+.label126    0x00040e68: 00 f0 1b 58: ldw (lru6)      r0, dp[0x1b]
+             0x00040e6c: 00 e8:       setc (ru6)      res[r0], 0x0
+             0x00040e6e: 00 73:       bu (u6)         0x0 <.label127>
+.label127    0x00040e70: c0 77:       retsp (u6)      0x0
+
+<main>:
+             0x00040e72: 42 77:       entsp (u6)      0x2
+.label128    0x00040e74: c2 86:       getr (rus)      r0, 0x2
+             0x00040e76: 02 74:       bt (ru6)        r0, -0x2 <.label128>
+             0x00040e78: 78 f0 02 68: ldc (lru6)      r0, 0x1e02
+             0x00040e7c: 7c f0 c2 6a: ldc (lru6)      r11, 0x1f02
+             0x00040e80: 5c 17:       setd (r2r)      res[r0], r11
+             0x00040e82: d1 4e:       outct (rus)     res[r0], 0x1
+             0x00040e84: 5c bf:       testct (2r)     r11, res[r0]
+             0x00040e86: c2 7a:       bf (ru6)        r11, 0x2 <.label129>
+             0x00040e88: d1 ce:       chkct (rus)     res[r0], 0x1
+             0x00040e8a: d1 4e:       outct (rus)     res[r0], 0x1
+.label129    0x00040e8c: 5c 8f:       int (2r)        r11, res[r0]
+             0x00040e8e: d1 ce:       chkct (rus)     res[r0], 0x1
+             0x00040e90: 05 68:       ldc (ru6)       r0, 0x5
+             0x00040e92: 00 f0 59 d0: bl (lu10)       0x59 <delay_ticks>
+             0x00040e96: 00 f0 40 7f: ldaw (lu6)      r11, cp[0x0]
+             0x00040e9a: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040e9c: 60 68:       ldc (ru6)       r1, 0x20
+             0x00040e9e: 02 69:       ldc (ru6)       r4, 0x2
+.label132    0x00040ea0: ac 09:       ldw (2rus)      r2, r11[0x0]
+             0x00040ea2: b8 ac:       shr (2rus)      r3, r2, 0x8
+             0x00040ea4: 38 47:       zext (rus)      r2, 0x8
+             0x00040ea6: 58 30:       eq (3r)         r5, r2, r0
+             0x00040ea8: 47 79:       bf (ru6)        r5, 0x7 <.label130>
+             0x00040eaa: a8 a4:       shl (2rus)      r2, r2, 0x8
+             0x00040eac: 68 42:       or (3r)         r2, r2, r4
+             0x00040eae: bc a4:       shl (2rus)      r3, r3, 0x8
+             0x00040eb0: 7c 42:       or (3r)         r3, r3, r4
+             0x00040eb2: de 16:       setd (r2r)      res[r2], r3
+             0x00040eb4: 7c 94:       add (2rus)      r11, r11, 0x4
+             0x00040eb6: 03 73:       bu (u6)         0x3 <.label131>
+.label130    0x00040eb8: a0 a4:       shl (2rus)      r2, r0, 0x8
+             0x00040eba: 68 42:       or (3r)         r2, r2, r4
+             0x00040ebc: e2 17:       freer (1r)      res[r2]
+.label131    0x00040ebe: 01 90:       add (2rus)      r0, r0, 0x1
+             0x00040ec0: 21 30:       eq (3r)         r2, r0, r1
+             0x00040ec2: 92 7c:       bf (ru6)        r2, -0x12 <.label132>
+             0x00040ec4: 00 f0 35 6c: ldw (lru6)      r0, cp[0x35]
+             0x00040ec8: 01 f0 c4 d6: bl (lu10)       -0x6c4 <__main__main_tile_1>
+             0x00040ecc: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040ece: c2 77:       retsp (u6)      0x2
+
+<_get_cmdline>:
+             0x00040ed0: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040ed4: 24 90:       add (2rus)      r2, r1, 0x0
+             0x00040ed6: 10 90:       add (2rus)      r1, r0, 0x0
+             0x00040ed8: 0d 68:       ldc (ru6)       r0, 0xd
+             0x00040eda: 00 f0 d7 d8: ldap (lu10)     r11, 0xd7 <_DoSyscall>
+             0x00040ede: fb 27:       bau (1r)        r11
+
+<__libc_done>:
+             0x00040ee0: 00 f0 42 77: entsp (lu6)     0x2
+             0x00040ee4: 00 68:       ldc (ru6)       r0, 0x0
+             0x00040ee6: 10 90:       add (2rus)      r1, r0, 0x0
+             0x00040ee8: 00 f0 d8 d0: bl (lu10)       0xd8 <__call_exitprocs>
+             0x00040eec: 00 f0 e0 d0: bl (lu10)       0xe0 <_cleanup>
+             0x00040ef0: 00 f0 20 d2: bl (lu10)       0x220 <.label133>
+             0x00040ef4: 00 f0 e2 d0: bl (lu10)       0xe2 <_done>
+
+<_exit_unlocked>:
+             0x00040ef8: 00 f0 44 77: entsp (lu6)     0x4
+             0x00040efc: 02 55:       stw (ru6)       r4, sp[0x2]
+             0x00040efe: 40 90:       add (2rus)      r4, r0, 0x0
+             0x00040f00: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040f02: 00 f0 cb d0: bl (lu10)       0xcb <__call_exitprocs>
+             0x00040f06: 00 f0 d3 d0: bl (lu10)       0xd3 <_cleanup>
+             0x00040f0a: 00 f0 13 d2: bl (lu10)       0x213 <.label133>
+             0x00040f0e: c0 90:       add (2rus)      r0, r4, 0x0
+             0x00040f10: 00 f0 dc d0: bl (lu10)       0xdc <_exit>
+
+<_DoException>:
+             0x00040f14: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040f18: ed 07:       clre (0r)       
+             0x00040f1a: ec 07:       waiteu (0r)     
+
+<memset>:
+             0x00040f1c: 00 f0 c2 6e: ldw (lru6)      r11, cp[0x2]
+             0x00040f20: ff 17:       nop (0r)        
+             0x00040f22: fb 27:       bau (1r)        r11
+
+<__init_threadlocal_timer>:
+             0x00040f24: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040f28: c9 86:       getr (rus)      r2, 0x1
+             0x00040f2a: 00 f0 40 60: ldaw (lru6)     r1, dp[0x0]
+             0x00040f2e: ee 17:       get (0r)        r11, id
+             0x00040f30: a7 fc ec 07: stw (l3r)       r2, r1[r11]
+             0x00040f34: c0 77:       retsp (u6)      0x0
+             0x00040f36: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__free_threadlocal_timer>:
+.label165    0x00040f38: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040f3c: 00 f0 80 60: ldaw (lru6)     r2, dp[0x0]
+             0x00040f40: ee 17:       get (0r)        r11, id
+             0x00040f42: ab 4c:       ldw (3r)        r2, r2[r11]
+             0x00040f44: e2 17:       freer (1r)      res[r2]
+             0x00040f46: c0 77:       retsp (u6)      0x0
+
+<delay_ticks>:
+             0x00040f48: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040f4c: e1 8f:       gettime (1r)    r1
+             0x00040f4e: ee 17:       get (0r)        r11, id
+             0x00040f50: 00 f0 80 60: ldaw (lru6)     r2, dp[0x0]
+             0x00040f54: ab 4c:       ldw (3r)        r2, r2[r11]
+             0x00040f56: 30 f8 ec 97: ashr (l2rus)    r3, r0, 0x20
+             0x00040f5a: c6 78:       bf (ru6)        r3, 0x6 <.label134>
+             0x00040f5c: 00 f0 fb 6c: ldw (lru6)      r3, cp[0x3b]
+             0x00040f60: 37 10:       add (3r)        r3, r1, r3
+             0x00040f62: de 16:       setd (r2r)      res[r2], r3
+             0x00040f64: 89 e8:       setc (ru6)      res[r2], 0x9
+             0x00040f66: ce b6:       in (2r)         r3, res[r2]
+.label134    0x00040f68: 04 10:       add (3r)        r0, r1, r0
+             0x00040f6a: d2 16:       setd (r2r)      res[r2], r0
+             0x00040f6c: 89 e8:       setc (ru6)      res[r2], 0x9
+             0x00040f6e: c2 b6:       in (2r)         r0, res[r2]
+             0x00040f70: c0 77:       retsp (u6)      0x0
+             0x00040f72: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<configure_in_port>:
+             0x00040f74: 00 f0 44 77: entsp (lu6)     0x4
+             0x00040f78: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x00040f7c: 44 90:       add (2rus)      r4, r1, 0x0
+             0x00040f7e: 50 90:       add (2rus)      r5, r0, 0x0
+             0x00040f80: 40 f1 47 e9: setc (lru6)     res[r5], 0x5007
+             0x00040f84: 00 f0 b8 d0: bl (lu10)       0xb8 <__set_port_in>
+             0x00040f88: d1 ff ec 0f: setclk (lr2r)   res[r5], r4
+             0x00040f8c: c0 f0 47 e9: setc (lru6)     res[r5], 0x3007
+             0x00040f90: 57 e9:       setc (ru6)      res[r5], 0x17
+             0x00040f92: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x00040f96: c4 77:       retsp (u6)      0x4
+
+<configure_port_clock_output>:
+             0x00040f98: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040f9c: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040fa0: 40 f1 0f e8: setc (lru6)     res[r0], 0x500f
+             0x00040fa4: c0 77:       retsp (u6)      0x0
+             0x00040fa6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<configure_clock_src>:
+             0x00040fa8: 00 f0 40 77: entsp (lu6)     0x0
+             0x00040fac: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00040fb0: 40 68:       ldc (ru6)       r1, 0x0
+             0x00040fb2: d4 16:       setd (r2r)      res[r0], r1
+             0x00040fb4: c0 77:       retsp (u6)      0x0
+             0x00040fb6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<configure_clock_rate>:
+             0x00040fb8: 00 f0 48 77: entsp (lu6)     0x8
+             0x00040fbc: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x00040fc0: 2e f9 ec f7: std (l2rus)     r7, r6, sp[0x2]
+             0x00040fc4: 06 56:       stw (ru6)       r8, sp[0x6]
+             0x00040fc6: 58 90:       add (2rus)      r5, r2, 0x0
+             0x00040fc8: 64 90:       add (2rus)      r6, r1, 0x0
+             0x00040fca: 40 90:       add (2rus)      r4, r0, 0x0
+             0x00040fcc: e6 4f:       ecallf (1r)     r6
+             0x00040fce: e5 4f:       ecallf (1r)     r5
+             0x00040fd0: c0 69:       ldc (ru6)       r7, 0x0
+             0x00040fd2: 00 f0 37 6c: ldw (lru6)      r0, cp[0x37]
+             0x00040fd6: c8 f8 1f 03: lmul (l6r)      r0, r1, r6, r0, r7, r7
+             0x00040fda: 00 f0 88 58: ldw (lru6)      r2, dp[0x8]
+             0x00040fde: 79 fa bf 03: lmul (l6r)      r3, r11, r2, r5, r7, r7
+             0x00040fe2: 03 f8 ec 0f: xor (l3r)       r0, r0, r3
+             0x00040fe6: 97 fc ec 0f: xor (l3r)       r1, r1, r11
+             0x00040fea: 04 40:       or (3r)         r0, r1, r0
+             0x00040fec: 05 70:       bt (ru6)        r0, 0x5 <.label135>
+             0x00040fee: d1 a6:       mkmsk (rus)     r0, 0x1
+             0x00040ff0: 90 ff ec 0f: setclk (lr2r)   res[r4], r0
+             0x00040ff4: dc 17:       setd (r2r)      res[r4], r7
+             0x00040ff6: 19 73:       bu (u6)         0x19 <.label136>
+.label135    0x00040ff8: c8 90:       add (2rus)      r0, r6, 0x0
+             0x00040ffa: d4 90:       add (2rus)      r1, r5, 0x0
+             0x00040ffc: 00 f0 1c d0: bl (lu10)       0x1c <find_divide_exact>
+             0x00041000: 50 a7:       mkmsk (rus)     r8, 0x20
+             0x00041002: 90 34:       eq (3r)         r1, r0, r8
+             0x00041004: 45 70:       bt (ru6)        r1, 0x5 <.label137>
+             0x00041006: d5 a6:       mkmsk (rus)     r1, 0x1
+             0x00041008: 94 ff ec 0f: setclk (lr2r)   res[r4], r1
+             0x0004100c: 90 17:       setd (r2r)      res[r4], r0
+             0x0004100e: 0d 73:       bu (u6)         0xd <.label136>
+.label137    0x00041010: 00 f0 89 58: ldw (lru6)      r2, dp[0x9]
+             0x00041014: c8 90:       add (2rus)      r0, r6, 0x0
+             0x00041016: d4 90:       add (2rus)      r1, r5, 0x0
+             0x00041018: 00 f0 0e d0: bl (lu10)       0xe <find_divide_exact>
+             0x0004101c: 90 34:       eq (3r)         r1, r0, r8
+             0x0004101e: f1 4f:       ecallt (1r)     r1
+             0x00041020: 04 f0 41 68: ldc (lru6)      r1, 0x101
+             0x00041024: 94 ff ec 0f: setclk (lr2r)   res[r4], r1
+             0x00041028: 90 17:       setd (r2r)      res[r4], r0
+.label136    0x0004102a: 06 5e:       ldw (ru6)       r8, sp[0x6]
+             0x0004102c: 2e f9 ec ef: ldd (l2rus)     r7, r6, sp[0x2]
+             0x00041030: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x00041034: c8 77:       retsp (u6)      0x8
+             0x00041036: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<find_divide_exact>:
+             0x00041038: 00 f0 48 77: entsp (lu6)     0x8
+             0x0004103c: 05 f9 ec f7: std (l2rus)     r5, r4, sp[0x1]
+             0x00041040: 2e f9 ec f7: std (l2rus)     r7, r6, sp[0x2]
+             0x00041044: 06 56:       stw (ru6)       r8, sp[0x6]
+             0x00041046: 50 90:       add (2rus)      r5, r0, 0x0
+             0x00041048: c0 69:       ldc (ru6)       r7, 0x0
+             0x0004104a: 69 f8 4f 03: lmul (l6r)      r6, r4, r2, r1, r7, r7
+             0x0004104e: 00 f0 39 6e: ldw (lru6)      r8, cp[0x39]
+             0x00041052: 74 fd 2f 03: lmul (l6r)      r3, r2, r5, r8, r7, r7
+             0x00041056: c0 90:       add (2rus)      r0, r4, 0x0
+             0x00041058: d8 90:       add (2rus)      r1, r6, 0x0
+             0x0004105a: 00 f0 45 d0: bl (lu10)       0x45 <__udivdi3>
+             0x0004105e: a6 a4:       shl (2rus)      r2, r1, 0x18
+             0x00041060: b0 ac:       shr (2rus)      r3, r0, 0x8
+             0x00041062: 2e 40:       or (3r)         r2, r3, r2
+             0x00041064: 94 ac:       shr (2rus)      r1, r1, 0x8
+             0x00041066: 19 40:       or (3r)         r1, r2, r1
+             0x00041068: 4a 70:       bt (ru6)        r1, 0xa <.label138>
+             0x0004106a: 90 fc ec 3f: mul (l3r)       r1, r0, r8
+             0x0004106e: 55 fa 2f 03: lmul (l6r)      r1, r2, r1, r5, r7, r7
+             0x00041072: 56 fa ec 0f: xor (l3r)       r1, r1, r6
+             0x00041076: 68 fa ec 0f: xor (l3r)       r2, r2, r4
+             0x0004107a: 19 40:       or (3r)         r1, r2, r1
+             0x0004107c: 41 78:       bf (ru6)        r1, 0x1 <.label139>
+.label138    0x0004107e: d0 a6:       mkmsk (rus)     r0, 0x20
+.label139    0x00041080: 06 5e:       ldw (ru6)       r8, sp[0x6]
+             0x00041082: 2e f9 ec ef: ldd (l2rus)     r7, r6, sp[0x2]
+             0x00041086: 05 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x1]
+             0x0004108a: c8 77:       retsp (u6)      0x8
+
+<_DoSyscall>:
+             0x0004108c: 00 f0 40 77: entsp (lu6)     0x0
+             0x00041090: d0 a6:       mkmsk (rus)     r0, 0x20
+             0x00041092: c0 77:       retsp (u6)      0x0
+
+<__call_exitprocs_impl>:
+             0x00041094: 00 f0 40 77: entsp (lu6)     0x0
+             0x00041098: c0 77:       retsp (u6)      0x0
+             0x0004109a: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__call_exitprocs>:
+             0x0004109c: 00 f0 42 77: entsp (lu6)     0x2
+             0x000410a0: 00 f0 08 d4: bl (lu10)       -0x8 <__call_exitprocs_impl>
+             0x000410a4: c2 77:       retsp (u6)      0x2
+             0x000410a6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_cleanup_impl>:
+             0x000410a8: 00 f0 40 77: entsp (lu6)     0x0
+             0x000410ac: c0 77:       retsp (u6)      0x0
+             0x000410ae: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_cleanup>:
+             0x000410b0: 00 f0 42 77: entsp (lu6)     0x2
+             0x000410b4: 00 f0 08 d4: bl (lu10)       -0x8 <_cleanup_impl>
+             0x000410b8: c2 77:       retsp (u6)      0x2
+             0x000410ba: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_done>:
+             0x000410bc: 00 f0 40 77: entsp (lu6)     0x0
+             0x000410c0: 07 68:       ldc (ru6)       r0, 0x7
+             0x000410c2: 00 f0 1d d4: bl (lu10)       -0x1d <_DoSyscall>
+             0x000410c6: ed 07:       clre (0r)       
+             0x000410c8: ec 07:       waiteu (0r)     
+             0x000410ca: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<_exit>:
+             0x000410cc: 00 f0 40 77: entsp (lu6)     0x0
+             0x000410d0: 10 90:       add (2rus)      r1, r0, 0x0
+             0x000410d2: 00 68:       ldc (ru6)       r0, 0x0
+             0x000410d4: 00 f0 26 d4: bl (lu10)       -0x26 <_DoSyscall>
+             0x000410d8: ed 07:       clre (0r)       
+             0x000410da: ec 07:       waiteu (0r)     
+
+<__alloc_libc_hwlock>:
+.label164    0x000410dc: 00 f0 40 77: entsp (lu6)     0x0
+             0x000410e0: 81 87:       getr (rus)      r0, 0x5
+             0x000410e2: 54 f1 30 50: stw (lru6)      r0, dp[0x5530]
+             0x000410e6: c0 77:       retsp (u6)      0x0
+
+<__udivdi3>:
+             0x000410e8: 00 f0 42 77: entsp (lu6)     0x2
+             0x000410ec: c0 6a:       ldc (ru6)       r11, 0x0
+             0x000410ee: c1 56:       stw (ru6)       r11, sp[0x1]
+             0x000410f0: 00 f0 10 d0: bl (lu10)       0x10 <__udivmoddi4>
+             0x000410f4: c2 77:       retsp (u6)      0x2
+             0x000410f6: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__set_port_in>:
+             0x000410f8: 00 f0 40 77: entsp (lu6)     0x0
+             0x000410fc: 00 f0 46 68: ldc (lru6)      r1, 0x6
+             0x00041100: d4 fe ec 0f: setclk (lr2r)   res[r0], r1
+             0x00041104: c0 f0 47 68: ldc (lru6)      r1, 0x3007
+             0x00041108: d1 fe ec 2f: setc (l2r)      res[r0], r1
+             0x0004110c: 01 e8:       setc (ru6)      res[r0], 0x1
+             0x0004110e: c0 b6:       in (2r)         r0, res[r0]
+             0x00041110: c0 77:       retsp (u6)      0x0
+             0x00041112: 00 00:       stw (2rus)      r0, r0[0x0]
+
+<__udivmoddi4>:
+             0x00041114: 00 f0 4c 77: entsp (lu6)     0xc
+             0x00041118: 06 f9 ec f7: std (l2rus)     r5, r4, sp[0x2]
+             0x0004111c: 2f f9 ec f7: std (l2rus)     r7, r6, sp[0x3]
+             0x00041120: 44 fc ec f7: std (l2rus)     r9, r8, sp[0x4]
+             0x00041124: 8a 56:       stw (ru6)       r10, sp[0xa]
+             0x00041126: 4d 5e:       ldw (ru6)       r9, sp[0xd]
+             0x00041128: 52 78:       bf (ru6)        r1, 0x12 <.label140>
+             0x0004112a: 9c 78:       bf (ru6)        r2, 0x1c <.label141>
+             0x0004112c: f3 78:       bf (ru6)        r3, 0x33 <.label142>
+             0x0004112e: 4f 0f:       clz (2r)        r11, r3
+             0x00041130: 01 0f:       clz (2r)        r4, r1
+             0x00041132: 7c 1c:       sub (3r)        r11, r11, r4
+             0x00041134: 0d ac:       shr (2rus)      r4, r11, 0x5
+             0x00041136: 24 71:       bt (ru6)        r4, 0x24 <.label143>
+             0x00041138: dd 91:       add (2rus)      r5, r11, 0x1
+             0x0004113a: 20 69:       ldc (ru6)       r4, 0x20
+             0x0004113c: 64 33:       eq (3r)         r6, r5, r4
+             0x0004113e: c0 69:       ldc (ru6)       r7, 0x0
+             0x00041140: 01 f0 8e 79: bf (lru6)       r6, 0x4e <.label144>
+             0x00041144: 10 91:       add (2rus)      r5, r4, 0x0
+             0x00041146: 7c 91:       add (2rus)      r11, r7, 0x0
+             0x00041148: 60 90:       add (2rus)      r6, r0, 0x0
+             0x0004114a: 02 f0 20 73: bu (lu6)        0xa0 <.label145>
+.label140    0x0004114e: f4 78:       bf (ru6)        r3, 0x34 <.label146>
+             0x00041150: c0 68:       ldc (ru6)       r3, 0x0
+             0x00041152: bc 90:       add (2rus)      r11, r3, 0x0
+             0x00041154: 03 f0 55 7a: bf (lru6)       r9, 0xd5 <.label147>
+             0x00041158: c0 68:       ldc (ru6)       r3, 0x0
+             0x0004115a: 84 f9 f3 17: std (l3rus)     r3, r0, r9[0x0]
+             0x0004115e: bc 90:       add (2rus)      r11, r3, 0x0
+             0x00041160: 03 f0 0f 73: bu (lu6)        0xcf <.label147>
+.label141    0x00041164: f4 78:       bf (ru6)        r3, 0x34 <.label148>
+             0x00041166: 01 f0 04 78: bf (lru6)       r0, 0x44 <.label149>
+             0x0004116a: bd 98:       sub (2rus)      r11, r3, 0x1
+             0x0004116c: cf 39:       and (3r)        r4, r11, r3
+             0x0004116e: 01 f0 2f 79: bf (lru6)       r4, 0x6f <.label150>
+             0x00041172: 4f 0f:       clz (2r)        r11, r3
+             0x00041174: 01 0f:       clz (2r)        r4, r1
+             0x00041176: 7c 1c:       sub (3r)        r11, r11, r4
+             0x00041178: d1 a7:       mkmsk (rus)     r4, 0x5
+             0x0004117a: 1c cc:       lsu (3r)        r5, r11, r4
+             0x0004117c: 01 f0 72 71: bt (lru6)       r5, 0x72 <.label151>
+.label143    0x00041180: c0 68:       ldc (ru6)       r3, 0x0
+             0x00041182: bc 90:       add (2rus)      r11, r3, 0x0
+             0x00041184: 02 f0 7d 7a: bf (lru6)       r9, 0xbd <.label147>
+             0x00041188: 84 f9 f1 17: std (l3rus)     r1, r0, r9[0x0]
+             0x0004118c: c0 68:       ldc (ru6)       r3, 0x0
+             0x0004118e: bc 90:       add (2rus)      r11, r3, 0x0
+             0x00041190: 02 f0 37 73: bu (lu6)        0xb7 <.label147>
+.label142    0x00041194: b9 98:       sub (2rus)      r11, r2, 0x1
+             0x00041196: ce 39:       and (3r)        r4, r11, r2
+             0x00041198: 37 79:       bf (ru6)        r4, 0x37 <.label152>
+             0x0004119a: 4e 0f:       clz (2r)        r11, r2
+             0x0004119c: 21 69:       ldc (ru6)       r4, 0x21
+             0x0004119e: 0c 14:       add (3r)        r4, r11, r4
+             0x000411a0: 0d 0f:       clz (2r)        r7, r1
+             0x000411a2: 53 1b:       sub (3r)        r5, r4, r7
+             0x000411a4: a0 69:       ldc (ru6)       r6, 0x20
+             0x000411a6: 86 33:       eq (3r)         r8, r5, r6
+             0x000411a8: c0 6a:       ldc (ru6)       r11, 0x0
+             0x000411aa: 01 f0 01 7a: bf (lru6)       r8, 0x41 <.label153>
+             0x000411ae: 18 91:       add (2rus)      r5, r6, 0x0
+             0x000411b0: fc 91:       add (2rus)      r7, r11, 0x0
+             0x000411b2: 60 90:       add (2rus)      r6, r0, 0x0
+             0x000411b4: 01 f0 2b 73: bu (lu6)        0x6b <.label145>
+.label146    0x000411b8: 45 7a:       bf (ru6)        r9, 0x5 <.label154>
+             0x000411ba: 12 f8 ec cf: remu (l3r)      r1, r0, r2
+             0x000411be: c0 68:       ldc (ru6)       r3, 0x0
+             0x000411c0: 94 f9 f3 17: std (l3rus)     r3, r1, r9[0x0]
+.label154    0x000411c4: 32 f8 ec 4f: divu (l3r)      r3, r0, r2
+             0x000411c8: c0 6a:       ldc (ru6)       r11, 0x0
+             0x000411ca: 02 f0 1a 73: bu (lu6)        0x9a <.label147>
+.label148    0x000411ce: 43 7a:       bf (ru6)        r9, 0x3 <.label155>
+             0x000411d0: 00 68:       ldc (ru6)       r0, 0x0
+             0x000411d2: 84 f9 f0 17: std (l3rus)     r0, r0, r9[0x0]
+.label155    0x000411d6: c0 6a:       ldc (ru6)       r11, 0x0
+             0x000411d8: b7 fc ec 4f: divu (l3r)      r3, r1, r11
+             0x000411dc: 02 f0 11 73: bu (lu6)        0x91 <.label147>
+.label144    0x000411e0: d1 a7:       mkmsk (rus)     r4, 0x5
+             0x000411e2: 83 1d:       sub (3r)        r4, r4, r11
+             0x000411e4: a0 22:       shl (3r)        r6, r0, r4
+             0x000411e6: f5 2a:       shr (3r)        r11, r1, r5
+             0x000411e8: 54 22:       shl (3r)        r1, r1, r4
+             0x000411ea: 41 2a:       shr (3r)        r0, r0, r5
+             0x000411ec: 14 40:       or (3r)         r1, r1, r0
+             0x000411ee: 01 f0 0e 73: bu (lu6)        0x4e <.label145>
+.label149    0x000411f2: 45 7a:       bf (ru6)        r9, 0x5 <.label156>
+             0x000411f4: 07 f8 ec cf: remu (l3r)      r0, r1, r3
+             0x000411f8: 80 68:       ldc (ru6)       r2, 0x0
+             0x000411fa: a4 f9 f0 17: std (l3rus)     r0, r2, r9[0x0]
+.label156    0x000411fe: 37 f8 ec 4f: divu (l3r)      r3, r1, r3
+             0x00041202: c0 6a:       ldc (ru6)       r11, 0x0
+             0x00041204: 01 f0 3d 73: bu (lu6)        0x7d <.label147>
+.label152    0x00041208: 44 7a:       bf (ru6)        r9, 0x4 <.label157>
+             0x0004120a: bc 39:       and (3r)        r3, r11, r0
+             0x0004120c: c0 6a:       ldc (ru6)       r11, 0x0
+             0x0004120e: b4 f9 fb 17: std (l3rus)     r11, r3, r9[0x0]
+.label157    0x00041212: 49 b0:       eq (2rus)       r4, r2, 0x1
+             0x00041214: 30 90:       add (2rus)      r3, r0, 0x0
+             0x00041216: b4 90:       add (2rus)      r11, r1, 0x0
+             0x00041218: 01 f0 33 71: bt (lru6)       r4, 0x73 <.label147>
+             0x0004121c: ca 16:       bitrev (2r)     r2, r2
+             0x0004121e: ca 0e:       clz (2r)        r2, r2
+             0x00041220: b6 28:       shr (3r)        r11, r1, r2
+             0x00041222: e0 68:       ldc (ru6)       r3, 0x20
+             0x00041224: 3e 18:       sub (3r)        r3, r3, r2
+             0x00041226: 17 20:       shl (3r)        r1, r1, r3
+             0x00041228: 02 28:       shr (3r)        r0, r0, r2
+             0x0004122a: 34 40:       or (3r)         r3, r1, r0
+             0x0004122c: 01 f0 29 73: bu (lu6)        0x69 <.label147>
+.label153    0x00041230: 65 ab:       shr (2rus)      r6, r5, 0x5
+             0x00041232: a1 71:       bt (ru6)        r6, 0x21 <.label158>
+             0x00041234: e0 6a:       ldc (ru6)       r11, 0x20
+             0x00041236: 4d 1c:       sub (3r)        r8, r11, r5
+             0x00041238: e0 24:       shl (3r)        r6, r0, r8
+             0x0004123a: f5 2a:       shr (3r)        r11, r1, r5
+             0x0004123c: 94 24:       shl (3r)        r1, r1, r8
+             0x0004123e: 41 2a:       shr (3r)        r0, r0, r5
+             0x00041240: 14 40:       or (3r)         r1, r1, r0
+             0x00041242: 43 33:       eq (3r)         r4, r4, r7
+             0x00041244: 00 68:       ldc (ru6)       r0, 0x0
+             0x00041246: 22 79:       bf (ru6)        r4, 0x22 <.label159>
+             0x00041248: 20 90:       add (2rus)      r2, r0, 0x0
+             0x0004124a: 70 90:       add (2rus)      r7, r0, 0x0
+             0x0004124c: 01 f0 0b 73: bu (lu6)        0x4b <.label160>
+.label150    0x00041250: 43 7a:       bf (ru6)        r9, 0x3 <.label161>
+             0x00041252: ad 39:       and (3r)        r2, r11, r1
+             0x00041254: 84 f9 f2 17: std (l3rus)     r2, r0, r9[0x0]
+.label161    0x00041258: c3 16:       bitrev (2r)     r0, r3
+             0x0004125a: c0 0e:       clz (2r)        r0, r0
+             0x0004125c: 34 28:       shr (3r)        r3, r1, r0
+             0x0004125e: c0 6a:       ldc (ru6)       r11, 0x0
+             0x00041260: 01 f0 0f 73: bu (lu6)        0x4f <.label147>
+.label151    0x00041264: dd 91:       add (2rus)      r5, r11, 0x1
+             0x00041266: 83 1d:       sub (3r)        r4, r4, r11
+             0x00041268: a0 22:       shl (3r)        r6, r0, r4
+             0x0004126a: f5 2a:       shr (3r)        r11, r1, r5
+             0x0004126c: 54 22:       shl (3r)        r1, r1, r4
+             0x0004126e: 41 2a:       shr (3r)        r0, r0, r5
+             0x00041270: 14 40:       or (3r)         r1, r1, r0
+             0x00041272: c0 69:       ldc (ru6)       r7, 0x0
+             0x00041274: 0c 73:       bu (u6)         0xc <.label145>
+.label158    0x00041276: 01 f0 00 69: ldc (lru6)      r4, 0x40
+             0x0004127a: 41 1b:       sub (3r)        r4, r4, r5
+             0x0004127c: b0 22:       shl (3r)        r7, r0, r4
+             0x0004127e: 84 22:       shl (3r)        r4, r1, r4
+             0x00041280: c4 fd ec a7: ldaw (l2rus)    r8, r5[-0x8]
+             0x00041284: 80 2c:       shr (3r)        r0, r0, r8
+             0x00041286: 20 41:       or (3r)         r6, r4, r0
+             0x00041288: 94 2c:       shr (3r)        r1, r1, r8
+             0x0004128a: 01 73:       bu (u6)         0x1 <.label145>
+.label159    0x0004128c: 70 90:       add (2rus)      r7, r0, 0x0
+.label145    0x0004128e: 00 6a:       ldc (ru6)       r8, 0x0
+             0x00041290: d0 a6:       mkmsk (rus)     r0, 0x20
+             0x00041292: 98 f8 70 07: ladd (l5r)      r4, r9, r2, r0, r8
+             0x00041296: 43 56:       stw (ru6)       r9, sp[0x3]
+             0x00041298: 4c f8 90 07: ladd (l5r)      r0, r4, r3, r0, r4
+             0x0004129c: 02 55:       stw (ru6)       r4, sp[0x2]
+             0x0004129e: d1 a7:       mkmsk (rus)     r4, 0x5
+             0x000412a0: 80 91:       add (2rus)      r0, r8, 0x0
+             0x000412a2: 20 92:       add (2rus)      r10, r8, 0x0
+             0x000412a4: 9c 90:       add (2rus)      r9, r3, 0x0
+             0x000412a6: 38 90:       add (2rus)      r3, r2, 0x0
+.label162    0x000412a8: 3d a2:       shl (2rus)      r11, r11, 0x1
+             0x000412aa: c4 2a:       shr (3r)        r8, r1, r4
+             0x000412ac: b3 46:       or (3r)         r11, r8, r11
+             0x000412ae: 15 a0:       shl (2rus)      r1, r1, 0x1
+             0x000412b0: 88 2b:       shr (3r)        r8, r6, r4
+             0x000412b2: 94 44:       or (3r)         r1, r1, r8
+             0x000412b4: 29 a1:       shl (2rus)      r6, r6, 0x1
+             0x000412b6: 8c 2b:       shr (3r)        r8, r7, r4
+             0x000412b8: 22 44:       or (3r)         r6, r8, r6
+             0x000412ba: 3d a1:       shl (2rus)      r7, r7, 0x1
+             0x000412bc: b3 42:       or (3r)         r7, r0, r7
+             0x000412be: 03 5c:       ldw (ru6)       r0, sp[0x3]
+             0x000412c0: 01 f8 a2 0f: lsub (l5r)      r8, r0, r0, r1, r10
+             0x000412c4: 02 5c:       ldw (ru6)       r0, sp[0x2]
+             0x000412c6: 83 fc a0 0f: lsub (l5r)      r8, r0, r0, r11, r8
+             0x000412ca: 80 f8 ec 97: ashr (l2rus)    r8, r0, 0x20
+             0x000412ce: 80 91:       add (2rus)      r0, r8, 0x0
+             0x000412d0: d1 46:       zext (rus)      r0, 0x1
+             0x000412d2: 21 3e:       and (3r)        r2, r8, r9
+             0x000412d4: 03 3a:       and (3r)        r8, r8, r3
+             0x000412d6: 94 fc a2 0f: lsub (l5r)      r8, r1, r1, r8, r10
+             0x000412da: 3e fa 28 0f: lsub (l5r)      r2, r11, r11, r2, r8
+             0x000412de: 15 99:       sub (2rus)      r5, r5, 0x1
+             0x000412e0: 5d 75:       bt (ru6)        r5, -0x1d <.label162>
+             0x000412e2: 80 68:       ldc (ru6)       r2, 0x0
+             0x000412e4: 4d 5e:       ldw (ru6)       r9, sp[0xd]
+.label160    0x000412e6: 0a 41:       or (3r)         r4, r6, r2
+             0x000412e8: 9d a7:       mkmsk (rus)     r3, 0x5
+             0x000412ea: 1f 29:       shr (3r)        r5, r7, r3
+             0x000412ec: fd a0:       shl (2rus)      r3, r7, 0x1
+             0x000412ee: 01 a1:       shl (2rus)      r4, r4, 0x1
+             0x000412f0: 44 43:       or (3r)         r4, r5, r4
+             0x000412f2: 42 7a:       bf (ru6)        r9, 0x2 <.label163>
+             0x000412f4: 94 f9 fb 17: std (l3rus)     r11, r1, r9[0x0]
+.label163    0x000412f8: 00 f0 7a 6c: ldw (lru6)      r1, cp[0x3a]
+             0x000412fc: 1d 38:       and (3r)        r1, r3, r1
+             0x000412fe: 34 40:       or (3r)         r3, r1, r0
+             0x00041300: 72 41:       or (3r)         r11, r4, r2
+.label147    0x00041302: 0c 90:       add (2rus)      r0, r3, 0x0
+             0x00041304: 9c 91:       add (2rus)      r1, r11, 0x0
+             0x00041306: 8a 5e:       ldw (ru6)       r10, sp[0xa]
+             0x00041308: 44 fc ec ef: ldd (l2rus)     r9, r8, sp[0x4]
+             0x0004130c: 2f f9 ec ef: ldd (l2rus)     r7, r6, sp[0x3]
+             0x00041310: 06 f9 ec ef: ldd (l2rus)     r5, r4, sp[0x2]
+             0x00041314: cc 77:       retsp (u6)      0xc
+
+Disassembly of section .init (size: 28)
+
+<_init>:
+.label2      0x00041318: 00 f0 42 77: entsp (lu6)     0x2
+             0x0004131c: 00 f0 22 d5: bl (lu10)       -0x122 <.label164>
+             0x00041320: 00 f0 34 6d: ldw (lru6)      r4, cp[0x34]
+             0x00041324: 06 79:       bf (ru6)        r4, 0x6 <do_ctors_end>
+             0x00041326: 00 f0 6e 6d: ldw (lru6)      r5, cp[0x2e]
+
+<do_ctors_loop>:
+             0x0004132a: 01 99:       sub (2rus)      r4, r4, 0x1
+             0x0004132c: 04 4b:       ldw (3r)        r0, r5[r4]
+             0x0004132e: e0 27:       bla (1r)        r0
+             0x00041330: 04 75:       bt (ru6)        r4, -0x4 <do_ctors_loop>
+
+<do_ctors_end>:
+             0x00041332: c2 77:       retsp (u6)      0x2
+
+Disassembly of section .fini (size: 48)
+
+<_fini>:
+.label133    0x00041334: 00 f0 42 77: entsp (lu6)     0x2
+             0x00041338: 84 77:       extsp (u6)      0x4
+             0x0004133a: 01 55:       stw (ru6)       r4, sp[0x1]
+             0x0004133c: 42 55:       stw (ru6)       r5, sp[0x2]
+             0x0004133e: 83 55:       stw (ru6)       r6, sp[0x3]
+             0x00041340: 00 f0 b3 6d: ldw (lru6)      r6, cp[0x33]
+             0x00041344: 88 79:       bf (ru6)        r6, 0x8 <do_dtors_end>
+             0x00041346: 00 69:       ldc (ru6)       r4, 0x0
+             0x00041348: 00 f0 6f 6d: ldw (lru6)      r5, cp[0x2f]
+
+<do_dtors_loop>:
+             0x0004134c: 04 4b:       ldw (3r)        r0, r5[r4]
+             0x0004134e: e0 27:       bla (1r)        r0
+             0x00041350: 01 91:       add (2rus)      r4, r4, 0x1
+             0x00041352: b2 cb:       lsu (3r)        r11, r4, r6
+             0x00041354: c5 76:       bt (ru6)        r11, -0x5 <do_dtors_loop>
+
+<do_dtors_end>:
+             0x00041356: 00 f0 11 d6: bl (lu10)       -0x211 <.label165>
+             0x0004135a: 01 5d:       ldw (ru6)       r4, sp[0x1]
+             0x0004135c: 42 5d:       ldw (ru6)       r5, sp[0x2]
+             0x0004135e: 83 5d:       ldw (ru6)       r6, sp[0x3]
+             0x00041360: 84 67:       ldaw (ru6)      sp, sp[0x4]
+             0x00041362: c2 77:       retsp (u6)      0x2
+
+Disassembly of section .cp.rodata (size: 16)
+
+<_cp>:
+<chanends_to_setup>:
+.label5      0x00041364: 00 00 00 00: 
+             0x00041368: ff 00 00 00: 
+             0x0004136c: 70 17 f0 ff: 
+
+<tile>:
+             0x00041370: 00 00 01 00: 
+
+Disassembly of section .cp.rodata.4 (size: 158)
+
+<OV7740_QVGA>:
+             0x00041374: 13 00 55 40: 
+             0x00041378: 11 00 12 00: 
+             0x0004137c: d5 10 0c 42: 
+             0x00041380: 16 11 0d 34: 
+             0x00041384: 17 25 18 a0: 
+             0x00041388: 19 03 1a f0: 
+             0x0004138c: 1b 89 22 03: 
+             0x00041390: 29 17 2b f8: 
+             0x00041394: 2c 01 31 50: 
+             0x00041398: 32 78 33 c4: 
+             0x0004139c: 35 05 36 3f: 
+             0x000413a0: 04 60 27 80: 
+             0x000413a4: 3d 0f 3e 82: 
+             0x000413a8: 3f 40 40 7f: 
+             0x000413ac: 41 6a 42 29: 
+             0x000413b0: 44 e5 45 41: 
+             0x000413b4: 47 42 48 00: 
+             0x000413b8: 49 61 4a a1: 
+             0x000413bc: 4b 46 4c 18: 
+             0x000413c0: 4d 50 4e 13: 
+             0x000413c4: 64 00 67 88: 
+             0x000413c8: 68 1a 14 38: 
+             0x000413cc: 24 3c 25 30: 
+             0x000413d0: 26 72 50 97: 
+             0x000413d4: 51 7e 52 00: 
+             0x000413d8: 53 00 20 00: 
+             0x000413dc: 21 23 38 14: 
+             0x000413e0: e9 00 56 55: 
+             0x000413e4: 57 ff 58 ff: 
+             0x000413e8: 59 ff 5f 04: 
+             0x000413ec: ec 00 13 ff: 
+             0x000413f0: 80 7d 81 3f: 
+             0x000413f4: 82 3f 83 01: 
+             0x000413f8: 38 11 84 70: 
+             0x000413fc: 85 00 86 03: 
+             0x00041400: 87 01 88 05: 
+             0x00041404: 89 30 8d 30: 
+             0x00041408: 8f 85 93 30: 
+             0x0004140c: 95 85 99 30: 
+             0x00041410: 9b 85:       
+
+Disassembly of section .cp.const4 (size: 40)
+
+<initial_dp>:
+             0x00041414: e8 14 04 00: 
+
+<dp_bss_large_start>:
+             0x00041418: ac 69 05 00: 
+
+<ctor_list_ptr>:
+             0x0004141c: 54 14 04 00: 
+
+<dtor_list_ptr>:
+             0x00041420: 9c 14 04 00: 
+
+<initial_sp>:
+             0x00041424: 78 ff 05 00: 
+
+<dp_bss_size>:
+             0x00041428: 54 54 01 00: 
+
+<dp_bss_large_size>:
+             0x0004142c: 00 00 00 00: 
+
+<dtors_size>:
+             0x00041430: 12 00 00 00: 
+
+<ctors_size>:
+             0x00041434: 12 00 00 00: 
+             0x00041438: 02 00 01 00: 
+
+Disassembly of section .cp.rodata.cst4 (size: 24)
+
+             0x0004143c: 00 2c 01 00: 
+             0x00041440: 40 42 0f 00: 
+             0x00041444: 40 4b 4c 00: 
+             0x00041448: 80 84 1e 00: 
+             0x0004144c: fe ff ff ff: 
+             0x00041450: ff ff ff 7f: 
+
+Disassembly of section .ctors (size: 72)
+
+<_CTOR_LIST_>:
+             0x00041454: 2c 0b 04 00: 
+             0x00041458: 54 0b 04 00: 
+             0x0004145c: 7c 0b 04 00: 
+             0x00041460: a4 0b 04 00: 
+             0x00041464: cc 0b 04 00: 
+             0x00041468: f4 0b 04 00: 
+             0x0004146c: 24 0c 04 00: 
+             0x00041470: 54 0c 04 00: 
+             0x00041474: 84 0c 04 00: 
+             0x00041478: b4 0c 04 00: 
+             0x0004147c: e4 0c 04 00: 
+             0x00041480: 14 0d 04 00: 
+             0x00041484: 44 0d 04 00: 
+             0x00041488: 7c 0d 04 00: 
+             0x0004148c: ac 0d 04 00: 
+             0x00041490: dc 0d 04 00: 
+             0x00041494: 0c 0e 04 00: 
+             0x00041498: 3c 0e 04 00: 
+
+Disassembly of section .dtors (size: 72)
+
+<_DTOR_LIST_>:
+             0x0004149c: 40 0b 04 00: 
+             0x000414a0: 68 0b 04 00: 
+             0x000414a4: 90 0b 04 00: 
+             0x000414a8: b8 0b 04 00: 
+             0x000414ac: e0 0b 04 00: 
+             0x000414b0: 10 0c 04 00: 
+             0x000414b4: 40 0c 04 00: 
+             0x000414b8: 70 0c 04 00: 
+             0x000414bc: a0 0c 04 00: 
+             0x000414c0: d0 0c 04 00: 
+             0x000414c4: 00 0d 04 00: 
+             0x000414c8: 30 0d 04 00: 
+             0x000414cc: 68 0d 04 00: 
+             0x000414d0: 98 0d 04 00: 
+             0x000414d4: c8 0d 04 00: 
+             0x000414d8: f8 0d 04 00: 
+             0x000414dc: 28 0e 04 00: 
+             0x000414e0: 60 0e 04 00: 
+
+Disassembly of section .dp.data (size: 32)
+
+<_dp>:
+<__timers>:
+<IOPortOut1>:
+<IOPortIn1>:
+<X_TX>:
+<X_RX>:
+<LED_SDI>:
+<BAT_STATUS>:
+             0x000414e8: 01 00 00 00: 
+             0x000414ec: 00 00 00 00: 
+             0x000414f0: 00 00 00 00: 
+             0x000414f4: 00 00 00 00: 
+             0x000414f8: 00 00 00 00: 
+             0x000414fc: 00 00 00 00: 
+             0x00041500: 00 00 00 00: 
+             0x00041504: 00 00 00 00: 
+
+Disassembly of section .dp.data.4 (size: 8)
+
+<__ref_clock>:
+             0x00041508: 00 e1 f5 05: 
+
+<__proc_clock>:
+             0x0004150c: 00 65 cd 1d: 
+
+Disassembly of section .dp.rodata.4 (size: 72)
+
+<camCLK>:
+             0x00041510: 06 01 00 00: 
+
+<sccb1CLK>:
+             0x00041514: 06 02 00 00: 
+
+<sccb2CLK>:
+             0x00041518: 06 03 00 00: 
+
+<pclk1CLK>:
+             0x0004151c: 06 04 00 00: 
+
+<pclk2CLK>:
+             0x00041520: 06 05 00 00: 
+
+<camRESET>:
+             0x00041524: 00 0b 01 00: 
+
+<camSFIN>:
+             0x00041528: 00 02 04 00: 
+
+<camSYNC>:
+             0x0004152c: 00 03 08 00: 
+
+<cam1XCLK>:
+             0x00041530: 00 00 01 00: 
+
+<cam1PCLK>:
+             0x00041534: 00 02 01 00: 
+
+<cam1SCL>:
+             0x00041538: 00 0d 01 00: 
+
+<cam1SDA>:
+             0x0004153c: 00 0c 01 00: 
+
+<cam1DATA>:
+             0x00041540: 00 00 08 00: 
+
+<cam2XCLK>:
+             0x00041544: 00 03 01 00: 
+
+<cam2PCLK>:
+             0x00041548: 00 01 01 00: 
+
+<cam2SCL>:
+             0x0004154c: 00 0f 01 00: 
+
+<cam2SDA>:
+             0x00041550: 00 0e 01 00: 
+
+<cam2DATA>:
+             0x00041554: 00 02 08 00: 
+
+

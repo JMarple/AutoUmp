@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+SET(CMAKE_CXX_FLAGS "-std=c++11")
+project (bitview)
+find_package (OpenCV REQUIRED)
+add_executable (bitview src/main.cpp src/serial/rs232.c)
+target_link_libraries (bitview ${OpenCV_LIBS})
