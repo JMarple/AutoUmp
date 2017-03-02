@@ -14358,3 +14358,1484 @@ Checking build modules
 Using build modules: lib_locks(2.0.3)
 xmake[1]: `bin//AutoUmp.xe' is up to date.
 Build Complete
+15:54:06 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:103:16: error: parameter `stream' has type chan
+void floodFill(chan stream)
+               ^~~~~~~~~~~
+../src/cameras/ov07740.xc:235:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:239:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+15:54:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:235:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:239:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing ov07740.S
+Propagating analysis
+Creating dependencies for ov07740.S
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:235:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:239:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling ov07740.S
+Creating AutoUmp.xe
+Build Complete
+15:54:38 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:237:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:241:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:237:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:241:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:43:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:43:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:44:06 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:44:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:44:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:44:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:45:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:45:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:45:28 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:246:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:247:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:250:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:251:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:46:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:46:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:46:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:47:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:57:37 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:58:57 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+16:59:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:59:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:59:50 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:00:27 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:01:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:02:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:02:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:03:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:236:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:240:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:280:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:04:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:223:36: error: use of undeclared identifer `testrow'
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                                   ^~~~~~~
+../src/cameras/ov07740.xc:223:18: error: cannot subscript unsafe pointer outside of unsafe region
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:223:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:223:9: error: cannot output unsafe pointer outside of unsafe region
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:227:36: error: use of undeclared identifer `bitimage'
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                                   ^~~~~~~~
+../src/cameras/ov07740.xc:227:18: error: cannot subscript unsafe pointer outside of unsafe region
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:227:9: error: cannot output unsafe pointer outside of unsafe region
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:217:9: warning: unused variable `i'
+    int i = 0;
+        ^
+../src/cameras/ov07740.xc:218:14: warning: unused variable `tmpData'
+    uint32_t tmpData;
+             ^~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+17:04:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:223:36: error: use of undeclared identifer `testrow'
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                                   ^~~~~~~
+../src/cameras/ov07740.xc:223:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:227:36: error: use of undeclared identifer `bitimage'
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                                   ^~~~~~~~
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+17:05:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:286:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:286:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:05:05 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:07:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:286:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:286:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:07:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:08:34 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:20:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:20:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:23:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:23:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:28:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:30:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:237:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:237:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:30:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:30:35 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:237:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:236:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:237:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:31:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:36:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:37:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:37:23 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:40:08 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:40:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:44:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:229:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:233:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:46:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:291:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:291:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:47:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:291:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:291:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:47:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:291:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:291:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:48:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:49:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:292:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:292:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:51:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:52:48 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:292:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:292:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:53:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:292:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:292:37: warning: `cmdStream2' not used in two parallel statements
+        ov07740_capture(cmdStream1, cmdStream2, uart1);
+                                    ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:55:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)row)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:55:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:56:27 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+17:56:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:57:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete

@@ -4,6 +4,7 @@
     <values>
       <value type="intval"><intval isSigned="true" val="1000"/></value>
       <value type="intval"><intval isSigned="true" val="5000000"/></value>
+      <value type="intval"><intval isSigned="true" val="100000000"/></value>
     </values>
   </arg>
 </fInfo>
@@ -70,6 +71,7 @@
       <value type="intval"><intval isSigned="false" val="10"/></value>
       <value type="intval"><intval isSigned="false" val="11"/></value>
       <value type="intval"><intval isSigned="true" val="18"/></value>
+      <value type="intval"><intval isSigned="true" val="19"/></value>
     </values>
   </arg>
   <arg num="1" specialize="false">
@@ -87,6 +89,7 @@
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
       <value type="intval"><intval isSigned="true" val="128"/></value>
     </values>
   </arg>
@@ -209,7 +212,25 @@
     </values>
   </arg>
 </fInfo>
+<fInfo name="floodFill" global="true" specialize="false" noreturn="true" doNotSpecialize="false" numParams="1">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
 <fInfo name="gatherDataThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="getFrame" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -345,11 +366,13 @@
     <values>
       <value type="unknown"/>
       <value type="intval"><intval isSigned="true" val="18"/></value>
+      <value type="intval"><intval isSigned="true" val="19"/></value>
     </values>
   </arg>
   <arg num="2" specialize="false">
     <values>
       <value type="unknown"/>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
       <value type="intval"><intval isSigned="true" val="128"/></value>
     </values>
   </arg>
@@ -398,9 +421,8 @@
  </specializations>
 </fInfo>
 <fInfo name="waitForVSync" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
-  <arg num="0" specialize="false">
+  <arg num="0" specialize="true">
     <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
       <value type="intval"><intval isSigned="false" val="128"/></value>
     </values>
   </arg>
@@ -411,7 +433,7 @@
   </arg>
  <specializations>
    <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="0"><values><value type="intval"><intval isSigned="false" val="128"/></value></values></arg>
     <arg num="1"><values><value type="intval"><intval isSigned="false" val="128"/></value></values></arg>
    </specialization>
  </specializations>
