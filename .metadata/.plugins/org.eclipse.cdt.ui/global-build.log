@@ -12583,3 +12583,1778 @@ Checking build modules
 Using build modules: lib_locks(2.0.3)
 xmake[1]: `bin//AutoUmp.xe' is up to date.
 Build Complete
+10:46:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+10:53:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:158:16: error: parse error before '<:' token
+    int count <: cmdStream;
+               ^
+../src/cameras/ov07740.xc:158:18: error: expression in this context cannot have resource type
+    int count <: cmdStream;
+                 ^~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+10:53:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:159:5: error: output to a variable that is neither a channel nor port
+    count <: cmdStream;
+    ^~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+10:53:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+10:54:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+10:54:35 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:171:39: error: use of undeclared identifer `bit'
+    computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                      ^~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+10:54:55 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:162:5: error: cannot input safe pointer
+    cmdStream :> bit;
+    ^~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+10:55:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+10:56:54 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:56:55 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+10:57:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:57:13 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+10:57:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:57:31 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+xmap: Error: Resource "xclk" placed on "tile[1]" will not be initialised without a multi-tile main function.
+xmap: Error: Resource "cam1XCLK" placed on "tile[1]" will not be initialised without a multi-tile main function.
+xmap: Error: Resource "cam1PCLK" placed on "tile[1]" will not be initialised without a multi-tile main function.
+xmap: Error: Resource "cam1DATA" placed on "tile[1]" will not be initialised without a multi-tile main function.
+xmap: Error: Resource "camSYNC" placed on "tile[1]" will not be initialised without a multi-tile main function.
+xmake[1]: *** [bin//MockOV7740.xe] Error 1
+xmake: *** [bin//MockOV7740.xe] Error 2
+10:57:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:57:42 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+10:57:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:58:24 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+10:58:35 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+10:58:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:58:42 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+10:58:44 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+10:58:50 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+11:00:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:17:5: error: unknown function identifier `printf' (possibly missing prototype?)
+    printf("Booting AutoUmp...\n");
+    ^~~~~~
+In file included from ../src/AutoUmp.xc:4:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:01:03 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:01:06 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:01:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:03:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:03:01 **** Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:6:5: error: parse error before "uint32_t"
+    uint32_t* unsafe top,
+    ^
+../src/DenoiseTest.xc:13:9: error: use of undeclared identifer `uint32_t'
+        uint32_t topByte = top[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:13:18: error: parse error before "topByte"
+        uint32_t topByte = top[byte];
+                 ^
+../src/DenoiseTest.xc:14:9: warning: type defaults to `int' in declaration of `uint32_t'
+        uint32_t curByte = cur[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:14:9: warning: data definition has no type or storage class
+        uint32_t curByte = cur[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:14:18: error: parse error before "curByte"
+        uint32_t curByte = cur[byte];
+                 ^
+../src/DenoiseTest.xc:14:28: error: use of undeclared identifer `cur'
+        uint32_t curByte = cur[byte];
+                           ^~~
+../src/DenoiseTest.xc:14:32: error: use of undeclared identifer `byte'
+        uint32_t curByte = cur[byte];
+                               ^~~~
+../src/DenoiseTest.xc:14:18: warning: type defaults to `int' in declaration of `curByte'
+        uint32_t curByte = cur[byte];
+                 ^~~~~~~
+../src/DenoiseTest.xc:14:18: warning: data definition has no type or storage class
+        uint32_t curByte = cur[byte];
+                 ^~~~~~~
+../src/DenoiseTest.xc:15:9: warning: type defaults to `int' in declaration of `uint32_t'
+        uint32_t botByte = bot[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:15:9: warning: data definition has no type or storage class
+        uint32_t botByte = bot[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:15:9: error: redefinition of 'uint32_t'
+        uint32_t botByte = bot[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:14:9: note: previous definition of 'uint32_t' was here
+        uint32_t curByte = cur[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:15:18: error: parse error before "botByte"
+        uint32_t botByte = bot[byte];
+                 ^
+../src/DenoiseTest.xc:15:28: error: use of undeclared identifer `bot'
+        uint32_t botByte = bot[byte];
+                           ^~~
+../src/DenoiseTest.xc:15:18: warning: type defaults to `int' in declaration of `botByte'
+        uint32_t botByte = bot[byte];
+                 ^~~~~~~
+../src/DenoiseTest.xc:15:18: warning: data definition has no type or storage class
+        uint32_t botByte = bot[byte];
+                 ^~~~~~~
+../src/DenoiseTest.xc:18:9: warning: type defaults to `int' in declaration of `uint32_t'
+        uint32_t topBit, botBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:18:9: warning: data definition has no type or storage class
+        uint32_t topBit, botBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:18:9: error: redefinition of 'uint32_t'
+        uint32_t topBit, botBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:15:9: note: previous definition of 'uint32_t' was here
+        uint32_t botByte = bot[byte];
+        ^~~~~~~~
+../src/DenoiseTest.xc:18:18: error: parse error before "topBit"
+        uint32_t topBit, botBit;
+                 ^
+../src/DenoiseTest.xc:18:18: warning: type defaults to `int' in declaration of `topBit'
+        uint32_t topBit, botBit;
+                 ^~~~~~
+../src/DenoiseTest.xc:18:18: warning: data definition has no type or storage class
+        uint32_t topBit, botBit;
+                 ^~~~~~
+../src/DenoiseTest.xc:18:26: warning: type defaults to `int' in declaration of `botBit'
+        uint32_t topBit, botBit;
+                         ^~~~~~
+../src/DenoiseTest.xc:18:26: warning: data definition has no type or storage class
+        uint32_t topBit, botBit;
+                         ^~~~~~
+../src/DenoiseTest.xc:19:9: warning: type defaults to `int' in declaration of `uint32_t'
+        uint32_t leftBit, curBit, rightBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:19:9: warning: data definition has no type or storage class
+        uint32_t leftBit, curBit, rightBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:19:9: error: redefinition of 'uint32_t'
+        uint32_t leftBit, curBit, rightBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:18:9: note: previous definition of 'uint32_t' was here
+        uint32_t topBit, botBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:19:18: error: parse error before "leftBit"
+        uint32_t leftBit, curBit, rightBit;
+                 ^
+../src/DenoiseTest.xc:19:18: warning: type defaults to `int' in declaration of `leftBit'
+        uint32_t leftBit, curBit, rightBit;
+                 ^~~~~~~
+../src/DenoiseTest.xc:19:18: warning: data definition has no type or storage class
+        uint32_t leftBit, curBit, rightBit;
+                 ^~~~~~~
+../src/DenoiseTest.xc:19:27: warning: type defaults to `int' in declaration of `curBit'
+        uint32_t leftBit, curBit, rightBit;
+                          ^~~~~~
+../src/DenoiseTest.xc:19:27: warning: data definition has no type or storage class
+        uint32_t leftBit, curBit, rightBit;
+                          ^~~~~~
+../src/DenoiseTest.xc:19:35: warning: type defaults to `int' in declaration of `rightBit'
+        uint32_t leftBit, curBit, rightBit;
+                                  ^~~~~~~~
+../src/DenoiseTest.xc:19:35: warning: data definition has no type or storage class
+        uint32_t leftBit, curBit, rightBit;
+                                  ^~~~~~~~
+../src/DenoiseTest.xc:22:9: warning: type defaults to `int' in declaration of `uint32_t'
+        uint32_t toSaveByte = 0;
+        ^~~~~~~~
+../src/DenoiseTest.xc:22:9: warning: data definition has no type or storage class
+        uint32_t toSaveByte = 0;
+        ^~~~~~~~
+../src/DenoiseTest.xc:22:9: error: redefinition of 'uint32_t'
+        uint32_t toSaveByte = 0;
+        ^~~~~~~~
+../src/DenoiseTest.xc:19:9: note: previous definition of 'uint32_t' was here
+        uint32_t leftBit, curBit, rightBit;
+        ^~~~~~~~
+../src/DenoiseTest.xc:22:18: error: parse error before "toSaveByte"
+        uint32_t toSaveByte = 0;
+                 ^
+../src/DenoiseTest.xc:22:18: warning: type defaults to `int' in declaration of `toSaveByte'
+        uint32_t toSaveByte = 0;
+                 ^~~~~~~~~~
+../src/DenoiseTest.xc:22:18: warning: data definition has no type or storage class
+        uint32_t toSaveByte = 0;
+                 ^~~~~~~~~~
+../src/DenoiseTest.xc:24:9: warning: type defaults to `int' in declaration of `rightBit'
+        rightBit = curByte & 0x1;
+        ^~~~~~~~
+../src/DenoiseTest.xc:24:9: warning: data definition has no type or storage class
+        rightBit = curByte & 0x1;
+        ^~~~~~~~
+../src/DenoiseTest.xc:24:9: error: redefinition of 'rightBit'
+        rightBit = curByte & 0x1;
+        ^~~~~~~~
+../src/DenoiseTest.xc:19:35: note: previous definition of 'rightBit' was here
+        uint32_t leftBit, curBit, rightBit;
+                                  ^~~~~~~~
+../src/DenoiseTest.xc:25:9: warning: type defaults to `int' in declaration of `curByte'
+        curByte = curByte >> 1;
+        ^~~~~~~
+../src/DenoiseTest.xc:25:9: warning: data definition has no type or storage class
+        curByte = curByte >> 1;
+        ^~~~~~~
+../src/DenoiseTest.xc:25:9: error: redefinition of 'curByte'
+        curByte = curByte >> 1;
+        ^~~~~~~
+../src/DenoiseTest.xc:14:18: note: previous definition of 'curByte' was here
+        uint32_t curByte = cur[byte];
+                 ^~~~~~~
+../src/DenoiseTest.xc:26:9: warning: type defaults to `int' in declaration of `curBit'
+        curBit = curByte & 0x1;
+        ^~~~~~
+../src/DenoiseTest.xc:26:9: warning: data definition has no type or storage class
+        curBit = curByte & 0x1;
+        ^~~~~~
+../src/DenoiseTest.xc:26:9: error: redefinition of 'curBit'
+        curBit = curByte & 0x1;
+        ^~~~~~
+../src/DenoiseTest.xc:19:27: note: previous definition of 'curBit' was here
+        uint32_t leftBit, curBit, rightBit;
+                          ^~~~~~
+../src/DenoiseTest.xc:28:9: error: parse error before "for"
+        for (int bit = 1; bit < 31; bit++)
+        ^
+../src/DenoiseTest.xc:28:27: warning: type defaults to `int' in declaration of `bit'
+        for (int bit = 1; bit < 31; bit++)
+                          ^~~
+../src/DenoiseTest.xc:28:27: warning: data definition has no type or storage class
+        for (int bit = 1; bit < 31; bit++)
+                          ^~~
+../src/DenoiseTest.xc:28:31: error: parse error before '<' token
+        for (int bit = 1; bit < 31; bit++)
+                              ^
+../src/DenoiseTest.xc:28:37: warning: type defaults to `int' in declaration of `bit'
+        for (int bit = 1; bit < 31; bit++)
+                                    ^~~
+../src/DenoiseTest.xc:28:37: warning: data definition has no type or storage class
+        for (int bit = 1; bit < 31; bit++)
+                                    ^~~
+../src/DenoiseTest.xc:28:37: error: redefinition of 'bit'
+        for (int bit = 1; bit < 31; bit++)
+                                    ^~~
+../src/DenoiseTest.xc:28:27: note: previous definition of 'bit' was here
+        for (int bit = 1; bit < 31; bit++)
+                          ^~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:03:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:03:08 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:60:1: error: parse error before '{' token
+{
+^
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:03:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:03:15 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:63:1: warning: control reaches end of non-void function
+}
+^
+Propagating analysis
+Creating dependencies for DenoiseTest.xc
+Compiling DenoiseTest.xc
+../src/DenoiseTest.xc:63:1: warning: control reaches end of non-void function
+}
+^
+Creating DenoiseTest.xe
+Build Complete
+11:05:23 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:64:14: warning: unused variable `img'
+    uint32_t img[240*40/4];
+             ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for DenoiseTest.xc
+Compiling DenoiseTest.xc
+../src/DenoiseTest.xc:64:14: warning: unused variable `img'
+    uint32_t img[240*40/4];
+             ^~~~~~~~~~~~~
+Creating DenoiseTest.xe
+Build Complete
+11:06:55 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:71:17: error: passing safe pointer argument 1 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &img[10*(y-2)],
+                ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: passing safe pointer argument 2 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &img[10*(y-1)],
+                ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: passing safe pointer argument 3 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &img[10*(y)]
+                ^~~~~~~~~~~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:07:08 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:71:17: error: passing safe pointer argument 1 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &img[10*(y-2)],
+                ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: passing safe pointer argument 2 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &img[10*(y-1)],
+                ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: passing safe pointer argument 3 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &img[10*(y)]);
+                ^~~~~~~~~~~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:07:30 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:71:17: error: argument to & operator is not an lvalue
+                &(uint32_t* unsafe)img[10*(y-2)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:71:17: error: passing safe pointer argument 1 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &(uint32_t* unsafe)img[10*(y-2)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: argument to & operator is not an lvalue
+                &(uint32_t* unsafe)img[10*(y-1)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: passing safe pointer argument 2 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &(uint32_t* unsafe)img[10*(y-1)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: argument to & operator is not an lvalue
+                &(uint32_t* unsafe)img[10*(y)]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: passing safe pointer argument 3 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &(uint32_t* unsafe)img[10*(y)]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:08:07 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:71:17: error: cast to a pointer of a different kind
+                (uint32_t* unsafe)&img[10*(y-2)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: cast to a pointer of a different kind
+                (uint32_t* unsafe)&img[10*(y-1)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: cast to a pointer of a different kind
+                (uint32_t* unsafe)&img[10*(y)]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:09:59 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:71:17: error: cast to a pointer of a different kind
+                (uint32_t* unsafe)&img[10*(y-2)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: cast to a pointer of a different kind
+                (uint32_t* unsafe)&img[10*(y-1)],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: cast to a pointer of a different kind
+                (uint32_t* unsafe)&img[10*(y)]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:11:39 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:11:39 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:71:17: error: passing safe pointer argument 1 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &(img[10*(y-2)]),
+                ^~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:72:17: error: passing safe pointer argument 2 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &(img[10*(y-1)]),
+                ^~~~~~~~~~~~~~~~
+../src/DenoiseTest.xc:73:17: error: passing safe pointer argument 3 of 'ov07740_denoise' to unsafe parameter type outside of unsafe region
+                &(img[10*(y)]));
+                ^~~~~~~~~~~~~~
+xmake[1]: *** [.build/src//DenoiseTest.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:11:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:11:53 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+Propagating analysis
+Creating dependencies for DenoiseTest.xc
+Compiling DenoiseTest.xc
+Creating DenoiseTest.xe
+Build Complete
+12:23:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+12:23:01 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+12:26:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+12:26:14 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+12:26:18 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+12:26:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+12:27:03 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:44:38 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+14:45:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+14:45:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+14:46:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:49:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:347:13: error: local variable `cmdStream1' has type chanend
+    chanend cmdStream1, cmdStream2;
+            ^~~~~~~~~~
+../src/cameras/ov07740.xc:347:25: error: local variable `cmdStream2' has type chanend
+    chanend cmdStream1, cmdStream2;
+                        ^~~~~~~~~~
+../src/cameras/ov07740.xc:349:12: error: parse error before '*' token
+    uint8_t* unsafe tmpBuffer,
+           ^
+../src/cameras/ov07740.xc:353:13: error: parse error before "tmpBuffer2"
+    uint8_t tmpBuffer2[320];
+            ^
+../src/cameras/ov07740.xc:357:49: error: use of undeclared identifer `tmpBuffer'
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                                ^~~~~~~~~
+../src/cameras/ov07740.xc:357:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:358:49: error: use of undeclared identifer `tmpBuffer2'
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                                ^~~~~~~~~~
+../src/cameras/ov07740.xc:358:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+14:49:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:347:13: error: local variable `cmdStream1' has type chanend
+    chanend cmdStream1, cmdStream2;
+            ^~~~~~~~~~
+../src/cameras/ov07740.xc:347:25: error: local variable `cmdStream2' has type chanend
+    chanend cmdStream1, cmdStream2;
+                        ^~~~~~~~~~
+../src/cameras/ov07740.xc:354:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:354:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                               ^~~~~~~~~~
+../src/cameras/ov07740.xc:355:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:355:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                               ^~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+14:49:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:354:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:354:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                               ^~~~~~~~~~
+../src/cameras/ov07740.xc:355:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:355:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                               ^~~~~~~~~~~
+../src/cameras/ov07740.xc:352:5: error: use of `testrow' violates parallel usage rules
+    par
+    ^~~
+../src/cameras/ov07740.xc:354:38: note: violation occurs here
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:355:39: note: violation occurs here
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                      ^~~~~~~
+../src/cameras/ov07740.xc:354:26: warning: `cmdStream1' not used in two parallel statements
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                         ^~~~~~~~~~
+../src/cameras/ov07740.xc:355:26: warning: `cmdStream2' not used in two parallel statements
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                         ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+14:51:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:293:25: error: use of undeclared identifer `vsync_bits'
+        waitForVSync(0, vsync_bits);
+                        ^~~~~~~~~~
+../src/cameras/ov07740.xc:305:42: error: use of undeclared identifer `href_bits'
+            unsigned count = waitForHREF(href_bits, href_bits);
+                                         ^~~~~~~~~
+../src/cameras/ov07740.xc:353:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:353:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                               ^~~~~~~~~~
+../src/cameras/ov07740.xc:354:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:354:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                               ^~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+14:51:37 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:353:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:353:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                               ^~~~~~~~~~
+../src/cameras/ov07740.xc:354:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:354:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                               ^~~~~~~~~~~
+../src/cameras/ov07740.xc:351:5: error: use of `testrow' violates parallel usage rules
+    par
+    ^~~
+../src/cameras/ov07740.xc:353:38: note: violation occurs here
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:354:39: note: violation occurs here
+        gatherDataThread(cmdStream2, &testrow, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                      ^~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+14:51:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:353:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:353:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                               ^~~~~~~~~~
+../src/cameras/ov07740.xc:354:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow2, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~~
+../src/cameras/ov07740.xc:354:49: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow2, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                                ^~~~~~~~~~~
+Propagating analysis
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:353:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:353:48: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                               ^~~~~~~~~~
+../src/cameras/ov07740.xc:354:38: warning: passing incompatible pointer type for argument 2 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow2, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~~
+../src/cameras/ov07740.xc:354:49: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+        gatherDataThread(cmdStream2, &testrow2, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                                ^~~~~~~~~~~
+Creating AutoUmp.xe
+../src/cameras/ov07740.xc:351:5: error: use of `testrow' violates parallel usage rules
+    par
+    ^~~
+../src/cameras/ov07740.xc:332:49: note: object used here
+        sendToBluetooth(uart1, (uint8_t* unsafe)testrow, 240*320);
+                                                ^~~~~~~
+../src/cameras/ov07740.xc:353:38: note: object used here
+        gatherDataThread(cmdStream1, &testrow, &tmpBuffer, (port* unsafe)&cam1DATA);
+                                     ^~~~~~~~
+../src/cameras/ov07740.xc:351:5: error: use of `testrow2' violates parallel usage rules
+    par
+    ^~~
+../src/cameras/ov07740.xc:333:49: note: object used here
+        sendToBluetooth(uart1, (uint8_t* unsafe)testrow2, 240*320);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:354:38: note: object used here
+        gatherDataThread(cmdStream2, &testrow2, &tmpBuffer2, (port* unsafe)&cam2DATA);
+                                     ^~~~~~~~~
+xmake[1]: *** [bin//AutoUmp.xe] Error 1
+xmake: *** [bin//AutoUmp.xe] Error 2
+14:52:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+14:54:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+14:55:08 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+14:56:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+14:56:34 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:56:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+14:57:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:58:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:356:13: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+            (port* unsafe)&cam1DATA);
+            ^~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:356:28: error: too few arguments to function `gatherDataThread'
+            (port* unsafe)&cam1DATA);
+                           ^
+../src/cameras/ov07740.xc:360:13: warning: passing incompatible pointer type for argument 3 of `gatherDataThread' without explicit cast is deprecated
+            (port* unsafe)&cam2DATA);
+            ^~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:360:28: error: too few arguments to function `gatherDataThread'
+            (port* unsafe)&cam2DATA);
+                           ^
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+14:58:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:309:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:309:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+14:58:35 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:01:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:164:22: error: use of undeclared identifer `buf'
+        cmdStream :> buf;
+                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+15:01:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:178:38: warning: argument 2 of `computeOV7670Data' converts integer to pointer without explicit cast is deprecated
+        computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:178:38: warning: argument 2 of `computeOV7670Data' converts integer to pointer without explicit cast is deprecated
+        computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:03:25 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:178:38: warning: argument 2 of `computeOV7670Data' converts integer to pointer without explicit cast is deprecated
+        computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:178:38: warning: argument 2 of `computeOV7670Data' converts integer to pointer without explicit cast is deprecated
+        computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:04:05 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:178:38: warning: argument 2 of `computeOV7670Data' converts integer to pointer without explicit cast is deprecated
+        computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:178:38: warning: argument 2 of `computeOV7670Data' converts integer to pointer without explicit cast is deprecated
+        computeOV7670Data(tmpBuffer, buf, bit, 5);
+                                     ^~~
+../src/cameras/ov07740.xc:307:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:05:11 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:158:5: error: parse error before "uint8_t"
+    uint8_t* unsafe buf;
+    ^
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:309:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:313:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+15:05:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:309:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:313:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:308:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:309:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:312:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:313:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:08:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:08:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:09:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:10:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:10:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:11:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:11:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:18:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:18:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:19:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:19:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:20:23 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:21:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:310:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:311:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:314:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:315:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:24:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:25:22 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:129:9: error: parse error before '}' token
+        } while (x < 320);
+        ^
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+15:25:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:25:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:26:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:220:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:221:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:224:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:225:22: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+            cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+15:27:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:30:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.S
+Propagating analysis
+Creating dependencies for ov07740.S
+Compiling ov07740.S
+Creating AutoUmp.xe
+Build Complete
+15:30:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete

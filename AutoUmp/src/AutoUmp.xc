@@ -1,9 +1,9 @@
 #include <xs1.h>
 #include <platform.h>
+#include <stdio.h>
 
 #include "ov07740.h"
 #include "io.h"
-
 
 // "UI" tile
 void Tile0(chanend bluetoothChan)
@@ -15,7 +15,7 @@ void Tile0(chanend bluetoothChan)
 void Tile1(chanend bluetoothChan)
 { unsafe {
 
-    //printf("Booting AutoUmp...\n");
+    printf("Booting AutoUmp...\n");
 
     initCams();
     configureCams();

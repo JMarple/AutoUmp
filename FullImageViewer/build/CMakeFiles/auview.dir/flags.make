@@ -3,11 +3,11 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_FLAGS = -isystem /usr/local/include -isystem /usr/local/include/opencv   
+C_FLAGS = -isystem /usr/local/include -isystem /usr/local/include/opencv    -std=c++11
 
 C_DEFINES = 
 
-CXX_FLAGS = -std=c++11 -isystem /usr/local/include -isystem /usr/local/include/opencv   
+CXX_FLAGS = -isystem /usr/local/include -isystem /usr/local/include/opencv    -std=c++11
 
 CXX_DEFINES = 
 

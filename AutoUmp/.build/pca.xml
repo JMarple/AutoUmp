@@ -10,12 +10,12 @@
 <fInfo name="waitForHREF" global="false" unit="../src/cameras/ov07740.xc" specialize="false" noreturn="false" doNotSpecialize="true" numParams="2">
   <arg num="0" specialize="false">
     <values>
-      <value type="unknown"/>
+      <value type="intval"><intval isSigned="false" val="64"/></value>
     </values>
   </arg>
   <arg num="1" specialize="false">
     <values>
-      <value type="unknown"/>
+      <value type="intval"><intval isSigned="false" val="64"/></value>
     </values>
   </arg>
 </fInfo>
@@ -209,55 +209,13 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="gather1Data" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="gatherDataThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
   <arg num="1" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fInfo>
-<fInfo name="gather2Data" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
-  <arg num="0" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
@@ -297,15 +255,15 @@
 </fInfo>
 <fInfo name="main" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
-<fInfo name="ov07740_capture" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="4">
-  <arg num="0" specialize="true">
+<fInfo name="ov07740_capture" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+  <arg num="0" specialize="false">
     <values>
-      <value type="intval"><intval isSigned="false" val="128"/></value>
+      <value type="unknown"/>
     </values>
   </arg>
-  <arg num="1" specialize="true">
+  <arg num="1" specialize="false">
     <values>
-      <value type="intval"><intval isSigned="false" val="64"/></value>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2" specialize="false">
@@ -313,19 +271,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="3" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="intval"><intval isSigned="false" val="128"/></value></values></arg>
-    <arg num="1"><values><value type="intval"><intval isSigned="false" val="64"/></value></values></arg>
-    <arg num="2"><values><value type="unknown"/></values></arg>
-    <arg num="3"><values><value type="unknown"/></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="ov07740_denoise" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
@@ -441,30 +386,34 @@
   </arg>
   <arg num="2" specialize="true">
     <values>
-      <value type="intval"><intval isSigned="true" val="76800"/></value>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
  <specializations>
    <specialization id="0">
     <arg num="0"><values><value type="unknown"/></values></arg>
     <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="intval"><intval isSigned="true" val="76800"/></value></values></arg>
+    <arg num="2"><values><value type="intval"><intval isSigned="true" val="9600"/></value></values></arg>
    </specialization>
  </specializations>
 </fInfo>
-<fInfo name="waitForVSync" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
+<fInfo name="waitForVSync" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
-      <value type="unknown"/>
       <value type="intval"><intval isSigned="true" val="0"/></value>
+      <value type="intval"><intval isSigned="false" val="128"/></value>
     </values>
   </arg>
-  <arg num="1" specialize="false">
+  <arg num="1" specialize="true">
     <values>
-      <value type="unknown"/>
+      <value type="intval"><intval isSigned="false" val="128"/></value>
     </values>
   </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="intval"><intval isSigned="false" val="128"/></value></values></arg>
+   </specialization>
+ </specializations>
 </fInfo>
-<fCall name="ov07740_capture" global="true" callerUnit="../src/cameras/ov07740.xc" numArgs="4" impId="2" specializationId="0">
-</fCall>
 </preCompilationAnalysis>
