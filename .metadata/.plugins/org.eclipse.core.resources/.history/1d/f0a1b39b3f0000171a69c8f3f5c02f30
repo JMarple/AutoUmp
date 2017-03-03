@@ -8,19 +8,15 @@
 
 // bitBuffer is an entire bit image
 void FloodFill(uint8_t* unsafe bitBuffer)
-{ unsafe {
-
+{
     for (int i = 2; i < 240; i++)
     {
-        /*DenoiseRow(
-            (uint32_t* unsafe)bitBuffer[i-2],
-            (uint32_t* unsafe)bitBuffer[i-1],
-            (uint32_t* unsafe)bitBuffer[i]);*/
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
     }
     // -----------------------
     // Tim your code goes here.
     // -----------------------
-}}
+}
 
 void FloodFillThread(chanend stream)
 { unsafe {
@@ -43,11 +39,8 @@ void FloodFillThread(chanend stream)
     }
 }}
 
-void DenoiseRow(
-    uint32_t* unsafe top,
-    uint32_t* unsafe cur,
-    uint32_t* unsafe bot)
-{ unsafe {
+void DenoiseRow(uint32_t* top, uint32_t* cur, uint32_t* bot)
+{
     for (int byte = 9; byte >= 0; byte++)
     {
         // Bytes
@@ -95,4 +88,4 @@ void DenoiseRow(
         toSaveByte = toSaveByte >> 1;
         cur[byte] = toSaveByte;
     }
-}}
+}

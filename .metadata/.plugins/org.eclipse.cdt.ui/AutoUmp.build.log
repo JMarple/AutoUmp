@@ -1,13 +1,13 @@
-11:54:57 **** Incremental Build of configuration Default for project AutoUmp ****
+13:33:59 **** Incremental Build of configuration Default for project AutoUmp ****
 xmake CONFIG=Default all 
 Checking build modules
 Using build modules: lib_locks(2.0.3)
-Analyzing ov07740.xc
+Analyzing algs.xc
 Propagating analysis
-Creating dependencies for ov07740.xc
-Compiling ov07740.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
 Creating AutoUmp.xe
 Build Complete
 
-11:54:59 Build Finished (took 1s.616ms)
+13:34:00 Build Finished (took 1s.378ms)
 

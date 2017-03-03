@@ -12,10 +12,10 @@ void FloodFill(uint8_t* unsafe bitBuffer)
 
     for (int i = 2; i < 240; i++)
     {
-        /*DenoiseRow(
+        DenoiseRow(
             (uint32_t* unsafe)bitBuffer[i-2],
             (uint32_t* unsafe)bitBuffer[i-1],
-            (uint32_t* unsafe)bitBuffer[i]);*/
+            (uint32_t* unsafe)bitBuffer[i]);
     }
     // -----------------------
     // Tim your code goes here.

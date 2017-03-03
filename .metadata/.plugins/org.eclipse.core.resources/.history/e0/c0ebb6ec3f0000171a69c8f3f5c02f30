@@ -9,13 +9,9 @@
 // bitBuffer is an entire bit image
 void FloodFill(uint8_t* unsafe bitBuffer)
 { unsafe {
-
     for (int i = 2; i < 240; i++)
     {
-        /*DenoiseRow(
-            (uint32_t* unsafe)bitBuffer[i-2],
-            (uint32_t* unsafe)bitBuffer[i-1],
-            (uint32_t* unsafe)bitBuffer[i]);*/
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
     }
     // -----------------------
     // Tim your code goes here.

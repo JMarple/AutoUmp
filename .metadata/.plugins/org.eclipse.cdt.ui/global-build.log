@@ -232,3 +232,161 @@ Creating dependencies for ov07740.xc
 Compiling ov07740.xc
 Creating AutoUmp.xe
 Build Complete
+13:30:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:14:20: error: cannot subscript unsafe pointer outside of unsafe region
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                   ^~~~~~~~~
+../src/cameras/algs.xc:14:36: error: cannot subscript unsafe pointer outside of unsafe region
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                   ^~~~~~~~~
+../src/cameras/algs.xc:14:52: error: cannot subscript unsafe pointer outside of unsafe region
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                                   ^~~~~~~~~
+../src/cameras/algs.xc:14:9: error: unknown function identifier `DenoiseRow' (possibly missing prototype?)
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+        ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+13:31:50 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:14:9: error: unknown function identifier `DenoiseRow' (possibly missing prototype?)
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+        ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+13:32:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:14:20: error: incompatible type for argument 1 of `DenoiseRow'
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:36: error: incompatible type for argument 2 of `DenoiseRow'
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:52: error: incompatible type for argument 3 of `DenoiseRow'
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                                   ^~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+13:32:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:14:20: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:36: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:52: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                                   ^~~~~~~~~~~~
+../src/cameras/algs.xc:42:6: error: conflicting types for 'DenoiseRow'
+void DenoiseRow(uint32_t* top, uint32_t* cur, uint32_t* bot)
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.h:5:1: note: previous declaration of 'DenoiseRow' was here
+void DenoiseRow(
+^~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+13:32:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:14:20: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:36: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:52: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                                   ^~~~~~~~~~~~
+../src/cameras/algs.xc:50:28: error: cannot subscript unsafe pointer outside of unsafe region
+        uint32_t topByte = top[byte];
+                           ^~~
+../src/cameras/algs.xc:51:28: error: cannot subscript unsafe pointer outside of unsafe region
+        uint32_t curByte = cur[byte];
+                           ^~~
+../src/cameras/algs.xc:52:28: error: cannot subscript unsafe pointer outside of unsafe region
+        uint32_t botByte = bot[byte];
+                           ^~~
+../src/cameras/algs.xc:92:9: error: cannot subscript unsafe pointer outside of unsafe region
+        cur[byte] = toSaveByte;
+        ^~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+13:33:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:14:20: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:36: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:52: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                                   ^~~~~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:14:20: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:36: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                   ^~~~~~~~~~~~~~
+../src/cameras/algs.xc:14:52: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+        DenoiseRow(bitBuffer[i-2], bitBuffer[i-1], bitBuffer[i]);
+                                                   ^~~~~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+13:33:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+13:33:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete

@@ -10,6 +10,7 @@
 void FloodFill(uint8_t* unsafe bitBuffer)
 { unsafe {
 
+    // Go through each row.
     for (int i = 2; i < 240; i++)
     {
         /*DenoiseRow(
