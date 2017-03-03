@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void floodFill(chanend stream)
+{
+    while (1==1)
+    {
+        uint32_t starttime, endtime;
+        uint8_t* unsafe bitBuffer;
+        timer t;
+
+        t :> starttime;
+
+        // Tim your code goes here.
+
+        t :> endtime;
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+    }
+}

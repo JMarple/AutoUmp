@@ -7,15 +7,24 @@
 // Returns 3 if both cameras are connected
 //         1 or 2 if only one camera is connected
 //         0 if an error
-int initCams();
+int OV07740_InitCameras();
 
 // Configures settings over sccb with cameras.
 // Returns 0 if an error occured
-int configureCams();
+int OV07740_ConfigureCameras();
 
 void launchCameras(chanend uart1);
 
-void computeOV7670Data(
+void OV07740_MasterThread(
+    streaming chanend cam1,
+    streaming chanend cam2,
+    chanend uart1);
+
+void OV07740_GatherDataThread(
+    streaming chanend cmdStream,
+    port* unsafe camDATA);
+
+void computeBackgroundSub(
     uint8_t* unsafe tmp,
     uint8_t* unsafe old,
     uint8_t* unsafe bit,
@@ -26,6 +35,23 @@ struct SCCBPairs
     uint8_t reg;
     uint8_t value;
 };
+
+#define CAM_SCCB_ID 0x21
+
+// Product ID = 0x7740
+#define CAM_PRODUCT_MSB 0x0A
+#define CAM_PRODUCT_LSB 0x0B
+
+#define CAM_HAEC 0x0F // Exposure msb
+#define CAM_AEC 0x10 // Exposure lsb
+
+// AutoUmp RevA specific port bit's
+// This is needed since the HREF/VSYNC's share the same
+// 8-bit port for both cameras.
+#define AU_HREF1  (1 << 4)
+#define AU_VSYNC1 (1 << 5)
+#define AU_HREF2  (1 << 6)
+#define AU_VSYNC2 (1 << 7)
 
 /*static struct SCCBPairs OV7740_QVGA[] =
 {

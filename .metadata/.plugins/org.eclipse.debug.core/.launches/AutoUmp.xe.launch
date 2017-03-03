@@ -18,6 +18,7 @@
 <booleanAttribute key="com.xmos.cdt.pins" value="false"/>
 <listAttribute key="com.xmos.cdt.pins.connections"/>
 <booleanAttribute key="com.xmos.cdt.simulator_launch" value="false"/>
+<stringAttribute key="com.xmos.cdt.target_name" value="XMOS XTAG-3 connected to O[0] [ghoa.V3N]"/>
 <booleanAttribute key="com.xmos.cdt.traceDisabled" value="true"/>
 <booleanAttribute key="com.xmos.cdt.traceToConsole" value="false"/>
 <booleanAttribute key="com.xmos.cdt.traceToFile" value="false"/>

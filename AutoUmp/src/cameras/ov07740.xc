@@ -1,5 +1,4 @@
 // Auto-Ump specific implementation for the OV07740 camera
-
 #include <xs1.h>
 #include <platform.h>
 #include <stdlib.h>
@@ -34,22 +33,10 @@ on tile[1]:     port cam2SCL  = XS1_PORT_1P;
 on tile[1]:     port cam2SDA  = XS1_PORT_1O;
 on tile[1]: in buffered port:32 cam2DATA = XS1_PORT_8C;
 
-const uint8_t CAM_SCCB_ID = 0x21;
-
-// Product ID = 0x7740
-const uint8_t CAM_PRODUCT_MSB = 0x0A;
-const uint8_t CAM_PRODUCT_LSB = 0x0B;
-
-const uint8_t CAM_HAEC = 0x0F; // Exposure msb
-const uint8_t CAM_AEC = 0x10; // Exposure lsb
-
-// AutoUmp RevA specific port bit's
-// This is needed since the HREF/VSYNC's share the same
-// 8-bit port for both cameras.
-const uint8_t AU_HREF1 = (1 << 4);
-const uint8_t AU_VSYNC1 = (1 << 5);
-const uint8_t AU_HREF2 = (1 << 6);
-const uint8_t AU_VSYNC2 = (1 << 7);
+void OV07740_GetFrame(
+    streaming chanend cam1, streaming chanend cam2,
+    uint8_t* unsafe image1, uint8_t* unsafe image2,
+    uint8_t* unsafe bitimage1, uint8_t* unsafe bitimage2);
 
 static void delay(uint32_t delay_amount)
 {
@@ -100,23 +87,45 @@ void sendToBluetooth(chanend uart1, uint8_t* unsafe buf, int length)
     }
 }}
 
-void floodFill(chanend stream)
-{
-    while (1==1)
+void OV07740_MasterThread(
+    streaming chanend cam1,
+    streaming chanend cam2,
+    chanend uart1)
+{ unsafe {
+    uint8_t data, vsync = 1;
+    timer t;
+    uint32_t starttime, endtime;
+
+    int lc = 0;
+
+    // Allocate memory for images
+    uint8_t* unsafe image1 = malloc(320*240);
+    uint8_t* unsafe image2 = malloc(320*240);
+    uint8_t* unsafe bitImage1 = malloc(320*240/8);
+    uint8_t* unsafe bitImage2 = malloc(320*240/8);
+
+    while (1)
     {
-        uint32_t starttime, endtime;
         timer t;
+        uint32_t st, en;
 
-        t :> starttime;
+        t :> st;
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
+        t :> en;
 
-        // Tim your code goes here.
-
-        t :> endtime;
-        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+        //sendToBluetooth(uart1, (uint8_t* unsafe)testrow, 240*320);
+        //sendToBluetooth(uart1, (uint8_t* unsafe)testrow2, 240*320);
+        //sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
+        printf("Sent Frame! %d clk ticks\n", (en-st));
     }
-}
+}}
 
-void gatherDataThread(
+// The thread that gathers all the data when
+// instructed to do so by the sync thread
+void OV07740_GatherDataThread(
     streaming chanend cmdStream,
     port* unsafe camDATA)
 { unsafe {
@@ -130,88 +139,45 @@ void gatherDataThread(
     {
         x = 0;
 
+        // Blocking statements that will wait until
+        // the data is passed to it.
         cmdStream :> buf;
         cmdStream :> bit;
         cmdStream :> count;
 
+        // Waits until the port counter for camDATA is
+        // the value of `count`.  This ensures the program
+        // samples at the first pixels correctly.
         (*camDATA) @ count :> tmpData;
 
-        // Gather data
+        // Gather all pixels
         do
         {
-           tmpBuffer[x++] = ((tmpData >> 8) & 0xFF);
-           tmpBuffer[x++] = ((tmpData >> 24) & 0xFF);
-           (*camDATA) :> tmpData;
+            // The data comes in as "YUYV" and our program
+            // only cares about the "Y" (aka grayscale) component
+            // of the image.
+            tmpBuffer[x++] = ((tmpData >> 8) & 0xFF);
+            tmpBuffer[x++] = ((tmpData >> 24) & 0xFF);
+
+            // Blocking until `camDATA` has a full buffer
+            (*camDATA) :> tmpData;
         } while (x < 320);
 
-        computeOV7670Data(tmpBuffer, buf, bit, 5);
+        // Subtract the old background row with the new data
+        computeBackgroundSub(tmpBuffer, buf, bit, 5);
 
+        // Reports back to the sync core that this process is done.
         cmdStream <: 0;
     }
 }}
 
-void ov07740_denoise(
-    uint32_t* unsafe top,
-    uint32_t* unsafe cur,
-    uint32_t* unsafe bot)
+void OV07740_GetFrame(
+    streaming chanend cam1, streaming chanend cam2,
+    uint8_t* unsafe image1, uint8_t* unsafe image2,
+    uint8_t* unsafe bitimage1, uint8_t* unsafe bitimage2)
 { unsafe {
-    for (int byte = 9; byte >= 0; byte--)
-    {
-        // Bytes
-        uint32_t topByte = top[byte];
-        uint32_t curByte = cur[byte];
-        uint32_t botByte = bot[byte];
 
-        // Bits
-        uint32_t topBit, botBit;
-        uint32_t leftBit, curBit, rightBit;
-
-        // Final byte to save back
-        uint32_t toSaveByte = 0;
-
-        rightBit = curByte & 0x1;
-        curByte = curByte >> 1;
-        curBit = curByte & 0x1;
-
-        for (int bit = 1; bit < 31; bit++)
-        {
-            curByte = curByte >> 1;
-            leftBit = curByte & 0x1;
-
-            // Top Byte
-            topByte = topByte >> 1;
-            topBit  = topByte & 0x1;
-
-            // Bottom Byte
-            botByte = botByte >> 1;
-            botBit  = botByte & 0x1;
-
-            uint32_t count;
-            count = rightBit + leftBit + topBit + botBit;
-            //count *= curBit;
-            //count = (count > 2);
-            count = curBit;
-            count = count << 31;
-            toSaveByte |= count;
-            toSaveByte = toSaveByte >> 1;
-
-            rightBit = curBit;
-            curBit = leftBit;
-        }
-
-        toSaveByte = toSaveByte >> 1;
-        cur[byte] = toSaveByte;
-    }
-}}
-
-uint32_t testrow[242*320/4];
-uint32_t testrow2[242*320/4];
-uint32_t bitimage[242*40/4];
-uint32_t bitimage2[242*40/4];
-
-void getFrame(streaming chanend cam1, streaming chanend cam2)
-{ unsafe {
-    // Sync Frames
+    // Sync both cameras
     camSFIN <: 0;
     delay(1000);
     camSFIN <: 1;
@@ -224,12 +190,12 @@ void getFrame(streaming chanend cam1, streaming chanend cam2)
     for (int y = 0; y < 240; y++)
     {
         // Send current byte row to threads
-        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
-        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+        cam1 <: (uint32_t)&((uint8_t* unsafe)image1)[y*320];
+        cam2 <: (uint32_t)&((uint8_t* unsafe)image2)[y*320];
 
         // Send current bit row to threads.
-        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
-        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage1)[y*40];
+        cam2 <: (uint32_t)&((uint8_t* unsafe)bitimage2)[y*40];
 
         unsigned count = waitForHREF(AU_HREF2, AU_HREF2);
 
@@ -245,92 +211,7 @@ void getFrame(streaming chanend cam1, streaming chanend cam2)
     }
 }}
 
-void ov07740_capture(streaming chanend cam1, streaming chanend cam2, chanend uart1)
-{ unsafe {
-    uint8_t data, vsync = 1;
-    timer t;
-    uint32_t starttime, endtime;
-
-    int lc = 0;
-
-    while (1)
-    {
-        timer t;
-        uint32_t st, en;
-
-        t :> st;
-        getFrame(cam1, cam2);
-        getFrame(cam1, cam2);
-        getFrame(cam1, cam2);
-        t :> en;
-
-        //sendToBluetooth(uart1, (uint8_t* unsafe)testrow, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)testrow2, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
-        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage2, 240*40);
-        printf("Sent Frame! %d clk ticks\n", (en-st));
-    }
-
-    //printf("Done!\n");
-    while (1);
-}}
-
-void launchCameras(chanend uart1)
-{ unsafe {
-    void* unsafe sync = (void* unsafe)&camSYNC;
-
-    streaming chan cmdStream1, cmdStream2;
-
-    par
-    {
-        gatherDataThread(cmdStream1,
-            (port* unsafe)&cam1DATA);
-
-        gatherDataThread(cmdStream2,
-            (port* unsafe)&cam2DATA);
-
-        ov07740_capture(cmdStream1, cmdStream2, uart1);
-    }
-
-    while (1==1);
-}}
-
-int configureCams()
-{ unsafe {
-
-    // Reset all registers to default values.
-    sccb_wr(CAM_SCCB_ID, 0x12, 0b10000000, cam1SCL, cam1SDA);
-    sccb_wr(CAM_SCCB_ID, 0x12, 0b10000000, cam2SCL, cam2SDA);
-
-    // Allow the sensor to reset, delays for 50ms
-    delay(5000000);
-
-    // Iterate through the register/value pairs and write them
-    // to the sensor.
-    for (int i = 0; i < sizeof(OV7740_QVGA)/sizeof(struct SCCBPairs); i++)
-    {
-        sccb_wr(CAM_SCCB_ID,
-            OV7740_QVGA[i].reg,
-            OV7740_QVGA[i].value,
-            cam1SCL, cam1SDA);
-
-        sccb_wr(CAM_SCCB_ID,
-            OV7740_QVGA[i].reg,
-            OV7740_QVGA[i].value,
-            cam2SCL, cam2SDA);
-    }
-
-    // Delay to let allow a few frames to go by
-    delay(100000000);
-
-    // Turn off AEC/AGC
-    sccb_wr(CAM_SCCB_ID, 0x13, 0b00000000, cam1SCL, cam1SDA);
-    sccb_wr(CAM_SCCB_ID, 0x13, 0b00000000, cam2SCL, cam2SDA);
-
-    return 1;
-}}
-
-int initCams()
+int OV07740_InitCameras()
 { unsafe {
 
     // Configure output clock to both cameras.
@@ -375,3 +256,40 @@ int initCams()
 
     return returnVal;
 }}
+
+int OV07740_ConfigureCameras()
+{ unsafe {
+
+    // Reset all registers to default values.
+    sccb_wr(CAM_SCCB_ID, 0x12, 0b10000000, cam1SCL, cam1SDA);
+    sccb_wr(CAM_SCCB_ID, 0x12, 0b10000000, cam2SCL, cam2SDA);
+
+    // Allow the sensor to reset, delays for 50ms
+    delay(5000000);
+
+    // Iterate through the register/value pairs and write them
+    // to the sensor.
+    for (int i = 0; i < sizeof(OV7740_QVGA)/sizeof(struct SCCBPairs); i++)
+    {
+        sccb_wr(CAM_SCCB_ID,
+            OV7740_QVGA[i].reg,
+            OV7740_QVGA[i].value,
+            cam1SCL, cam1SDA);
+
+        sccb_wr(CAM_SCCB_ID,
+            OV7740_QVGA[i].reg,
+            OV7740_QVGA[i].value,
+            cam2SCL, cam2SDA);
+    }
+
+    // Delay to let allow a few frames to go by
+    delay(100000000);
+
+    // Turn off AEC/AGC
+    sccb_wr(CAM_SCCB_ID, 0x13, 0b00000000, cam1SCL, cam1SDA);
+    sccb_wr(CAM_SCCB_ID, 0x13, 0b00000000, cam2SCL, cam2SDA);
+
+    return 1;
+}}
+
+

@@ -15839,3 +15839,1078 @@ Compiling ov07740.xc
                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Creating AutoUmp.xe
 Build Complete
+22:44:42 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing ov07740.S
+Propagating analysis
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.S
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:227:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:228:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:231:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:232:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling ov07740.S
+Creating AutoUmp.xe
+Build Complete
+22:56:27 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:241:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:242:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:245:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:246:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:241:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)testrow)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:242:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:245:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:246:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+22:56:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:242:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:245:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:246:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+../src/cameras/ov07740.xc:242:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)testrow2)[y*320];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:245:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam1 <: &((uint8_t* unsafe)bitimage)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:246:18: warning: variable will be promoted to word size before output (suggest explicit cast to word size)
+        cam2 <: &((uint8_t* unsafe)bitimage2)[y*40];
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+22:56:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+22:57:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:58:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:59:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+23:00:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:27:54: error: use of undeclared identifer `uart1'
+        OV07740_MasterThread(cmdStream1, cmdStream2, uart1);
+                                                     ^~~~~
+../src/AutoUmp.xc:27:9: error: unknown function identifier `OV07740_MasterThread' (possibly missing prototype?)
+        OV07740_MasterThread(cmdStream1, cmdStream2, uart1);
+        ^~~~~~~~~~~~~~~~~~~~
+../src/AutoUmp.xc:30:28: error: use of undeclared identifer `cam1DATA'
+            (port* unsafe)&cam1DATA);
+                           ^~~~~~~~
+../src/AutoUmp.xc:29:9: error: unknown function identifier `OV07740_GatherDataThread' (possibly missing prototype?)
+        OV07740_GatherDataThread(cmdStream1,
+        ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/AutoUmp.xc:33:28: error: use of undeclared identifer `cam2DATA'
+            (port* unsafe)&cam2DATA);
+                           ^~~~~~~~
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:57:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+23:04:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:27:54: error: use of undeclared identifer `uart1'
+        OV07740_MasterThread(cmdStream1, cmdStream2, uart1);
+                                                     ^~~~~
+../src/AutoUmp.xc:30:28: error: use of undeclared identifer `cam1DATA'
+            (port* unsafe)&cam1DATA);
+                           ^~~~~~~~
+../src/AutoUmp.xc:33:28: error: use of undeclared identifer `cam2DATA'
+            (port* unsafe)&cam2DATA);
+                           ^~~~~~~~
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+23:04:24 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:30:28: error: use of undeclared identifer `cam1DATA'
+            (port* unsafe)&cam1DATA);
+                           ^~~~~~~~
+../src/AutoUmp.xc:33:28: error: use of undeclared identifer `cam2DATA'
+            (port* unsafe)&cam2DATA);
+                           ^~~~~~~~
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+23:07:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:8:8: error: parse error before "on"
+extern on tile[1]: in buffered port:32 cam2DATA;
+       ^
+../src/AutoUmp.xc:32:28: error: use of undeclared identifer `cam1DATA'
+            (port* unsafe)&cam1DATA);
+                           ^~~~~~~~
+../src/AutoUmp.xc:35:28: error: use of undeclared identifer `cam2DATA'
+            (port* unsafe)&cam2DATA);
+                           ^~~~~~~~
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+23:07:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:32:28: error: use of undeclared identifer `cam1DATA'
+            (port* unsafe)&cam1DATA);
+                           ^~~~~~~~
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+23:08:05 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+23:08:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+10:58:54 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+11:01:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.c
+In file included from ../src/cameras/algs.c:4:
+.././src/cameras/algs.h:4:16: error: unknown type name 'chanend'
+void floodFill(chanend stream);
+               ^
+../src/cameras/algs.c:6:16: error: unknown type name 'chanend'
+void floodFill(chanend stream)
+               ^
+../src/cameras/algs.c:10:9: error: use of undeclared identifier 'uint32_t'
+        uint32_t starttime, endtime;
+        ^
+../src/cameras/algs.c:11:9: error: use of undeclared identifier 'uint8_t'
+        uint8_t* unsafe bitBuffer;
+        ^
+../src/cameras/algs.c:11:18: error: use of undeclared identifier 'unsafe'
+        uint8_t* unsafe bitBuffer;
+                 ^
+../src/cameras/algs.c:12:9: error: use of undeclared identifier 'timer'
+        timer t;
+        ^
+../src/cameras/algs.c:14:9: error: use of undeclared identifier 't'
+        t :> starttime;
+        ^
+../src/cameras/algs.c:18:9: error: use of undeclared identifier 't'
+        t :> endtime;
+        ^
+../src/cameras/algs.c:19:49: error: use of undeclared identifier 'endtime'
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                                ^
+../src/cameras/algs.c:19:59: error: use of undeclared identifier 'starttime'
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                                          ^
+10 errors generated.
+xmake[1]: *** [.build/src/cameras//algs.c.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:01:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.c
+In file included from ../src/cameras/algs.c:5:
+.././src/cameras/algs.h:4:16: error: unknown type name 'chanend'
+void floodFill(chanend stream);
+               ^
+../src/cameras/algs.c:7:16: error: unknown type name 'chanend'
+void floodFill(chanend stream)
+               ^
+../src/cameras/algs.c:11:9: error: use of undeclared identifier 'uint32_t'
+        uint32_t starttime, endtime;
+        ^
+../src/cameras/algs.c:12:9: error: use of undeclared identifier 'uint8_t'
+        uint8_t* unsafe bitBuffer;
+        ^
+../src/cameras/algs.c:12:18: error: use of undeclared identifier 'unsafe'
+        uint8_t* unsafe bitBuffer;
+                 ^
+../src/cameras/algs.c:13:9: error: use of undeclared identifier 'timer'
+        timer t;
+        ^
+../src/cameras/algs.c:15:9: error: use of undeclared identifier 't'
+        t :> starttime;
+        ^
+../src/cameras/algs.c:19:9: error: use of undeclared identifier 't'
+        t :> endtime;
+        ^
+../src/cameras/algs.c:20:49: error: use of undeclared identifier 'endtime'
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                                ^
+../src/cameras/algs.c:20:59: error: use of undeclared identifier 'starttime'
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                                          ^
+10 errors generated.
+xmake[1]: *** [.build/src/cameras//algs.c.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:01:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.c
+In file included from ../src/cameras/algs.c:6:
+.././src/cameras/algs.h:4:16: error: unknown type name 'chanend'
+void floodFill(chanend stream);
+               ^
+../src/cameras/algs.c:8:16: error: unknown type name 'chanend'
+void floodFill(chanend stream)
+               ^
+../src/cameras/algs.c:12:9: error: use of undeclared identifier 'uint32_t'
+        uint32_t starttime, endtime;
+        ^
+../src/cameras/algs.c:13:9: error: use of undeclared identifier 'uint8_t'
+        uint8_t* unsafe bitBuffer;
+        ^
+../src/cameras/algs.c:13:18: error: use of undeclared identifier 'unsafe'
+        uint8_t* unsafe bitBuffer;
+                 ^
+../src/cameras/algs.c:14:9: error: use of undeclared identifier 'timer'
+        timer t;
+        ^
+../src/cameras/algs.c:16:9: error: use of undeclared identifier 't'
+        t :> starttime;
+        ^
+../src/cameras/algs.c:20:9: error: use of undeclared identifier 't'
+        t :> endtime;
+        ^
+../src/cameras/algs.c:21:49: error: use of undeclared identifier 'endtime'
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                                ^
+../src/cameras/algs.c:21:59: error: use of undeclared identifier 'starttime'
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                                          ^
+10 errors generated.
+xmake[1]: *** [.build/src/cameras//algs.c.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:02:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.c
+In file included from ../src/cameras/algs.c:7:
+.././src/cameras/algs.h:4:16: error: unknown type name 'chanend'
+void floodFill(chanend stream);
+               ^
+../src/cameras/algs.c:9:16: error: unknown type name 'chanend'
+void floodFill(chanend stream)
+               ^
+../src/cameras/algs.c:14:24: error: expected ';' at end of declaration
+        uint8_t* unsafe bitBuffer;
+                       ^
+                       ;
+../src/cameras/algs.c:15:9: error: use of undeclared identifier 'timer'
+        timer t;
+        ^
+../src/cameras/algs.c:17:9: error: use of undeclared identifier 't'
+        t :> starttime;
+        ^
+../src/cameras/algs.c:21:9: error: use of undeclared identifier 't'
+        t :> endtime;
+        ^
+../src/cameras/algs.c:22:48: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+        printf("Clock ticks (@100Mhz) = %d\n", (endtime - starttime));
+                                        ~~     ^~~~~~~~~~~~~~~~~~~~~
+                                        %lu
+1 warning and 6 errors generated.
+xmake[1]: *** [.build/src/cameras//algs.c.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:02:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Compiling ov07740.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+11:05:08 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+11:07:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+11:07:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:10:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+11:14:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:24:24: error: use of undeclared identifer `top'
+    uint32_t topByte = top[byte];
+                       ^~~
+../src/cameras/algs.xc:24:28: error: use of undeclared identifer `byte'
+    uint32_t topByte = top[byte];
+                           ^~~~
+../src/cameras/algs.xc:25:24: error: use of undeclared identifer `cur'
+    uint32_t curByte = cur[byte];
+                       ^~~
+../src/cameras/algs.xc:26:24: error: use of undeclared identifer `bot'
+    uint32_t botByte = bot[byte];
+                       ^~~
+../src/cameras/algs.xc:68:1: error: parse error before '}' token
+}
+^
+../src/cameras/algs.xc:76:5: error: parse error before "while"
+    while (1==1)
+    ^
+../src/cameras/algs.xc:80:9: warning: type defaults to `int' in declaration of `stream'
+        stream :> bitBuffer;
+        ^~~~~~
+../src/cameras/algs.xc:80:9: warning: data definition has no type or storage class
+        stream :> bitBuffer;
+        ^~~~~~
+../src/cameras/algs.xc:80:17: error: parse error before ':>' token
+        stream :> bitBuffer;
+                ^
+../src/cameras/algs.xc:80:19: warning: type defaults to `int' in declaration of `bitBuffer'
+        stream :> bitBuffer;
+                  ^~~~~~~~~
+../src/cameras/algs.xc:80:19: warning: data definition has no type or storage class
+        stream :> bitBuffer;
+                  ^~~~~~~~~
+../src/cameras/algs.xc:82:9: warning: type defaults to `int' in declaration of `t'
+        t :> start;
+        ^
+../src/cameras/algs.xc:82:9: warning: data definition has no type or storage class
+        t :> start;
+        ^
+../src/cameras/algs.xc:82:9: error: conflicting types for 't'
+        t :> start;
+        ^
+../src/cameras/algs.xc:74:11: note: previous declaration of 't' was here
+    timer t;
+          ^
+../src/cameras/algs.xc:82:12: error: parse error before ':>' token
+        t :> start;
+           ^
+../src/cameras/algs.xc:82:14: warning: type defaults to `int' in declaration of `start'
+        t :> start;
+             ^~~~~
+../src/cameras/algs.xc:82:14: warning: data definition has no type or storage class
+        t :> start;
+             ^~~~~
+../src/cameras/algs.xc:84:17: error: parse error before "bitBuffer"
+        Denoise(bitBuffer);
+                ^
+../src/cameras/algs.xc:84:9: warning: return type defaults to `int'
+        Denoise(bitBuffer);
+        ^~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:84:9: error: conflicting types for 'Denoise'
+        Denoise(bitBuffer);
+        ^~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:6: note: previous definition of 'Denoise' was here
+void Denoise(uint32_t* unsafe bitBuffer)
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:86:9: warning: type defaults to `int' in declaration of `t'
+        t :> mid;
+        ^
+../src/cameras/algs.xc:86:9: warning: data definition has no type or storage class
+        t :> mid;
+        ^
+../src/cameras/algs.xc:86:12: error: parse error before ':>' token
+        t :> mid;
+           ^
+../src/cameras/algs.xc:86:14: warning: type defaults to `int' in declaration of `mid'
+        t :> mid;
+             ^~~
+../src/cameras/algs.xc:86:14: warning: data definition has no type or storage class
+        t :> mid;
+             ^~~
+../src/cameras/algs.xc:88:19: error: parse error before "bitBuffer"
+        FloodFill(bitBuffer);
+                  ^
+../src/cameras/algs.xc:88:9: warning: return type defaults to `int'
+        FloodFill(bitBuffer);
+        ^~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:88:9: error: conflicting types for 'FloodFill'
+        FloodFill(bitBuffer);
+        ^~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:10:6: note: previous definition of 'FloodFill' was here
+void FloodFill(uint8_t* unsafe bitBuffer)
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:90:9: warning: type defaults to `int' in declaration of `t'
+        t :> end;
+        ^
+../src/cameras/algs.xc:90:9: warning: data definition has no type or storage class
+        t :> end;
+        ^
+../src/cameras/algs.xc:90:12: error: parse error before ':>' token
+        t :> end;
+           ^
+../src/cameras/algs.xc:90:14: warning: type defaults to `int' in declaration of `end'
+        t :> end;
+             ^~~
+../src/cameras/algs.xc:90:14: warning: data definition has no type or storage class
+        t :> end;
+             ^~~
+../src/cameras/algs.xc:91:16: error: parse error before string constant
+        printf("Total Clock ticks (@100Mhz) = %d\n", (end - start));
+               ^
+../src/cameras/algs.xc:91:9: warning: return type defaults to `int'
+        printf("Total Clock ticks (@100Mhz) = %d\n", (end - start));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:91:9: error: conflicting types for 'printf'
+        printf("Total Clock ticks (@100Mhz) = %d\n", (end - start));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:92:16: error: parse error before string constant
+        printf("Denoise = %d\n", (mid - start));
+               ^
+../src/cameras/algs.xc:92:9: warning: return type defaults to `int'
+        printf("Denoise = %d\n", (mid - start));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:93:16: error: parse error before string constant
+        printf("FloodFill = %d\n", (end - mid));
+               ^
+../src/cameras/algs.xc:93:9: warning: return type defaults to `int'
+        printf("FloodFill = %d\n", (end - mid));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:14:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:24:24: error: use of undeclared identifer `top'
+    uint32_t topByte = top[byte];
+                       ^~~
+../src/cameras/algs.xc:24:28: error: use of undeclared identifer `byte'
+    uint32_t topByte = top[byte];
+                           ^~~~
+../src/cameras/algs.xc:25:24: error: use of undeclared identifer `cur'
+    uint32_t curByte = cur[byte];
+                       ^~~
+../src/cameras/algs.xc:26:24: error: use of undeclared identifer `bot'
+    uint32_t botByte = bot[byte];
+                       ^~~
+../src/cameras/algs.xc:87:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:17:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:20:28: error: use of undeclared identifer `byte'
+    uint32_t topByte = top[byte];
+                           ^~~~
+../src/cameras/algs.xc:22:24: error: use of undeclared identifer `bot'
+    uint32_t botByte = bot[byte];
+                       ^~~
+../src/cameras/algs.xc:88:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:18:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:84:9: error: unknown function identifier `Denoise' (possibly missing prototype?)
+        Denoise(bitBuffer);
+        ^~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:18:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:88:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:188:21: error: input from channel with unspecified size
+        cam1 :> void;
+                    ^
+../src/cameras/ov07740.xc:189:21: error: input from channel with unspecified size
+        cam2 :> void;
+                    ^
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:18:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:88:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:21:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:20:28: error: use of undeclared identifer `byte'
+    uint32_t topByte = top[byte];
+                           ^~~~
+../src/cameras/algs.xc:22:24: error: use of undeclared identifer `bot'
+    uint32_t botByte = bot[byte];
+                       ^~~
+../src/cameras/algs.xc:83:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:23:50 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+../src/AutoUmp.xc:23:5: error: unknown function identifier `initCams' (possibly missing prototype?)
+    initCams();
+    ^~~~~~~~
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+xmake[1]: *** [.build/src//AutoUmp.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:23:55 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:19:29: error: use of undeclared identifer `byte'
+    for (int i = 9; i >= 0; byte++)
+                            ^~~~
+../src/cameras/algs.xc:24:28: error: use of undeclared identifer `bot'
+        uint32_t botByte = bot[byte];
+                           ^~~
+../src/cameras/algs.xc:86:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:24:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:19:29: error: use of undeclared identifer `byte'
+    for (int i = 9; i >= 0; byte++)
+                            ^~~~
+../src/cameras/algs.xc:24:28: error: use of undeclared identifer `bot'
+        uint32_t botByte = bot[byte];
+                           ^~~
+../src/cameras/algs.xc:86:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+xmake[1]: *** [.build/src/cameras//algs.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:25:06 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:86:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:66:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:86:19: warning: passing incompatible pointer type for argument 1 of `FloodFill' without explicit cast is deprecated
+        FloodFill(bitBuffer);
+                  ^~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:25:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+11:25:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:83:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:83:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+../src/cameras/ov07740.xc: Error: Multiple definition of 'AU_VSYNC2'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'AU_HREF2'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'CAM_SCCB_ID'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'CAM_PRODUCT_LSB'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'CAM_PRODUCT_MSB'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'CAM_HAEC'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'CAM_AEC'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'AU_HREF1'
+../src/AutoUmp.xc: Error: first defined here
+../src/cameras/ov07740.xc: Error: Multiple definition of 'AU_VSYNC1'
+../src/AutoUmp.xc: Error: first defined here
+xmake[1]: *** [bin//AutoUmp.xe] Error 1
+xmake: *** [bin//AutoUmp.xe] Error 2
+11:26:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:83:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:83:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:27:05 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:27:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:103:9: error: unknown function identifier `OV07740_GetFrame' (possibly missing prototype?)
+        OV07740_GetFrame(cam1, cam2);
+        ^~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:111:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:30:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:103:9: error: unknown function identifier `OV07740_GetFrame' (possibly missing prototype?)
+        OV07740_GetFrame(cam1, cam2);
+        ^~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:111:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:195:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:30:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:105:9: error: unknown function identifier `OV07740_GetFrame' (possibly missing prototype?)
+        OV07740_GetFrame(cam1, cam2);
+        ^~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:113:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:197:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:32:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:98:24: error: initializer has incompatible type (change of pointer target requires explicit cast)
+    uint32_t* image1 = malloc(320*240);
+                       ^~~~~~~~~~~~~~~
+/home/jmarple/Community_14.1.2/target/include/xc/stdlib.h:14:22: note: expanded from macro 'malloc'
+#define malloc(size) _safe_malloc(size)
+                     ^~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:99:24: error: initializer has incompatible type (change of pointer target requires explicit cast)
+    uint32_t* image2 = malloc(320*240);
+                       ^~~~~~~~~~~~~~~
+/home/jmarple/Community_14.1.2/target/include/xc/stdlib.h:14:22: note: expanded from macro 'malloc'
+#define malloc(size) _safe_malloc(size)
+                     ^~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:100:27: error: initializer has incompatible type (change of pointer target requires explicit cast)
+    uint32_t* bitImage1 = malloc(320*240/8);
+                          ^~~~~~~~~~~~~~~~~
+/home/jmarple/Community_14.1.2/target/include/xc/stdlib.h:14:22: note: expanded from macro 'malloc'
+#define malloc(size) _safe_malloc(size)
+                     ^~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:101:27: error: initializer has incompatible type (change of pointer target requires explicit cast)
+    uint32_t* bitImage2 = malloc(320*240/8);
+                          ^~~~~~~~~~~~~~~~~
+/home/jmarple/Community_14.1.2/target/include/xc/stdlib.h:14:22: note: expanded from macro 'malloc'
+#define malloc(size) _safe_malloc(size)
+                     ^~~~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:109:9: error: unknown function identifier `OV07740_GetFrame' (possibly missing prototype?)
+        OV07740_GetFrame(cam1, cam2);
+        ^~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:117:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:201:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:32:50 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:109:9: error: unknown function identifier `OV07740_GetFrame' (possibly missing prototype?)
+        OV07740_GetFrame(cam1, cam2);
+        ^~~~~~~~~~~~~~~~
+../src/cameras/ov07740.xc:117:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:201:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:33:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:114:32: error: too few arguments to function `OV07740_GetFrame'
+        OV07740_GetFrame(cam1, cam2);
+                               ^
+../src/cameras/ov07740.xc:115:32: error: too few arguments to function `OV07740_GetFrame'
+        OV07740_GetFrame(cam1, cam2);
+                               ^
+../src/cameras/ov07740.xc:116:32: error: too few arguments to function `OV07740_GetFrame'
+        OV07740_GetFrame(cam1, cam2);
+                               ^
+../src/cameras/ov07740.xc:122:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:206:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:33:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:122:49: error: use of undeclared identifer `bitimage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+                                                ^~~~~~~~
+../src/cameras/ov07740.xc:206:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:33:50 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:206:46: error: use of undeclared identifer `bitimage'
+        cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage)[y*40];
+                                             ^~~~~~~~
+xmake[1]: *** [.build/src/cameras//ov07740.xc.pca.xml] Error 1
+xmake: *** [analyze] Error 2
+11:33:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+xmap: ../src/cameras/ov07740.xc:116:9: error: passing non-local alias to function `OV07740_GetFrame' which accesses a global variable
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmake[1]: *** [bin//AutoUmp.xe] Error 1
+xmake: *** [bin//AutoUmp.xe] Error 2
+11:34:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:34:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:35:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:35:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+11:36:05 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete

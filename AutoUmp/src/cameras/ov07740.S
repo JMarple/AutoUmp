@@ -1,16 +1,17 @@
 	//.globl ov7670_capturerow.nstackwords
 	//.linkset ov7670_capturerow.nstackwords, 10
-	.globl computeOV7670Data
-	.globl computeOV7670Data.nstackwords
-	.linkset computeOV7670Data.nstackwords, 10
+	.globl computeBackgroundSub
+	.globl computeBackgroundSub.nstackwords
+	.linkset computeBackgroundSub.nstackwords, 10
 	.align 4
 	.issue_mode dual
 
+// Computes Background Subtraction
 // r0 is tmpBuffer
 // r1 is saved old data
 // r2 is the bit buffer
 // r3 is threshold
-computeOV7670Data:
+computeBackgroundSub:
 	dualentsp 12
 
 	stw r2, sp[2]
