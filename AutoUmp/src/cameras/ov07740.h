@@ -18,6 +18,8 @@ void launchCameras(chanend uart1);
 void OV07740_MasterThread(
     streaming chanend cam1,
     streaming chanend cam2,
+    chanend ff1,
+    chanend ff2,
     chanend uart1);
 
 void OV07740_GatherDataThread(

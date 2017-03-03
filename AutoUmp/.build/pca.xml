@@ -3,6 +3,7 @@
   <arg num="0" specialize="false">
     <values>
       <value type="intval"><intval isSigned="true" val="1000"/></value>
+      <value type="intval"><intval isSigned="true" val="2250000"/></value>
       <value type="intval"><intval isSigned="true" val="5000000"/></value>
       <value type="intval"><intval isSigned="true" val="100000000"/></value>
     </values>
@@ -202,6 +203,7 @@
 <fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
   <arg num="0" specialize="false">
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
 </fInfo>
@@ -253,7 +255,7 @@
 </fInfo>
 <fInfo name="OV07740_InitCameras" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
-<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -265,6 +267,16 @@
     </values>
   </arg>
   <arg num="2" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4" specialize="false">
     <values>
       <value type="unknown"/>
     </values>

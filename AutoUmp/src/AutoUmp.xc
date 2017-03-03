@@ -4,6 +4,7 @@
 
 #include "ov07740.h"
 #include "io.h"
+#include "algs.h"
 
 extern in buffered port:32 cam1DATA;
 extern in buffered port:32 cam2DATA;
@@ -24,16 +25,24 @@ void Tile1(chanend bluetoothChan)
     OV07740_ConfigureCameras();
 
     streaming chan cmdStream1, cmdStream2;
+    chan ffStream1, ffStream2;
 
     par
     {
-        OV07740_MasterThread(cmdStream1, cmdStream2, bluetoothChan);
+        OV07740_MasterThread(
+            cmdStream1, cmdStream2,
+            ffStream1, ffStream2,
+            bluetoothChan);
 
         OV07740_GatherDataThread(cmdStream1,
             (port* unsafe)&cam1DATA);
 
         OV07740_GatherDataThread(cmdStream2,
             (port* unsafe)&cam2DATA);
+
+        FloodFillThread(ffStream1);
+
+        FloodFillThread(ffStream2);
     }
 }}
 

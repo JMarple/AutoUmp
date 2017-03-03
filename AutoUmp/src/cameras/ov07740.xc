@@ -3,6 +3,7 @@
 #include <platform.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "assert.h"
 
 #include "ov07740.h"
 #include "sccb.h"
@@ -90,6 +91,8 @@ void sendToBluetooth(chanend uart1, uint8_t* unsafe buf, int length)
 void OV07740_MasterThread(
     streaming chanend cam1,
     streaming chanend cam2,
+    chanend ff1,
+    chanend ff2,
     chanend uart1)
 { unsafe {
     uint8_t data, vsync = 1;
@@ -104,6 +107,13 @@ void OV07740_MasterThread(
     uint8_t* unsafe bitImage1 = malloc(320*240/8);
     uint8_t* unsafe bitImage2 = malloc(320*240/8);
 
+    // Defensive Check
+    if (image1 == 0 || image2 == 0)
+    {
+        printf("Out of memory!\n");
+        return;
+    }
+
     while (1)
     {
         timer t;
@@ -113,11 +123,19 @@ void OV07740_MasterThread(
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
         t :> en;
 
-        //sendToBluetooth(uart1, (uint8_t* unsafe)testrow, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)testrow2, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)bitimage, 240*40);
+        // Send bit images to floodfill.
+        ff1 <: bitImage1;
+        ff2 <: bitImage2;
+
+        // Delay 15ms, flood fill should be done by then.
+        delay(2250000);
+
+        //sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
+        //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
+        //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage, 240*40);
         sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
         printf("Sent Frame! %d clk ticks\n", (en-st));
     }

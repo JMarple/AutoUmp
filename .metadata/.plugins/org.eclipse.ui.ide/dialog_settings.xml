@@ -5,8 +5,8 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="/home/jmarple/code/AutoUmp/lib_logging"/>
 			<item value="/home/jmarple/code/AutoUmp/lib_xassert"/>
+			<item value="/home/jmarple/code/AutoUmp/lib_logging"/>
 			<item value="/home/jmarple/code/AutoUmp/lib_gpio"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
@@ -16,10 +16,10 @@
 	<section name="CleanDialogSettings">
 		<item value="828" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_NOW"/>
-		<item value="316" key="DIALOG_Y_ORIGIN"/>
 		<item value="true" key="BUILD_ALL"/>
-		<item value="666" key="DIALOG_X_ORIGIN"/>
+		<item value="316" key="DIALOG_Y_ORIGIN"/>
 		<item value="561" key="DIALOG_HEIGHT"/>
+		<item value="666" key="DIALOG_X_ORIGIN"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

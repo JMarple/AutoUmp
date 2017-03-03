@@ -44,7 +44,7 @@
 </fCall>
 <fCall name="OV07740_ConfigureCameras" global="true" numArgs="0">
 </fCall>
-<fCall name="OV07740_MasterThread" global="true" numArgs="3" impId="0">
+<fCall name="OV07740_MasterThread" global="true" numArgs="5" impId="0">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -56,6 +56,16 @@
     </values>
   </arg>
   <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
     <passThroughArg param="0" caller="Tile1" global="true"/>
     <values>
     </values>
@@ -85,14 +95,28 @@
     </values>
   </arg>
 </fCall>
-<fCall name="Tile0" global="true" numArgs="1" impId="3">
+<fCall name="FloodFillThread" global="true" numArgs="1" impId="3">
   <arg num="0">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
 </fCall>
-<fCall name="Tile1" global="true" numArgs="1" impId="4">
+<fCall name="FloodFillThread" global="true" numArgs="1" impId="4">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="Tile0" global="true" numArgs="1" impId="5">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="Tile1" global="true" numArgs="1" impId="6">
   <arg num="0">
     <values>
       <value type="unknown"/>

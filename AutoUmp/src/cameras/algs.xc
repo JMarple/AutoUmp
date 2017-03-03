@@ -14,6 +14,27 @@ void FloodFill(uint8_t* unsafe bitBuffer)
     // -----------------------
 }
 
+void FloodFillThread(chanend stream)
+{ unsafe {
+
+    uint32_t start, end;
+    timer t;
+
+    while (1==1)
+    {
+        // Blocking statement that recieves a bit image
+        uint32_t* unsafe bitBuffer;
+        stream :> bitBuffer;
+
+        t :> start;
+
+        FloodFill((uint8_t* unsafe)bitBuffer);
+
+        t :> end;
+        printf("Clock ticks (@100Mhz) = %d\n", (end - start));
+    }
+}}
+
 void DenoiseRow(uint32_t* top, uint32_t* cur, uint32_t* bot)
 {
     for (int byte = 9; byte >= 0; byte++)
@@ -64,30 +85,3 @@ void DenoiseRow(uint32_t* top, uint32_t* cur, uint32_t* bot)
         cur[byte] = toSaveByte;
     }
 }
-
-void FloodFillThread(chanend stream)
-{ unsafe {
-
-    uint32_t start, mid, end;
-    timer t;
-
-    while (1==1)
-    {
-        // Blocking statement that recieves a bit image
-        uint32_t* unsafe bitBuffer;
-        stream :> bitBuffer;
-
-        t :> start;
-
-        //Denoise(bitBuffer);
-
-        t :> mid;
-
-        FloodFill((uint8_t* unsafe)bitBuffer);
-
-        t :> end;
-        printf("Total Clock ticks (@100Mhz) = %d\n", (end - start));
-        printf("Denoise = %d\n", (mid - start));
-        printf("FloodFill = %d\n", (end - mid));
-    }
-}}
