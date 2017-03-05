@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/jmarple/code/AutoUmp/FullImageViewer/src/serial/rs232.c
+/home/tbadams45/XMOS/autoump/FullImageViewer/src/serial/rs232.c
 rs232.h
-/home/jmarple/code/AutoUmp/FullImageViewer/src/serial/rs232.h
+/home/tbadams45/XMOS/autoump/FullImageViewer/src/serial/rs232.h
 
-/home/jmarple/code/AutoUmp/FullImageViewer/src/serial/rs232.h
+/home/tbadams45/XMOS/autoump/FullImageViewer/src/serial/rs232.h
 stdio.h
 -
 string.h

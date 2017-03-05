@@ -1,1 +1,3 @@
-/home/jmarple/code/AutoUmp/FullImageViewer/build/CMakeFiles/auview.dir
+/home/tbadams45/XMOS/autoump/FullImageViewer/build/CMakeFiles/edit_cache.dir
+/home/tbadams45/XMOS/autoump/FullImageViewer/build/CMakeFiles/rebuild_cache.dir
+/home/tbadams45/XMOS/autoump/FullImageViewer/build/CMakeFiles/auview.dir

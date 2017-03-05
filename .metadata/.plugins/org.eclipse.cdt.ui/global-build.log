@@ -390,3 +390,1472 @@ Creating dependencies for algs.xc
 Compiling algs.xc
 Creating AutoUmp.xe
 Build Complete
+13:41:37 **** Clean-only build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/workspace/autoump/AutoUmp
+rm -rf './bin/'
+rm -rf '.build'
+13:41:37 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+Analyzing ov07740.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Propagating analysis
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+13:41:51 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:42:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+13:43:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:43:28 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:55:57 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:56:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:58:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:58:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:58:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:00:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: *** No rule to make target `/home/tbadams45/XMOS/workspace/autoump/lib_locks/src/hwlock.c', needed by `.build/src/io/io.xc.o'.  Stop.
+xmake: *** [bin//AutoUmp.xe] Error 2
+19:00:58 **** Clean-only build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/AutoUmp
+rm -rf './bin/'
+rm -rf '.build'
+19:00:58 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+Analyzing ov07740.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Propagating analysis
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+19:03:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:04:37 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:05:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:05:37 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:05:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:07:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling ov07740.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:07:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:08:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:08:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:09:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:11:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:11:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:12:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:12:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:17:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:17:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:17:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:17:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:22:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:22:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:23:48 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:23:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:24:55 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:26:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+19:29:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+19:29:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:05:11 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:05:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:09:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:09:51 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:12:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:16:28 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:28:21 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:28:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:35:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:43:24 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:50:34 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:58:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+20:59:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+21:09:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+21:38:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+21:45:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:02:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:11:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:12:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:28:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:28:34 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:28:48 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:30:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:36:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:37:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:37:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:38:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:38:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:48:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:48:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:139:49: error: use of undeclared identifer `bitImage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitImage, 240*40);
+                                                ^~~~~~~~
+xmake[1]: *** [.build/src/cameras/ov07740.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+13:48:54 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:139:49: error: use of undeclared identifer `bitImage'
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitImage, 240*40);
+                                                ^~~~~~~~
+xmake[1]: *** [.build/src/cameras/ov07740.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+13:49:05 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+13:49:08 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+13:51:06 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+13:51:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:14:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:14:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:20:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:27:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:13:5: error: unknown function identifier `print' (possibly missing prototype?)
+    print("test\n");
+    ^~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+14:27:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:13:5: error: unknown function identifier `print' (possibly missing prototype?)
+    print("test\n");
+    ^~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+14:27:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:27:22 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:31:51 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:19:24: warning: passing incompatible pointer type for argument 1 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[(i-2)*IMG_WIDTH + j*4],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:20:24: warning: passing incompatible pointer type for argument 2 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[(i-1)*IMG_WIDTH + j*4],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:24: warning: passing incompatible pointer type for argument 3 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[i*IMG_WIDTH + j*4]);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:16:27: warning: suggest parentheses around assignment used as truth value
+        for (int j = 0; j = 9; j++)
+                        ~~^~~
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:19:24: warning: passing incompatible pointer type for argument 1 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[(i-2)*IMG_WIDTH + j*4],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:20:24: warning: passing incompatible pointer type for argument 2 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[(i-1)*IMG_WIDTH + j*4],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:24: warning: passing incompatible pointer type for argument 3 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[i*IMG_WIDTH + j*4]);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:16:27: warning: suggest parentheses around assignment used as truth value
+        for (int j = 0; j = 9; j++)
+                        ~~^~~
+Compiling io.xc
+Creating AutoUmp.xe
+../src/cameras/algs.xc: Error: Undefined reference to 'DenoiseRow'
+xmake[1]: *** [bin//AutoUmp.xe] Error 1
+xmake: *** [bin//AutoUmp.xe] Error 2
+14:31:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:19:24: warning: passing incompatible pointer type for argument 1 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[(i-2)*IMG_WIDTH + j*4],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:20:24: warning: passing incompatible pointer type for argument 2 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[(i-1)*IMG_WIDTH + j*4],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:24: warning: passing incompatible pointer type for argument 3 of `DenoiseRow' without explicit cast is deprecated
+                       (uint32_t* unsafe)bitBuffer[i*IMG_WIDTH + j*4]);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:16:27: warning: suggest parentheses around assignment used as truth value
+        for (int j = 0; j = 9; j++)
+                        ~~^~~
+../src/cameras/algs.xc:50:6: error: conflicting types for 'DenoiseRow'
+void DenoiseRow(
+     ^~~~~~~~~~~
+../src/cameras/algs.h:13:1: note: previous declaration of 'DenoiseRow' was here
+void DenoiseRow(
+^~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+14:32:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:16:27: warning: suggest parentheses around assignment used as truth value
+        for (int j = 0; j = 9; j++)
+                        ~~^~~
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:16:27: warning: suggest parentheses around assignment used as truth value
+        for (int j = 0; j = 9; j++)
+                        ~~^~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:33:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:33:27 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:34:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:19:24: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[(i-2)*IMG_WIDTH + j],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:20:24: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[(i-1)*IMG_WIDTH + j],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:24: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[i*IMG_WIDTH + j]);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:50:6: error: conflicting types for 'DenoiseRow'
+void DenoiseRow(
+     ^~~~~~~~~~~
+../src/cameras/algs.h:8:1: note: previous declaration of 'DenoiseRow' was here
+void DenoiseRow(
+^~~~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+14:34:55 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:19:24: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[(i-2)*IMG_WIDTH + j],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:20:24: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[(i-1)*IMG_WIDTH + j],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:24: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[i*IMG_WIDTH + j]);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:19:24: warning: argument 1 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[(i-2)*IMG_WIDTH + j],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:20:24: warning: argument 2 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[(i-1)*IMG_WIDTH + j],
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:21:24: warning: argument 3 of `DenoiseRow' converts integer to pointer without explicit cast is deprecated
+                       bitBuffer[i*IMG_WIDTH + j]);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:35:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:48:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:48:22 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:48:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:00:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:00:37 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:34:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+In file included from ../src/cameras/algs.xc:7:
+../src/cameras/algs.h:14:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:15:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:16:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:17:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:18:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot);
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:72:9: error: use of undeclared identifer `leftWrapBit'
+        leftWrapBit = leftByte & 0x1;
+        ^~~~~~~~~~~
+../src/cameras/algs.xc:112:17: error: use of undeclared identifer `rightWrapBit'
+        count = rightWrapBit + leftBit + topBit + botBit;
+                ^~~~~~~~~~~~
+../src/cameras/algs.xc:128:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:129:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:130:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:131:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:132:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot)
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:141:13: error: redefinition of 'toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: note: previous definition of 'toSaveByte' was here
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: warning: unused variable `toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:34:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+In file included from ../src/cameras/algs.xc:7:
+../src/cameras/algs.h:14:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:15:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:16:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:17:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:18:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot);
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:112:17: error: use of undeclared identifer `rightWrapBit'
+        count = rightWrapBit + leftBit + topBit + botBit;
+                ^~~~~~~~~~~~
+../src/cameras/algs.xc:128:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:129:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:130:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:131:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:132:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot)
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:141:13: error: redefinition of 'toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: note: previous definition of 'toSaveByte' was here
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: warning: unused variable `toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:34:26 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+In file included from ../src/cameras/algs.xc:7:
+../src/cameras/algs.h:14:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:15:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:16:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:17:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:18:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot);
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:128:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:129:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:130:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:131:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:132:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot)
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:141:13: error: redefinition of 'toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: note: previous definition of 'toSaveByte' was here
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: warning: unused variable `toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:34:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+In file included from ../src/cameras/algs.xc:7:
+../src/cameras/algs.h:14:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:15:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:16:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:17:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:18:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot);
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.xc:141:13: error: redefinition of 'toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: note: previous definition of 'toSaveByte' was here
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+../src/cameras/algs.xc:134:13: warning: unused variable `toSaveByte'
+    uint8_t toSaveByte = 0;
+            ^~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:35:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+In file included from ../src/cameras/algs.xc:7:
+../src/cameras/algs.h:14:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe top,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:15:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe left,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:16:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe cur,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:17:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe right,
+    ~~~~~~~~^~~~~~
+../src/cameras/algs.h:18:13: error: unsafe specified on type that is not a pointer or resource
+    uint8_t unsafe bot);
+    ~~~~~~~~^~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:35:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:35:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:36:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:36:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:38:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:42:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:42:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:44:20 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:44:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:48:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:25:12: error: unknown function identifier `DenoiseAndFlip' (possibly missing prototype?)
+    byte = DenoiseAndFlip(170, 0, 170, 0, 170);
+           ^~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:48:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:25:12: error: unknown function identifier `DenoiseAndFlip' (possibly missing prototype?)
+    byte = DenoiseAndFlip(170, 0, 170, 0, 170);
+           ^~~~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:49:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:49:06 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:51:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:43:1: error: parse error before '}' token
+}}
+^
+../src/cameras/algs.xc:55:9: error: use of undeclared identifer `stream'
+        stream :> bitBuffer;
+        ^~~~~~
+../src/cameras/algs.xc:57:14: error: use of undeclared identifer `start'
+        t :> start;
+             ^~~~~
+../src/cameras/algs.xc:61:14: error: use of undeclared identifer `end'
+        t :> end;
+             ^~~
+xmake[1]: *** [.build/src/cameras/algs.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:51:08 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:51:11 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:54:11 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+22:54:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+23:00:12 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+23:05:03 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+23:08:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+23:09:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+00:11:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+00:11:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:21:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:21:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:21:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:22:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:31:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+14:32:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Creating AutoUmp.xe
+Build Complete
+14:32:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+14:32:48 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete

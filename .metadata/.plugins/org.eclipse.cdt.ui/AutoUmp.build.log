@@ -1,13 +1,19 @@
-13:33:59 **** Incremental Build of configuration Default for project AutoUmp ****
+14:32:48 **** Incremental Build of configuration Default for project AutoUmp ****
 xmake CONFIG=Default all 
 Checking build modules
 Using build modules: lib_locks(2.0.3)
 Analyzing algs.xc
-Propagating analysis
 Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:85:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
 Compiling algs.xc
+Compiling io.xc
 Creating AutoUmp.xe
 Build Complete
 
-13:34:00 Build Finished (took 1s.378ms)
+14:32:50 Build Finished (took 1s.972ms)
 

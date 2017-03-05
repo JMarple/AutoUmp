@@ -1,0 +1,18 @@
+#ifndef __ALGS_H__
+#define __ALGS_H__
+
+#define IMG_WIDTH 320
+#define IMG_HEIGHT 240
+
+void FloodFillThread(chanend stream);
+void JustinDenoiseRow(
+    uint32_t* unsafe top,
+    uint32_t* unsafe cur,
+    uint32_t* unsafe bot);
+
+void DenoiseRow(
+    uint8_t* unsafe above,
+    uint8_t* unsafe current,
+    uint8_t* unsafe below);
+
+#endif

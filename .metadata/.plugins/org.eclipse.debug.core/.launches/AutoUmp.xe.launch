@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.xmos.cdt.core.Launch">
+<booleanAttribute key="com.xmos.cdt.attach" value="false"/>
 <stringAttribute key="com.xmos.cdt.device_id" value="ghoa.V3N"/>
 <booleanAttribute key="com.xmos.cdt.display_command_in_console" value="false"/>
 <booleanAttribute key="com.xmos.cdt.displaystats" value="false"/>
@@ -8,6 +9,8 @@
 <booleanAttribute key="com.xmos.cdt.gprof" value="false"/>
 <booleanAttribute key="com.xmos.cdt.io" value="true"/>
 <booleanAttribute key="com.xmos.cdt.io_none" value="false"/>
+<stringAttribute key="com.xmos.cdt.jtagspeed" value=""/>
+<booleanAttribute key="com.xmos.cdt.jtagspeed.enable" value="false"/>
 <booleanAttribute key="com.xmos.cdt.launch.set.defaults.debug_main_tab" value="true"/>
 <booleanAttribute key="com.xmos.cdt.launch.set.defaults.debugger_tab" value="true"/>
 <booleanAttribute key="com.xmos.cdt.launch.set.defaults.run_main_tab" value="true"/>
@@ -31,6 +34,7 @@
 <booleanAttribute key="com.xmos.cdt.vcd.start_disabled" value="false"/>
 <listAttribute key="com.xmos.cdt.vcd.trace_points"/>
 <booleanAttribute key="com.xmos.cdt.vcd.tracing" value="false"/>
+<stringAttribute key="com.xmos.cdt.xgdboptions" value=""/>
 <booleanAttribute key="com.xmos.cdt.xprobe.enable" value="false"/>
 <stringAttribute key="com.xmos.cdt.xprobe.filename" value=""/>
 <booleanAttribute key="com.xmos.cdt.xprobe.filespecified" value="false"/>
@@ -49,6 +53,7 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_REGISTER_BOOKKEEPING" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_VARIABLE_BOOKKEEPING" value="false"/>
 <stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList/&gt;"/>
