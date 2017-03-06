@@ -44,6 +44,20 @@
 </fCall>
 <fCall name="OV07740_ConfigureCameras" global="true" numArgs="0">
 </fCall>
+<fCall name="queueInit" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="queueInit" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
 <fCall name="OV07740_MasterThread" global="true" numArgs="5" impId="0">
   <arg num="0">
     <values>
@@ -95,15 +109,35 @@
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFillThread" global="true" numArgs="1" impId="3">
+<fCall name="FloodFillThread" global="true" numArgs="3" impId="3">
   <arg num="0">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
 </fCall>
-<fCall name="FloodFillThread" global="true" numArgs="1" impId="4">
+<fCall name="FloodFillThread" global="true" numArgs="3" impId="4">
   <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
     <values>
       <value type="unknown"/>
     </values>

@@ -27,6 +27,14 @@ void Tile1(chanend bluetoothChan)
     streaming chan cmdStream1, cmdStream2;
     chan ffStream1, ffStream2;
 
+    struct Object objArray1[OBJECT_ARRAY_LENGTH] = {{0}};
+    struct Object objArray2[OBJECT_ARRAY_LENGTH] = {{0}};
+
+    struct Queue queue1;
+    struct Queue queue2;
+    queueInit(&queue1);
+    queueInit(&queue2);
+
     par
     {
         OV07740_MasterThread(
@@ -40,9 +48,9 @@ void Tile1(chanend bluetoothChan)
         OV07740_GatherDataThread(cmdStream2,
             (port* unsafe)&cam2DATA);
 
-        FloodFillThread(ffStream1);
+        FloodFillThread(ffStream1, objArray1, &queue1);
 
-        FloodFillThread(ffStream2);
+        FloodFillThread(ffStream2, objArray2, &queue2);
     }
 }}
 

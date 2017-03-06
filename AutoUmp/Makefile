@@ -16,7 +16,7 @@ USED_MODULES = lib_locks
 # XCC_XC_FLAGS, XCC_C_FLAGS, XCC_ASM_FLAGS, XCC_CPP_FLAGS
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to
 # xcc for the final link (mapping) stage.
-XCC_FLAGS = -O2 -g -DBT_CLOCK_TICKS=108
+XCC_FLAGS = -O0 -g -DBT_CLOCK_TICKS=108
 
 # The XCORE_ARM_PROJECT variable, if set to 1, configures this
 # project to create both xCORE and ARM binaries.

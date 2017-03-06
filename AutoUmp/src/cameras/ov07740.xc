@@ -133,8 +133,76 @@ void OV07740_MasterThread(
         ff2 <: bitImage2;
         // Delay 15ms, flood fill should be done by then.
         delay(2250000);
-        delay(2250000); // anotehr 15ms
-        delay(2250000); // another
+        delay(2250000); // another 15ms
+        delay(2250000);
+        delay(2250000); // another 15ms
+
+        delay(2250000);
+        delay(2250000); // another 15ms
+
+        delay(2250000);
+        delay(2250000); // another 15ms
+
+        delay(2250000);
+        delay(2250000); // another 15ms
+
+        delay(2250000);
+        delay(2250000); // another 15ms
+
+        delay(2250000);
+              delay(2250000); // another 15ms
+              delay(2250000);
+              delay(2250000); // another 15ms
+
+              delay(2250000);
+              delay(2250000); // another 15ms
+
+              delay(2250000);
+              delay(2250000); // another 15ms
+
+              delay(2250000);
+              delay(2250000); // another 15ms
+
+              delay(2250000);
+              delay(2250000); // another 15ms
+
+
+              delay(2250000);
+                    delay(2250000); // another 15ms
+                    delay(2250000);
+                    delay(2250000); // another 15ms
+
+                    delay(2250000);
+                    delay(2250000); // another 15ms
+
+                    delay(2250000);
+                    delay(2250000); // another 15ms
+
+                    delay(2250000);
+                    delay(2250000); // another 15ms
+
+                    delay(2250000);
+                    delay(2250000); // another 15ms
+
+
+
+                    delay(2250000);
+                          delay(2250000); // another 15ms
+                          delay(2250000);
+                          delay(2250000); // another 15ms
+
+                          delay(2250000);
+                          delay(2250000); // another 15ms
+
+                          delay(2250000);
+                          delay(2250000); // another 15ms
+
+                          delay(2250000);
+                          delay(2250000); // another 15ms
+
+                          delay(2250000);
+                          delay(2250000); // another 15ms
+
 
         //sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
