@@ -6,9 +6,9 @@
 
 void FloodFillThread(chanend stream);
 void DenoiseRow(
-    uint8_t* unsafe top,
-    uint8_t* unsafe cur,
-    uint8_t* unsafe bot);
+    uint32_t* unsafe top,
+    uint32_t* unsafe cur,
+    uint32_t* unsafe bot);
 
 uint8_t inline DenoiseAndFlipByte(
     uint8_t top,

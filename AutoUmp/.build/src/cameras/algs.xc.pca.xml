@@ -1,6 +1,6 @@
 <preCompilationAnalysis file="../src/cameras/algs.xc">
-<fDef name="DenoiseAndFlipByte" global="true" noreturn="false" doNotSpecialize="true" numParams="5"/>
 <fDef name="DenoiseRow" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
+<fDef name="DenoiseWord" global="true" noreturn="false" doNotSpecialize="true" numParams="5"/>
 <fDef name="FloodFill" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
 <fDef name="FloodFillThread" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
 <fDef name="JustinDenoiseRow" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
@@ -28,6 +28,23 @@
     </values>
   </arg>
 </fCall>
+<fCall name="DenoiseRow" global="true" numArgs="3">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
 <fCall name="FloodFill" global="true" numArgs="1">
   <arg num="0">
     <values>
@@ -42,87 +59,6 @@
     </values>
   </arg>
   <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="DenoiseAndFlipByte" global="true" numArgs="5">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="DenoiseAndFlipByte" global="true" numArgs="5">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="DenoiseAndFlipByte" global="true" numArgs="5">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-    </values>
-  </arg>
-  <arg num="4">
     <values>
       <value type="unknown"/>
     </values>
