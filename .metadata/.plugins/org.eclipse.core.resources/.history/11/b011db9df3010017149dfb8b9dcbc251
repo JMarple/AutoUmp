@@ -1,0 +1,77 @@
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+
+#include "find_ball.h"
+#include "detect_objects.h"
+#include "algs.h"
+
+struct Center findIntersection(struct Center* twoCenters)
+{
+    struct Center inter; // intersction
+    inter.id = 0;
+    inter.distanceFromCenter = 0;
+
+    double interX = (double)IMG_WIDTH / 2.0;
+    double m = ((double)twoCenters[1].y - (double)twoCenters[0].y)/((double)twoCenters[1].x - (double)twoCenters[0].x);
+    //printf("[0].x %i, [0].y %i, [1].x %i, [1].y %i\n", twoCenters[0].x, twoCenters[0].y, twoCenters[1].x, twoCenters[1].y);
+    //printf("m, %.18f\n", m);
+    double interY = (double)twoCenters[0].y + m * (interX - (double)twoCenters[0].x);
+
+    inter.x = (int32_t) round(interX);
+    inter.y = (int32_t) round(interY);
+
+    return inter;
+}
+
+double deg2rad(double deg)
+{
+    return deg * M_PI / 180.0;
+}
+
+struct ZoneLocation findBallLocation(
+    struct Center* intersections,
+    double resolution,
+    double cameraSeparation,
+    double fieldOfView,
+    double normalizationValue)
+{
+
+    double inToM = 0.0254; // inches to meters multiplication factor
+    double mToIn = 1.0/inToM;
+    // define camera locations in meters. origin is in the middle of the plate. We're assuming they're equal distances away from the center.
+    double cam1X = 0-inToM*cameraSeparation/2; // left side of plate
+    double cam2X = cam1X + (cameraSeparation*inToM); // right side of plate
+    double cam1Y = 0; double cam2Y = 0;
+
+    double offsetrad = deg2rad((180.0 - fieldOfView) / 2.0);
+    double eachpixelrad = deg2rad(fieldOfView / resolution);
+    double r = 1.5;
+
+    // find line for left camera
+    //printf("intersections[0].x %i, intersections[0].y %i, intersections[1].x %i, intersections[1].y %i\n", intersections[0].x, intersections[0].y, intersections[1].x, intersections[1].y);
+    double LX0 = cam1X;
+    double LX1 = cam1X + r * cos(eachpixelrad * (intersections[0].y - normalizationValue) + offsetrad);
+    double LY0 = cam1Y;
+    double LY1 = cam1Y + r * sin(eachpixelrad * (intersections[0].y - normalizationValue) + offsetrad);
+
+    //printf("LX0 %f, LX1 %f, LY0 %f, LY1 %f\n", LX0, LX1, LY0, LY1);
+    // find line for right camera
+    double RX0 = cam2X;
+    double RX1 = cam2X + r * cos(eachpixelrad * (intersections[1].y - normalizationValue) + offsetrad);
+    double RY0 = cam2Y;
+    double RY1 = cam2Y + r * sin(eachpixelrad * (intersections[1].y - normalizationValue) + offsetrad);
+
+    printf("RX0 %f, RX1 %f, RY0 %f, RY1 %f\n", RX0, RX1, RY0, RY1);
+
+    // find intersection between lines
+    double leftSlope  = (LY1 - LY0) / (LX1 - LX0);
+    double rightSlope = (RY1 - RY0) / (RX1 - RX0);
+
+    struct ZoneLocation result; // want this to be in inches.
+    result.x = (leftSlope * LX1 - LY1 - rightSlope * RX1 + RY1) / (leftSlope - rightSlope);
+    result.y = rightSlope * (result.x - RX1) + RY1;
+    result.x = result.x * mToIn;
+    result.y = result.y * mToIn;
+    return result;
+}

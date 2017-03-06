@@ -179,7 +179,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="DenoiseAndFlipByte" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="DenoiseAndFlipByte" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="5">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -211,17 +211,14 @@
 <fInfo name="DenoiseRow" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
 </fInfo>

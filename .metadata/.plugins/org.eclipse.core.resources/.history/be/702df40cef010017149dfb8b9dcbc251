@@ -1,0 +1,37 @@
+#ifndef UTIL_H
+#define UTIL_H
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+//#include "CuTest.h"
+
+#define FUNC_ERROR -1
+
+uint8_t getBitInPic(
+    uint8_t* bitPicture,
+    uint32_t bitIndex);
+
+uint8_t getBitInByte(
+    uint8_t byte,
+    uint32_t bitLoc);
+
+int8_t setBitInPic(
+    uint8_t* bitPicture,
+    uint32_t bitIndex,
+    uint8_t val);
+
+int8_t setBitInByte(
+    uint8_t* byte,
+    uint8_t bitLoc,
+    uint8_t bitVal);
+
+void printPicture(
+    uint8_t* picture,
+    uint32_t width,
+    uint32_t height,
+    uint8_t colorRed);
+
+int32_t ipow32t(int32_t base, int32_t exp);
+
+#endif

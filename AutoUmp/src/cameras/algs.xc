@@ -17,13 +17,13 @@ void FloodFill(uint8_t* unsafe bitBuffer)
 { unsafe {
 
 
-    for (int i = 2; i < IMG_HEIGHT; i++)
+   /* for (int i = 2; i < IMG_HEIGHT; i++)
     {
         DenoiseRow(
                 &bitBuffer[(i-2)*IMG_WIDTH],
                 &bitBuffer[(i-1)*IMG_WIDTH],
                 &bitBuffer[i*IMG_WIDTH]);
-    }
+    }*/
 }}
 
 void FloodFillThread(chanend stream)
@@ -59,6 +59,10 @@ void DenoiseRow(
 
     for (int byte = 1; byte < IMG_WIDTH-1; byte++)
     {
+        if(cur[byte] == 0)
+        {
+            continue;
+        }
         cur[byte] = DenoiseAndFlipByte(top[byte], cur[byte-1], cur[byte], cur[byte+1], bot[byte]);
     }
 

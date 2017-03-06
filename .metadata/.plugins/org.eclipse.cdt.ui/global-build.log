@@ -1859,3 +1859,56 @@ Compiling algs.xc
 Compiling io.xc
 Creating AutoUmp.xe
 Build Complete
+21:27:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Propagating analysis
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+21:28:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+21:28:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+21:30:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+21:38:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Analyzing ov07740.S
+../src/cameras/ov07740.S:66: Error: A00004 Unknown opcode 'clr'
+ERROR: Unable to open elf file '/tmp/ccOo96GY.o' for loading
+xmake[1]: *** [.build/src/cameras/ov07740.S.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+21:39:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.S
+Propagating analysis
+Creating dependencies for ov07740.S
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Compiling ov07740.S
+Creating AutoUmp.xe
+Build Complete

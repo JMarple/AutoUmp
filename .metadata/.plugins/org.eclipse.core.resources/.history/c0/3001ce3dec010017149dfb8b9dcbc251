@@ -1,0 +1,24 @@
+#ifndef FIND_BALL_H
+#define FIND_BALL_H
+
+#include "detect_objects.h"
+#include <stdint.h>
+
+struct ZoneLocation
+{
+    double x, y;
+};
+
+
+struct Center findIntersection(
+    struct Center* twoCenters);
+
+struct ZoneLocation findBallLocation(
+    struct Center* intersections, // from both cameras. [0] left, [1] right.
+    double resolution, // number of pixels of actual data in picture, width-wise
+    double cameraSeparation, // in inches
+    double fielOfView, // in degrees, perpindicular to ball flight
+    double normalizationValue); // right most x pixel
+
+double deg2rad(double deg);
+#endif
