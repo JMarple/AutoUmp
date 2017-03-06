@@ -15,20 +15,17 @@ uint8_t lookup32[32] = {
 // bitBuffer is an entire bit image
 void FloodFill(uint8_t* unsafe bitBuffer)
 { unsafe {
-
-
     for (int i = 2; i < IMG_HEIGHT; i++)
     {
         DenoiseRow(
-                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
-                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
-                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
     }
 }}
 
 void FloodFillThread(chanend stream)
 { unsafe {
-
     uint32_t start, end;
     timer t;
 
@@ -102,7 +99,9 @@ void DenoiseRow(
             topWord = topWord >> 1;
             botWord = botWord >> 1;
         }
-
     }
     cur[9] = outWord;
 }}
+
+
+

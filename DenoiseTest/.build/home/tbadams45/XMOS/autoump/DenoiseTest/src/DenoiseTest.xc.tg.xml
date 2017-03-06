@@ -1,0 +1,29 @@
+<taskgraph>
+<task>
+  <name>delay_seconds</name>
+  <inFunction>delay_seconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>delay_milliseconds</name>
+  <inFunction>delay_milliseconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>delay_microseconds</name>
+  <inFunction>delay_microseconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>DenoiseRow</name>
+  <inFunction>DenoiseRow</inFunction>
+</task>
+<task>
+  <name>printStuff</name>
+  <inFunction>printStuff</inFunction>
+</task>
+<task>
+  <name>main</name>
+  <inFunction>main</inFunction>
+</task>
+</taskgraph>

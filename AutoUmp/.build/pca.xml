@@ -196,28 +196,6 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="DenoiseWord" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="5">
-  <arg num="0" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="1" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="2" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="3" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="4" specialize="false">
-    <values>
-    </values>
-  </arg>
-</fInfo>
 <fInfo name="FloodFill" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
   <arg num="0" specialize="false">
     <values>
@@ -229,20 +207,6 @@
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
-    </values>
-  </arg>
-</fInfo>
-<fInfo name="JustinDenoiseRow" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
-  <arg num="0" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="1" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="2" specialize="false">
-    <values>
     </values>
   </arg>
 </fInfo>

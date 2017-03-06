@@ -4407,3 +4407,329 @@ Compiling DenoiseTest.xc
                ^~~~~~~~~~~~~~
 Creating DenoiseTest.xe
 Build Complete
+15:16:48 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing ov07740.S
+Propagating analysis
+Creating dependencies for ov07740.S
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Creating AutoUmp.xe
+Build Complete
+15:17:27 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:17:55 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:22:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:29:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+15:33:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:35:03 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:35:54 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:36:23 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:36:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:37:37 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:37:55 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:39:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:43:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:52:16 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:98:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:100:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:102:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:105:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:112:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Creating dependencies for DenoiseTest.xc
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+15:53:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:54:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+15:58:30 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+16:01:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating dependencies for algs.xc
+Compiling algs.xc
+../src/cameras/algs.xc:23:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+16:01:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete

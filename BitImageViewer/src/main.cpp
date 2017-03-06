@@ -42,8 +42,8 @@ int main()
 
             for (int i = 0; i < 8; i++)
             {
-               // M.data[idx*8 + i] = ((data >> i) & 0b1)*255;
-				M.data[idx*8 + (8-i)] = ((data >> i) & 0b1)*255;
+               M.data[idx*8 + i] = ((data >> i) & 0b1)*255;
+//				M.data[idx*8 + (7-i)] = ((data >> i) & 0b1)*255;
             }
         }
 
