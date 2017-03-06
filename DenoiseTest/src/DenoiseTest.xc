@@ -2,66 +2,124 @@
 #include <platform.h>
 #include <stdio.h>
 #include <stdint.h>
-
-void ov07740_denoise(
+// you're never going to get the top, bottom rows in current
+void DenoiseRow(
     uint32_t* unsafe top,
     uint32_t* unsafe cur,
     uint32_t* unsafe bot)
 { unsafe {
-    for (int byte = 9; byte >= 0; byte--)
+
+    // init
+    uint32_t topWord  = 0;
+    uint32_t curWord  = 0;
+    uint32_t botWord  = 0;
+    uint32_t topBit   = 0;
+    uint32_t curBit   = 0;
+    uint32_t botBit   = 0;
+    uint32_t rightBit = 0;
+    uint32_t leftBit  = 0;
+    uint32_t result   = 0;
+    uint32_t outWord  = 0;
+
+    for (int i = 0; i < 10; i++)
     {
-        // Bytes
-        uint32_t topByte = top[byte];
-        uint32_t curByte = cur[byte];
-        uint32_t botByte = bot[byte];
-
-        // Bits
-        uint32_t topBit, botBit;
-        uint32_t leftBit, curBit, rightBit;
-
-        // Final byte to save back
-        uint32_t toSaveByte = 0;
-
-        rightBit = curByte & 0x1;
-        curByte = curByte >> 1;
-        curBit = curByte & 0x1;
-
-        for (int bit = 1; bit < 31; bit++)
+        topWord = top[i];
+        curWord = cur[i];
+        botWord = bot[i];
+        for (int k = 0; k < 32; k++)
         {
-            curByte = curByte >> 1;
-            leftBit = curByte & 0x1;
+            rightBit = curWord & 0x1;
 
-            // Top Byte
-            topByte = topByte >> 1;
-            topBit  = topByte & 0x1;
+            // compute result
+            result = topBit + botBit + leftBit + rightBit;
+            result = ((result > 2) * curBit) << 31;
 
-            // Bottom Byte
-            botByte = botByte >> 1;
-            botBit  = botByte & 0x1;
+            outWord |= result;
 
-            uint32_t count;
-            count = rightBit + leftBit + topBit + botBit;
-            //count *= curBit;
-            //count = (count > 2);
-            count = curBit;
-            count = count << 31;
-            toSaveByte |= count;
-            toSaveByte = toSaveByte >> 1;
+            // shift words
+            curWord = curWord >> 1;
 
-            rightBit = curBit;
-            curBit = leftBit;
+            if(k == 0 && i != 0)
+            {
+                cur[i-1] = outWord;
+                outWord = 0;
+            }
+
+            outWord = outWord >> 1;
+
+            // shift bits
+            leftBit = curBit;
+            curBit  = rightBit;
+
+            topBit  = topWord & 0x1;
+            botBit  = botWord & 0x1;
+
+            // shift words
+            topWord = topWord >> 1;
+            botWord = botWord >> 1;
         }
 
-        toSaveByte = toSaveByte >> 1;
-        cur[byte] = toSaveByte;
     }
+    cur[9] = outWord;
 }}
+
+
+void printStuff(uint32_t r)
+{
+    for (int i = 0; i < 32; i++)
+    {
+        if (i % 8 == 0) printf(" ");
+        printf("%d", (r >> i) & 0x1);
+    }
+}
+
 
 int main()
 { unsafe {
     printf("Testing Denoise Function\n");
 
-    uint32_t img[240*40/4];
+    uint8_t x[40*3];
+
+    x[0] = 0x4;
+    x[1] = 0x2;
+    x[2] = 0x3;
+    x[3] = 0x0;
+
+    x[40] = 0b01110;
+    x[41] = 0x0;
+    x[42] = 0x0;
+    x[43] = 0x0;
+
+    x[80] = 0x4;
+    x[81] = 0x2;
+    x[82] = 0x3;
+    x[83] = 0x0;
+
+    printStuff(((uint32_t*)x)[0]);
+    printf("\n");
+    printStuff(((uint32_t*)x)[10]);
+    printf("\n");
+    printStuff(((uint32_t*)x)[20]);
+    printf("\n");
+
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+
+    DenoiseRow(top, cur, bot);
+
+    printf("Result = \n");
+    printStuff(((uint32_t*)x)[10]);
+    printf("\n");
+
+
+
+    // 0x4 0x3 0x2 0x1
+    // ^32...........^0
+
+    printf("\n");
+
+    /*uint32_t img[240*40/4];
 
     for (int y = 0; y < 240; y++)
     {
@@ -72,7 +130,7 @@ int main()
                 &(img[10*(y-1)]),
                 &(img[10*(y)]));
         }
-    }
+    }*/
 
     return 0;
 }}

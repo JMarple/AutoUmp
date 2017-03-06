@@ -63,9 +63,8 @@ computeBackgroundSub:
 		{lss lNewData, threshold, lNewData; lss rNewData, threshold, rNewData}
 		{or lBitResult, lOldData, lNewData; or rBitResult, rOldData, rNewData}
 		// End BS
-		{ldc bitData, 0; nop}
-		{shl lBitResult, lBitResult, 7; shl rBitResult, rBitResult, 6}
-		{or bitData, bitData, lBitResult; nop}
+
+		{add bitData, lBitResult, 0; shl rBitResult, rBitResult, 1}
 		{or bitData, bitData, rBitResult; nop}
 		// -------------
 
@@ -87,7 +86,7 @@ computeBackgroundSub:
 		{or lBitResult, lOldData, lNewData; or rBitResult, rOldData, rNewData}
 		// End BS
 
-		{shl lBitResult, lBitResult, 5; shl rBitResult, rBitResult, 4}
+		{shl lBitResult, lBitResult, 2; shl rBitResult, rBitResult, 3}
 		{or bitData, bitData, lBitResult; nop}
 		{or bitData, bitData, rBitResult; nop}
 		// -------------
@@ -110,7 +109,7 @@ computeBackgroundSub:
 		{or lBitResult, lOldData, lNewData; or rBitResult, rOldData, rNewData}
 		// End BS
 
-		{shl lBitResult, lBitResult, 3; shl rBitResult, rBitResult, 2}
+		{shl lBitResult, lBitResult, 4; shl rBitResult, rBitResult, 5}
 		{or bitData, bitData, lBitResult; nop}
 		{or bitData, bitData, rBitResult; nop}
 		// -------------
@@ -133,8 +132,9 @@ computeBackgroundSub:
 		{or lBitResult, lOldData, lNewData; or rBitResult, rOldData, rNewData}
 		// End BS
 
-		{shl lBitResult, lBitResult, 1; or bitData, bitData, rBitResult}
+		{shl lBitResult, lBitResult, 6; shl rBitResult, rBitResult, 7}
 		{or bitData, bitData, lBitResult; nop}
+		{or bitData, bitData, rBitResult; nop}
 		// -------------
 
 		// Save bit info

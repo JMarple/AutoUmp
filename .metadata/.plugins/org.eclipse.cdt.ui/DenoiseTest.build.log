@@ -1,9 +1,55 @@
-12:26:18 **** Incremental Build of configuration Default for project DenoiseTest ****
+14:42:58 **** Incremental Build of configuration Default for project DenoiseTest ****
 xmake CONFIG=Default all 
 Checking build modules
 No build modules used.
-xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:98:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:100:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:102:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:105:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:112:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for DenoiseTest.xc
+Compiling DenoiseTest.xc
+../src/DenoiseTest.xc:98:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:100:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:102:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:105:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:112:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Creating DenoiseTest.xe
 Build Complete
 
-12:26:19 Build Finished (took 372ms)
+14:42:59 Build Finished (took 878ms)
 
