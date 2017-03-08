@@ -289,12 +289,6 @@ void packCenters(
         buffer[i*4 + 2] = yLower;
         buffer[i*4 + 3] = yUpper;
     }
-
-    if(numObjects < OBJECT_ARRAY_LENGTH)
-    {
-        buffer[numObjects*4] = 0xFF;
-        buffer[numObjects*4+1] = 0xFF;
-    }
 }}
 
 int32_t unpackCenters(

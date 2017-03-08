@@ -292,8 +292,7 @@ void packCenters(
 
     if(numObjects < OBJECT_ARRAY_LENGTH)
     {
-        buffer[numObjects*4] = 0xFF;
-        buffer[numObjects*4+1] = 0xFF;
+        buffer[numObjects*4] = 0xFFFF;
     }
 }}
 
