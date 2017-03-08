@@ -32,6 +32,11 @@ void makeCrosshairs(Mat* colorImage, uint16_t x, uint16_t y, uint16_t color)
 		return;
 	}
 
+	if(x == 0 && y ==) // one of our dumbo empty objects
+	{
+		return;
+	}
+
 	// cross hair is going to have tails that are 5 pixels long and 1 pixel wide.
     Vec3b bgr;
     
