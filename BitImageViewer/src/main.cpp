@@ -117,7 +117,7 @@ struct Object
     uint16_t distanceFromCenter;
 };
 
-void unpackCenters(
+int32_t unpackCenters(
     struct Object* objArray,
     uint8_t* buffer,
     uint16_t bufferLength)
@@ -134,12 +134,14 @@ void unpackCenters(
 
 		if(centX == 65535) // that's our cue -- we've hit our last object
 		{
+			return i/4+1; // num objects
 			break;
 		}
 
         objArray[i/4].centX = centX;
         objArray[i/4].centY = centY;
     }
+	return bufferLength/4; // num objects
 }
 
 
@@ -232,13 +234,13 @@ int main(int argc, char** argv)
 	// make fake data
 	struct Object fakeObjArray[250];
 	initObjectArray(fakeObjArray, 250);
-	for(int i = 0; i < 50; i++)
+	for(int i = 0; i < 250; i++)
 	{
-		fakeObjArray[i].centX = i*5; 
-		fakeObjArray[i].centY = i*3;
+		fakeObjArray[i].centX = i; 
+		fakeObjArray[i].centY = i*5 % IMG_HEIGHT;
 	}
 
-	packCenters(fakeObjArray, objectBuffer, 50); 
+	packCenters(fakeObjArray, objectBuffer, 249); 
 
     while (1==1)
     {
@@ -266,14 +268,12 @@ int main(int argc, char** argv)
 //				M.data[idx*8 + (7-i)] = ((data >> i) & 0b1)*255;
             }
         }*/
-		
-		unpackCenters(objArray, objectBuffer, sizeObjects); 
-
+		int32_t numObjects = unpackCenters(objArray, objectBuffer, sizeObjects); 
         cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
-		// show fake data
-		for(int i = 0; i < 50; i++)
+		// show data
+		for(int i = 0; i < numObjects; i++)
 		{
 			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
 		} 
@@ -288,7 +288,6 @@ int main(int argc, char** argv)
 			imwrite(fileName.str(), M_color);
 			printf("Stored in %s\n", fileName.str().c_str());
 			currentImageNumber++;
-			sleep(1);
 		}
 		else
 		{
