@@ -28,7 +28,7 @@ void makeCrosshairs(Mat* colorImage, uint16_t x, uint16_t y, uint16_t color)
 {
     if(x >= IMG_WIDTH || y >= IMG_HEIGHT)
 	{
-		printf("pixel given is out of bounds. You gave me: x = %i, y = %i\n", x, y);
+		printf("pixel given is out of bounds. You gave me: x = %i, y = %i. hex: %x, %x\n", x, y, x, y);
 		return;
 	}
 
@@ -128,12 +128,12 @@ int32_t unpackCenters(
     uint8_t* buffer,
     uint16_t bufferLength)
 {
-    for(int i = 0; i < bufferLength; i+=4)
+    for(int i = 1; i < bufferLength; i+=4) // i = 1 because I think there's a 0 byte at the front
     {
-        uint16_t xLower = buffer[i+1]; // each of these is flipped from what I would expect 
-        uint16_t xUpper = buffer[i];
-        uint16_t yLower = buffer[i+3];
-        uint16_t yUpper = buffer[i+2];
+        uint8_t xLower = buffer[i]; // each of these is flipped from what I would expect 
+        uint8_t xUpper = buffer[i+1];
+        uint8_t yLower = buffer[i+2];
+        uint8_t yUpper = buffer[i+3];
 
 		uint16_t centX = (xUpper << 8) | xLower;
 		uint16_t centY = (yUpper << 8) | yLower;
@@ -157,14 +157,14 @@ int32_t unpackBoundingBoxes(
 {
 	for(int i = 0; i < bufferLength; i+=8)
 	{
-		uint16_t xMinLower = buffer[i+1];
-		uint16_t xMinUpper = buffer[i];
-		uint16_t xMaxLower = buffer[i+3];
-		uint16_t xMaxUpper = buffer[i+2];
-		uint16_t yMinLower = buffer[i+5];
-		uint16_t yMinUpper = buffer[i+4];
-		uint16_t yMaxLower = buffer[i+7];
-		uint16_t yMaxUpper = buffer[i+6];
+		uint8_t xMinLower = buffer[i+1];
+		uint8_t xMinUpper = buffer[i];
+		uint8_t xMaxLower = buffer[i+3];
+		uint8_t xMaxUpper = buffer[i+2];
+		uint8_t yMinLower = buffer[i+5];
+		uint8_t yMinUpper = buffer[i+4];
+		uint8_t yMaxLower = buffer[i+7];
+		uint8_t yMaxUpper = buffer[i+6];
 
 		uint16_t xMin = (xMinUpper << 8) | xMinLower;
 		uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
@@ -220,9 +220,11 @@ void printCenters(struct Object* objArray, uint16_t length)
     uint16_t i = 0;
     while((i < length) && (objArray[i].centX != 65535))
     {
-        printf("centX: %x; centY: %x \n",
+        printf("centX: %x; centY: %x. decimal %i, %i \n",
             objArray[i].centX,
-            objArray[i].centY);
+            objArray[i].centY,
+			objArray[i].centX,
+			objArray[i].centY);
         i++;
     }
     printf("\n");
@@ -277,6 +279,13 @@ int main(int argc, char** argv)
 	*/
     while (1==1)
     {
+ 		for(int i = 0; i < sizeObjects; i++)
+		{
+			objectBuffer[i] = 0;
+		}
+		struct Object objArray[250];
+		initObjectArray(objArray, 250);
+
         // Get frame from UART
         while (indexPic < size)
         {
@@ -290,6 +299,14 @@ int main(int argc, char** argv)
 			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
 		}
+		for(int i = 0; i < sizeObjects; i++)
+		{
+			if(i % 4 == 0 && i != 0)
+			{
+				printf("\n");
+			}
+			printf("%x ", objectBuffer[i]);
+		}
 
         for (int idx = 0; idx < size; idx++)
         {
@@ -302,7 +319,7 @@ int main(int argc, char** argv)
         }
 
 		int32_t numObjects = unpackCenters(objArray, objectBuffer, sizeObjects);
-		for(int i = 0; i < 40; i++)
+		/*for(int i = 0; i < 40; i++)
 		{
 			printf("%i ", objectBuffer[i]);
 			if(i % 10 == 0 && i != 0)
@@ -311,7 +328,7 @@ int main(int argc, char** argv)
 			}
 		} 
 		printf("\n");
-        printCenters(objArray, numObjects);
+        printCenters(objArray, numObjects);*/
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
@@ -321,7 +338,7 @@ int main(int argc, char** argv)
 			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
 		}
 		imshow("a", M_color);
-        waitKey(1);
+        waitKey(250);
 
 		// only do anything here if we're given a folder name to store files
 		if(argc == 2)
@@ -340,7 +357,6 @@ int main(int argc, char** argv)
  
 		indexPic = 0;
 		indexObjects = 0;
-		
 	    for(int i = 0; i < sizeObjects; i++)
     	{
         	objectBuffer[i] = 0;

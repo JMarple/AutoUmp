@@ -38,43 +38,35 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
         newBitBuffer[i] = bitBuffer[i];
     }
 
-    int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
+    /*int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
     if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early
     {
         // TODO: handle exception
         numObjects = OBJECT_ARRAY_LENGTH;
+    }*/
+
+    /*struct Object fakeArr[128];
+    initObjectArray(fakeArr, 128);
+    for(int i = 0; i < 128; i++)
+    {
+        fakeArr[i].centX = i;
+        fakeArr[i].centY = i+8;
     }
+    packCenters(fakeArr, objCenters, 128);*/
 
     computeCenters(objArray, numObjects);
     packCenters(objArray, objInfo, numObjects);
 
-    /*struct Object fakeArr[250];
-    initObjectArray(fakeArr, 250);
-    for(int i = 0; i < 250; i++)
-    {
-        fakeArr[i].centX = i+16;
-        fakeArr[i].centY = i+17;
-    }
-    packCenters(fakeArr, objInfo, 250);
-    for(int i = 0; i < 250*4; i++)
-    {
-       if(i % 4 == 0 && i != 0)
-       {
-           printf("\n");
-       }
-       printf("%x ", objInfo[i]);
-    }
-
     struct Object fakeArrAfter[250];
     initObjectArray(fakeArrAfter, 250);
-    unpackCenters(fakeArrAfter, objInfo, OBJECT_ARRAY_LENGTH*4);*/
-    /*for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
+    unpackCenters(fakeArrAfter, objInfo, OBJECT_ARRAY_LENGTH*4);
+    for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
     {
         if(fakeArrAfter[i].centX > IMG_WIDTH || fakeArrAfter[i].centY > IMG_HEIGHT)
         {
             printf("exceeded. centX %i, centY %i\n", fakeArrAfter[i].centX, fakeArrAfter[i].centY);
         }
-    }*/
+    }
 
     //printCenters(fakeArrAfter, OBJECT_ARRAY_LENGTH);
 

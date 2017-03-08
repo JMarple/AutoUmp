@@ -38,7 +38,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
         newBitBuffer[i] = bitBuffer[i];
     }
 
-    int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
+    /*int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
     if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early
     {
         // TODO: handle exception
@@ -46,7 +46,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
     }
 
     computeCenters(objArray, numObjects);
-    packCenters(objArray, objInfo, numObjects);
+    packCenters(objArray, objInfo, numObjects);*/
 
     /*struct Object fakeArr[250];
     initObjectArray(fakeArr, 250);

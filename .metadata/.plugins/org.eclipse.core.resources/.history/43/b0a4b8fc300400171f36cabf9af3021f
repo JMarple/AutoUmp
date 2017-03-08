@@ -279,10 +279,10 @@ void packCenters(
     for(int i = 0; i < numObjects; i++)
     {
         // these labels might not be correct, due to endianess...?????
-        uint16_t xLower = objArray[i].centX & 0xFF;
-        uint16_t xUpper = objArray[i].centX >> 8;
-        uint16_t yLower = objArray[i].centY & 0xFF;
-        uint16_t yUpper = objArray[i].centY >> 8;
+        uint8_t xLower = objArray[i].centX & 0xFF;
+        uint8_t xUpper = objArray[i].centX >> 8;
+        uint8_t yLower = objArray[i].centY & 0xFF;
+        uint8_t yUpper = objArray[i].centY >> 8;
 
         buffer[i*4] = xLower;
         buffer[i*4 + 1] = xUpper;

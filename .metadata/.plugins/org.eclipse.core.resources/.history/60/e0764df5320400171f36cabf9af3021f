@@ -133,7 +133,7 @@ void OV07740_MasterThread(
 
         // Send bit images to floodfill.
         ff1 <: bitImage1;
-        ff2 <: bitImage2;
+        //ff2 <: bitImage2;
         // Delay 15ms, flood fill should be done by then.
         delay(2250000);
         delay(2250000);
