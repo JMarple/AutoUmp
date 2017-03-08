@@ -196,7 +196,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="FloodFill" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="FloodFill" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -208,12 +208,22 @@
     </values>
   </arg>
   <arg num="2" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
 </fInfo>
-<fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -225,6 +235,16 @@
     </values>
   </arg>
   <arg num="2" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
@@ -278,7 +298,7 @@
 </fInfo>
 <fInfo name="OV07740_InitCameras" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
-<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="9">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -300,6 +320,26 @@
     </values>
   </arg>
   <arg num="4" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="6" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="7" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="8" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
@@ -326,17 +366,15 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="computeCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="computeCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1" specialize="false">
     <values>
-    </values>
-  </arg>
-  <arg num="2" specialize="false">
-    <values>
+      <value type="unknown"/>
     </values>
   </arg>
 </fInfo>
@@ -368,7 +406,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="floodFill" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="floodFill" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -384,25 +422,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="3" specialize="true">
-    <values>
-      <value type="intval"><intval isSigned="true" val="320"/></value>
-    </values>
-  </arg>
-  <arg num="4" specialize="true">
-    <values>
-      <value type="intval"><intval isSigned="true" val="240"/></value>
-    </values>
-  </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="unknown"/></values></arg>
-    <arg num="3"><values><value type="intval"><intval isSigned="true" val="320"/></value></values></arg>
-    <arg num="4"><values><value type="intval"><intval isSigned="true" val="240"/></value></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="getBitInByte" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
@@ -469,10 +488,117 @@
     </values>
   </arg>
 </fInfo>
+<fInfo name="initObjectArray" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="true">
+    <values>
+      <value type="intval"><intval isSigned="true" val="250"/></value>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="intval"><intval isSigned="true" val="250"/></value></values></arg>
+   </specialization>
+ </specializations>
+</fInfo>
 <fInfo name="main" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
 <fInfo name="objectInit" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
   <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="objectOverwrite" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="7">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2" specialize="true">
+    <values>
+      <value type="intval"><intval isSigned="true" val="-1"/></value>
+    </values>
+  </arg>
+  <arg num="3" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="6" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="unknown"/></values></arg>
+    <arg num="2"><values><value type="intval"><intval isSigned="true" val="-1"/></value></values></arg>
+    <arg num="3"><values><value type="unknown"/></values></arg>
+    <arg num="4"><values><value type="unknown"/></values></arg>
+    <arg num="5"><values><value type="unknown"/></values></arg>
+    <arg num="6"><values><value type="unknown"/></values></arg>
+   </specialization>
+ </specializations>
+</fInfo>
+<fInfo name="packBoundingBoxes" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="packCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="printCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
     <values>
     </values>
   </arg>
@@ -532,7 +658,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="scanPic" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="scanPic" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -548,25 +674,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="3" specialize="true">
-    <values>
-      <value type="intval"><intval isSigned="true" val="320"/></value>
-    </values>
-  </arg>
-  <arg num="4" specialize="true">
-    <values>
-      <value type="intval"><intval isSigned="true" val="240"/></value>
-    </values>
-  </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="unknown"/></values></arg>
-    <arg num="3"><values><value type="intval"><intval isSigned="true" val="320"/></value></values></arg>
-    <arg num="4"><values><value type="intval"><intval isSigned="true" val="240"/></value></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="sccb_init" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
@@ -657,7 +764,7 @@
    </specialization>
  </specializations>
 </fInfo>
-<fInfo name="sendToBluetooth" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="sendToBluetooth" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -668,18 +775,12 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="2" specialize="true">
+  <arg num="2" specialize="false">
     <values>
+      <value type="intval"><intval isSigned="true" val="1000"/></value>
       <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="intval"><intval isSigned="true" val="9600"/></value></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="setBitInByte" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
@@ -729,7 +830,21 @@
    </specialization>
  </specializations>
 </fInfo>
-<fInfo name="updateObject" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="4">
+<fInfo name="unpackCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="updateObject" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -740,24 +855,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="2" specialize="true">
-    <values>
-      <value type="intval"><intval isSigned="true" val="320"/></value>
-    </values>
-  </arg>
-  <arg num="3" specialize="true">
-    <values>
-      <value type="intval"><intval isSigned="true" val="240"/></value>
-    </values>
-  </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="intval"><intval isSigned="true" val="320"/></value></values></arg>
-    <arg num="3"><values><value type="intval"><intval isSigned="true" val="240"/></value></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="waitForVSync" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="true">

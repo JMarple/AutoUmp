@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ObjectPackerTest/src/DenoiseTest.xc&apos; to &apos;ObjectPackerTest&apos;" description="Rename resource &apos;DenoiseTest.xc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/DenoiseTest.xc" name="ObjectPackerTest" stamp="1488929323840" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ObjectPackerTest/src/ObjectPackerTest&apos; to &apos;ObjectPackerTest.xc&apos;" description="Rename resource &apos;ObjectPackerTest&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/ObjectPackerTest" name="ObjectPackerTest.xc" stamp="1488929359973" updateReferences="true"/>
+</session>

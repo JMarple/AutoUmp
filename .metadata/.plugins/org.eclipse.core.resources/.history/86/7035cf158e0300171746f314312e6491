@@ -1,0 +1,11 @@
+#include <xs1.h>
+#include <platform.h>
+#include <stdio.h>
+#include <stdint.h>
+
+int main()
+{ unsafe {
+
+
+    return 0;
+}}

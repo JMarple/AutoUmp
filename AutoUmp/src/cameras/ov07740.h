@@ -20,7 +20,11 @@ void OV07740_MasterThread(
     streaming chanend cam2,
     chanend ff1,
     chanend ff2,
-    chanend uart1);
+    chanend uart1,
+    uint8_t* unsafe objCenters1,
+    uint8_t* unsafe objCenters2,
+    uint8_t* unsafe objBoxes1,
+    uint8_t* unsafe objBoxes2);
 
 void OV07740_GatherDataThread(
     streaming chanend cmdStream,

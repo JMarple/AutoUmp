@@ -5,6 +5,7 @@
 #include <stdint.h>
 
 #include "algs.h"
+#include "detect_objects.h"
 
 uint8_t lookup32[32] = {
         0, 0, 0, 0, 0, 0, 0, 0,
@@ -13,7 +14,8 @@ uint8_t lookup32[32] = {
         0, 1, 1, 1, 0, 1, 1, 1};
 
 // bitBuffer is an entire bit image
-void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue* queue)
+// objCenters will be filled with objCenters ready to be sent over UART
+void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objCenters, uint8_t* unsafe objBoxes)
 { unsafe {
     for (int i = 2; i < IMG_HEIGHT; i++)
     {
@@ -22,11 +24,59 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
                 (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
                 (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
     }
-    uint16_t numObjects = scanPic(objArray, queue, bitBuffer, IMG_WIDTH, IMG_HEIGHT);
+    for (int i = 0; i < IMG_WIDTH/8; i++)
+    {
+        bitBuffer[i] = 0;
+        bitBuffer[(IMG_HEIGHT-1)*IMG_WIDTH/8 + i] = 0;
+    }
+
+    // copy data
+    // operate on new data
+    uint8_t newBitBuffer[IMG_HEIGHT*IMG_WIDTH/8];
+    for (int i = 0; i < IMG_HEIGHT*IMG_WIDTH/8; i++)
+    {
+        newBitBuffer[i] = bitBuffer[i];
+    }
+
+    int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
+    if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early
+    {
+        // TODO: handle exception
+        numObjects = OBJECT_ARRAY_LENGTH;
+    }
+
+    /*struct Object fakeArr[128];
+    initObjectArray(fakeArr, 128);
+    struct Object fakeArrAfter[128];
+    initObjectArray(fakeArrAfter, 128);
+    for(int i = 0; i < 128; i++)
+    {
+        fakeArr[i].centX = i;
+        fakeArr[i].centY = i+8;
+        if(i == 127)
+        {
+            fakeArr[i].centX = 65535;
+            fakeArr[i].centY = 65535;
+        }
+    }
+    packCenters(fakeArr, objCenters, 128);*/
+    /*unpackCenters(fakeArrAfter, objCenters, 128*4);
+
+    printCenters(fakeArrAfter, 128);*/
+
+
+    computeCenters(objArray, numObjects);
+    packCenters(objArray, objCenters, numObjects);
+
+    //printf("--------- PIC --------\n");
+    //struct Object smallArr[51];
+    //initObjectArray(smallArr, 51);
+    //unpackCenters(smallArr, objCenters, 51*4);
+    //printCenters(smallArr, 50);
     //printf("numObjects: %i\n", numObjects);
 }}
 
-void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queue)
+void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objCenters, uint8_t* unsafe objBoxes)
 { unsafe {
     uint32_t start, end;
     timer t;
@@ -39,7 +89,7 @@ void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queu
 
         t :> start;
 
-        FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue);
+        FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue, objCenters, objBoxes);
 
         t :> end;
         printf("Clock ticks (@100Mhz) = %d\n", (end - start));

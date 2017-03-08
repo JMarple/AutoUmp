@@ -1,4 +1,0 @@
-CC = g++
-CFLAGS = -Wall 
-
-SRC = $(wildcard src/*.c)

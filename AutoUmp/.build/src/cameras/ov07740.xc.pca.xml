@@ -5,7 +5,7 @@
 <fDef name="OV07740_GatherDataThread" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="OV07740_GetFrame" global="true" noreturn="false" doNotSpecialize="false" numParams="6"/>
 <fDef name="OV07740_InitCameras" global="true" noreturn="false" doNotSpecialize="false" numParams="0"/>
-<fDef name="OV07740_MasterThread" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
+<fDef name="OV07740_MasterThread" global="true" noreturn="false" doNotSpecialize="false" numParams="9"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
@@ -294,286 +294,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
 <fCall name="sendToBluetooth" global="true" numArgs="3">
   <arg num="0">
     <passThroughArg param="4" caller="OV07740_MasterThread" global="true"/>
@@ -591,15 +311,20 @@
     </values>
   </arg>
 </fCall>
-<fCall name="printf" global="true" numArgs="2">
+<fCall name="sendToBluetooth" global="true" numArgs="3">
   <arg num="0">
+    <passThroughArg param="4" caller="OV07740_MasterThread" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
     <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="1000"/></value>
     </values>
   </arg>
 </fCall>

@@ -26,7 +26,13 @@ using namespace cv;
 // makes a red cross hair, with the center at the given x, y position.
 void makeCrosshairs(Mat* colorImage, uint16_t x, uint16_t y, uint16_t color)
 {
-    // cross hair is going to have tails that are 5 pixels long and 1 pixel wide.
+    if(x >= IMG_WIDTH || y >= IMG_HEIGHT)
+	{
+		printf("pixel given is out of bounds. You gave me: x = %i, y = %i\n", x, y);
+		return;
+	}
+
+	// cross hair is going to have tails that are 5 pixels long and 1 pixel wide.
     Vec3b bgr;
     
     if(color == RED)
@@ -124,15 +130,15 @@ int32_t unpackCenters(
 {
     for(int i = 0; i < bufferLength; i+=4)
     {
-        uint8_t xLower = buffer[i];
-        uint8_t xUpper = buffer[i+1];
-        uint8_t yLower = buffer[i+2];
-        uint8_t yUpper = buffer[i+3];
+        uint16_t xLower = buffer[i+1]; // each of these is flipped from what I would expect 
+        uint16_t xUpper = buffer[i];
+        uint16_t yLower = buffer[i+3];
+        uint16_t yUpper = buffer[i+2];
 
 		uint16_t centX = (xUpper << 8) | xLower;
 		uint16_t centY = (yUpper << 8) | yLower;
 
-		if(centX == 65535) // that's our cue -- we've hit our last object
+		if(centX == 0xFFFF) // that's our cue -- we've hit our last object
 		{
 			return i/4+1; // num objects
 			break;
@@ -142,6 +148,40 @@ int32_t unpackCenters(
         objArray[i/4].centY = centY;
     }
 	return bufferLength/4; // num objects
+}
+
+int32_t unpackBoundingBoxes(
+	struct Object* objArray,
+	uint8_t* buffer,
+	uint16_t bufferLength)
+{
+	for(int i = 0; i < bufferLength; i+=8)
+	{
+		uint16_t xMinLower = buffer[i+1];
+		uint16_t xMinUpper = buffer[i];
+		uint16_t xMaxLower = buffer[i+3];
+		uint16_t xMaxUpper = buffer[i+2];
+		uint16_t yMinLower = buffer[i+5];
+		uint16_t yMinUpper = buffer[i+4];
+		uint16_t yMaxLower = buffer[i+7];
+		uint16_t yMaxUpper = buffer[i+6];
+
+		uint16_t xMin = (xMinUpper << 8) | xMinLower;
+		uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
+		uint16_t yMin = (yMinUpper << 8) | yMinLower;
+		uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
+
+		if(xMin == 0xFFFF)
+		{
+			return i/4+1;
+		}
+		
+		objArray[i/4].minX = xMin;
+		objArray[i/4].maxX = xMax;
+		objArray[i/4].minY = yMin;
+		objArray[i/4].maxY = yMax;	
+	}
+	return bufferLength/8; // numObjects
 }
 
 
@@ -192,7 +232,7 @@ void printCenters(struct Object* objArray, uint16_t length)
     uint16_t i = 0;
     while((i < length) && (objArray[i].centX != 65535))
     {
-        printf("centX: %i; centY: %i \n",
+        printf("centX: %x; centY: %x \n",
             objArray[i].centX,
             objArray[i].centY);
         i++;
@@ -205,11 +245,11 @@ int main(int argc, char** argv)
 {
 	char mode[] = "8N1";
    	const int COM_PORT = 0;
-   /* if (RS232_OpenComport(COM_PORT, 921600, mode))
+    if (RS232_OpenComport(COM_PORT, 921600, mode))
     {
         std::cout << "Could not find com port" << std::endl;
         return 0;
-    }*/
+    }
 	
 	// these are only used if we are given a foldername to store files
 	std::string folderName;
@@ -228,9 +268,15 @@ int main(int argc, char** argv)
 	int32_t indexObjects = 0;
 	const int32_t sizeObjects = 250*4; // 250 objects * 4 bytes to represent the center
 	uint8_t objectBuffer[sizeObjects];
+
+	for(int i = 0; i < sizeObjects; i++)
+	{
+		objectBuffer[i] = 0;
+	}
 	struct Object objArray[250];
 	initObjectArray(objArray, 250);
 
+    /*
 	// make fake data
 	struct Object fakeObjArray[250];
 	initObjectArray(fakeObjArray, 250);
@@ -239,12 +285,11 @@ int main(int argc, char** argv)
 		fakeObjArray[i].centX = i; 
 		fakeObjArray[i].centY = i*5 % IMG_HEIGHT;
 	}
-
 	packCenters(fakeObjArray, objectBuffer, 249); 
-
+	*/
     while (1==1)
     {
-     /*   // Get frame from UART
+        // Get frame from UART
         while (indexPic < size)
         {
             int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), size - indexPic);
@@ -254,7 +299,7 @@ int main(int argc, char** argv)
 		// get object array
 		while (indexObjects < sizeObjects)
 		{
-			int len = RS232_PollComport(COM_PORT, &(objectBuffer[sizeObjects]), sizeObjects - indexObjects);
+			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
 		}
 
@@ -265,18 +310,28 @@ int main(int argc, char** argv)
             for (int i = 0; i < 8; i++)
             {
                M.data[idx*8 + i] = ((data >> i) & 0b1)*255;
-//				M.data[idx*8 + (7-i)] = ((data >> i) & 0b1)*255;
             }
-        }*/
-		int32_t numObjects = unpackCenters(objArray, objectBuffer, sizeObjects); 
-        cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
+        }
+
+		int32_t numObjects = unpackCenters(objArray, objectBuffer, sizeObjects);
+		for(int i = 0; i < 40; i++)
+		{
+			printf("%i ", objectBuffer[i]);
+			if(i % 10 == 0 && i != 0)
+			{
+				printf("\n");
+			}
+		} 
+		printf("\n");
+        printCenters(objArray, numObjects);
+		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
 		// show data
 		for(int i = 0; i < numObjects; i++)
 		{
 			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
-		} 
+		}
 		imshow("a", M_color);
         waitKey(1);
 
@@ -289,16 +344,23 @@ int main(int argc, char** argv)
 			printf("Stored in %s\n", fileName.str().c_str());
 			currentImageNumber++;
 		}
-		else
+		else // not saving frames
 		{
         	printf("Frame recieved!\n");
 		}
-        
+       
+ 
 		indexPic = 0;
 		indexObjects = 0;
+		
+	    for(int i = 0; i < sizeObjects; i++)
+    	{
+        	objectBuffer[i] = 0;
+		}	
+
 	}
 
- //   RS232_CloseComport(COM_PORT);
+    RS232_CloseComport(COM_PORT);
     std::cout << "Done!" << std::endl;
 
     return 0;

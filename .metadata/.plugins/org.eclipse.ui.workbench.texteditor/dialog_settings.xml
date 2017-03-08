@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="OV07740_GetFrame" key="selection"/>
+		<item value="pack" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="OV07740_GetFrame"/>
-			<item value="bluetooth"/>
-			<item value="20"/>
-			<item value="inside"/>
-			<item value="printf"/>
-			<item value="gather"/>
-			<item value="booting"/>
-			<item value="Booting"/>
+			<item value="pack"/>
+			<item value="length"/>
+			<item value="packCenters"/>
+			<item value="computeCenter"/>
+			<item value="getBit"/>
+			<item value="initObject"/>
+			<item value="floodFill"/>
+			<item value="computeCe"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -23,8 +23,8 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="291" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="432" key="DIALOG_HEIGHT"/>
-		<item value="1140" key="DIALOG_X_ORIGIN"/>
-		<item value="103" key="DIALOG_Y_ORIGIN"/>
+		<item value="460" key="DIALOG_HEIGHT"/>
+		<item value="1443" key="DIALOG_X_ORIGIN"/>
+		<item value="214" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

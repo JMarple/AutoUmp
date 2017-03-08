@@ -1,9 +1,9 @@
-17:34:13 **** Incremental Build of configuration Default for project DenoiseTest ****
+12:10:18 **** Incremental Build of configuration Default for project DenoiseTest ****
 xmake CONFIG=Default all 
 Checking build modules
 No build modules used.
 xmake[1]: `bin//DenoiseTest.xe' is up to date.
 Build Complete
 
-17:34:13 Build Finished (took 109ms)
+12:10:18 Build Finished (took 119ms)
 
