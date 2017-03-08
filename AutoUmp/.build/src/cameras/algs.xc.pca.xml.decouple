@@ -1,7 +1,7 @@
 <preCompilationAnalysis file="../src/cameras/algs.xc">
 <fDef name="DenoiseRow" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
-<fDef name="FloodFill" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
-<fDef name="FloodFillThread" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
+<fDef name="FloodFill" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="FloodFillThread" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
@@ -89,7 +89,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFill" global="true" numArgs="5">
+<fCall name="FloodFill" global="true" numArgs="4">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -107,11 +107,6 @@
   </arg>
   <arg num="3">
     <passThroughArg param="3" caller="FloodFillThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="4">
-    <passThroughArg param="4" caller="FloodFillThread" global="true"/>
     <values>
     </values>
   </arg>

@@ -15,7 +15,7 @@ uint8_t lookup32[32] = {
 
 // bitBuffer is an entire bit image
 // objCenters will be filled with objCenters ready to be sent over UART
-void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objCenters, uint8_t* unsafe objBoxes)
+void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objInfo)
 { unsafe {
     for (int i = 2; i < IMG_HEIGHT; i++)
     {
@@ -47,26 +47,24 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
 
     /*struct Object fakeArr[128];
     initObjectArray(fakeArr, 128);
-    struct Object fakeArrAfter[128];
-    initObjectArray(fakeArrAfter, 128);
     for(int i = 0; i < 128; i++)
     {
         fakeArr[i].centX = i;
         fakeArr[i].centY = i+8;
-        if(i == 127)
-        {
-            fakeArr[i].centX = 65535;
-            fakeArr[i].centY = 65535;
-        }
     }
     packCenters(fakeArr, objCenters, 128);*/
-    /*unpackCenters(fakeArrAfter, objCenters, 128*4);
-
-    printCenters(fakeArrAfter, 128);*/
-
 
     computeCenters(objArray, numObjects);
-    packCenters(objArray, objCenters, numObjects);
+    packCenters(objArray, objInfo, numObjects);
+
+    /*struct Object fakeArrAfter[250];
+
+    initObjectArray(fakeArrAfter, 250);
+
+    unpackCenters(fakeArrAfter, objInfo, OBJECT_ARRAY_LENGTH*4);*/
+
+    //printCenters(fakeArrAfter, OBJECT_ARRAY_LENGTH);
+
 
     //printf("--------- PIC --------\n");
     //struct Object smallArr[51];
@@ -76,7 +74,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
     //printf("numObjects: %i\n", numObjects);
 }}
 
-void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objCenters, uint8_t* unsafe objBoxes)
+void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objInfo)
 { unsafe {
     uint32_t start, end;
     timer t;
@@ -89,7 +87,7 @@ void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queu
 
         t :> start;
 
-        FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue, objCenters, objBoxes);
+        FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue, objInfo);
 
         t :> end;
         printf("Clock ticks (@100Mhz) = %d\n", (end - start));

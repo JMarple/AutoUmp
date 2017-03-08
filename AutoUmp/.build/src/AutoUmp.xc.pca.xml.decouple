@@ -82,7 +82,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="OV07740_MasterThread" global="true" numArgs="9" impId="0">
+<fCall name="OV07740_MasterThread" global="true" numArgs="7" impId="0">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -118,16 +118,6 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="7">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="8">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
 </fCall>
 <fCall name="OV07740_GatherDataThread" global="true" numArgs="2" impId="1">
   <arg num="0">
@@ -153,7 +143,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFillThread" global="true" numArgs="5" impId="3">
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="3">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -170,17 +160,12 @@
     </values>
   </arg>
   <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFillThread" global="true" numArgs="5" impId="4">
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="4">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -197,11 +182,6 @@
     </values>
   </arg>
   <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
     <values>
       <value type="unknown"/>
     </values>

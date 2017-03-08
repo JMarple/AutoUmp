@@ -196,7 +196,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="FloodFill" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="FloodFill" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="4">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -213,17 +213,12 @@
     </values>
   </arg>
   <arg num="3" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
 </fInfo>
-<fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="4">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -240,11 +235,6 @@
     </values>
   </arg>
   <arg num="3" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
@@ -298,7 +288,7 @@
 </fInfo>
 <fInfo name="OV07740_InitCameras" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
-<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="9">
+<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="7">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -330,16 +320,6 @@
     </values>
   </arg>
   <arg num="6" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="7" specialize="false">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="8" specialize="false">
     <values>
       <value type="unknown"/>
     </values>

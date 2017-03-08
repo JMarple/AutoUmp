@@ -98,9 +98,7 @@ void OV07740_MasterThread(
     chanend ff2,
     chanend uart1,
     uint8_t* unsafe objCenters1,
-    uint8_t* unsafe objCenters2,
-    uint8_t* unsafe objBoxes1,
-    uint8_t* unsafe objBoxes2)
+    uint8_t* unsafe objCenters2)
 { unsafe {
     uint8_t data, vsync = 1;
     timer t;
@@ -135,7 +133,7 @@ void OV07740_MasterThread(
 
         // Send bit images to floodfill.
         ff1 <: bitImage1;
-        ff2 <: bitImage2;
+        //ff2 <: bitImage2;
         // Delay 15ms, flood fill should be done by then.
         delay(2250000);
         delay(2250000);
@@ -151,7 +149,6 @@ void OV07740_MasterThread(
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
         sendToBluetooth(uart1, (uint8_t* unsafe)bitImage1, 240*40);
         sendToBluetooth(uart1, (uint8_t* unsafe)objCenters1, OBJECT_ARRAY_LENGTH*4);
-        sendToBluetooth(uart1, (uint8_t* unsafe)objBoxes1, OBJECT_ARRAY_LENGTH*8);
         //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
     }
 }}

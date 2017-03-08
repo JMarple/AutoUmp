@@ -10363,3 +10363,27 @@ Binding(CTRL+SHIFT+H,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.cdt.ui.cViewScope,,,system)
+
+!ENTRY org.eclipse.debug.core 4 125 2017-03-08 12:42:54.375
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: target is suspended
+	at org.eclipse.cdt.debug.mi.core.MIInferior$1.write(Unknown Source)
+	at java.io.OutputStream.write(OutputStream.java:116)
+	at java.io.OutputStream.write(OutputStream.java:75)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.writeNext(InputStreamMonitor.java:144)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.write(InputStreamMonitor.java:124)
+	at org.eclipse.debug.internal.core.InputStreamMonitor$1.run(InputStreamMonitor.java:99)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.debug.core 4 125 2017-03-08 12:43:04.500
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: target is suspended
+	at org.eclipse.cdt.debug.mi.core.MIInferior$1.write(Unknown Source)
+	at java.io.OutputStream.write(OutputStream.java:116)
+	at java.io.OutputStream.write(OutputStream.java:75)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.writeNext(InputStreamMonitor.java:144)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.write(InputStreamMonitor.java:124)
+	at org.eclipse.debug.internal.core.InputStreamMonitor$1.run(InputStreamMonitor.java:99)
+	at java.lang.Thread.run(Thread.java:745)

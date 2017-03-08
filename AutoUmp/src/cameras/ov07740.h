@@ -22,9 +22,7 @@ void OV07740_MasterThread(
     chanend ff2,
     chanend uart1,
     uint8_t* unsafe objCenters1,
-    uint8_t* unsafe objCenters2,
-    uint8_t* unsafe objBoxes1,
-    uint8_t* unsafe objBoxes2);
+    uint8_t* unsafe objCenters2);
 
 void OV07740_GatherDataThread(
     streaming chanend cmdStream,

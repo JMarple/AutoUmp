@@ -171,11 +171,6 @@ int32_t unpackBoundingBoxes(
 		uint16_t yMin = (yMinUpper << 8) | yMinLower;
 		uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
 
-		if(xMin == 0xFFFF)
-		{
-			return i/4+1;
-		}
-		
 		objArray[i/4].minX = xMin;
 		objArray[i/4].maxX = xMax;
 		objArray[i/4].minY = yMin;
@@ -201,13 +196,6 @@ void packCenters(
         buffer[i*4 + 1] = xUpper;
         buffer[i*4 + 2] = yLower;
         buffer[i*4 + 3] = yUpper;
-    }
-    if(numObjects < 250) // send a code: we're done with our objects
-    {
-        for(int i = 0; i < 4; i++)
-        {
-            buffer[numObjects*4 + i] = 0xFF;
-        }
     }
 }
 

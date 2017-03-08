@@ -268,13 +268,6 @@ void packBoundingBoxes(
             buffer[i*4 + 6] = yMaxLower;
             buffer[i*4 + 7] = yMaxUpper;
         }
-        if(numObjects < 250) // send a code: we're done with our objects
-        {
-            for(int i = 0; i < 4; i++)
-            {
-                buffer[numObjects*4 + i] = 0xFF;
-            }
-        }
 }}
 
 // pack the center data to be used for sending over uart
@@ -295,13 +288,6 @@ void packCenters(
         buffer[i*4 + 2] = yLower;
         buffer[i*4 + 3] = yUpper;
     }
-    if(numObjects < 250) // send a code: we're done with our objects
-    {
-        for(int i = 0; i < 4; i++)
-        {
-            buffer[numObjects*4 + i] = 0xFF;
-        }
-    }
 }}
 
 int32_t unpackCenters(
@@ -318,12 +304,6 @@ int32_t unpackCenters(
 
         uint16_t centX = (xUpper << 8) | xLower;
         uint16_t centY = (yUpper << 8) | yLower;
-
-        if(centX == 65535) // that's our cue -- we've hit our last object
-        {
-            return i/4+1; // num objects
-            break;
-        }
 
         objArray[i/4].centX = centX;
         objArray[i/4].centY = centY;

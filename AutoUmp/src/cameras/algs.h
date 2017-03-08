@@ -12,15 +12,13 @@ void FloodFill(
     uint8_t* unsafe bitBuffer,
     struct Object* objArray,
     struct Queue* queue,
-    uint8_t* unsafe objCenters,
-    uint8_t* unsafe objBoxes);
+    uint8_t* unsafe objInfo);
 
 void FloodFillThread(
     chanend stream,
     struct Object* objArray,
     struct Queue* queue,
-    uint8_t* unsafe objCenters,
-    uint8_t* unsafe objBoxes);
+    uint8_t* unsafe objInfo);
 
 void DenoiseRow(
     uint32_t* unsafe top,

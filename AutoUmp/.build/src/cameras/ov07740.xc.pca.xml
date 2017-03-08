@@ -5,7 +5,7 @@
 <fDef name="OV07740_GatherDataThread" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="OV07740_GetFrame" global="true" noreturn="false" doNotSpecialize="false" numParams="6"/>
 <fDef name="OV07740_InitCameras" global="true" noreturn="false" doNotSpecialize="false" numParams="0"/>
-<fDef name="OV07740_MasterThread" global="true" noreturn="false" doNotSpecialize="false" numParams="9"/>
+<fDef name="OV07740_MasterThread" global="true" noreturn="false" doNotSpecialize="false" numParams="7"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
