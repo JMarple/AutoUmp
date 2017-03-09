@@ -97,10 +97,15 @@ void packBoundingBoxes(
     uint8_t* unsafe buffer,
     int32_t numObjects);
 
-void packCenters(
+void packObjects(
     struct Object* objArray,
     uint8_t* unsafe buffer,
     int32_t numObjects);
+
+int32_t unpackObjects(
+    struct Object* objArray,
+    uint8_t* unsafe buffer,
+    uint16_t bufferLength);
 
 int32_t unpackCenters(
     struct Object* objArray,

@@ -32,7 +32,7 @@ void makeCrosshairs(Mat* colorImage, uint16_t x, uint16_t y, uint16_t color)
 		return;
 	}
 
-	if(x == 0 && y ==) // one of our dumbo empty objects
+	if(x == 0 && y == 0) // one of our dumbo empty objects
 	{
 		return;
 	}
@@ -119,6 +119,54 @@ void makeLine(Mat* colorImage, uint16_t rowOrColumn, uint16_t color, uint16_t is
     }
 }
 
+void makeBox(
+	Mat* colorImage,
+	uint16_t minX,
+	uint16_t maxX,
+	uint16_t minY,
+	uint16_t maxY, 
+	uint16_t color)
+{
+    Vec3b bgr;
+    
+    if(color == RED)
+    {
+        bgr.val[0] = 0; // blue
+        bgr.val[1] = 0; // green
+        bgr.val[2] = 255; // red
+    }
+    else if(color == GREEN)
+    {
+        bgr.val[0] = 0; // blue
+        bgr.val[1] = 255; // green
+        bgr.val[2] = 0; // red 
+    }
+    else if(color == BLUE)
+    {
+        bgr.val[0] = 255; // blue
+        bgr.val[1] = 0; // green
+        bgr.val[2] = 0; // red     
+    }
+
+	// the values we use to draw
+	int realMinX = max(0, (int)minX);
+	int realMaxX = min(IMG_WIDTH-1, (int)maxX);
+	int realMinY = max(0, (int)minY);
+	int realMaxY = min(IMG_HEIGHT-1, (int)maxY);
+
+	for(int i = realMinX; i < realMaxX; i++)
+	{
+		colorImage->at<Vec3b>(Point(i, realMinY)) = bgr;
+		colorImage->at<Vec3b>(Point(i, realMaxY)) = bgr;
+	}
+
+	for(int i = realMinY; i < realMaxY; i++)
+	{
+		colorImage->at<Vec3b>(Point(realMinX, i)) = bgr;
+		colorImage->at<Vec3b>(Point(realMaxX, i)) = bgr;
+	}
+}
+    
 struct Object
 {
     uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
@@ -128,62 +176,48 @@ struct Object
     uint16_t distanceFromCenter;
 };
 
-int32_t unpackCenters(
+int32_t unpackObjects(
     struct Object* objArray,
     uint8_t* buffer,
     uint16_t bufferLength)
 {
-    for(int i = 1; i < bufferLength; i+=4) // i = 1 because I think there's a 0 byte at the front
+    for(int i = 1; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
     {
-        uint8_t xLower = buffer[i]; // each of these is flipped from what I would expect 
-        uint8_t xUpper = buffer[i+1];
-        uint8_t yLower = buffer[i+2];
-        uint8_t yUpper = buffer[i+3];
+        uint8_t centXLower = buffer[i]; // each of these is flipped from what I would expect 
+        uint8_t centXUpper = buffer[i+1];
+        uint8_t centYLower = buffer[i+2];
+        uint8_t centYUpper = buffer[i+3];
+		uint8_t xMinLower  = buffer[i+4];
+		uint8_t xMinUpper  = buffer[i+5];
+		uint8_t xMaxLower  = buffer[i+6];
+		uint8_t xMaxUpper  = buffer[i+7];
+		uint8_t yMinLower  = buffer[i+8];
+		uint8_t yMinUpper  = buffer[i+9];
+		uint8_t yMaxLower  = buffer[i+10];
+		uint8_t yMaxUpper  = buffer[i+11];
 
-		uint16_t centX = (xUpper << 8) | xLower;
-		uint16_t centY = (yUpper << 8) | yLower;
-
-		if(centX == 0xFFFF) // that's our cue -- we've hit our last object
-		{
-			return i/4+1; // num objects
-			break;
-		}
-
-        objArray[i/4].centX = centX;
-        objArray[i/4].centY = centY;
-    }
-	return bufferLength/4; // num objects
-}
-
-int32_t unpackBoundingBoxes(
-	struct Object* objArray,
-	uint8_t* buffer,
-	uint16_t bufferLength)
-{
-	for(int i = 0; i < bufferLength; i+=8)
-	{
-		uint8_t xMinLower = buffer[i+1];
-		uint8_t xMinUpper = buffer[i];
-		uint8_t xMaxLower = buffer[i+3];
-		uint8_t xMaxUpper = buffer[i+2];
-		uint8_t yMinLower = buffer[i+5];
-		uint8_t yMinUpper = buffer[i+4];
-		uint8_t yMaxLower = buffer[i+7];
-		uint8_t yMaxUpper = buffer[i+6];
-
+		uint16_t centX = (centXUpper << 8) | centXLower;
+		uint16_t centY = (centYUpper << 8) | centYLower;
 		uint16_t xMin = (xMinUpper << 8) | xMinLower;
 		uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
 		uint16_t yMin = (yMinUpper << 8) | yMinLower;
 		uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
+		if(centX == 0xFFFF) // that's our cue -- we've hit our last object
+		{
+			return i/12+1; // num objects
+			break;
+		}
 
-		objArray[i/4].minX = xMin;
-		objArray[i/4].maxX = xMax;
-		objArray[i/4].minY = yMin;
-		objArray[i/4].maxY = yMax;	
+        objArray[i/12].centX = centX;
+        objArray[i/12].centY = centY;
+		objArray[i/12].minX = xMin;
+		objArray[i/12].maxX = xMax;
+		objArray[i/12].minY = yMin;
+		objArray[i/12].maxY = yMax;	
+	
 	}
-	return bufferLength/8; // numObjects
+	return bufferLength/12; // num objects
 }
-
 
 void packCenters(
     struct Object* objArray,
@@ -236,6 +270,23 @@ void printCenters(struct Object* objArray, uint16_t length)
 }
 
 
+void printObjectArray(struct Object* objArray, uint16_t length)
+{
+    for(int i = 0; i < length; i++)
+    {
+        printf("minX: %i; maxX: %i; minY: %i; maxY: %i; centX: %i; centY: %i \n",
+            objArray[i].minX,
+            objArray[i].maxX,
+            objArray[i].minY,
+            objArray[i].maxY,
+            objArray[i].centX,
+            objArray[i].centY);
+        i++;
+    }
+    printf("\n");
+}
+
+
 int main(int argc, char** argv)
 {
 	char mode[] = "8N1";
@@ -261,7 +312,7 @@ int main(int argc, char** argv)
     uint8_t currentImage[size];
     int32_t indexPic = 0;
 	int32_t indexObjects = 0;
-	const int32_t sizeObjects = 250*4; // 250 objects * 4 bytes to represent the center
+	const int32_t sizeObjects = 250*12; // 250 objects * 12 bytes to represent the center
 	uint8_t objectBuffer[sizeObjects];
 
 	for(int i = 0; i < sizeObjects; i++)
@@ -304,14 +355,14 @@ int main(int argc, char** argv)
 			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
 		}
-		for(int i = 0; i < sizeObjects; i++)
+		/*for(int i = 0; i < sizeObjects; i++)
 		{
 			if(i % 4 == 0 && i != 0)
 			{
 				printf("\n");
 			}
 			printf("%x ", objectBuffer[i]);
-		}
+		}*/
 
         for (int idx = 0; idx < size; idx++)
         {
@@ -323,7 +374,7 @@ int main(int argc, char** argv)
             }
         }
 
-		int32_t numObjects = unpackCenters(objArray, objectBuffer, sizeObjects);
+		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
 		/*for(int i = 0; i < 40; i++)
 		{
 			printf("%i ", objectBuffer[i]);
@@ -334,13 +385,21 @@ int main(int argc, char** argv)
 		} 
 		printf("\n");
         printCenters(objArray, numObjects);*/
+		printObjectArray(objArray, numObjects);
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
 		// show data
 		for(int i = 0; i < numObjects; i++)
 		{
-			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
+//			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
+			makeBox(
+				&M_color,
+				objArray[i].minX,
+				objArray[i].maxX,
+				objArray[i].minY,
+				objArray[i].maxY,
+				RED);
 		}
 		imshow("a", M_color);
         waitKey(250);

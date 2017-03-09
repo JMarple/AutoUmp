@@ -233,9 +233,9 @@ void initObjectArray(struct Object* objArray, uint16_t length)
     {
         objArray[i].id = EMPTY_OBJECT_ID;
         objArray[i].isBall = -1;
-        objArray[i].minX = IMG_WIDTH;
+        objArray[i].minX = 0;
         objArray[i].maxX = 0;
-        objArray[i].minY = IMG_HEIGHT;
+        objArray[i].minY = 0;
         objArray[i].maxY = 0;
         objArray[i].centX = 0;
         objArray[i].centY = 0;
@@ -271,7 +271,7 @@ void packBoundingBoxes(
 }}
 
 // pack the center data to be used for sending over uart
-void packCenters(
+void packObjects(
     struct Object* objArray,
     uint8_t* unsafe buffer,
     int32_t numObjects)
@@ -279,23 +279,84 @@ void packCenters(
     for(int i = 0; i < numObjects; i++)
     {
         // these labels might not be correct, due to endianess...?????
-        uint16_t xLower = objArray[i].centX & 0xFF;
-        uint16_t xUpper = objArray[i].centX >> 8;
-        uint16_t yLower = objArray[i].centY & 0xFF;
-        uint16_t yUpper = objArray[i].centY >> 8;
+        uint16_t centXLower = objArray[i].centX & 0xFF;
+        uint16_t centXUpper = objArray[i].centX >> 8;
+        uint16_t centYLower = objArray[i].centY & 0xFF;
+        uint16_t centYUpper = objArray[i].centY >> 8;
+        uint16_t minXLower  = objArray[i].minX & 0xFF;
+        uint16_t minXUpper  = objArray[i].minX >> 8;
+        uint16_t maxXLower  = objArray[i].maxX & 0xFF;
+        uint16_t maxXUpper  = objArray[i].maxX >> 8;
+        uint16_t minYLower  = objArray[i].minY & 0xFF;
+        uint16_t minYUpper  = objArray[i].minY >> 8;
+        uint16_t maxYLower  = objArray[i].maxY & 0xFF;
+        uint16_t maxYUpper  = objArray[i].maxY >> 8;
 
-        buffer[i*4] = xLower;
-        buffer[i*4 + 1] = xUpper;
-        buffer[i*4 + 2] = yLower;
-        buffer[i*4 + 3] = yUpper;
+        buffer[i*12] = centXLower;
+        buffer[i*12 + 1] = centXUpper;
+        buffer[i*12 + 2] = centYLower;
+        buffer[i*12 + 3] = centYUpper;
+        buffer[i*12 + 4] = minXLower;
+        buffer[i*12 + 5] = minXUpper;
+        buffer[i*12 + 6] = maxXLower;
+        buffer[i*12 + 7] = maxXUpper;
+        buffer[i*12 + 8] = minYLower;
+        buffer[i*12 + 9] = minYUpper;
+        buffer[i*12 + 10] = maxYLower;
+        buffer[i*12 + 11] = maxYUpper;
     }
 
     if(numObjects < OBJECT_ARRAY_LENGTH)
     {
-        buffer[numObjects*4] = 0xFF;
-        buffer[numObjects*4+1] = 0xFF;
+        buffer[numObjects*12] = 0xFF;
+        buffer[numObjects*12+1] = 0xFF;
     }
 }}
+
+int32_t unpackObjects(
+    struct Object* objArray,
+    uint8_t* unsafe buffer,
+    uint16_t bufferLength)
+{ unsafe {
+    for(int i = 1; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
+    {
+        uint8_t centXLower = buffer[i]; // each of these is flipped from what I would expect
+        uint8_t centXUpper = buffer[i+1];
+        uint8_t centYLower = buffer[i+2];
+        uint8_t centYUpper = buffer[i+3];
+        uint8_t xMinLower  = buffer[i+4];
+        uint8_t xMinUpper  = buffer[i+5];
+        uint8_t xMaxLower  = buffer[i+6];
+        uint8_t xMaxUpper  = buffer[i+7];
+        uint8_t yMinLower  = buffer[i+8];
+        uint8_t yMinUpper  = buffer[i+9];
+        uint8_t yMaxLower  = buffer[i+10];
+        uint8_t yMaxUpper  = buffer[i+11];
+
+        uint16_t centX = (centXUpper << 8) | centXLower;
+        uint16_t centY = (centYUpper << 8) | centYLower;
+        uint16_t xMin = (xMinUpper << 8) | xMinLower;
+        uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
+        uint16_t yMin = (yMinUpper << 8) | yMinLower;
+        uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
+        if(centX == 0xFFFF) // that's our cue -- we've hit our last object
+        {
+            return i/12+1; // num objects
+            break;
+        }
+
+        objArray[i/12].centX = centX;
+        objArray[i/12].centY = centY;
+        objArray[i/12].minX = xMin;
+        objArray[i/12].maxX = xMax;
+        objArray[i/12].minY = yMin;
+        objArray[i/12].maxY = yMax;
+
+    }
+    return bufferLength/12; // num objects
+}}
+
+
 
 int32_t unpackCenters(
     struct Object* objArray,
@@ -321,8 +382,7 @@ int32_t unpackCenters(
 
 void printObjectArray(struct Object* objArray, uint16_t length)
 {
-    uint16_t i = 0;
-    while((i < length) && (objArray[i].id != EMPTY_OBJECT_ID))
+    for(int i = 0; i < length; i++)
     {
         printf("id: %i; minX: %i; maxX: %i; minY: %i; maxY: %i; centX: %i; centY: %i \n",
             objArray[i].id,
@@ -334,7 +394,6 @@ void printObjectArray(struct Object* objArray, uint16_t length)
             objArray[i].centY);
         i++;
     }
-    printf("\n");
 }
 
 void printCenters(struct Object* objArray, uint16_t length)

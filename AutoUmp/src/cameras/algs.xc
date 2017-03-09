@@ -38,6 +38,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
         newBitBuffer[i] = bitBuffer[i];
     }
 
+    // actual floodfill
     int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
     if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early
     {
@@ -45,20 +46,25 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
         numObjects = OBJECT_ARRAY_LENGTH;
     }
 
+    //findCenters
     computeCenters(objArray, numObjects);
-    packCenters(objArray, objInfo, numObjects);
+    packObjects(objArray, objInfo, numObjects);
 
     /*struct Object fakeArr[250];
     initObjectArray(fakeArr, 250);
-    for(int i = 0; i < 250; i++)
+    for(int i = 0; i < 50; i++)
     {
-        fakeArr[i].centX = i+16;
-        fakeArr[i].centY = i+17;
+        fakeArr[i].minX = i;
+        fakeArr[i].maxX = i+1;
+        fakeArr[i].minY = i+2;
+        fakeArr[i].maxY = i+3;
+        fakeArr[i].centX = i+4;
+        fakeArr[i].centY = i+5;
     }
-    packCenters(fakeArr, objInfo, 250);
-    for(int i = 0; i < 250*4; i++)
+    packObjects(fakeArr, objInfo, 250);
+    for(int i = 0; i < 250*12; i++)
     {
-       if(i % 4 == 0 && i != 0)
+       if(i % 12 == 0 && i != 0)
        {
            printf("\n");
        }
@@ -67,7 +73,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
 
     struct Object fakeArrAfter[250];
     initObjectArray(fakeArrAfter, 250);
-    unpackCenters(fakeArrAfter, objInfo, OBJECT_ARRAY_LENGTH*4);*/
+    unpackObjects(fakeArrAfter, objInfo, OBJECT_ARRAY_LENGTH*12);*/
     /*for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
     {
         if(fakeArrAfter[i].centX > IMG_WIDTH || fakeArrAfter[i].centY > IMG_HEIGHT)
@@ -76,7 +82,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
         }
     }*/
 
-    //printCenters(fakeArrAfter, OBJECT_ARRAY_LENGTH);
+    //printObjectArray(fakeArrAfter, OBJECT_ARRAY_LENGTH);
 
 
     //printf("--------- PIC --------\n");

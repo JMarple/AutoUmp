@@ -9,13 +9,13 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="pack"/>
-			<item value="length"/>
+			<item value="packC"/>
+			<item value="unpackCenters"/>
 			<item value="packCenters"/>
+			<item value="print"/>
+			<item value="unpack"/>
+			<item value="length"/>
 			<item value="computeCenter"/>
-			<item value="getBit"/>
-			<item value="initObject"/>
-			<item value="floodFill"/>
-			<item value="computeCe"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -23,8 +23,8 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="291" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="460" key="DIALOG_HEIGHT"/>
-		<item value="1443" key="DIALOG_X_ORIGIN"/>
+		<item value="488" key="DIALOG_HEIGHT"/>
+		<item value="1330" key="DIALOG_X_ORIGIN"/>
 		<item value="214" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

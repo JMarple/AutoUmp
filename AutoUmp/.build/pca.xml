@@ -556,7 +556,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="packCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="packObjects" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -757,7 +757,7 @@
   </arg>
   <arg num="2" specialize="false">
     <values>
-      <value type="intval"><intval isSigned="true" val="1000"/></value>
+      <value type="intval"><intval isSigned="true" val="3000"/></value>
       <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
@@ -811,6 +811,20 @@
  </specializations>
 </fInfo>
 <fInfo name="unpackCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="unpackObjects" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
     </values>

@@ -72,7 +72,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="packCenters" global="true" numArgs="3">
+<fCall name="packObjects" global="true" numArgs="3">
   <arg num="0">
     <values>
       <value type="unknown"/>

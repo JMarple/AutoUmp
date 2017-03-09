@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.xmos.cdt.core.XFlashLaunch">
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="com.xmos.cdt.debug.core.xcore.debugger"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
+<booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="bin/AutoUmp.xe"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="AutoUmp"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/AutoUmp/bin/AutoUmp.xe"/>
+<listEntry value="/AutoUmp"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>
