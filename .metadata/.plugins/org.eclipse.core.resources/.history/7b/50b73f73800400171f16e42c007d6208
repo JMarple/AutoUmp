@@ -9,6 +9,8 @@
 #include "sccb.h"
 #include "algs.h"
 
+#define BACKGROUND_SUBTRACTION_THRESHOLD 5
+
 // All clocks used by the cameras
 on tile[1]: clock camCLK = XS1_CLKBLK_1;
 on tile[1]: clock sccb1CLK = XS1_CLKBLK_2;
@@ -142,10 +144,11 @@ void OV07740_MasterThread(
         delay(2250000);
         delay(2250000);
 
-        sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
+
+        //sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage1, 240*40);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo1, OBJECT_ARRAY_LENGTH*12);
+        sendToBluetooth(uart1, (uint8_t* unsafe)bitImage1, 240*40);
+        sendToBluetooth(uart1, (uint8_t* unsafe)objInfo1, OBJECT_ARRAY_LENGTH*12);
         //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
         //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo2, OBJECT_ARRAY_LENGTH*12);
     }

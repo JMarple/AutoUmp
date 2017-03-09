@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define BACKGROUND_SUBTRACTION_THRESHOLD 10
+#define BACKGROUND_SUBTRACTION_THRESHOLD 20
 
 // Establishes communication with the cameras
 // Returns 3 if both cameras are connected

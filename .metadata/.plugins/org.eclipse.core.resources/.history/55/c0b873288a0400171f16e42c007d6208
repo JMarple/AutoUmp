@@ -18,15 +18,13 @@ uint8_t lookup32[32] = {
 // objCenters will be filled with objCenters ready to be sent over UART
 void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objInfo)
 { unsafe {
-    for (int i = 2; i < IMG_HEIGHT; i++)
+    /*for (int i = 2; i < IMG_HEIGHT; i++)
     {
         DenoiseRow(
                 (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
                 (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
                 (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
     }
-
-    // finish up the denoise: make the top and bottom rows 0.
     for (int i = 0; i < IMG_WIDTH/8; i++)
     {
         bitBuffer[i] = 0;
@@ -51,7 +49,7 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
 
     //findCenters
     computeCenters(objArray, numObjects);
-    packObjects(objArray, objInfo, numObjects);
+    packObjects(objArray, objInfo, numObjects);*/
 
     /*struct Object afterArr[250];
     initObjectArray(afterArr, 250);

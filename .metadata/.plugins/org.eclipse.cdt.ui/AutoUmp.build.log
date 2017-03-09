@@ -1,4 +1,4 @@
-22:19:10 **** Incremental Build of configuration Default for project AutoUmp ****
+00:56:29 **** Incremental Build of configuration Default for project AutoUmp ****
 xmake CONFIG=Default all 
 Checking build modules
 Using build modules: lib_locks(2.0.3)
@@ -11,5 +11,5 @@ Compiling io.xc
 Creating AutoUmp.xe
 Build Complete
 
-22:19:14 Build Finished (took 3s.886ms)
+00:56:33 Build Finished (took 4s.31ms)
 

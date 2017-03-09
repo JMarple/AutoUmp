@@ -142,6 +142,7 @@ void OV07740_MasterThread(
         delay(2250000);
         delay(2250000);
 
+
         sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage1, 240*40);

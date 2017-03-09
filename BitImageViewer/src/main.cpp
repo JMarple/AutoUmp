@@ -347,6 +347,8 @@ int main(int argc, char** argv)
         std::cout << "Could not find com port" << std::endl;
         return 0;
     }
+
+	RS232_flushRX(COM_PORT); // trying to avoid corrupted data that comes when we Ctrl+C on a previous application...?
 	
 	// these are only used if we are given a foldername to store files
 	std::string folderName;
@@ -458,8 +460,8 @@ int main(int argc, char** argv)
 				printf("hi\n");
 				makeBox(
 					&M_color,
-					objArray[i].minX,
-					objArray[i].maxX,
+					objArray[i].minX + 8, // + 8 because we're offset that much... for every box
+					objArray[i].maxX + 8, // + 8 " " " ... " " 
 					objArray[i].minY,
 					objArray[i].maxY,
 					RED);
@@ -468,8 +470,8 @@ int main(int argc, char** argv)
 			{
 				makeBox(
 					&M_color,
-					objArray[i].minX,
-					objArray[i].maxX,
+					objArray[i].minX + 8,
+					objArray[i].maxX + 8,
 					objArray[i].minY,
 					objArray[i].maxY,
 					GREEN);
