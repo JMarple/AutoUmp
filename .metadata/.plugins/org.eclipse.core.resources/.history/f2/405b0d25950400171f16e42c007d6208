@@ -122,8 +122,6 @@ void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queu
 
         t :> end;
         printf("Clock ticks (@100Mhz) = %d\n", (end - start));
-
-        stream <: 0;
     }
 }}
 

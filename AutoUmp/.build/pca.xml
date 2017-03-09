@@ -3,7 +3,6 @@
   <arg num="0" specialize="false">
     <values>
       <value type="intval"><intval isSigned="true" val="1000"/></value>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
       <value type="intval"><intval isSigned="true" val="5000000"/></value>
       <value type="intval"><intval isSigned="true" val="100000000"/></value>
     </values>

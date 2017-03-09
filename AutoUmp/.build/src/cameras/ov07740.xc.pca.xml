@@ -238,62 +238,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="2250000"/></value>
-    </values>
-  </arg>
-</fCall>
 <fCall name="sendToBluetooth" global="true" numArgs="3">
   <arg num="0">
     <passThroughArg param="4" caller="OV07740_MasterThread" global="true"/>

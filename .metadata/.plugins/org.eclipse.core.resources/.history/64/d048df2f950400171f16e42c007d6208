@@ -133,18 +133,14 @@ void OV07740_MasterThread(
         ff1 <: bitImage1;
         ff2 <: bitImage2;
         // Delay 15ms, flood fill should be done by then.
-        /*elay(2250000);
         delay(2250000);
         delay(2250000);
         delay(2250000);
         delay(2250000);
         delay(2250000);
         delay(2250000);
-        delay(2250000);*/
-
-        int x;
-        ff1 :> x;
-        ff2 :> x;
+        delay(2250000);
+        delay(2250000);
 
         sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
