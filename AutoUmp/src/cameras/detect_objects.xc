@@ -54,13 +54,19 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
                     }
                     else
                     {
+                        // our specific bit's position in its byte. using this because our bitIndex,
+                        // while specifying where to access the pixel,
+                        // can't be used to detect the x position of the pixel in the image
+                        uint8_t bitPos = bitIndex % 8;
+
                         // after the first frame, objArray holds old data. So we need to overwrite that data with what's new.
+
                         objectOverwrite(
                                 &objArray[objectId],
                                 objectId,
                                 -1,                    // isBall
-                                bitIndex % IMG_WIDTH,  // minX
-                                bitIndex % IMG_WIDTH,  // maxX
+                                (bitIndex % IMG_WIDTH),  // minX
+                                (bitIndex % IMG_WIDTH),  // maxX
                                 bitIndex / IMG_WIDTH,  // minY
                                 bitIndex / IMG_WIDTH); // maxY
 
@@ -126,8 +132,15 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
 
 void updateObject(struct Object* object, uint32_t bitIndex)
 {
+    // our specific bit's position in its byte. using this because our bitIndex,
+    // while specifying where to access the pixel,
+    // can't be used to detect the x position of the pixel in the image
+    //uint32_t bitPos = bitIndex % 8;
+
+
     uint16_t newY = bitIndex / IMG_WIDTH; // goes along rows/height of image
-    uint16_t newX = bitIndex % IMG_WIDTH; // goes along columns/width of image
+    //uint16_t newX = (bitIndex % IMG_WIDTH) + 7 - 2*bitPos; // theoretically, this converts from bitIndex to the pixelPosition
+    uint16_t newX = (bitIndex % IMG_WIDTH); // goes along columns/width of image
 
     if(newX < object->minX)
     {
@@ -218,8 +231,8 @@ void objectInit(struct Object* obj)
 {
     obj->id = EMPTY_OBJECT_ID; // no object
     obj->isBall = -1;
-    obj->minX = IMG_WIDTH; // goes along width/columns of image
-    obj->minY = IMG_HEIGHT; // goes down height/rows of image
+    obj->minX = 0; // goes along width/columns of image
+    obj->minY = 0; // goes down height/rows of image
     obj->maxX = 0;
     obj->maxY = 0;
     obj->centX = 0;
@@ -242,33 +255,6 @@ void initObjectArray(struct Object* objArray, uint16_t length)
         objArray[i].distanceFromCenter = 0;
     }
 }
-
-void packBoundingBoxes(
-    struct Object* objArray,
-    uint8_t* unsafe buffer,
-    int32_t numObjects)
-{ unsafe {
-    for(int i = 0; i < numObjects; i++)
-        {
-            uint8_t xMinLower = objArray[i].minX & 0xFF;
-            uint8_t xMinUpper = objArray[i].minX >> 8;
-            uint8_t xMaxLower = objArray[i].maxX & 0xFF;
-            uint8_t xMaxUpper = objArray[i].maxX >> 8;
-            uint8_t yMinLower = objArray[i].minY & 0xFF;
-            uint8_t yMinUpper = objArray[i].minY >> 8;
-            uint8_t yMaxLower = objArray[i].maxY & 0xFF;
-            uint8_t yMaxUpper = objArray[i].maxY >> 8;
-
-            buffer[i*4]     = xMinLower;
-            buffer[i*4 + 1] = xMinUpper;
-            buffer[i*4 + 2] = xMaxLower;
-            buffer[i*4 + 3] = xMaxUpper;
-            buffer[i*4 + 4] = yMinLower;
-            buffer[i*4 + 5] = yMinUpper;
-            buffer[i*4 + 6] = yMaxLower;
-            buffer[i*4 + 7] = yMaxUpper;
-        }
-}}
 
 // pack the center data to be used for sending over uart
 void packObjects(

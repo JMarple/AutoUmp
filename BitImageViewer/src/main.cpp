@@ -7,6 +7,7 @@ extern "C"
 #include <cstdint>
 #include <algorithm>
 #include <string>
+#include <sys/stat.h>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -22,6 +23,52 @@ using namespace cv;
 #define RED 0
 #define GREEN 1
 #define BLUE 2
+
+
+struct Object
+{
+    uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
+    uint16_t id; // id representing object
+    uint16_t minX, maxX, minY, maxY; // lower/uppper bounds of object
+    uint16_t centX, centY;
+    uint16_t distanceFromCenter;
+};
+
+
+// marks each object: is it a ball or not?
+int32_t filterBalls(struct Object* objectArray, uint16_t length)
+{
+	int32_t numBalls = 0;
+	for (int i = 0; i < length; i++)
+	{
+		// if object is smaller than possible for our ball
+		if(objectArray[i].maxX - objectArray[i].minX < 5 ||
+			objectArray[i].maxY - objectArray[i].minY < 5)
+		{
+			objectArray[i].isBall = 0;
+		}
+		
+		// if the object is on the edge of the image 
+		// (where edge is defined as 2 pixel width surrounding edge)
+		else if(objectArray[i].minX < 2 || objectArray[i].minY < 2 || 
+			objectArray[i].maxX > IMG_WIDTH-3 || objectArray[i].maxY > IMG_HEIGHT-3)
+		{
+			objectArray[i].isBall = 0;
+		}
+
+		else // it's a ball
+		{
+			objectArray[i].isBall = 1;
+			numBalls++;
+		}
+		i++;
+	}
+	return numBalls;
+}
+
+
+
+
 
 // makes a red cross hair, with the center at the given x, y position.
 void makeCrosshairs(Mat* colorImage, uint16_t x, uint16_t y, uint16_t color)
@@ -127,7 +174,20 @@ void makeBox(
 	uint16_t maxY, 
 	uint16_t color)
 {
-    Vec3b bgr;
+    if(minX < 0 || minX > IMG_WIDTH-1 ||
+		maxX < 0 || maxX > IMG_WIDTH-1 ||
+		minY < 0 || minY > IMG_HEIGHT-1 ||
+		maxY < 0 || maxY > IMG_HEIGHT-1)
+	{
+		printf("out of bounds. You gave me: minX %i, maxX %i, minY %i, maxY %i\n",
+			minX,
+			maxX,
+			minY,
+			maxY);
+		return;
+	}
+
+	Vec3b bgr;
     
     if(color == RED)
     {
@@ -167,15 +227,6 @@ void makeBox(
 	}
 }
     
-struct Object
-{
-    uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
-    uint16_t id; // id representing object
-    uint16_t minX, maxX, minY, maxY; // lower/uppper bounds of object
-    uint16_t centX, centY;
-    uint16_t distanceFromCenter;
-};
-
 int32_t unpackObjects(
     struct Object* objArray,
     uint8_t* buffer,
@@ -244,9 +295,9 @@ void initObjectArray(struct Object* objArray, uint16_t length)
     {
         objArray[i].id = EMPTY_OBJECT_ID;
         objArray[i].isBall = -1;
-        objArray[i].minX = IMG_WIDTH;
+        objArray[i].minX = 0;
         objArray[i].maxX = 0;
-        objArray[i].minY = IMG_HEIGHT;
+        objArray[i].minY = 0;
         objArray[i].maxY = 0;
         objArray[i].centX = 0;
         objArray[i].centY = 0;
@@ -303,6 +354,13 @@ int main(int argc, char** argv)
 	if(argc == 2)
 	{
 		folderName = std::string(argv[1]);
+    	struct stat sb;
+
+    	if (!(stat(folderName.c_str(), &sb) == 0 && S_ISDIR(sb.st_mode)))
+    	{
+        	printf("not a valid folder\n");
+			return -1;
+    	}
 	}
 
 	// general init
@@ -375,6 +433,7 @@ int main(int argc, char** argv)
         }
 
 		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
+		int32_t numBalls = filterBalls(objArray, numObjects);
 		/*for(int i = 0; i < 40; i++)
 		{
 			printf("%i ", objectBuffer[i]);
@@ -393,13 +452,28 @@ int main(int argc, char** argv)
 		for(int i = 0; i < numObjects; i++)
 		{
 //			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
-			makeBox(
-				&M_color,
-				objArray[i].minX,
-				objArray[i].maxX,
-				objArray[i].minY,
-				objArray[i].maxY,
-				RED);
+			
+			if (objArray[i].isBall == 1)
+			{
+				printf("hi\n");
+				makeBox(
+					&M_color,
+					objArray[i].minX,
+					objArray[i].maxX,
+					objArray[i].minY,
+					objArray[i].maxY,
+					RED);
+			}
+			else
+			{
+				makeBox(
+					&M_color,
+					objArray[i].minX,
+					objArray[i].maxX,
+					objArray[i].minY,
+					objArray[i].maxY,
+					GREEN);
+			}
 		}
 		imshow("a", M_color);
         waitKey(250);

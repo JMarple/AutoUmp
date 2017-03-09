@@ -542,20 +542,6 @@
    </specialization>
  </specializations>
 </fInfo>
-<fInfo name="packBoundingBoxes" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
-  <arg num="0" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="1" specialize="false">
-    <values>
-    </values>
-  </arg>
-  <arg num="2" specialize="false">
-    <values>
-    </values>
-  </arg>
-</fInfo>
 <fInfo name="packObjects" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
@@ -744,7 +730,7 @@
    </specialization>
  </specializations>
 </fInfo>
-<fInfo name="sendToBluetooth" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="sendToBluetooth" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -755,12 +741,18 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="2" specialize="false">
+  <arg num="2" specialize="true">
     <values>
-      <value type="intval"><intval isSigned="true" val="3000"/></value>
-      <value type="intval"><intval isSigned="true" val="9600"/></value>
+      <value type="intval"><intval isSigned="true" val="76800"/></value>
     </values>
   </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="unknown"/></values></arg>
+    <arg num="2"><values><value type="intval"><intval isSigned="true" val="76800"/></value></values></arg>
+   </specialization>
+ </specializations>
 </fInfo>
 <fInfo name="setBitInByte" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">

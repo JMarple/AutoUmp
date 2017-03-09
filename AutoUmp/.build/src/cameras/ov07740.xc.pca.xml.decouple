@@ -307,24 +307,7 @@
   </arg>
   <arg num="2">
     <values>
-      <value type="intval"><intval isSigned="true" val="9600"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="sendToBluetooth" global="true" numArgs="3">
-  <arg num="0">
-    <passThroughArg param="4" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="intval"><intval isSigned="true" val="3000"/></value>
+      <value type="intval"><intval isSigned="true" val="76800"/></value>
     </values>
   </arg>
 </fCall>
