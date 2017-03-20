@@ -114,15 +114,14 @@ void OV07740_MasterThread(
 
     // Allocate memory for images
     uint8_t* unsafe image1 = malloc(320*240);
-    uint8_t* unsafe image2 = malloc(320*240);
+    uint8_t* unsafe image2 = (uint8_t* unsafe)1;// = malloc(320*240);
     uint8_t* unsafe bitImage1;// = malloc(320*240/8);
     uint8_t* unsafe bitImage2;// = malloc(320*240/8);
 
     #define BIT_IMAGE_SIZE 1
+    uint8_t* unsafe bitImageArray[BIT_IMAGE_SIZE];
 
-    uint8_t* unsafe bitImageArray[BIT_IMAGE_SIZE*2];
-
-    for (int i = 0; i < BIT_IMAGE_SIZE*2; i++)
+    for (int i = 0; i < BIT_IMAGE_SIZE; i++)
     {
         bitImageArray[i] = malloc(320*240/8);
         if (bitImageArray[i] == 0) printf("Ran out of memory\n");
@@ -146,45 +145,40 @@ void OV07740_MasterThread(
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);*/
 
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
+        OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[0], 0);
+        OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[0], 0);
+        OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[0], 0);
 
         for (int i = 0; i < BIT_IMAGE_SIZE; i++)
-            OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[i], bitImageArray[i+BIT_IMAGE_SIZE]);
+            OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[i], 0);
 
-        /* use this if you just want to send background subtraction.
-         * Remember you'll have to change bitimageviewer too.
         for (int i = 0; i < BIT_IMAGE_SIZE; i++)
         {
             sendToBluetooth(uart1, bitImageArray[i], 240*40);
             delay(2250000*10);
         }
-        printf("Captured set of frames\n");
-
-        */
-
-
-
-        /*
-         * Use this stuff if you want to send denoise/floodfill.
-         * Remember you'll have to change bitimageviewer too.
-         */
 
         // Send bit images to floodfill.
-        ff1 <: bitImageArray[0];
-        ff2 <: bitImageArray[1];
+        //ff1 <: bitImage1;
+        //ff2 <: bitImage2;
+        // Delay 15ms, flood fill should be done by then.
+        /*delay(2250000);
+        delay(2250000);
+        delay(2250000);
+        delay(2250000);
+        delay(2250000);
+        delay(2250000);
+        delay(2250000);
+        delay(2250000);*/
 
-
-        int x;
-        ff1 :> x;
-        ff2 :> x;
+        printf("Captured set of frames\n");
+        //int x;
+        //ff1 :> x;
+        //ff2 :> x;
 
         //sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
-        sendToBluetooth(uart1, (uint8_t* unsafe)bitImageArray[0], 240*40);
-        sendToBluetooth(uart1, (uint8_t* unsafe)objInfo1, OBJECT_ARRAY_LENGTH*12);
-
+        //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo1, OBJECT_ARRAY_LENGTH*12);
         //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
         //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo2, OBJECT_ARRAY_LENGTH*12);
     }

@@ -7293,3 +7293,72 @@ Checking build modules
 Using build modules: lib_locks(2.0.3)
 xmake[1]: `bin//AutoUmp.xe' is up to date.
 Build Complete
+16:38:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+../src/cameras/ov07740.xc:149:46: error: use of undeclared identifer `iamge2'
+        OV07740_GetFrame(cam1, cam2, image1, iamge2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
+                                             ^~~~~~
+xmake[1]: *** [.build/src/cameras/ov07740.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+16:38:57 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+16:38:59 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+16:38:59 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+16:38:59 **** Incremental Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
+Build Complete
+16:39:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:40:10 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Compiling sccb.xc
+Compiling io.xc
+Creating AutoUmp.xe
+Build Complete
+16:40:39 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:44:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete

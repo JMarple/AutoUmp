@@ -118,11 +118,10 @@ void OV07740_MasterThread(
     uint8_t* unsafe bitImage1;// = malloc(320*240/8);
     uint8_t* unsafe bitImage2;// = malloc(320*240/8);
 
-    #define BIT_IMAGE_SIZE 1
+    #define BIT_IMAGE_SIZE 2
+    uint8_t* unsafe bitImageArray[BIT_IMAGE_SIZE];
 
-    uint8_t* unsafe bitImageArray[BIT_IMAGE_SIZE*2];
-
-    for (int i = 0; i < BIT_IMAGE_SIZE*2; i++)
+    for (int i = 0; i < BIT_IMAGE_SIZE; i++)
     {
         bitImageArray[i] = malloc(320*240/8);
         if (bitImageArray[i] == 0) printf("Ran out of memory\n");
@@ -146,12 +145,12 @@ void OV07740_MasterThread(
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);*/
 
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
+        OV07740_GetFrame(cam1, cam2, image1, iamge2, bitImageArray[0], bitImageArray[1]);
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[1]);
+        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[1]);
 
         for (int i = 0; i < BIT_IMAGE_SIZE; i++)
-            OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[i], bitImageArray[i+BIT_IMAGE_SIZE]);
+            OV07740_GetFrame(cam1, cam2, image1, 0, bitImageArray[i], 0);
 
         /* use this if you just want to send background subtraction.
          * Remember you'll have to change bitimageviewer too.
@@ -172,8 +171,8 @@ void OV07740_MasterThread(
          */
 
         // Send bit images to floodfill.
-        ff1 <: bitImageArray[0];
-        ff2 <: bitImageArray[1];
+        ff1 <: bitImage1;
+        ff2 <: bitImage2;
 
 
         int x;
@@ -182,9 +181,7 @@ void OV07740_MasterThread(
 
         //sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
         //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
-        sendToBluetooth(uart1, (uint8_t* unsafe)bitImageArray[0], 240*40);
         sendToBluetooth(uart1, (uint8_t* unsafe)objInfo1, OBJECT_ARRAY_LENGTH*12);
-
         //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
         //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo2, OBJECT_ARRAY_LENGTH*12);
     }

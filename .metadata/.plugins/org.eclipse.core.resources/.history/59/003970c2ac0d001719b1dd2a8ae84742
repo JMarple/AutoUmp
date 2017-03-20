@@ -122,7 +122,7 @@ void OV07740_MasterThread(
 
     uint8_t* unsafe bitImageArray[BIT_IMAGE_SIZE*2];
 
-    for (int i = 0; i < BIT_IMAGE_SIZE*2; i++)
+    for (int i = 0; i < BIT_IMAGE_SIZE; i++)
     {
         bitImageArray[i] = malloc(320*240/8);
         if (bitImageArray[i] == 0) printf("Ran out of memory\n");
@@ -146,7 +146,7 @@ void OV07740_MasterThread(
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);*/
 
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
+        OV07740_GetFrame(cam1, cam2, image1, iamge2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
         OV07740_GetFrame(cam1, cam2, image1, image2, bitImageArray[0], bitImageArray[BIT_IMAGE_SIZE]);
 
@@ -172,8 +172,8 @@ void OV07740_MasterThread(
          */
 
         // Send bit images to floodfill.
-        ff1 <: bitImageArray[0];
-        ff2 <: bitImageArray[1];
+        ff1 <: bitImage1;
+        ff2 <: bitImage2;
 
 
         int x;

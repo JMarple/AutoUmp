@@ -79,6 +79,13 @@
 <fCall name="_safe_malloc" global="true" numArgs="1">
   <arg num="0">
     <values>
+      <value type="intval"><intval isSigned="true" val="76800"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="_safe_malloc" global="true" numArgs="1">
+  <arg num="0">
+    <values>
       <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
@@ -122,7 +129,7 @@
   </arg>
   <arg num="3">
     <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="4">
@@ -132,7 +139,71 @@
   </arg>
   <arg num="5">
     <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+  <arg num="0">
+    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+  <arg num="0">
+    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
+    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5">
+    <values>
+      <value type="unknown"/>
     </values>
   </arg>
 </fCall>
@@ -164,71 +235,7 @@
   </arg>
   <arg num="5">
     <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="OV07740_GetFrame" global="true" numArgs="6">
-  <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
       <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="5">
-    <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="OV07740_GetFrame" global="true" numArgs="6">
-  <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="5">
-    <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
     </values>
   </arg>
 </fCall>
@@ -249,17 +256,20 @@
     </values>
   </arg>
 </fCall>
-<fCall name="delay" global="false" unit="../src/cameras/ov07740.xc" numArgs="1">
+<fCall name="sendToBluetooth" global="true" numArgs="3">
   <arg num="0">
+    <passThroughArg param="4" caller="OV07740_MasterThread" global="true"/>
     <values>
-      <value type="intval"><intval isSigned="true" val="22500000"/></value>
     </values>
   </arg>
-</fCall>
-<fCall name="printf" global="true" numArgs="1">
-  <arg num="0">
+  <arg num="1">
     <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="3000"/></value>
     </values>
   </arg>
 </fCall>

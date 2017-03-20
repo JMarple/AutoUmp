@@ -382,17 +382,6 @@ int main(int argc, char** argv)
 	struct Object objArray[250];
 	initObjectArray(objArray, 250);
 
-    /*
-	// make fake data
-	struct Object fakeObjArray[250];
-	initObjectArray(fakeObjArray, 250);
-	for(int i = 0; i < 250; i++)
-	{
-		fakeObjArray[i].centX = i; 
-		fakeObjArray[i].centY = i*5 % IMG_HEIGHT;
-	}
-	packCenters(fakeObjArray, objectBuffer, 249); 
-	*/
     while (1==1)
     {
  		for(int i = 0; i < sizeObjects; i++)
@@ -408,13 +397,14 @@ int main(int argc, char** argv)
             int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), size - indexPic);
             indexPic += len;
         }
-	/*	
+	
 		// get object array
 		while (indexObjects < sizeObjects)
 		{
 			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
-		}*/
+		}
+		
 		/*for(int i = 0; i < sizeObjects; i++)
 		{
 			if(i % 4 == 0 && i != 0)
@@ -434,10 +424,10 @@ int main(int argc, char** argv)
                M.data[idx*8 + i] = ((data >> i) & 0b1)*255;
             }
         }
-/*
+
 		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
 		int32_t numBalls = filterBalls(objArray, numObjects);
-*/		/*for(int i = 0; i < 40; i++)
+		for(int i = 0; i < 40; i++)
 		{
 			printf("%i ", objectBuffer[i]);
 			if(i % 10 == 0 && i != 0)
@@ -446,8 +436,9 @@ int main(int argc, char** argv)
 			}
 		} 
 		printf("\n");
-        printCenters(objArray, numObjects);*/
-/*		printObjectArray(objArray, numObjects);
+        printCenters(objArray, numObjects);
+		printObjectArray(objArray, numObjects);
+		
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
@@ -477,10 +468,10 @@ int main(int argc, char** argv)
 					objArray[i].maxY,
 					GREEN);
 			}
-		}*/
+		}
 
-		imshow("a", M);
-//		imshow("a", M_color);
+//		imshow("a", M);
+		imshow("a", M_color);
         waitKey(250);
 
 		// only do anything here if we're given a folder name to store files

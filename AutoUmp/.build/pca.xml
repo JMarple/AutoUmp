@@ -4,7 +4,6 @@
     <values>
       <value type="intval"><intval isSigned="true" val="1000"/></value>
       <value type="intval"><intval isSigned="true" val="5000000"/></value>
-      <value type="intval"><intval isSigned="true" val="22500000"/></value>
       <value type="intval"><intval isSigned="true" val="500000000"/></value>
     </values>
   </arg>
@@ -254,7 +253,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="OV07740_GetFrame" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="6">
+<fInfo name="OV07740_GetFrame" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="6">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -270,8 +269,9 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="3" specialize="true">
+  <arg num="3" specialize="false">
     <values>
+      <value type="unknown"/>
       <value type="intval"><intval isSigned="true" val="0"/></value>
     </values>
   </arg>
@@ -280,21 +280,11 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="5" specialize="true">
+  <arg num="5" specialize="false">
     <values>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
+      <value type="unknown"/>
     </values>
   </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="unknown"/></values></arg>
-    <arg num="3"><values><value type="intval"><intval isSigned="true" val="0"/></value></values></arg>
-    <arg num="4"><values><value type="unknown"/></values></arg>
-    <arg num="5"><values><value type="intval"><intval isSigned="true" val="0"/></value></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="OV07740_InitCameras" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
@@ -750,7 +740,7 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="sendToBluetooth" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
+<fInfo name="sendToBluetooth" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -761,18 +751,12 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="2" specialize="true">
+  <arg num="2" specialize="false">
     <values>
+      <value type="intval"><intval isSigned="true" val="3000"/></value>
       <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-    <arg num="2"><values><value type="intval"><intval isSigned="true" val="9600"/></value></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="setBitInByte" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
