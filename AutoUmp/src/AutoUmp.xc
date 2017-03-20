@@ -12,7 +12,10 @@ extern in buffered port:32 cam2DATA;
 // "UI" tile
 void Tile0(chanend bluetoothChan)
 {
-    BluetoothThread(bluetoothChan);
+    par
+    {
+        BluetoothThread(bluetoothChan);
+    }
 }
 
 // "Camera" tile

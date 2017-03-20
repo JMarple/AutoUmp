@@ -348,7 +348,7 @@ int main(int argc, char** argv)
         return 0;
     }
 
-	RS232_flushRX(COM_PORT); // trying to avoid corrupted data that comes when we Ctrl+C on a previous application...?
+	//RS232_flushRX(COM_PORT); // trying to avoid corrupted data that comes when we Ctrl+C on a previous application...?
 	
 	// these are only used if we are given a foldername to store files
 	std::string folderName;
@@ -408,13 +408,13 @@ int main(int argc, char** argv)
             int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), size - indexPic);
             indexPic += len;
         }
-		
+	/*	
 		// get object array
 		while (indexObjects < sizeObjects)
 		{
 			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
-		}
+		}*/
 		/*for(int i = 0; i < sizeObjects; i++)
 		{
 			if(i % 4 == 0 && i != 0)
@@ -423,6 +423,7 @@ int main(int argc, char** argv)
 			}
 			printf("%x ", objectBuffer[i]);
 		}*/
+
 
         for (int idx = 0; idx < size; idx++)
         {
@@ -433,10 +434,10 @@ int main(int argc, char** argv)
                M.data[idx*8 + i] = ((data >> i) & 0b1)*255;
             }
         }
-
+/*
 		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
 		int32_t numBalls = filterBalls(objArray, numObjects);
-		/*for(int i = 0; i < 40; i++)
+*/		/*for(int i = 0; i < 40; i++)
 		{
 			printf("%i ", objectBuffer[i]);
 			if(i % 10 == 0 && i != 0)
@@ -446,7 +447,7 @@ int main(int argc, char** argv)
 		} 
 		printf("\n");
         printCenters(objArray, numObjects);*/
-		printObjectArray(objArray, numObjects);
+/*		printObjectArray(objArray, numObjects);
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
@@ -476,8 +477,10 @@ int main(int argc, char** argv)
 					objArray[i].maxY,
 					GREEN);
 			}
-		}
-		imshow("a", M_color);
+		}*/
+
+		imshow("a", M);
+//		imshow("a", M_color);
         waitKey(250);
 
 		// only do anything here if we're given a folder name to store files
@@ -485,7 +488,8 @@ int main(int argc, char** argv)
 		{
 			std::ostringstream fileName;
 			fileName << folderName << "/" << currentImageNumber << ".png";
-			imwrite(fileName.str(), M_color);
+			//imwrite(fileName.str(), M_color);
+			imwrite(fileName.str(), M);
 			printf("Stored in %s\n", fileName.str().c_str());
 			currentImageNumber++;
 		}
