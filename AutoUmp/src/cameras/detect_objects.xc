@@ -42,12 +42,19 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
             {
                 bitVal = getBitInByte(bitPicture[byteIndex], i); // data is arranged 7 6 5 4 3 2 2 1 0 for each byte.
 
-                // if temp == 0, do nothing and move on
+                // if bitVal == 0, do nothing and move on
                 if(bitVal>0)
                 {
                     objectId++;
                     uint32_t bitIndex = byteIndex*8 + i;
+                    if(bitIndex < IMG_WIDTH || bitIndex >= IMG_WIDTH*(IMG_HEIGHT-1))
+                    {
+                        printf("gonna get an error - scanPic \n");
+                    }
+
                     queueEnqueue(q, bitIndex); //push the bit index to the queue
+                    setBitInPic(bitPicture, bitIndex, 0); // set to 0 when we enqueue. This way, objects in queue are always 0
+
                     if(objectId >= OBJECT_ARRAY_LENGTH)
                     {
                         return -1;
@@ -57,7 +64,7 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
                         // our specific bit's position in its byte. using this because our bitIndex,
                         // while specifying where to access the pixel,
                         // can't be used to detect the x position of the pixel in the image
-                        uint8_t bitPos = bitIndex % 8;
+                        //uint8_t bitPos = bitIndex % 8;
 
                         // after the first frame, objArray holds old data. So we need to overwrite that data with what's new.
 
@@ -89,16 +96,11 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         uint32_t indexBit = queueDequeue(q);
 
         // Necessary because a pixel might get added to queue at least twice
-        if(getBitInPic(bitPicture, indexBit)==0)
-        {
-            continue;
-        }
         uint32_t indexAbove = indexBit-IMG_WIDTH;
         uint32_t indexBelow = indexBit+IMG_WIDTH;
         uint32_t indexLeft  = indexBit-1;
         uint32_t indexRight = indexBit+1;
 
-        setBitInPic(bitPicture, indexBit, 0);
         uint8_t bitAbove = getBitInPic(bitPicture, indexAbove);
         uint8_t bitBelow = getBitInPic(bitPicture, indexBelow);
         uint8_t bitLeft  = getBitInPic(bitPicture, indexLeft);
@@ -107,24 +109,28 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         if(bitAbove > 0) // first check to ensure that we don't look at values outside our range
         {
             queueEnqueue(q, indexAbove);
+            setBitInPic(bitPicture, indexAbove, 0);
             updateObject(currentObject, indexAbove);
         }
 
         if(bitBelow > 0) // first check to ensure that we don't look at values outside our range
         {
             queueEnqueue(q, indexBelow);
+            setBitInPic(bitPicture, indexBelow, 0);
             updateObject(currentObject, indexBelow);
         }
 
         if((indexBit % IMG_WIDTH > 0) && (bitLeft > 0)) // first check to ensure we have an actual "left" pixel to look at
         {
             queueEnqueue(q, indexLeft);
+            setBitInPic(bitPicture, indexLeft, 0);
             updateObject(currentObject, indexLeft);
         }
 
         if((indexBit % IMG_WIDTH < IMG_WIDTH-1) && (bitRight > 0)) // first check to ensure we have an actual "right" pixel to look at
         {
             queueEnqueue(q, indexRight);
+            setBitInPic(bitPicture, indexRight, 0);
             updateObject(currentObject, indexRight);
         }
     }
@@ -409,6 +415,7 @@ uint8_t getBitInByte(uint8_t byte, uint32_t bitLoc)
 // so a bitIndex of 4 will get the 4th bit.
 uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
 { unsafe {
+
     uint8_t val; // return value
     uint32_t byteIndex = bitIndex/8;
     uint32_t bitNum = bitIndex % 8;

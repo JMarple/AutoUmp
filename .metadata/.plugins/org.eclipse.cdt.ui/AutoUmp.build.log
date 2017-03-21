@@ -1,9 +1,14 @@
-16:44:36 **** Incremental Build of configuration Default for project AutoUmp ****
+11:53:45 **** Incremental Build of configuration Default for project AutoUmp ****
 xmake CONFIG=Default all 
 Checking build modules
 Using build modules: lib_locks(2.0.3)
-xmake[1]: `bin//AutoUmp.xe' is up to date.
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
 Build Complete
 
-16:44:36 Build Finished (took 213ms)
+11:53:47 Build Finished (took 1s.414ms)
 

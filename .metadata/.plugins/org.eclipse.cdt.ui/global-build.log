@@ -7362,3 +7362,923 @@ Checking build modules
 Using build modules: lib_locks(2.0.3)
 xmake[1]: `bin//AutoUmp.xe' is up to date.
 Build Complete
+16:52:30 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+16:54:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:56:43 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+16:57:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:57:28 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:58:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+16:59:01 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+16:59:53 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:02:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing detect_objects.xc
+Analyzing find_balls.xc
+Analyzing ov07740.xc
+Analyzing queue.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+17:07:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:08:51 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:19:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+../src/cameras/detect_objects.xc:112:13: error: unknown function identifier `print' (possibly missing prototype?)
+            print("we're in\n");
+            ^~~~~
+xmake[1]: *** [.build/src/cameras/detect_objects.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+17:19:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:20:42 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:23:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:24:19 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:25:04 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:26:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:28:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+../src/cameras/detect_objects.xc:419:19: error: use of undeclared identifer `IMAGE_WIDTH'
+    if(bitIndex > IMAGE_WIDTH*IMAGE_HEIGHT)
+                  ^~~~~~~~~~~
+../src/cameras/detect_objects.xc:419:31: error: use of undeclared identifer `IMAGE_HEIGHT'
+    if(bitIndex > IMAGE_WIDTH*IMAGE_HEIGHT)
+                              ^~~~~~~~~~~~
+xmake[1]: *** [.build/src/cameras/detect_objects.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+17:28:15 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:28:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing detect_objects.xc
+Analyzing find_balls.xc
+Analyzing ov07740.xc
+Analyzing queue.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+17:32:24 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:33:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:33:52 **** Clean-only build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/AutoUmp
+rm -rf './bin/'
+rm -rf '.build'
+17:33:52 **** Clean-only build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/DenoiseTest
+rm -rf './bin/'
+rm -rf '.build'
+17:33:52 **** Clean-only build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/MockOV7740
+rm -rf './bin/'
+rm -rf '.build'
+17:33:52 **** Clean-only build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/ObjectPackerTest
+rm -rf './bin/'
+rm -rf '.build'
+17:33:52 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing detect_objects.xc
+Analyzing find_balls.xc
+Analyzing ov07740.xc
+Analyzing queue.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Propagating analysis
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+17:33:55 **** Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:99:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:101:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:103:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:108:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:113:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for DenoiseTest.xc
+Compiling DenoiseTest.xc
+../src/DenoiseTest.xc:99:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:101:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:103:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:108:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:113:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Creating DenoiseTest.xe
+Build Complete
+17:33:55 **** Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+17:33:56 **** Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing ObjectPackerTest.xc
+Propagating analysis
+Creating dependencies for ObjectPackerTest.xc
+Compiling ObjectPackerTest.xc
+Creating ObjectPackerTest.xe
+Build Complete
+17:33:58 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+17:36:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+17:39:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:21:23 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:22:44 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:23:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:23:28 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:25:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:26:49 **** Clean-only build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/AutoUmp
+rm -rf './bin/'
+rm -rf '.build'
+11:26:49 **** Clean-only build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/DenoiseTest
+rm -rf './bin/'
+rm -rf '.build'
+11:26:49 **** Clean-only build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/MockOV7740
+rm -rf './bin/'
+rm -rf '.build'
+11:26:49 **** Clean-only build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default clean 
+Cleaning /home/tbadams45/XMOS/autoump/ObjectPackerTest
+rm -rf './bin/'
+rm -rf '.build'
+11:26:49 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing detect_objects.xc
+Analyzing find_balls.xc
+Analyzing ov07740.xc
+Analyzing queue.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Propagating analysis
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+11:26:52 **** Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing DenoiseTest.xc
+../src/DenoiseTest.xc:99:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:101:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:103:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:108:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:113:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for DenoiseTest.xc
+Compiling DenoiseTest.xc
+../src/DenoiseTest.xc:99:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[0]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:101:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:103:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[20]);
+               ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:106:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe top = &((uint32_t*)x)[0];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:107:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe cur = &((uint32_t*)x)[10];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:108:29: warning: pointer cast to type of larger alignment
+    uint32_t* unsafe bot = &((uint32_t*)x)[20];
+                            ^~~~~~~~~~~~~~
+../src/DenoiseTest.xc:113:16: warning: pointer cast to type of larger alignment
+    printStuff(((uint32_t*)x)[10]);
+               ^~~~~~~~~~~~~~
+Creating DenoiseTest.xe
+Build Complete
+11:26:53 **** Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing MockOV7740.xc
+Propagating analysis
+Creating dependencies for MockOV7740.xc
+Compiling MockOV7740.xc
+Creating MockOV7740.xe
+Build Complete
+11:26:54 **** Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+Analyzing ObjectPackerTest.xc
+Propagating analysis
+Creating dependencies for ObjectPackerTest.xc
+Compiling ObjectPackerTest.xc
+Creating ObjectPackerTest.xe
+Build Complete
+11:27:02 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:28:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:29:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:30:31 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:34:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:37:28 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:42:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing queue.xc
+Creating dependencies for queue.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:43:32 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing detect_objects.xc
+Analyzing find_balls.xc
+Analyzing ov07740.xc
+Analyzing queue.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing swlock_asm.S
+Creating dependencies for swlock_asm.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+11:44:25 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:46:22 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:46:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:47:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:48:23 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:48:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+11:51:59 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+11:53:45 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete

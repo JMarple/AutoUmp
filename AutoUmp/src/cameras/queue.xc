@@ -43,7 +43,7 @@ uint32_t queueDequeue(struct Queue* q)
         return NO_ELEM_IN_QUEUE;
     }
 
-    uint16_t temp = q->arr[q->head];
+    uint32_t temp = q->arr[q->head];
     q->head = (q->head + 1) % BUFFER_SIZE;
     q->numElem--;
     return temp;
