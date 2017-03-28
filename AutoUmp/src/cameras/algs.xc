@@ -61,6 +61,7 @@ void FloodFill(
         newBitBuffer[i] = bitBuffer[i];
     }
 
+
     // actual floodfill
     int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
     if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early

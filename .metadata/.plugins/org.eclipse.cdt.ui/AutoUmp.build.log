@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 17:18:16 **** Incremental Build of configuration Default for project AutoUmp ****
 xmake CONFIG=Default all 
 Checking build modules
@@ -28,4 +29,80 @@ Creating AutoUmp.xe
 Build Complete
 
 17:18:18 Build Finished (took 1s.866ms)
+=======
+15:46:37 **** Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing hwlock.c
+Analyzing swlock.c
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:91:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Analyzing algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Analyzing detect_objects.xc
+Analyzing find_balls.xc
+Analyzing ov07740.xc
+Analyzing queue.xc
+Analyzing sccb.xc
+Analyzing io.xc
+Analyzing ov07740.S
+Analyzing queue.S
+Analyzing swlock_asm.S
+Propagating analysis
+Creating dependencies for swlock_asm.S
+Creating dependencies for queue.S
+Creating dependencies for ov07740.S
+Creating dependencies for io.xc
+Creating dependencies for sccb.xc
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Creating dependencies for swlock.c
+Creating dependencies for hwlock.c
+Compiling hwlock.c
+Compiling swlock.c
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:91:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Compiling sccb.xc
+Compiling io.xc
+Compiling ov07740.S
+Compiling queue.S
+Compiling swlock_asm.S
+Creating AutoUmp.xe
+Build Complete
+
+15:46:41 Build Finished (took 4s.43ms)
+>>>>>>> 01dad3ff76362e7300f12a326d519c4ba0154abb
 

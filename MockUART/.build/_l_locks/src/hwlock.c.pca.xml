@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="/home/jmarple/code/AutoUmp/lib_locks/src/hwlock.c">
+<preCompilationAnalysis file="/home/tbadams45/XMOS/autoump/lib_locks/src/hwlock.c">
   <fCall global="true" name="hwlock_alloc"/>
   <fCall global="true" name="hwlock_alloc.nstackwords"/>
   <fCall global="true" name="hwlock_alloc.maxcores"/>
