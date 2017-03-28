@@ -103,7 +103,7 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
     {
         if(numElem >= BUFFER_SIZE-4)
         {
-            //printf("yo, your queue hit capacity\n");
+            printf("yo, your queue hit capacity\n");
             break; // ABORT
         }
 
@@ -125,7 +125,6 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             numElem++;
             // END queueEnqueue(q, indexCurrent);
             setBitInPic(bitPicture, indexCurrent, 0);
-
             updateObject(currentObject, indexCurrent);
         }
         // END looking at indexAbove

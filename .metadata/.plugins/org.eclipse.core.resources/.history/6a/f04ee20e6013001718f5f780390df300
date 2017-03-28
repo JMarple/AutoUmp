@@ -125,7 +125,6 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             numElem++;
             // END queueEnqueue(q, indexCurrent);
             setBitInPic(bitPicture, indexCurrent, 0);
-
             updateObject(currentObject, indexCurrent);
         }
         // END looking at indexAbove

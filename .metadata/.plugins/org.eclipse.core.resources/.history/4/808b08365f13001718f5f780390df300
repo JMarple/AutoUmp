@@ -103,7 +103,7 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
     {
         if(numElem >= BUFFER_SIZE-4)
         {
-            //printf("yo, your queue hit capacity\n");
+            printf("yo, your queue hit capacity\n");
             break; // ABORT
         }
 
@@ -125,7 +125,6 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             numElem++;
             // END queueEnqueue(q, indexCurrent);
             setBitInPic(bitPicture, indexCurrent, 0);
-
             updateObject(currentObject, indexCurrent);
         }
         // END looking at indexAbove
@@ -498,8 +497,7 @@ inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t
         return FUNC_ERROR;
     }*/
     uint32_t byteIndex = bitIndex/8;
-    //uint8_t bitNum = bitIndex % 8;
-    uint8_t bitNum = bitIndex & 0b111;
+    uint8_t bitNum = bitIndex % 8;
 
     //setBitInByte(&bitPicture[byteIndex], 7-bitNum, val); // this is for when bytes were arranged 0 1 2 3 4 5 6 7 instead of 7 6 ...
 
