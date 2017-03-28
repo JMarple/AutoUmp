@@ -214,7 +214,6 @@ void getGameStatus(streaming chanend x, struct gameState* unsafe currentGameStat
             stackPush(stack, currentGameState);
             currentGameState->balls   = 0;
             currentGameState->strikes = 0;
-            currentGameState->outs    = 0;
             break;
 
         case '5': // undo
