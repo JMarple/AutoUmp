@@ -28,7 +28,7 @@ struct Queue
     uint32_t numElem,
     uint32_t indexCurrent,
     uint8_t* unsafe bitPicture,
-    uint16_t* box);
+    uint32_t* box);
 
 void dummyQueue(struct Queue* q);
 void dummy2(uint32_t* pointer);

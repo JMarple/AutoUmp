@@ -82,6 +82,27 @@
     </values>
   </arg>
 </fCall>
+<fCall name="_safe_malloc" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="intval"><intval isSigned="false" val="16384"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="printf" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="DenoiseInitLookup" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
 <fCall name="OV07740_MasterThread" global="true" numArgs="7" impId="1">
   <arg num="0">
     <values>
@@ -143,7 +164,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFillThread" global="true" numArgs="4" impId="4">
+<fCall name="FloodFillThread" global="true" numArgs="5" impId="4">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -160,12 +181,17 @@
     </values>
   </arg>
   <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFillThread" global="true" numArgs="4" impId="5">
+<fCall name="FloodFillThread" global="true" numArgs="5" impId="5">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -182,6 +208,11 @@
     </values>
   </arg>
   <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="4">
     <values>
       <value type="unknown"/>
     </values>

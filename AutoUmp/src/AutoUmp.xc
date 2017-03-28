@@ -1,6 +1,7 @@
 #include <xs1.h>
 #include <platform.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "ov07740.h"
 #include "io.h"
@@ -42,7 +43,6 @@ void Tile1(chanend bluetoothChan)
     queueInit(&queue1);
     queueInit(&queue2);
 
-
     // used to send information over via bluetooth
     uint8_t objInfo1[OBJECT_ARRAY_LENGTH*12];
     uint8_t objInfo2[OBJECT_ARRAY_LENGTH*12];
@@ -51,6 +51,12 @@ void Tile1(chanend bluetoothChan)
         objInfo1[i] = 0;
         objInfo2[i] = 0;
     }
+
+    struct DenoiseLookup* unsafe lu = (struct DenoiseLookup* unsafe) malloc(sizeof(struct DenoiseLookup));
+
+    if (lu == 0) printf("Lookup table out of memory!");
+
+    DenoiseInitLookup(lu);
 
     par
     {
@@ -66,9 +72,9 @@ void Tile1(chanend bluetoothChan)
         OV07740_GatherDataThread(cmdStream2,
             (port* unsafe)&cam2DATA);
 
-        FloodFillThread(ffStream1, objArray1, &queue1, (uint8_t* unsafe)objInfo1);
+        FloodFillThread(ffStream1, objArray1, &queue1, (uint8_t* unsafe)objInfo1, lu);
 
-        FloodFillThread(ffStream2, objArray2, &queue2, (uint8_t* unsafe)objInfo2);
+        FloodFillThread(ffStream2, objArray2, &queue2, (uint8_t* unsafe)objInfo2, lu);
     }
 }}
 

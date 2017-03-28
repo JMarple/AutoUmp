@@ -1,7 +1,9 @@
 <preCompilationAnalysis file="../src/cameras/algs.xc">
-<fDef name="DenoiseRow" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
-<fDef name="FloodFill" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
-<fDef name="FloodFillThread" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="_DenoiseInitElement" global="false" unit="../src/cameras/algs.xc" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="DenoiseInitLookup" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="DenoiseRow" global="true" noreturn="false" doNotSpecialize="false" numParams="4"/>
+<fDef name="FloodFill" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
+<fDef name="FloodFillThread" global="true" noreturn="false" doNotSpecialize="false" numParams="5"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
@@ -26,7 +28,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="DenoiseRow" global="true" numArgs="3">
+<fCall name="DenoiseRow" global="true" numArgs="4">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -40,6 +42,11 @@
   <arg num="2">
     <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <passThroughArg param="4" caller="FloodFill" global="true"/>
+    <values>
     </values>
   </arg>
 </fCall>
@@ -89,7 +96,29 @@
     </values>
   </arg>
 </fCall>
-<fCall name="FloodFill" global="true" numArgs="4">
+<fCall name="_DenoiseInitElement" global="false" unit="../src/cameras/algs.xc" numArgs="4">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="FloodFill" global="true" numArgs="5">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -108,6 +137,18 @@
   <arg num="3">
     <passThroughArg param="3" caller="FloodFillThread" global="true"/>
     <values>
+    </values>
+  </arg>
+  <arg num="4">
+    <passThroughArg param="4" caller="FloodFillThread" global="true"/>
+    <values>
+    </values>
+  </arg>
+</fCall>
+<fCall name="delay_milliseconds" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="intval"><intval isSigned="true" val="50"/></value>
     </values>
   </arg>
 </fCall>

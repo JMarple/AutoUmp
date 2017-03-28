@@ -97,8 +97,8 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
     uint32_t head = q->head;
     uint32_t tail = q->tail;
     uint32_t numElem = q->numElem;
-    uint32_t* arr    = q->arr;
-    uint16_t* box = currentObject->box;
+    uint32_t* unsafe arr    = q->arr;
+    uint32_t* unsafe box = currentObject->box;
 
     while(numElem > 0)
     {
@@ -121,20 +121,20 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         if(bitCurrent > 0) // first check to ensure that we don't look at values outside our range
         {
             uint32_t tmpMock;
-            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
+//            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
 
             //printf("%x %x\n", tmpMock, bitPicture);
             //printf("%x\n", tmpMock);
             // START queueEnqueue(q, indexCurrent);
-            //arr[tail] = indexCurrent;
-            //tail = (tail + 1) % BUFFER_SIZE;
-            //numElem++;
+            arr[tail] = indexCurrent;
+            tail = (tail + 1) % BUFFER_SIZE;
+            numElem++;
             // END queueEnqueue(q, indexCurrent);
 
             // START setBitInPic(bitPicture, indexCurrent, 0);
-            //uint32_t byteIndex = indexCurrent >> 3;
-            //uint8_t bitNum = indexCurrent & 7;
-            //bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
+            uint32_t byteIndex = indexCurrent >> 3;
+            uint8_t bitNum = indexCurrent & 7;
+            bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
@@ -155,18 +155,18 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         if(bitCurrent > 0) // first check to ensure that we don't look at values outside our range
         {
             uint32_t tmpMock;
-            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
+//            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
 
             // START queueEnqueue(q, indexCurrent);
-            //arr[tail] = indexCurrent;
-            //tail = (tail + 1) % BUFFER_SIZE;
-            //numElem++;
+            arr[tail] = indexCurrent;
+            tail = (tail + 1) % BUFFER_SIZE;
+            numElem++;
             // END queueEnqueue(q, indexCurrent);
 
             // START setBitInPic(bitPicture, indexCurrent, 0);
-            //uint32_t byteIndex = indexCurrent >> 3;
-            //uint8_t bitNum = indexCurrent & 7;
-            //bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
+            uint32_t byteIndex = indexCurrent >> 3;
+            uint8_t bitNum = indexCurrent & 7;
+            bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
@@ -184,21 +184,21 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         // START looking at indexLeft
         indexCurrent  = indexBit-1;
         bitCurrent  = getBitInPic(bitPicture, indexCurrent);
-        if((indexBit % IMG_WIDTH > 0) && (bitCurrent > 0)) // first check to ensure we have an actual "left" pixel to look at
+        if(bitCurrent > 0) // first check to ensure we have an actual "left" pixel to look at
         {
             uint32_t tmpMock;
-            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
+//            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
 
             // START queueEnqueue(q, indexCurrent);
-            //arr[tail] = indexCurrent;
-            //tail = (tail + 1) % BUFFER_SIZE;
-            //numElem++;
+            arr[tail] = indexCurrent;
+            tail = (tail + 1) % BUFFER_SIZE;
+            numElem++;
             // END queueEnqueue(q, indexCurrent);
 
             // START setBitInPic(bitPicture, indexCurrent, 0);
-            //uint32_t byteIndex = indexCurrent >> 3;
-            //uint8_t bitNum = indexCurrent & 7;
-            //bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
+            uint32_t byteIndex = indexCurrent >> 3;
+            uint8_t bitNum = indexCurrent & 7;
+            bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
@@ -216,21 +216,21 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         // START looking at indexRight
         indexCurrent = indexBit+1;
         bitCurrent = getBitInPic(bitPicture, indexCurrent);
-        if((indexBit % IMG_WIDTH < IMG_WIDTH-1) && (bitCurrent > 0)) // first check to ensure we have an actual "right" pixel to look at
+        if(bitCurrent > 0) // first check to ensure we have an actual "right" pixel to look at
         {
             uint32_t tmpMock;
-            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
+//            {tmpMock, tail, numElem} = optDetObj(arr, tail, numElem, indexCurrent, bitPicture, box);
 
             // START queueEnqueue(q, indexCurrent);
-            //arr[tail] = indexCurrent;
-            //tail = (tail + 1) % BUFFER_SIZE;
-            //numElem++;
+            arr[tail] = indexCurrent;
+            tail = (tail + 1) % BUFFER_SIZE;
+            numElem++;
             // END queueEnqueue(q, indexCurrent);
 
             // START setBitInPic(bitPicture, indexCurrent, 0);
-            //uint32_t byteIndex = indexCurrent >> 3;
-            //uint8_t bitNum = indexCurrent & 7;
-            //bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
+            uint32_t byteIndex = indexCurrent >> 3;
+            uint8_t bitNum = indexCurrent & 7;
+            bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);

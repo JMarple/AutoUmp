@@ -51,16 +51,40 @@ optDetObj:
 	st8 tmp3, bitPicture[tmp1]
 
 	//uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
-	//divu tmp1, indexCurrent, r10
+	divu tmp1, indexCurrent, r10
 
 	//uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
-	//remu tmp2, indexCurrent, r10
+	remu tmp2, indexCurrent, r10
 
-	//ld16s tmp3, box[0]
 	//if(newX < box[0]) box[0] = newX;
+	newXLTbox0:
+		ldw tmp3, box[0]
+		lsu tmp3, tmp2, tmp3
+		bf tmp3, newXGTbox1
+		stw tmp2, box[0]
+
 	//if(newX > box[1]) box[1] = newX;
+	newXGTbox1:
+		ldw tmp3, box[1]
+		lsu tmp3, tmp3, tmp2
+		bf tmp3, newYLTbox2
+		stw tmp2, box[1]
+
 	//if(newY < box[2]) box[2] = newY;
+	newYLTbox2:
+		ldw tmp3, box[2]
+		lsu tmp3, tmp1, tmp3
+		bf tmp3, newYGTbox3
+		stw tmp1, box[2]
+
 	//if(newY > box[3]) box[3] = newY;
+	newYGTbox3:
+		ldw tmp3, box[3]
+		lsu tmp3, tmp3, tmp1
+		bf tmp3, exit_det_obj
+		stw tmp1, box[3]
+
+	exit_det_obj:
 
 	ldw r4, sp[2]
 	ldw r5, sp[3]
