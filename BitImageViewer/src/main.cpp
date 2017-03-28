@@ -24,12 +24,11 @@ using namespace cv;
 #define GREEN 1
 #define BLUE 2
 
-
 struct Object
 {
     uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
     uint16_t id; // id representing object
-    uint16_t minX, maxX, minY, maxY; // lower/uppper bounds of object
+    uint16_t box[4]; // box[0]: minX. box[1]: maxX. box[2]: minY. box[3]: maxY
     uint16_t centX, centY;
     uint16_t distanceFromCenter;
 };
@@ -42,16 +41,16 @@ int32_t filterBalls(struct Object* objectArray, uint16_t length)
 	for (int i = 0; i < length; i++)
 	{
 		// if object is smaller than possible for our ball
-		if(objectArray[i].maxX - objectArray[i].minX < 5 ||
-			objectArray[i].maxY - objectArray[i].minY < 5)
+		if(objectArray[i].box[1] - objectArray[i].box[0] < 5 ||
+			objectArray[i].box[3] - objectArray[i].box[2] < 5)
 		{
 			objectArray[i].isBall = 0;
 		}
 		
 		// if the object is on the edge of the image 
 		// (where edge is defined as 2 pixel width surrounding edge)
-		else if(objectArray[i].minX < 2 || objectArray[i].minY < 2 || 
-			objectArray[i].maxX > IMG_WIDTH-3 || objectArray[i].maxY > IMG_HEIGHT-3)
+		else if(objectArray[i].box[0] < 2 || objectArray[i].box[2] < 2 || 
+			objectArray[i].box[1] > IMG_WIDTH-3 || objectArray[i].box[3] > IMG_HEIGHT-3)
 		{
 			objectArray[i].isBall = 0;
 		}
@@ -261,10 +260,10 @@ int32_t unpackObjects(
 
         objArray[i/12].centX = centX;
         objArray[i/12].centY = centY;
-		objArray[i/12].minX = xMin;
-		objArray[i/12].maxX = xMax;
-		objArray[i/12].minY = yMin;
-		objArray[i/12].maxY = yMax;	
+		objArray[i/12].box[0] = xMin;
+		objArray[i/12].box[1] = xMax;
+		objArray[i/12].box[2] = yMin;
+		objArray[i/12].box[3] = yMax;	
 	
 	}
 	return bufferLength/12; // num objects
@@ -295,10 +294,10 @@ void initObjectArray(struct Object* objArray, uint16_t length)
     {
         objArray[i].id = EMPTY_OBJECT_ID;
         objArray[i].isBall = -1;
-        objArray[i].minX = 0;
-        objArray[i].maxX = 0;
-        objArray[i].minY = 0;
-        objArray[i].maxY = 0;
+        objArray[i].box[0] = 0;
+        objArray[i].box[1] = 0;
+        objArray[i].box[2] = 0;
+        objArray[i].box[3] = 0;
         objArray[i].centX = 0;
         objArray[i].centY = 0;
         objArray[i].distanceFromCenter = 0;
@@ -326,10 +325,10 @@ void printObjectArray(struct Object* objArray, uint16_t length)
     for(int i = 0; i < length; i++)
     {
         printf("minX: %i; maxX: %i; minY: %i; maxY: %i; centX: %i; centY: %i \n",
-            objArray[i].minX,
-            objArray[i].maxX,
-            objArray[i].minY,
-            objArray[i].maxY,
+            objArray[i].box[0],
+            objArray[i].box[1],
+            objArray[i].box[2],
+            objArray[i].box[3],
             objArray[i].centX,
             objArray[i].centY);
         i++;
@@ -452,20 +451,20 @@ int main(int argc, char** argv)
 				printf("hi\n");
 				makeBox(
 					&M_color,
-					objArray[i].minX + 8, // + 8 because we're offset that much... for every box
-					objArray[i].maxX + 8, // + 8 " " " ... " " 
-					objArray[i].minY,
-					objArray[i].maxY,
+					objArray[i].box[0] + 8, // + 8 because we're offset that much... for every box
+					objArray[i].box[1] + 8, // + 8 " " " ... " " 
+					objArray[i].box[2],
+					objArray[i].box[3],
 					RED);
 			}
 			else
 			{
 				makeBox(
 					&M_color,
-					objArray[i].minX + 8,
-					objArray[i].maxX + 8,
-					objArray[i].minY,
-					objArray[i].maxY,
+					objArray[i].box[0] + 8,
+					objArray[i].box[1] + 8,
+					objArray[i].box[2],
+					objArray[i].box[3],
 					GREEN);
 			}
 		}

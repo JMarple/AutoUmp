@@ -4,14 +4,14 @@
 #include "detect_objects.h"
 #include "algs.h"
 
-void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxY)
+void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t box[0], uint32_t box[1], uint32_t box[2], uint32_t box[3])
 {
     obj->id = id; // no object
     obj->isBall = isBall;
-    obj->box[0] = minX; // goes along width/columns of image
-    obj->box[2] = minY; // goes down height/rows of image
-    obj->box[1] = maxX;
-    obj->box[3] = maxY;
+    obj->box[0] = box[0]; // goes along width/columns of image
+    obj->box[2] = box[2]; // goes down height/rows of image
+    obj->box[1] = box[1];
+    obj->box[3] = box[3];
 }
 
 int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPicture)
@@ -278,27 +278,27 @@ void packObjects(
         uint16_t centXUpper = objArray[i].centX >> 8;
         uint16_t centYLower = objArray[i].centY & 0xFF;
         uint16_t centYUpper = objArray[i].centY >> 8;
-        uint16_t minXLower  = objArray[i].box[0] & 0xFF;
-        uint16_t minXUpper  = objArray[i].box[0] >> 8;
-        uint16_t maxXLower  = objArray[i].box[1] & 0xFF;
-        uint16_t maxXUpper  = objArray[i].box[1] >> 8;
-        uint16_t minYLower  = objArray[i].box[2] & 0xFF;
-        uint16_t minYUpper  = objArray[i].box[2] >> 8;
-        uint16_t maxYLower  = objArray[i].box[3] & 0xFF;
-        uint16_t maxYUpper  = objArray[i].box[3] >> 8;
+        uint16_t box[0]Lower  = objArray[i].box[0] & 0xFF;
+        uint16_t box[0]Upper  = objArray[i].box[0] >> 8;
+        uint16_t box[1]Lower  = objArray[i].box[1] & 0xFF;
+        uint16_t box[1]Upper  = objArray[i].box[1] >> 8;
+        uint16_t box[2]Lower  = objArray[i].box[2] & 0xFF;
+        uint16_t box[2]Upper  = objArray[i].box[2] >> 8;
+        uint16_t box[3]Lower  = objArray[i].box[3] & 0xFF;
+        uint16_t box[3]Upper  = objArray[i].box[3] >> 8;
 
         buffer[i*12] = centXLower;
         buffer[i*12 + 1] = centXUpper;
         buffer[i*12 + 2] = centYLower;
         buffer[i*12 + 3] = centYUpper;
-        buffer[i*12 + 4] = minXLower;
-        buffer[i*12 + 5] = minXUpper;
-        buffer[i*12 + 6] = maxXLower;
-        buffer[i*12 + 7] = maxXUpper;
-        buffer[i*12 + 8] = minYLower;
-        buffer[i*12 + 9] = minYUpper;
-        buffer[i*12 + 10] = maxYLower;
-        buffer[i*12 + 11] = maxYUpper;
+        buffer[i*12 + 4] = box[0]Lower;
+        buffer[i*12 + 5] = box[0]Upper;
+        buffer[i*12 + 6] = box[1]Lower;
+        buffer[i*12 + 7] = box[1]Upper;
+        buffer[i*12 + 8] = box[2]Lower;
+        buffer[i*12 + 9] = box[2]Upper;
+        buffer[i*12 + 10] = box[3]Lower;
+        buffer[i*12 + 11] = box[3]Upper;
     }
 
     if(numObjects < OBJECT_ARRAY_LENGTH)

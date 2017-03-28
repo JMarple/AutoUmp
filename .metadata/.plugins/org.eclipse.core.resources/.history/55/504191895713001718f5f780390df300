@@ -4,14 +4,14 @@
 #include "detect_objects.h"
 #include "algs.h"
 
-void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxY)
+void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxy)
 {
     obj->id = id; // no object
     obj->isBall = isBall;
-    obj->box[0] = minX; // goes along width/columns of image
-    obj->box[2] = minY; // goes down height/rows of image
-    obj->box[1] = maxX;
-    obj->box[3] = maxY;
+    obj->box[0] = box[0]; // goes along width/columns of image
+    obj->box[2] = box[2]; // goes down height/rows of image
+    obj->box[1] = box[1];
+    obj->box[3] = box[3];
 }
 
 int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPicture)

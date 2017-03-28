@@ -8,10 +8,10 @@ void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t m
 {
     obj->id = id; // no object
     obj->isBall = isBall;
-    obj->box[0] = minX; // goes along width/columns of image
-    obj->box[2] = minY; // goes down height/rows of image
-    obj->box[1] = maxX;
-    obj->box[3] = maxY;
+    obj->minX = minX; // goes along width/columns of image
+    obj->minY = minY; // goes down height/rows of image
+    obj->maxX = maxX;
+    obj->maxY = maxY;
 }
 
 int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPicture)
@@ -75,10 +75,10 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
                                 &objArray[objectId],
                                 objectId,
                                 -1,                    // isBall
-                                (bitIndex % IMG_WIDTH),  // box[0]
-                                (bitIndex % IMG_WIDTH),  // box[1]
-                                bitIndex / IMG_WIDTH,  // box[2]
-                                bitIndex / IMG_WIDTH); // box[3]
+                                (bitIndex % IMG_WIDTH),  // minX
+                                (bitIndex % IMG_WIDTH),  // maxX
+                                bitIndex / IMG_WIDTH,  // minY
+                                bitIndex / IMG_WIDTH); // maxY
 
                         floodFill(bitPicture, q, &objArray[objectId]);
                     }
@@ -175,8 +175,8 @@ void updateObject(struct Object* object, uint32_t bitIndex)
 // computes the center of a particular object
 void computeCenter(struct Object* object)
 {
-    object->centX = (object->box[0] + object->box[1])/2;
-    object->centY = (object->box[2] + object->box[3])/2;
+    object->centX = (object->minX + object->maxX)/2;
+    object->centY = (object->minY + object->maxY)/2;
     object->distanceFromCenter = abs(object->centX - IMG_WIDTH/2);
 }
 
@@ -212,16 +212,16 @@ int32_t filterBalls(struct Object* objectArray, uint16_t length)
     while((objectArray[i].id != EMPTY_OBJECT_ID) && (i < length))
     {
         // if object is smaller than possible for our ball
-        if(objectArray[i].box[1] - objectArray[i].box[0] < 5 ||
-            objectArray[i].box[3] - objectArray[i].box[2] < 5)
+        if(objectArray[i].maxX - objectArray[i].minX < 5 ||
+            objectArray[i].maxY - objectArray[i].minY < 5)
         {
             objectArray[i].isBall = 0;
         }
 
         // if the object is on the edge of the image
         // (where edge is defined as 2 pixel width surrounding edge)
-        else if(objectArray[i].box[0] < 2 || objectArray[i].box[2] < 2 ||
-            objectArray[i].box[1] > IMG_WIDTH-3 || objectArray[i].box[3] > IMG_HEIGHT-3)
+        else if(objectArray[i].minX < 2 || objectArray[i].minY < 2 ||
+            objectArray[i].maxX > IMG_WIDTH-3 || objectArray[i].maxY > IMG_HEIGHT-3)
         {
             objectArray[i].isBall = 0;
         }
@@ -240,10 +240,10 @@ void objectInit(struct Object* obj)
 {
     obj->id = EMPTY_OBJECT_ID; // no object
     obj->isBall = -1;
-    obj->box[0] = 0; // goes along width/columns of image
-    obj->box[2] = 0; // goes down height/rows of image
-    obj->box[1] = 0;
-    obj->box[3] = 0;
+    obj->minX = 0; // goes along width/columns of image
+    obj->minY = 0; // goes down height/rows of image
+    obj->maxX = 0;
+    obj->maxY = 0;
     obj->centX = 0;
     obj->centY = 0;
     obj->distanceFromCenter = 0;
@@ -255,10 +255,10 @@ void initObjectArray(struct Object* objArray, uint16_t length)
     {
         objArray[i].id = EMPTY_OBJECT_ID;
         objArray[i].isBall = -1;
-        objArray[i].box[0] = 0;
-        objArray[i].box[1] = 0;
-        objArray[i].box[2] = 0;
-        objArray[i].box[3] = 0;
+        objArray[i].minX = 0;
+        objArray[i].maxX = 0;
+        objArray[i].minY = 0;
+        objArray[i].maxY = 0;
         objArray[i].centX = 0;
         objArray[i].centY = 0;
         objArray[i].distanceFromCenter = 0;
@@ -278,14 +278,14 @@ void packObjects(
         uint16_t centXUpper = objArray[i].centX >> 8;
         uint16_t centYLower = objArray[i].centY & 0xFF;
         uint16_t centYUpper = objArray[i].centY >> 8;
-        uint16_t minXLower  = objArray[i].box[0] & 0xFF;
-        uint16_t minXUpper  = objArray[i].box[0] >> 8;
-        uint16_t maxXLower  = objArray[i].box[1] & 0xFF;
-        uint16_t maxXUpper  = objArray[i].box[1] >> 8;
-        uint16_t minYLower  = objArray[i].box[2] & 0xFF;
-        uint16_t minYUpper  = objArray[i].box[2] >> 8;
-        uint16_t maxYLower  = objArray[i].box[3] & 0xFF;
-        uint16_t maxYUpper  = objArray[i].box[3] >> 8;
+        uint16_t minXLower  = objArray[i].minX & 0xFF;
+        uint16_t minXUpper  = objArray[i].minX >> 8;
+        uint16_t maxXLower  = objArray[i].maxX & 0xFF;
+        uint16_t maxXUpper  = objArray[i].maxX >> 8;
+        uint16_t minYLower  = objArray[i].minY & 0xFF;
+        uint16_t minYUpper  = objArray[i].minY >> 8;
+        uint16_t maxYLower  = objArray[i].maxY & 0xFF;
+        uint16_t maxYUpper  = objArray[i].maxY >> 8;
 
         buffer[i*12] = centXLower;
         buffer[i*12 + 1] = centXUpper;
@@ -342,10 +342,10 @@ int32_t unpackObjects(
 
         objArray[i/12].centX = centX;
         objArray[i/12].centY = centY;
-        objArray[i/12].box[0] = xMin;
-        objArray[i/12].box[1] = xMax;
-        objArray[i/12].box[2] = yMin;
-        objArray[i/12].box[3] = yMax;
+        objArray[i/12].minX = xMin;
+        objArray[i/12].maxX = xMax;
+        objArray[i/12].minY = yMin;
+        objArray[i/12].maxY = yMax;
 
     }
     return bufferLength/12; // num objects
@@ -379,12 +379,12 @@ void printObjectArray(struct Object* objArray, uint16_t length)
 {
     for(int i = 0; i < length; i++)
     {
-        printf("id: %i; box[0]: %i; box[1]: %i; box[2]: %i; box[3]: %i; centX: %i; centY: %i \n",
+        printf("id: %i; minX: %i; maxX: %i; minY: %i; maxY: %i; centX: %i; centY: %i \n",
             objArray[i].id,
-            objArray[i].box[0],
-            objArray[i].box[1],
-            objArray[i].box[2],
-            objArray[i].box[3],
+            objArray[i].minX,
+            objArray[i].maxX,
+            objArray[i].minY,
+            objArray[i].maxY,
             objArray[i].centX,
             objArray[i].centY);
         i++;
