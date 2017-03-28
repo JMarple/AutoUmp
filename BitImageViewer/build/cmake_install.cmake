@@ -1,4 +1,4 @@
-# Install script for directory: /home/tbadams45/XMOS/autoump/BitImageViewer
+# Install script for directory: /home/jmarple/code/AutoUmp/BitImageViewer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tbadams45/XMOS/autoump/BitImageViewer/build/${CMAKE_INSTALL_MANIFEST}"
-     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+file(WRITE "/home/jmarple/code/AutoUmp/BitImageViewer/build/${CMAKE_INSTALL_MANIFEST}" "")
+foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
+  file(APPEND "/home/jmarple/code/AutoUmp/BitImageViewer/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+endforeach()

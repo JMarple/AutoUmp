@@ -1,4 +1,0 @@
-<preCompilationAnalysis file="../src/cameras/ov07740.S">
-  <fCall global="true" name="computeBackgroundSub"/>
-  <fCall global="true" name="computeBackgroundSub.nstackwords"/>
-</preCompilationAnalysis>

@@ -21,6 +21,15 @@ struct Queue
     uint16_t numElem;          // to check for buffer overflow
 };
 
+
+{uint32_t, uint32_t, uint32_t} optDetObj(
+    uint32_t* arr,
+    uint32_t tail,
+    uint32_t numElem,
+    uint32_t indexCurrent,
+    uint8_t* unsafe bitPicture,
+    uint16_t* box);
+
 void dummyQueue(struct Queue* q);
 void dummy2(uint32_t* pointer);
 

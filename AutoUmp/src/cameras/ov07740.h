@@ -86,6 +86,8 @@ struct SCCBPairs
     //{0x38, 0x17},
     //{0x84, 0x02},
 };*/
+
+
 static struct SCCBPairs OV7740_QVGA[] =
 {
     {0x13, 0x00},
