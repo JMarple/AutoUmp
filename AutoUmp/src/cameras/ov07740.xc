@@ -112,6 +112,19 @@ void OV07740_MasterThread(
 
     int lc = 0;
 
+    // TESTING STRUCTS
+    struct Queue dumQ;
+    queueInit(&dumQ);
+    dummyQueue(&dumQ);
+    uint32_t myDummyArr[5];
+    for(int i = 0; i < 5; i++)
+    {
+        myDummyArr[i] = 0;
+    }
+    dummy2(myDummyArr);
+
+    // END TESTING STRUCTS
+
     // Allocate memory for images
     uint8_t* unsafe image1 = malloc(320*240);
     uint8_t* unsafe image2 = malloc(320*240);

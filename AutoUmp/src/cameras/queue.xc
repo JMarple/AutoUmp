@@ -4,6 +4,19 @@
 #include <stdint.h>
 #include "queue.h"
 
+void dummy2(uint32_t* pointer)
+{
+    pointer[0] = 1;
+}
+
+void dummyQueue(struct Queue* q)
+{
+    q-> head = 0;
+    q-> tail = 1;
+    q-> numElem = 2;
+    q->arr[0] = 3;
+}
+
 void queueInit(struct Queue* q)
 {
     q->head    = 0;

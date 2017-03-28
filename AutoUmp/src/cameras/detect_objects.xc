@@ -40,7 +40,10 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
         {
             for(int i = 0; i < 8; i++)
             {
-                bitVal = getBitInByte(bitPicture[byteIndex], i); // data is arranged 7 6 5 4 3 2 2 1 0 for each byte.
+                // start bitVal = getBitInByte(bitPicture[byteIndex], i); // data is arranged 7 6 5 4 3 2 2 1 0 for each byte.
+                bitVal = bitPicture[byteIndex] << (7-i);
+                bitVal = bitVal >> 7;
+                // end bitVal = getBitInByte(bitPicture[byteIndex], i);
 
                 // if bitVal == 0, do nothing and move on
                 if(bitVal>0)
@@ -403,13 +406,13 @@ void printCenters(struct Object* objArray, uint16_t length)
 
 
 // bitLoc is the bit location. 7 for MSB, 0 for LSB, etc.
-uint8_t getBitInByte(uint8_t byte, uint32_t bitLoc)
+/*uint8_t getBitInByte(uint8_t byte, uint32_t bitLoc)
 {
     byte = byte << (7-bitLoc);
     byte = byte >> 7;
 
     return byte;
-}
+}*/
 
 // given a certain bitIndex, get that bit (stored in a byte).
 // so a bitIndex of 4 will get the 4th bit.
@@ -421,7 +424,12 @@ uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
     uint32_t bitNum = bitIndex % 8;
 
     // val = getBitInByte(bitPicture[byteIndex], 7-bitNum); // this is for when bytes were arranged 0 1 2 3 4 5 6 7 instead of 7 6 ...
-    val = getBitInByte(bitPicture[byteIndex], bitNum);
+
+    // start val = getBitInByte(bitPicture[byteIndex], bitNum);
+    val = bitPicture[byteIndex] << (7-bitNum);
+    val = val >> 7;
+    // end val = getBitInByte(bitPicture[byteIndex], bitNum);
+
     return val;
 }}
 

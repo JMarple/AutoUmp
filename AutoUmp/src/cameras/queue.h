@@ -21,6 +21,9 @@ struct Queue
     uint16_t numElem;          // to check for buffer overflow
 };
 
+void dummyQueue(struct Queue* q);
+void dummy2(uint32_t* pointer);
+
 void queueInit(struct Queue* q);
 
 void queueReset(struct Queue* q);

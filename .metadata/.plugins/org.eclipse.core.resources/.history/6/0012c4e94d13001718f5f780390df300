@@ -1,0 +1,9 @@
+	.globl assembQueueEnqueue
+	.align 4
+	.issue_mode dual
+
+
+assembQueueEnqueue:
+	dualentsp SOME_NUMBER_OF_TEMP_VARS
+
+	std

@@ -18,6 +18,7 @@ struct Object
 {
     uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
     uint16_t id; // id representing object
+    //uint16_t box[4]; // box[0]: minX. box[1]: maxX. box[2]: minY. box[3]: maxY
     uint16_t minX, maxX, minY, maxY; // lower/uppper bounds of object
     uint16_t centX, centY;
     uint16_t distanceFromCenter;
@@ -124,9 +125,9 @@ uint8_t getBitInPic(
     uint8_t* unsafe bitPicture,
     uint32_t bitIndex);
 
-uint8_t getBitInByte(
+/*uint8_t getBitInByte(
     uint8_t byte,
-    uint32_t bitLoc);
+    uint32_t bitLoc);*/
 
 int8_t setBitInPic(
     uint8_t* unsafe bitPicture,
