@@ -3,10 +3,11 @@
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
-<fDef name="getGameStatus" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="getGameStatus" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
 <fDef name="initGameState" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
+<fDef name="initStack" global="true" noreturn="false" doNotSpecialize="false" numParams="1"/>
 <fDef name="main" global="true" noreturn="false" doNotSpecialize="false" numParams="0"/>
-<fDef name="receivedData" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="receivedData" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
 <fDef name="sendGameStatus" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="stackPop" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="stackPush" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
@@ -26,6 +27,13 @@
   </arg>
 </fCall>
 <fCall name="delay_ticks_longlong" global="true" numArgs="1">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="initGameState" global="true" numArgs="1">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -123,7 +131,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="stackPush" global="true" numArgs="2">
+<fCall name="printf" global="true" numArgs="2">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -137,8 +145,8 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -149,8 +157,8 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -161,8 +169,8 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -173,8 +181,20 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="1">
     <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="stackPush" global="true" numArgs="2">
+  <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
+    <values>
     </values>
   </arg>
   <arg num="1">
@@ -185,8 +205,8 @@
 </fCall>
 <fCall name="stackPop" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -197,8 +217,8 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -209,8 +229,8 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -221,8 +241,8 @@
 </fCall>
 <fCall name="stackPush" global="true" numArgs="2">
   <arg num="0">
+    <passThroughArg param="2" caller="getGameStatus" global="true"/>
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
@@ -246,11 +266,11 @@
 <fCall name="delay_milliseconds" global="true" numArgs="1">
   <arg num="0">
     <values>
-      <value type="intval"><intval isSigned="true" val="200"/></value>
+      <value type="intval"><intval isSigned="true" val="1000"/></value>
     </values>
   </arg>
 </fCall>
-<fCall name="getGameStatus" global="true" numArgs="2">
+<fCall name="getGameStatus" global="true" numArgs="3">
   <arg num="0">
     <passThroughArg param="0" caller="receivedData" global="true"/>
     <values>
@@ -258,6 +278,11 @@
   </arg>
   <arg num="1">
     <passThroughArg param="1" caller="receivedData" global="true"/>
+    <values>
+    </values>
+  </arg>
+  <arg num="2">
+    <passThroughArg param="2" caller="receivedData" global="true"/>
     <values>
     </values>
   </arg>
@@ -269,7 +294,7 @@
     </values>
   </arg>
 </fCall>
-<fCall name="initGameState" global="true" numArgs="1">
+<fCall name="initStack" global="true" numArgs="1">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -302,13 +327,18 @@
     </values>
   </arg>
 </fCall>
-<fCall name="receivedData" global="true" numArgs="2" impId="2">
+<fCall name="receivedData" global="true" numArgs="3" impId="2">
   <arg num="0">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="2">
     <values>
       <value type="unknown"/>
     </values>

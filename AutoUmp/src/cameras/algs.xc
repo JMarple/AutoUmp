@@ -26,11 +26,14 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
                 (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
     }
 
-    // finish up the denoise: make the top and bottom rows 0.
+    // finish up the denoise: make the top two rows and bottom 3 rows 0.
     for (int i = 0; i < IMG_WIDTH/8; i++)
     {
         bitBuffer[i] = 0;
+        bitBuffer[IMG_WIDTH/8 + i] = 0;
         bitBuffer[(IMG_HEIGHT-1)*IMG_WIDTH/8 + i] = 0;
+        bitBuffer[(IMG_HEIGHT-2)*IMG_WIDTH/8 + i] = 0;
+        bitBuffer[(IMG_HEIGHT-3)*IMG_WIDTH/8 + i] = 0;
     }
 
     // copy data
@@ -40,7 +43,6 @@ void FloodFill(uint8_t* unsafe bitBuffer, struct Object* objArray, struct Queue*
     {
         newBitBuffer[i] = bitBuffer[i];
     }
-
 
     // actual floodfill
     int32_t numObjects = scanPic(objArray, queue, newBitBuffer);

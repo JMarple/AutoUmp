@@ -17,7 +17,7 @@ void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t m
 int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPicture)
 { unsafe {
     int32_t objectId  = -1;
-    uint32_t byteIndex =  IMG_WIDTH/8; // the current byte we're looking at. Remember, there are 8 pixels in here.
+    uint32_t byteIndex =  (IMG_WIDTH/8)*2; // the current byte we're looking at. Remember, there are 8 pixels in here.
     uint8_t  bitVal    =  0;
     //uint32_t curWord   =  0;
 
@@ -27,10 +27,17 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
     // array[3] array[2] array[1] array[0]
     // uint32_t* fourCurrent = &bitPicture[byteIndex]; // want to examine 4 bytes at a time to speed through the 0s.
 
-    while(byteIndex < (IMG_HEIGHT-1)*IMG_WIDTH/8) // TODO: Optimize by passing bitPicture as a 242 x 322 image. Will require "sweeping changes"
+    while(byteIndex < (IMG_HEIGHT-3)*IMG_WIDTH/8) // TODO: Optimize by passing bitPicture as a 242 x 322 image. Will require "sweeping changes"
     {
-       // curWord = (uint32_t)bitPicture[byteIndex];
-        if(bitPicture[byteIndex]==0)
+        // skip odd rows
+        uint8_t isOddRow = (byteIndex / (IMG_WIDTH/8)) % 2;
+        if(isOddRow)
+        {
+            uint32_t diff = (IMG_WIDTH/8) - byteIndex % (IMG_WIDTH/8);
+            byteIndex += diff;
+            continue;
+        }
+        else if(bitPicture[byteIndex]==0)
         {
             byteIndex++;
             //fourCurrent = &bitPicture[byteIndex];
@@ -38,7 +45,7 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* unsafe bitPic
         }
         else // got something to look at
         {
-            for(int i = 0; i < 8; i++)
+            for(int i = 0; i < 8; i+=2)
             {
                 // start bitVal = getBitInByte(bitPicture[byteIndex], i); // data is arranged 7 6 5 4 3 2 2 1 0 for each byte.
                 bitVal = bitPicture[byteIndex] << (7-i);
@@ -116,7 +123,7 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
 
 
         // START looking at indexAbove
-        uint32_t indexCurrent = indexBit-IMG_WIDTH;
+        uint32_t indexCurrent = indexBit-IMG_WIDTH*2;
         uint8_t bitCurrent = getBitInPic(bitPicture, indexCurrent);
         if(bitCurrent > 0) // first check to ensure that we don't look at values outside our range
         {
@@ -150,7 +157,7 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         // END looking at indexAbove
 
         // START looking at indexBelow
-        indexCurrent = indexBit+IMG_WIDTH;
+        indexCurrent = indexBit+IMG_WIDTH*2;
         bitCurrent = getBitInPic(bitPicture, indexCurrent);
         if(bitCurrent > 0) // first check to ensure that we don't look at values outside our range
         {
