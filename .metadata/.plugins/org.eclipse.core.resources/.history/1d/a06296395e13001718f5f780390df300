@@ -476,20 +476,20 @@ uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
 
 
 // bitLoc is the bit location. 7 for MSB, 0 for LSB, etc.
-//int8_t setBitInByte(uint8_t* unsafe byte, uint8_t bitLoc, uint8_t bitVal)
-//{ unsafe {
-//    /*if(bitVal > 1 || bitLoc > 7)
-//    {
-//        return FUNC_ERROR;
-//    }*/
-//    //http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c
-//    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
-//
-//    return 0;
-//}}
+/*int8_t setBitInByte(uint8_t* unsafe byte, uint8_t bitLoc, uint8_t bitVal)
+{ unsafe {
+    /*if(bitVal > 1 || bitLoc > 7)
+    {
+        return FUNC_ERROR;
+    }*/
+    //http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+
+    return 0;
+}}*/
 
 // given a certain bitIndex, set that bit to either 0 or 1.
-inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)
+int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)
 { unsafe {
     /*if(val > 1 || bitIndex >= IMG_WIDTH*IMG_HEIGHT)
     {

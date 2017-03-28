@@ -97,87 +97,49 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
     uint32_t head = q->head;
     uint32_t tail = q->tail;
     uint32_t numElem = q->numElem;
-    uint32_t* arr    = q->arr;
 
-    while(numElem > 0)
+    while(!queueIsEmpty(q))
     {
-        if(numElem >= BUFFER_SIZE-4)
+        uint32_t indexBit = queueDequeue(q);
+
+
+        // Necessary because a pixel might get added to queue at least twice
+        uint32_t indexAbove = indexBit-IMG_WIDTH;
+        uint8_t bitAbove = getBitInPic(bitPicture, indexAbove);
+        if(bitAbove > 0) // first check to ensure that we don't look at values outside our range
         {
-            printf("yo, your queue hit capacity\n");
-            break; // ABORT
+            queueEnqueue(q, indexAbove);
+            setBitInPic(bitPicture, indexAbove, 0);
+            updateObject(currentObject, indexAbove);
         }
 
-        // START uint32_t indexBit = queueDequeue(q);
-        uint32_t indexBit = arr[head];
-        head = (head + 1) % BUFFER_SIZE;
-        numElem--;
-        // END uint32_t indexBit = queueDequeue(q);
-
-
-        // START looking at indexAbove
-        uint32_t indexCurrent = indexBit-IMG_WIDTH;
-        uint8_t bitCurrent = getBitInPic(bitPicture, indexCurrent);
-        if(bitCurrent > 0) // first check to ensure that we don't look at values outside our range
+        uint32_t indexBelow = indexBit+IMG_WIDTH;
+        uint8_t bitBelow = getBitInPic(bitPicture, indexBelow);
+        if(bitBelow > 0) // first check to ensure that we don't look at values outside our range
         {
-            // START queueEnqueue(q, indexCurrent);
-            arr[tail] = indexCurrent;
-            tail = (tail + 1) % BUFFER_SIZE;
-            numElem++;
-            // END queueEnqueue(q, indexCurrent);
-            setBitInPic(bitPicture, indexCurrent, 0);
-            updateObject(currentObject, indexCurrent);
+           queueEnqueue(q, indexBelow);
+           setBitInPic(bitPicture, indexBelow, 0);
+           updateObject(currentObject, indexBelow);
         }
-        // END looking at indexAbove
 
-        // START looking at indexBelow
-        indexCurrent = indexBit+IMG_WIDTH;
-        bitCurrent = getBitInPic(bitPicture, indexCurrent);
-        if(bitCurrent > 0) // first check to ensure that we don't look at values outside our range
+        uint32_t indexLeft  = indexBit-1;
+        uint8_t bitLeft  = getBitInPic(bitPicture, indexLeft);
+        if((indexBit % IMG_WIDTH > 0) && (bitLeft > 0)) // first check to ensure we have an actual "left" pixel to look at
         {
-            // START queueEnqueue(q, indexCurrent);
-            arr[tail] = indexCurrent;
-            tail = (tail + 1) % BUFFER_SIZE;
-            numElem++;
-            // END queueEnqueue(q, indexCurrent);
-           setBitInPic(bitPicture, indexCurrent, 0);
-           updateObject(currentObject, indexCurrent);
+            queueEnqueue(q, indexLeft);
+            setBitInPic(bitPicture, indexLeft, 0);
+            updateObject(currentObject, indexLeft);
         }
-        // END looking at indexBelow
 
-        // START looking at indexLeft
-        indexCurrent  = indexBit-1;
-        bitCurrent  = getBitInPic(bitPicture, indexCurrent);
-        if((indexBit % IMG_WIDTH > 0) && (bitCurrent > 0)) // first check to ensure we have an actual "left" pixel to look at
+        uint32_t indexRight = indexBit+1;
+        uint8_t bitRight = getBitInPic(bitPicture, indexRight);
+        if((indexBit % IMG_WIDTH < IMG_WIDTH-1) && (bitRight > 0)) // first check to ensure we have an actual "right" pixel to look at
         {
-            // START queueEnqueue(q, indexCurrent);
-            arr[tail] = indexCurrent;
-            tail = (tail + 1) % BUFFER_SIZE;
-            numElem++;
-            // END queueEnqueue(q, indexCurrent);
-            setBitInPic(bitPicture, indexCurrent, 0);
-            updateObject(currentObject, indexCurrent);
+            queueEnqueue(q, indexRight);
+            setBitInPic(bitPicture, indexRight, 0);
+            updateObject(currentObject, indexRight);
         }
-        // END looking at indexLeft
-
-        // START looking at indexRight
-        indexCurrent = indexBit+1;
-        bitCurrent = getBitInPic(bitPicture, indexCurrent);
-        if((indexBit % IMG_WIDTH < IMG_WIDTH-1) && (bitCurrent > 0)) // first check to ensure we have an actual "right" pixel to look at
-        {
-            // START queueEnqueue(q, indexCurrent);
-            arr[tail] = indexCurrent;
-            tail = (tail + 1) % BUFFER_SIZE;
-            numElem++;
-            // END queueEnqueue(q, indexCurrent);
-            setBitInPic(bitPicture, indexCurrent, 0);
-            updateObject(currentObject, indexCurrent);
-        }
-        // END looking at indexRight
     }
-
-    q->head = head;
-    q->tail = tail;
-    q->numElem = numElem;
 }}
 
 void updateObject(struct Object* object, uint32_t bitIndex)
@@ -476,20 +438,20 @@ uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
 
 
 // bitLoc is the bit location. 7 for MSB, 0 for LSB, etc.
-//int8_t setBitInByte(uint8_t* unsafe byte, uint8_t bitLoc, uint8_t bitVal)
-//{ unsafe {
-//    /*if(bitVal > 1 || bitLoc > 7)
-//    {
-//        return FUNC_ERROR;
-//    }*/
-//    //http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c
-//    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
-//
-//    return 0;
-//}}
+int8_t setBitInByte(uint8_t* unsafe byte, uint8_t bitLoc, uint8_t bitVal)
+{ unsafe {
+    /*if(bitVal > 1 || bitLoc > 7)
+    {
+        return FUNC_ERROR;
+    }*/
+    //http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+
+    return 0;
+}}
 
 // given a certain bitIndex, set that bit to either 0 or 1.
-inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)
+int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)
 { unsafe {
     /*if(val > 1 || bitIndex >= IMG_WIDTH*IMG_HEIGHT)
     {
@@ -499,11 +461,7 @@ inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t
     uint8_t bitNum = bitIndex % 8;
 
     //setBitInByte(&bitPicture[byteIndex], 7-bitNum, val); // this is for when bytes were arranged 0 1 2 3 4 5 6 7 instead of 7 6 ...
-
-
-    // START setBitInByte(&bitPicture[byteIndex], bitNum, val);
-    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
-    // END setBitInByte(&bitPicture[byteIndex], bitNum, val);
+    setBitInByte(&bitPicture[byteIndex], bitNum, val);
 
     return 0;
 }}

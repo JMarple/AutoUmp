@@ -489,7 +489,7 @@ uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
 //}}
 
 // given a certain bitIndex, set that bit to either 0 or 1.
-inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)
+int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)
 { unsafe {
     /*if(val > 1 || bitIndex >= IMG_WIDTH*IMG_HEIGHT)
     {

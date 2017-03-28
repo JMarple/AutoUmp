@@ -347,7 +347,7 @@ int main(int argc, char** argv)
         return 0;
     }
 
-	//RS232_flushRX(COM_PORT); // trying to avoid corrupted data that comes when we Ctrl+C on a previous application...?
+	RS232_flushRX(COM_PORT); // trying to avoid corrupted data that comes when we Ctrl+C on a previous application...?
 	
 	// these are only used if we are given a foldername to store files
 	std::string folderName;
@@ -426,7 +426,7 @@ int main(int argc, char** argv)
 
 		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
 		int32_t numBalls = filterBalls(objArray, numObjects);
-		for(int i = 0; i < 40; i++)
+		/*for(int i = 0; i < 40; i++)
 		{
 			printf("%i ", objectBuffer[i]);
 			if(i % 10 == 0 && i != 0)
@@ -437,7 +437,7 @@ int main(int argc, char** argv)
 		printf("\n");
         printCenters(objArray, numObjects);
 		printObjectArray(objArray, numObjects);
-		
+		*/
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
@@ -448,7 +448,6 @@ int main(int argc, char** argv)
 			
 			if (objArray[i].isBall == 1)
 			{
-				printf("hi\n");
 				makeBox(
 					&M_color,
 					objArray[i].box[0] + 8, // + 8 because we're offset that much... for every box

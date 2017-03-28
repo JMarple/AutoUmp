@@ -128,7 +128,7 @@ uint8_t getBitInPic(
     uint8_t byte,
     uint32_t bitLoc);*/
 
-inline int8_t setBitInPic(
+int8_t setBitInPic(
     uint8_t* unsafe bitPicture,
     uint32_t bitIndex,
     uint8_t val);

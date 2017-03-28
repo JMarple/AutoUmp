@@ -8784,3 +8784,449 @@ Checking build modules
 Using build modules: lib_locks(2.0.3)
 xmake[1]: `bin//AutoUmp.xe' is up to date.
 Build Complete
+22:03:47 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+22:06:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:08:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Creating dependencies for queue.xc
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+22:08:17 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:10:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+22:10:47 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+22:10:48 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+22:10:48 **** Incremental Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
+Build Complete
+22:10:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:11:11 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:13:09 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+../src/cameras/detect_objects.xc:181:5: error: invalid lvalue in assignment
+    q->arr = arr;
+    ^~~~~~
+../src/cameras/detect_objects.xc:181:12: error: incompatible types in assignment
+    q->arr = arr;
+    ~~~~~~~^~~~~
+xmake[1]: *** [.build/src/cameras/detect_objects.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:13:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Creating dependencies for detect_objects.xc
+Compiling detect_objects.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+22:13:47 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+22:13:47 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+22:13:48 **** Incremental Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
+Build Complete
+22:13:49 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:16:00 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:16:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:16:40 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:16:56 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:17:16 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:17:46 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:18:41 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:19:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:22:22 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:23:08 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:28:07 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+../src/cameras/detect_objects.xc:481:5: warning: '/*' within block comment
+    /*if(bitVal > 1 || bitLoc > 7)
+    ^
+../src/cameras/detect_objects.xc:486:15: error: use of undeclared identifer `byte'
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+              ^~~~
+../src/cameras/detect_objects.xc:486:29: error: use of undeclared identifer `bitLoc'
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+                            ^~~~~~
+../src/cameras/detect_objects.xc:486:41: error: use of undeclared identifer `bitVal'
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+                                        ^~~~~~
+../src/cameras/detect_objects.xc:486:5: warning: data definition has no type or storage class
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+    ^~~~~
+../src/cameras/detect_objects.xc:488:5: error: parse error before "return"
+    return 0;
+    ^
+../src/cameras/detect_objects.xc:489:1: error: parse error before '}' token
+}}*/
+^
+../src/cameras/detect_objects.xc:499:22: error: use of undeclared identifer `bitIndex'
+    uint8_t bitNum = bitIndex % 8;
+                     ^~~~~~~~
+../src/cameras/detect_objects.xc:505:30: error: use of undeclared identifer `bitPicture'
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                             ^~~~~~~~~~
+../src/cameras/detect_objects.xc:505:41: error: use of undeclared identifer `byteIndex'
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                                        ^~~~~~~~~
+../src/cameras/detect_objects.xc:505:73: error: use of undeclared identifer `val'
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                                                                        ^~~
+../src/cameras/detect_objects.xc:505:16: error: size of array is not constant or based on a const static parameter
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+               ^~~~~~~~~
+../src/cameras/detect_objects.xc:505:5: warning: data definition has no type or storage class
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+    ^~~~~~~~~~~~~~~~~~~~~
+../src/cameras/detect_objects.xc:505:29: error: invalid array initializer
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/detect_objects.xc:508:5: error: parse error before "return"
+    return 0;
+    ^
+../src/cameras/detect_objects.xc:509:1: error: parse error before '}' token
+}}
+^
+xmake[1]: *** [.build/src/cameras/detect_objects.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:28:07 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+22:28:08 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+22:28:08 **** Incremental Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
+Build Complete
+22:28:13 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+../src/cameras/detect_objects.xc:481:5: warning: '/*' within block comment
+    /*if(bitVal > 1 || bitLoc > 7)
+    ^
+../src/cameras/detect_objects.xc:486:15: error: use of undeclared identifer `byte'
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+              ^~~~
+../src/cameras/detect_objects.xc:486:29: error: use of undeclared identifer `bitLoc'
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+                            ^~~~~~
+../src/cameras/detect_objects.xc:486:41: error: use of undeclared identifer `bitVal'
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+                                        ^~~~~~
+../src/cameras/detect_objects.xc:486:5: warning: data definition has no type or storage class
+    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
+    ^~~~~
+../src/cameras/detect_objects.xc:488:5: error: parse error before "return"
+    return 0;
+    ^
+../src/cameras/detect_objects.xc:489:1: error: parse error before '}' token
+}}*/
+^
+../src/cameras/detect_objects.xc:499:22: error: use of undeclared identifer `bitIndex'
+    uint8_t bitNum = bitIndex % 8;
+                     ^~~~~~~~
+../src/cameras/detect_objects.xc:505:30: error: use of undeclared identifer `bitPicture'
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                             ^~~~~~~~~~
+../src/cameras/detect_objects.xc:505:41: error: use of undeclared identifer `byteIndex'
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                                        ^~~~~~~~~
+../src/cameras/detect_objects.xc:505:73: error: use of undeclared identifer `val'
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                                                                        ^~~
+../src/cameras/detect_objects.xc:505:16: error: size of array is not constant or based on a const static parameter
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+               ^~~~~~~~~
+../src/cameras/detect_objects.xc:505:5: warning: data definition has no type or storage class
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+    ^~~~~~~~~~~~~~~~~~~~~
+../src/cameras/detect_objects.xc:505:29: error: invalid array initializer
+    bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum)) | (val << bitNum);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/detect_objects.xc:508:5: error: parse error before "return"
+    return 0;
+    ^
+../src/cameras/detect_objects.xc:509:1: error: parse error before '}' token
+}}
+^
+xmake[1]: *** [.build/src/cameras/detect_objects.xc.pca.xml.decouple] Error 1
+xmake: *** [analyze] Error 2
+22:28:29 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+22:28:31 **** Incremental Build of configuration Default for project DenoiseTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//DenoiseTest.xe' is up to date.
+Build Complete
+22:28:31 **** Incremental Build of configuration Default for project MockOV7740 ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//MockOV7740.xe' is up to date.
+Build Complete
+22:28:31 **** Incremental Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
+Build Complete
+22:28:33 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+22:29:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing detect_objects.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Creating dependencies for find_balls.xc
+Creating dependencies for detect_objects.xc
+Creating dependencies for algs.xc
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:5:
+.././src/cameras/ov07740.h:89:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+Compiling algs.xc
+../src/cameras/algs.xc:24:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:25:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/algs.xc:26:17: warning: pointer cast to type of larger alignment
+                (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling detect_objects.xc
+Compiling find_balls.xc
+Compiling ov07740.xc
+Compiling queue.xc
+Creating AutoUmp.xe
+Build Complete
+22:29:36 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
