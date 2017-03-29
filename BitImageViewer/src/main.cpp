@@ -396,24 +396,20 @@ int main(int argc, char** argv)
             int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), size - indexPic);
             indexPic += len;
         }
-	
+
+
+
+
+/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
 		// get object array
 		while (indexObjects < sizeObjects)
 		{
 			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
 		}
-		
-		/*for(int i = 0; i < sizeObjects; i++)
-		{
-			if(i % 4 == 0 && i != 0)
-			{
-				printf("\n");
-			}
-			printf("%x ", objectBuffer[i]);
-		}*/
+*/	
 
-
+	
         for (int idx = 0; idx < size; idx++)
         {
             uint8_t data = currentImage[idx];
@@ -424,28 +420,25 @@ int main(int argc, char** argv)
             }
         }
 
+/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT 
 		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
 		int32_t numBalls = filterBalls(objArray, numObjects);
-		/*for(int i = 0; i < 40; i++)
-		{
-			printf("%i ", objectBuffer[i]);
-			if(i % 10 == 0 && i != 0)
-			{
-				printf("\n");
-			}
-		} 
-		printf("\n");
+*/
+
+
+/** uncomment this to print out data that's unpacked
         printCenters(objArray, numObjects);
 		printObjectArray(objArray, numObjects);
-		*/
+*/
+
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		makeLine(&M_color, 160, GREEN, 1);
 
+
+/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
 		// show data
 		for(int i = 0; i < numObjects; i++)
 		{
-//			makeCrosshairs(&M_color, objArray[i].centX, objArray[i].centY, RED);
-			
 			if (objArray[i].isBall == 1)
 			{
 				makeBox(
@@ -467,6 +460,7 @@ int main(int argc, char** argv)
 					GREEN);
 			}
 		}
+*/
 
 //		imshow("a", M);
 		imshow("a", M_color);
@@ -489,12 +483,14 @@ int main(int argc, char** argv)
        
  
 		indexPic = 0;
+
+/* IF NO OBJECTS, COMMENT THIS SETION OUT
 		indexObjects = 0;
 	    for(int i = 0; i < sizeObjects; i++)
     	{
         	objectBuffer[i] = 0;
 		}	
-
+*/
 	}
 
     RS232_CloseComport(COM_PORT);
