@@ -9,6 +9,8 @@ const uint8_t AU_BT_TX = 0b0001;
 const uint8_t AU_LED4  = 0b0100;
 const uint8_t AU_LED5  = 0b1000;
 
+on tile[0]: out port AU_LED6 = XS1_PORT_1O;
+
 // Contains Button1, Button2, BT_RX on bit 0, 1, 2 respectively
 on tile[0]: in port IOPortIn1 = XS1_PORT_4E;
 
@@ -31,6 +33,11 @@ hwlock_t ioPortLock;
 timer ioPortTimer;
 uint32_t ioPortTime;
 
+void turnOnLED6(int val)
+{
+    AU_LED6 <: val;
+}
+
 // Thread safe code for turning on certain bits on a port.
 static void _assignIoOutPort(uint8_t mask, uint8_t value)
 {
@@ -43,6 +50,16 @@ static void _assignIoOutPort(uint8_t mask, uint8_t value)
 
     IOPortOut1 <: ioPortByte;
     hwlock_release(ioPortLock);
+}
+
+void turnOnLED5(int val)
+{
+    _assignIoOutPort(AU_LED5, val);
+}
+
+void turnOnLED4(int val)
+{
+    _assignIoOutPort(AU_LED4, val);
 }
 
 static void _uartWait()

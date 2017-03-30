@@ -23,6 +23,16 @@ struct DenoiseLookup
     struct DenoiseRowLU cur[64];
 };
 
+interface MasterToFloodFillInter
+{
+    void sendBitBuffer(uint8_t bitBuffer[], uint32_t n);
+};
+
+interface FloodFillToObjectInter
+{
+    void sendObjects();
+};
+
 void FloodFill(
     uint8_t* unsafe bitBuffer,
     struct Object* objArray,
@@ -32,10 +42,12 @@ void FloodFill(
 
 void FloodFillThread(
     chanend stream,
+    interface MasterToFloodFillInter server mtff,
     struct Object* objArray,
     struct Queue* queue,
     uint8_t* unsafe objInfo,
-    struct DenoiseLookup* unsafe lu);
+    uint8_t* unsafe bitBuffer,
+    struct DenoiseLookup* unsafe lu );
 
 void DenoiseRow(
     uint32_t* unsafe top,

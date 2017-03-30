@@ -150,10 +150,12 @@
     </values>
   </arg>
 </fInfo>
-<fInfo name="_assignIoOutPort" global="false" unit="../src/io/io.xc" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
-  <arg num="0" specialize="true">
+<fInfo name="_assignIoOutPort" global="false" unit="../src/io/io.xc" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="false">
     <values>
       <value type="intval"><intval isSigned="false" val="1"/></value>
+      <value type="intval"><intval isSigned="false" val="4"/></value>
+      <value type="intval"><intval isSigned="false" val="8"/></value>
     </values>
   </arg>
   <arg num="1" specialize="false">
@@ -163,12 +165,6 @@
       <value type="intval"><intval isSigned="true" val="1"/></value>
     </values>
   </arg>
- <specializations>
-   <specialization id="0">
-    <arg num="0"><values><value type="intval"><intval isSigned="false" val="1"/></value></values></arg>
-    <arg num="1"><values><value type="unknown"/></values></arg>
-   </specialization>
- </specializations>
 </fInfo>
 <fInfo name="_uartWait" global="false" unit="../src/io/io.xc" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
@@ -247,39 +243,40 @@
   </arg>
   <arg num="3" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="4" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
 </fInfo>
-<fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="5">
+<fInfo name="FloodFillThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="7">
   <arg num="0" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="3" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="4" specialize="false">
     <values>
-      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="5" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="6" specialize="false">
+    <values>
     </values>
   </arg>
 </fInfo>
@@ -316,7 +313,6 @@
   <arg num="3" specialize="false">
     <values>
       <value type="unknown"/>
-      <value type="intval"><intval isSigned="true" val="0"/></value>
     </values>
   </arg>
   <arg num="4" specialize="false">
@@ -332,7 +328,7 @@
 </fInfo>
 <fInfo name="OV07740_InitCameras" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
 </fInfo>
-<fInfo name="OV07740_MasterThread" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="7">
+<fInfo name="OV07740_MasterThread" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="8">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
@@ -368,18 +364,99 @@
       <value type="unknown"/>
     </values>
   </arg>
+  <arg num="7" specialize="true">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="unknown"/></values></arg>
+    <arg num="2"><values><value type="unknown"/></values></arg>
+    <arg num="3"><values><value type="unknown"/></values></arg>
+    <arg num="4"><values><value type="unknown"/></values></arg>
+    <arg num="5"><values><value type="unknown"/></values></arg>
+    <arg num="6"><values><value type="unknown"/></values></arg>
+    <arg num="7"><values><value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value></values></arg>
+   </specialization>
+ </specializations>
 </fInfo>
-<fInfo name="Tile0" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
+<fInfo name="Tile0" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
+  <arg num="1" specialize="true">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value></values></arg>
+   </specialization>
+ </specializations>
 </fInfo>
-<fInfo name="Tile1" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
+<fInfo name="Tile1" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="true">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value></values></arg>
+   </specialization>
+ </specializations>
+</fInfo>
+<fInfo name="_safe_memcmp" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="_safe_memmove" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="_safe_memset" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
     </values>
   </arg>
 </fInfo>
@@ -402,6 +479,24 @@
     </values>
   </arg>
 </fInfo>
+<fInfo name="dataCapturingTemporaryThread" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="true">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value></values></arg>
+    <arg num="1"><values><value type="unknown"/></values></arg>
+   </specialization>
+ </specializations>
+</fInfo>
 <fInfo name="delay_microseconds" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="1">
   <arg num="0" specialize="false">
     <values>
@@ -411,6 +506,7 @@
 <fInfo name="delay_milliseconds" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="1">
   <arg num="0" specialize="false">
     <values>
+      <value type="intval"><intval isSigned="true" val="10"/></value>
       <value type="intval"><intval isSigned="true" val="50"/></value>
     </values>
   </arg>
@@ -597,7 +693,6 @@
   </arg>
   <arg num="1" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2" specialize="false">
@@ -775,6 +870,24 @@
    </specialization>
  </specializations>
 </fInfo>
+<fInfo name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" specialize="true" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="true">
+    <values>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
+    </values>
+  </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="intval"><intval isSigned="true" val="9600"/></value></values></arg>
+   </specialization>
+ </specializations>
+</fInfo>
 <fInfo name="sendStuffAcross" global="true" specialize="false" noreturn="true" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
@@ -788,6 +901,20 @@
 <fInfo name="sendToBluetooth" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="3">
   <arg num="0" specialize="false">
     <values>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+    </values>
+  </arg>
+  <arg num="2" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="sendToBluetoothTemporary" global="true" specialize="true" noreturn="false" doNotSpecialize="false" numParams="3">
+  <arg num="0" specialize="false">
+    <values>
       <value type="unknown"/>
     </values>
   </arg>
@@ -796,12 +923,18 @@
       <value type="unknown"/>
     </values>
   </arg>
-  <arg num="2" specialize="false">
+  <arg num="2" specialize="true">
     <values>
-      <value type="intval"><intval isSigned="true" val="3000"/></value>
       <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
+ <specializations>
+   <specialization id="0">
+    <arg num="0"><values><value type="unknown"/></values></arg>
+    <arg num="1"><values><value type="unknown"/></values></arg>
+    <arg num="2"><values><value type="intval"><intval isSigned="true" val="9600"/></value></values></arg>
+   </specialization>
+ </specializations>
 </fInfo>
 <fInfo name="setBitInPic" global="true" specialize="false" noreturn="false" doNotSpecialize="true" numParams="3">
   <arg num="0" specialize="false">
@@ -817,6 +950,26 @@
   <arg num="2" specialize="false">
     <values>
       <value type="intval"><intval isSigned="true" val="0"/></value>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="turnOnLED4" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="turnOnLED5" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
+  <arg num="0" specialize="false">
+    <values>
+    </values>
+  </arg>
+</fInfo>
+<fInfo name="turnOnLED6" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="intval"><intval isSigned="true" val="0"/></value>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
     </values>
   </arg>
 </fInfo>
@@ -876,4 +1029,12 @@
    </specialization>
  </specializations>
 </fInfo>
+<fCall name="dataCapturingTemporaryThread" global="true" callerUnit="../src/AutoUmp.xc" numArgs="2" impId="1" specializationId="0">
+</fCall>
+<fCall name="OV07740_MasterThread" global="true" callerUnit="../src/AutoUmp.xc" numArgs="8" impId="2" specializationId="0">
+</fCall>
+<fCall name="Tile0" global="true" callerUnit="../src/AutoUmp.xc" numArgs="2" impId="5" specializationId="0">
+</fCall>
+<fCall name="Tile1" global="true" callerUnit="../src/AutoUmp.xc" numArgs="2" impId="6" specializationId="0">
+</fCall>
 </preCompilationAnalysis>

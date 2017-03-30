@@ -1,4 +1,4 @@
-<preCompilationAnalysis file="/home/tbadams45/XMOS/autoump/lib_locks/src/swlock_asm.S">
+<preCompilationAnalysis file="/home/jmarple/code/AutoUmp/lib_locks/src/swlock_asm.S">
   <fCall global="true" name="swlock_try_acquire"/>
   <fCall global="true" name="swlock_try_acquire.nstackwords"/>
   <fCall global="true" name="swlock_try_acquire.maxcores"/>

@@ -6,31 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/jmarple/code/AutoUmp/BitImageViewer/src/serial/rs232.c
-rs232.h
-/home/jmarple/code/AutoUmp/BitImageViewer/src/serial/rs232.h
-
-/home/jmarple/code/AutoUmp/BitImageViewer/src/serial/rs232.h
-stdio.h
--
-string.h
--
-termios.h
--
-sys/ioctl.h
--
-unistd.h
--
-fcntl.h
--
-sys/types.h
--
-sys/stat.h
--
-limits.h
--
-sys/file.h
--
-windows.h
--
-

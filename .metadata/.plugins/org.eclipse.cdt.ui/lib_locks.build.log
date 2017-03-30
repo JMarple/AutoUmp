@@ -1,6 +1,0 @@
-17:13:08 **** Build of configuration Default for project lib_locks ****
-xmake -f .makefile all 
-** Module only - only builds as part of application **
-
-17:13:08 Build Finished (took 80ms)
-

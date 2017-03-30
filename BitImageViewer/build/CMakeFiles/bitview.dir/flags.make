@@ -7,7 +7,7 @@ C_FLAGS = -isystem /usr/local/include -isystem /usr/local/include/opencv    -std
 
 C_DEFINES = 
 
-CXX_FLAGS = -isystem /usr/local/include -isystem /usr/local/include/opencv    -std=c++11
+CXX_FLAGS = -std=c++11 -isystem /usr/local/include -isystem /usr/local/include/opencv    -std=c++11
 
 CXX_DEFINES = 
 
