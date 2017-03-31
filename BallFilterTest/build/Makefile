@@ -123,6 +123,33 @@ bftest/fast:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/build
 .PHONY : bftest/fast
 
+src/algs.o: src/algs.c.o
+
+.PHONY : src/algs.o
+
+# target to build an object file
+src/algs.c.o:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.o
+.PHONY : src/algs.c.o
+
+src/algs.i: src/algs.c.i
+
+.PHONY : src/algs.i
+
+# target to preprocess a source file
+src/algs.c.i:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.i
+.PHONY : src/algs.c.i
+
+src/algs.s: src/algs.c.s
+
+.PHONY : src/algs.s
+
+# target to generate assembly for a file
+src/algs.c.s:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.s
+.PHONY : src/algs.c.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bftest"
+	@echo "... src/algs.o"
+	@echo "... src/algs.i"
+	@echo "... src/algs.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -10,6 +10,9 @@ extern "C"
 #include<string>
 #include<sstream>
 #include<algorithm>
+#include<termios.h>
+#include<unistd.h>
+
 
 using namespace cv;
 
@@ -19,22 +22,9 @@ using namespace cv;
 #define IMG_WIDTH 320
 #define IMG_HEIGHT 240
 
-struct DenoiseRowLU2
-{
-    uint8_t top[16];
-};
-
-struct DenoiseRowLU
-{
-    struct DenoiseRowLU2 bot[16];
-};
-
-struct DenoiseLookup
-{
-    struct DenoiseRowLU cur[64];
-};
-
 int32_t getNumFilesWithExtension(const char* folderPath, const char* fileExt);
+int mygetch(void);
+
 void DenoiseInitLookup(struct DenoiseLookup* lu);
 void denoise(uint8_t* img, struct DenoiseLookup* lu);
 
@@ -50,10 +40,10 @@ int main(int argc, char** argv)
 {
 	// args: ./bftest <absolute file path to "images" folder> <specific test case folder name> 
 	// we're assuming <SOME_PATH>/images/01, <SOME_PATH>/images/02, etc.
-	if(argc != 3)
+	if(argc != 4)
 	{
-		std::cout << "Three and only three arguments needed, please." << std::endl;
-		std::cout << "./bftest <absolute file path to 'images' folder> <specific test case folder name>" << std::endl;
+		std::cout << "Four arguments needed, please." << std::endl;
+		std::cout << "./bftest <absolute file path to 'images' folder> <specific test case folder name> <'f', if you want to step through frame by frame'" << std::endl;
 		return -1;
 	}
  
@@ -124,19 +114,26 @@ int main(int argc, char** argv)
 		}
 
 		// floodfill (on bit image)
-		int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
+/*		int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
 		if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early
 		{
 			// TODO: handle exception
 			numObjects = OBJECT_ARRAY_LENGTH;
 		}
 		// trajectories
-
+*/
 		// draw boxes on image from floodfill
 		Mat newImg(IMG_HEIGHT, IMG_WIDTH,  CV_8UC1, newByteImg);
 
 		imwrite(imgWriteFp.str().c_str(), newImg);	
 		
+		if(argv[3][0] == 'f')
+		{
+			imshow("a", newImg);
+			waitKey(10);
+		    mygetch();
+			//getchar();
+		}
 		// draw arrows on image from trajectories
 	}
 }
@@ -237,4 +234,17 @@ int32_t getNumFilesWithExtension(const char* folderPath, const char* fileExt)
 }
 
 
+int mygetch ( void ) 
+{
+  int ch;
+  struct termios oldt, newt;
 
+  tcgetattr ( STDIN_FILENO, &oldt );
+  newt = oldt;
+  newt.c_lflag &= ~( ICANON | ECHO );
+  tcsetattr ( STDIN_FILENO, TCSANOW, &newt );
+  ch = getchar();
+  tcsetattr ( STDIN_FILENO, TCSANOW, &oldt );
+
+  return ch;
+}

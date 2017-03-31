@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.c
+algs.h
+/home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
+
+/home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
+stdint.h
+-
+

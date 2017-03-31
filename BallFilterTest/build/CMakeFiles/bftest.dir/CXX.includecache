@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
+/home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
+stdint.h
+-
+
 /home/tbadams45/XMOS/autoump/BallFilterTest/src/main.cpp
 dirent.h
 -
+algs.h
+/home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
 iostream
 -
 stdio.h
@@ -22,6 +28,10 @@ string
 sstream
 -
 algorithm
+-
+termios.h
+-
+unistd.h
 -
 
 /usr/local/include/opencv/cxcore.h
