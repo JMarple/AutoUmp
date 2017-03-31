@@ -23,7 +23,7 @@ do
 	export TOP_DIR="$(dirname $PWD)"
 	export TEST_DIR=`basename $PWD`
 	echo "-------- Test Number: $TEST_DIR --------"
-	$exe_fp $TOP_DIR $TEST_DIR
+	$exe_fp $TOP_DIR $TEST_DIR d
 	
 	cd "$TOP_DIR" # going back to the top 
 done 

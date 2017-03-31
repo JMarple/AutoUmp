@@ -109,7 +109,7 @@ int main(int argc, char** argv)
 			uint8_t data = bitImg[i];
 			for(int j = 0; j < 8; j++)
 			{
-				newByteImg[i*8+ j] = ((data >> j) & 0b1)*255;
+				newByteImg[i*8+ j] = ((data >> (7-j)) & 0b1)*255;
 			}
 		}
 
