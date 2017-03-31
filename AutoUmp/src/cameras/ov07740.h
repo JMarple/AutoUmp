@@ -2,6 +2,7 @@
 #define __OV07740_H__
 
 #include <stdint.h>
+#include "algs.h"
 
 #define BACKGROUND_SUBTRACTION_THRESHOLD 10
 
@@ -23,8 +24,9 @@ void OV07740_MasterThread(
     chanend ff1,
     chanend ff2,
     chanend uart1,
-    uint8_t* unsafe objCenters1,
-    uint8_t* unsafe objCenters2);
+    uint8_t* unsafe objInfo1,
+    uint8_t* unsafe objInfo2,
+    interface MasterToFloodFillInter client mt22);
 
 void OV07740_GatherDataThread(
     streaming chanend cmdStream,

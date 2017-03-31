@@ -2,6 +2,7 @@
 #include <platform.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdint.h>
 
 #include "algs.h"
@@ -60,7 +61,6 @@ void FloodFill(
     {
         newBitBuffer[i] = bitBuffer[i];
     }
-
 
     // actual floodfill
     int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
@@ -142,7 +142,7 @@ static void _DenoiseInitElement(uint8_t* output, uint8_t cur, uint8_t bot, uint8
         count += (bot & 0b0001);
 
         //printf("count=%d ", count);
-        if (count >= 2) result |= ((1*curBit) << i);
+        if (count > 2) result |= ((1*curBit) << i);
 
         top >>= 1;
         bot >>= 1;
@@ -173,28 +173,95 @@ void DenoiseInitLookup(struct DenoiseLookup* unsafe lu)
 }}
 
 
-void FloodFillThread(chanend stream, struct Object* objArray, struct Queue* queue, uint8_t* unsafe objInfo, struct DenoiseLookup* unsafe lu )
+void FloodFillThread(
+    chanend stream,
+    interface MasterToFloodFillInter server mtff,
+    struct Object* objArray,
+    struct Queue* queue,
+    uint8_t* unsafe objInfo,
+    uint8_t* unsafe bitBuffer,
+    struct DenoiseLookup* unsafe lu )
 { unsafe {
+
     uint32_t start, end;
     timer t;
 
     while (1==1)
     {
-        // Blocking statement that recieves a bit image
-        uint32_t* unsafe bitBuffer;
-        stream :> bitBuffer;
+        select {
+            case mtff.sendBitBuffer(uint8_t tmpBitBuf[], uint32_t n):
+                t :> start;
+                memcpy(bitBuffer, tmpBitBuf, n*sizeof(uint8_t));
 
-        t :> start;
+                FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue, objInfo, lu);
 
-        FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue, objInfo, lu);
-
-        t :> end;
-        delay_milliseconds(50);
-        printf("Clock ticks (@100Mhz) = %d\n", (end - start));
-
+                t :> end;
+                delay_milliseconds(50);
+                printf("Clock ticks (@100Mhz) = %d\n", (end - start));
+                break;
+        }
         stream <: 0;
     }
 }}
+/*void DenoiseRow(
+    uint32_t* unsafe top,
+    uint32_t* unsafe cur,
+    uint32_t* unsafe bot,
+    struct DenoiseLookup* unsafe lu)
+{ unsafe {
+
+    // init
+    uint32_t topWord  = 0;
+    uint32_t curWord  = 0;
+    uint32_t botWord  = 0;
+    uint32_t topBit   = 0;
+    uint32_t curBit   = 0;
+    uint32_t botBit   = 0;
+    uint32_t rightBit = 0;
+    uint32_t leftBit  = 0;
+    uint32_t result   = 0;
+    uint32_t outWord  = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        topWord = top[i];
+        curWord = cur[i];
+        botWord = bot[i];
+        for (int k = 0; k < 32; k++)
+        {
+            rightBit = curWord & 0x1;
+
+            // compute result
+            result = topBit + botBit + leftBit + rightBit;
+            result = ((result > 2) * curBit) << 31;
+
+            outWord |= result;
+
+            // shift words
+            curWord = curWord >> 1;
+
+            if(k == 0 && i != 0)
+            {
+                cur[i-1] = outWord;
+                outWord = 0;
+            }
+
+            outWord = outWord >> 1;
+
+            // shift bits
+            leftBit = curBit;
+            curBit  = rightBit;
+
+            topBit  = topWord & 0x1;
+            botBit  = botWord & 0x1;
+
+            // shift words
+            topWord = topWord >> 1;
+            botWord = botWord >> 1;
+        }
+    }
+    cur[9] = outWord;
+}}*/
 
 void DenoiseRow(
     uint32_t* unsafe top,
@@ -220,39 +287,48 @@ void DenoiseRow(
         //printf("Row %d, %x %x %x\n", i, top[i], cur[i], bot[i]);
     }
 
+    curWord = (cur[0] << 1);
+    topWord = top[0];
+    botWord = bot[0];
+
     for (int i = 0; i < 320; i+=4)
     {
         int idx = i / 32;
-        if (i % 32 == 0)
+        if (i % 32 == 8)
         {
-            //printf("Loading with idx = %d\n", idx);
-            curWord |= (cur[idx] << 1);
-            topWord = top[idx];
-            botWord = bot[idx];
-            //printf("Loaded = %x %x %x\n", curWord, topWord, botWord);
-        }
-        else if (i % 32 == 4)
-        {
-            uint32_t tmp = (cur[idx] & 0x80000000) >> 3;
+            uint32_t tmp = (cur[idx] & 0xF8000000) >> 7;
+            //printf("imod32=4, %x %x\n", tmp, curWord);
             curWord |= tmp;
+            //printf("curNow = %x\n", curWord);
+        }
+        else if (i % 32 == 28)
+        {
+            //printf("CurBefore=%x\n", curWord);
+            curWord |= (cur[idx+1] << 5);
+            //printf("CurAfter=%x\n", curWord);
+            //printf("Loaded = %x %x %x\n", curWord, topWord, botWord);
         }
 
         uint32_t res = lu->cur[curWord & 0x3F].bot[botWord & 0xF].top[topWord & 0xF];
-        //printf("c=%d %x, %x %x %x\n", i, res, curWord& 0x3F, botWord& 0xF, topWord& 0xF);
+        //printf("c=%03d %08x, %x, %x %x %x\n", i, curWord, res, curWord& 0x3F, botWord& 0xF, topWord& 0xF);
 
         res <<= 28;
         outWord |= res;
+
+        topWord >>= 4;
+        botWord >>= 4;
 
         // Save outWord
         if (i % 32 == 28)
         {
             cur[idx] = outWord;
             //printf("Out = %x\n", outWord);
+            topWord = top[idx];
+            botWord = bot[idx];
         }
 
         outWord >>= 4;
         curWord >>= 4;
-        topWord >>= 4;
-        botWord >>= 4;
     }
 }}
+

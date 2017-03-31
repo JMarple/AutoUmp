@@ -1,6 +1,0 @@
-15:23:04 **** Build of configuration Default for project lib_gpio ****
-xmake -f .makefile all 
-** Module only - only builds as part of application **
-
-15:23:04 Build Finished (took 68ms)
-

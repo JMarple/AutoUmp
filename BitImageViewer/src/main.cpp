@@ -432,7 +432,7 @@ int main(int argc, char** argv)
 */
 
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
-		makeLine(&M_color, 160, GREEN, 1);
+		//makeLine(&M_color, 160, GREEN, 1);
 
 
 /** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
@@ -464,7 +464,7 @@ int main(int argc, char** argv)
 
 //		imshow("a", M);
 		imshow("a", M_color);
-        waitKey(250);
+        waitKey(10);
 
 		// only do anything here if we're given a folder name to store files
 		if(argc == 2)

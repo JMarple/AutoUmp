@@ -1,6 +1,0 @@
-14:07:43 **** Incremental Build of configuration Default for project lib_omnivision ****
-xmake -f .makefile all 
-"** Module only - only builds as part of application **"
-
-14:07:43 Build Finished (took 146ms)
-
