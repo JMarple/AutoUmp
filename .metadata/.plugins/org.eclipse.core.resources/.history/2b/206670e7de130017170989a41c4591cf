@@ -1,0 +1,294 @@
+#include "io.h"
+#include <stdio.h>
+#include <timer.h>
+#include <stdint.h>
+
+struct gameState
+{
+    uint8_t balls;
+    uint8_t strikes;
+    uint8_t outs;
+    uint8_t height;
+    uint8_t inning;
+    uint8_t isBottom;
+    uint8_t home;
+    uint8_t away;
+};
+
+float lastBallx;
+float lastBally;
+
+void initGameState(struct gameState* gs)
+{
+    gs->balls    = 0;
+    gs->strikes  = 0;
+    gs->outs     = 0;
+    gs->height   = 0;
+    gs->inning   = 0;
+    gs->isBottom = 0;
+    gs->home     = 0;
+    gs->away     = 0;
+}
+
+void copyGameState(struct gameState* new, struct gameState* old)
+{
+    new->balls    = old->balls;
+    new->strikes  = old->strikes;
+    new->outs     = old->outs;
+    new->height   = old->height;
+    new->inning   = old->inning;
+    new->isBottom = old->isBottom;
+    new->home     = old->home;
+    new->away     = old->away;
+}
+
+struct gameState currentState;
+
+/* stack definition */
+#define STACK_SIZE 100
+struct gameState commandStack[STACK_SIZE];
+uint8_t top;
+uint8_t numElem;
+
+// overwrites the oldest state
+void stackPush(struct gameState* stack, struct gameState state)
+{
+    stack[top] = state;
+    top = (top + 1) % STACK_SIZE;
+    if(numElem != STACK_SIZE)
+    {
+        numElem++;
+    }
+}
+
+char stackPop(struct gameState* stack)
+{
+    if(numElem == 0)
+    {
+        return 'E'; // error
+    }
+
+    struct gameState state = stack[top];
+    numElem--;
+
+    if(top == 0)
+    {
+        top = STACK_SIZE - 1;
+    }
+    else
+    {
+        top--;
+    }
+
+    return state;
+}
+/* end stack definition */
+
+// undos command
+void handleUndo(char command)
+{
+    switch(command)
+    {
+        case '0': // change height
+            height = prevHeight;
+            break;
+
+        case '1': // ball increment
+
+            break;
+
+        case '2': // strike increment
+
+            break;
+
+        case '3': // out increment
+
+            break;
+
+        case '4': // clear count
+
+            break;
+
+        case '6': // home score increment
+            break;
+
+        case '7': // inning increment
+            break;
+
+        case '8': // away score increment
+            break;
+
+        default:
+            break;
+    }
+}
+
+void sendGameStatus(chanend x)
+{
+    char output[30];
+
+    // Format: BB_SS_OO_HH_XX.XXX_YY.YYY
+    snprintf(output, 30, "%01d %01d %01d %02d %06.3f %06.3f\n",
+        balls, strikes, outs, height, lastBallx, lastBally);
+
+    for (int i = 0; i < 30; i++)
+    {
+        x <: output[i];
+
+        if (output[i] == '\n') break;
+    }
+}
+
+
+
+/*
+ * Gets and updates game/batter data, as sent by the app.
+ *
+ * The XMOS will receive the following 5 byte string:
+ * "C HH\n"
+ * HH is an integer between 00-99, and represents the height of the batter in inches.
+ * C is an integer between 0-8, and represents the command the user has executed.
+ * Commands:
+ *  0: change height
+ *  1: balls increment
+ *  2: strikes increment
+ *  3: outs increment
+ *  4: clear count
+ *  5: undo last command
+ *  6: home score increment
+ *  7: inning increment
+ *  8: away score increment
+ */
+void getGameStatus(streaming chanend x)
+{
+    // Parse message.
+    char input[5];
+
+    for (int i = 0; i < 30; i++)
+    {
+       x :> input[i];
+       if (input[i] == '\n') break;
+    }
+
+    // update information
+    switch(input[0])
+    {
+        case '0': // change height
+
+            uint8_t high = input[2] - '0';
+            uint8_t low  = input[3] - '0';
+            height = high*10 + low;
+            stackPush(commandStack, '0');
+            break;
+
+        case '1': // ball increment
+            balls = (balls + 1) % 4;
+            stackPush(commandStack, '1');
+            break;
+
+        case '2': // strike increment
+            strikes = (strikes + 1) % 3;
+            stackPush(commandStack, '2');
+            break;
+
+        case '3': // out increment
+            outs = (outs + 1) % 3;
+            stackPush(commandStack, '3');
+            break;
+
+        case '4': // clear count
+            balls   = 0;
+            strikes = 0;
+            outs    = 0;
+            stackPush(commandStack, '4');
+            break;
+
+        case '5': // undo
+            char command = stackPop(commandStack);
+            if(command == 'E') // stack empty
+            {
+                break;
+            }
+            handleUndo(command);
+            break;
+
+        case '6': // home score increment
+            home++;
+            stackPush(commandStack, '6');
+            break;
+
+        case '7': // inning increment
+            if(isBottom)
+            {
+                isBottom = 0; // set to top of inning
+                inning++;
+            }
+            else
+            {
+                isBottom = 1;
+            }
+            stackPush(commandStack, '7');
+            break;
+
+        case '8': // away score increment
+            away++;
+            stackPush(commandStack, '8');
+            break;
+
+        default:
+            break;
+    }
+
+    sscanf(input, "%01d %01d %01d %02d %06.3f %06.3f\n",
+            balls, strikes, outs, height, lastBallx, lastBally);
+}
+
+void testing(chanend x)
+{
+    while (1==1)
+    {
+        balls = 2;
+        strikes = 1;
+        height = 72;
+        lastBallx = 50.000;
+        lastBally = 50.000;
+
+        sendGameStatus(x);
+        delay_milliseconds(200);
+    }
+}
+
+void recievedData(streaming chanend y)
+{
+    while (1==1)
+    {
+        //getGameStatus(y);
+        //printf("DtaOut = %c\n", input);
+    }
+}
+
+int main()
+{
+    //printf("--- UART Tester ---\n");
+    chan x;
+    streaming chan y;
+
+    // initialize
+    for(int i = 0; i < STACK_SIZE; i++)
+    {
+        initGameState(&commandStack[i]);
+    }
+    initGameState(&currentGameState);
+
+
+
+    par
+    {
+        BluetoothTxThread(x);
+        testing(x);
+        recievedData(y);
+        BluetoothRxThread(y);
+    }
+    return 0;
+}
+
