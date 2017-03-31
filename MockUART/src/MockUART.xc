@@ -274,8 +274,8 @@ int main()
     currentGameState.balls = 2;
     currentGameState.strikes = 1;
     currentGameState.height = 72;
-    lastBallx = 50.000;
-    lastBally = 50.000;
+    lastBallx = 24.000;
+    lastBally = 39.000;
 
     struct gameState* unsafe tmpState = (struct gameState* unsafe)&currentGameState;
 
