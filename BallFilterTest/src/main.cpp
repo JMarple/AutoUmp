@@ -108,8 +108,8 @@ int main(int argc, char** argv)
 		{
 			for(int j = 0; j < 8; j++)
 			{
-				// first pixel is in MSB. I think this is the same as XMOS.
-				bitImg[i] |= (byteImg[i*8 + j] & 0b1) << (7-j); 
+				// this assumes that first pixel is stored in LSB.
+				bitImg[i] |= (byteImg[i*8 + j] & 0b1) << j;
 			}
 		}
 
@@ -132,7 +132,8 @@ int main(int argc, char** argv)
 			uint8_t data = bitImg[i];
 			for(int j = 0; j < 8; j++)
 			{
-				newByteImg[i*8+ j] = ((data >> (7-j)) & 0b1)*255;
+				// assumes first pixel (pixel 0)  is in LSB
+				newByteImg[i*8 + j] = ((data >> j) & 0b1)*255;
 			}
 		}
 

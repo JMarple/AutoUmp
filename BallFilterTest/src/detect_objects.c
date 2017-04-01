@@ -133,8 +133,8 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
             // END queueEnqueue(q, indexCurrent);
 
             // START setBitInPic(bitPicture, indexCurrent, 0);
-            uint32_t byteIndex = indexCurrent >> 3;
-            uint8_t bitNum = indexCurrent & 7;
+            uint32_t byteIndex = indexCurrent >> 3; // divide by 8
+            uint8_t bitNum = indexCurrent & 7; // mod 8
             bitPicture[byteIndex] = (bitPicture[byteIndex] & ~(1 << bitNum));
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
