@@ -1,0 +1,3 @@
+/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles/edit_cache.dir
+/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles/rebuild_cache.dir
+/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles/bftest.dir

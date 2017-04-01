@@ -1,0 +1,13 @@
+12:29:25 **** Incremental Build of configuration Default for project MockUART ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing MockUART.xc
+Creating dependencies for MockUART.xc
+Compiling MockUART.xc
+Compiling io.xc
+Creating MockUART.xe
+Build Complete
+
+12:29:25 Build Finished (took 718ms)
+

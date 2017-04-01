@@ -1,0 +1,19 @@
+#define STACK_SIZE 100
+
+struct Stack
+{
+    uint8_t stack[STACK_SIZE];
+    uint8_t top;
+};
+uint8_t commandStack[STACK_SIZE];
+
+
+void stackPush(uint8_t* stack, uint8_t command)
+{
+
+}
+
+uint8_t stackPop(uint8_t* stack)
+{
+
+}
