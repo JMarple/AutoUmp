@@ -19,14 +19,9 @@ int OV07740_ConfigureCameras();
 void launchCameras(chanend uart1);
 
 void OV07740_MasterThread(
-    streaming chanend cam1,
-    streaming chanend cam2,
-    chanend ff1,
-    chanend ff2,
-    chanend uart1,
-    uint8_t* unsafe objInfo1,
-    uint8_t* unsafe objInfo2,
-    interface MasterToFloodFillInter client mt22);
+    streaming chanend cams[],
+    interface MasterToFloodFillInter client m2ff_tile1[],
+    interface MasterToFloodFillInter client m2ff_tile0[]);
 
 void OV07740_GatherDataThread(
     streaming chanend cmdStream,

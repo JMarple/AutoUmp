@@ -15,21 +15,8 @@ void FloodFill(
     uint8_t* unsafe bitBuffer,
     struct Object* objArray,
     struct Queue* queue,
-    uint8_t* unsafe objInfo,
     struct DenoiseLookup* unsafe lu)
 { unsafe {
-
-
-   /* uint32_t top[10];
-    uint32_t cur[10];
-    uint32_t bot[10];
-
-    top[0] = 0b11111111;
-    cur[0] = 0b01100110;
-    bot[0] = 0b11111111;
-
-    DenoiseRow(top, cur, bot, lu);
-    return;*/
 
     for (int i = 2; i < IMG_HEIGHT; i++)
     {
@@ -72,7 +59,7 @@ void FloodFill(
 
     //findCenters
     computeCenters(objArray, numObjects);
-    packObjects(objArray, objInfo, numObjects);
+    //packObjects(objArray, objInfo, numObjects);
 
     /*struct Object afterArr[250];
     initObjectArray(afterArr, 250);
@@ -174,33 +161,28 @@ void DenoiseInitLookup(struct DenoiseLookup* unsafe lu)
 
 
 void FloodFillThread(
-    chanend stream,
     interface MasterToFloodFillInter server mtff,
-    struct Object* objArray,
-    struct Queue* queue,
-    uint8_t* unsafe objInfo,
-    uint8_t* unsafe bitBuffer,
-    struct DenoiseLookup* unsafe lu )
+    interface FloodFillToObjectInter client ff2ot,
+    struct DenoiseLookup* unsafe lu, int num)
 { unsafe {
 
-    uint32_t start, end;
-    timer t;
+
+    uint8_t bitBuffer[320*240/8];
+    struct Queue queue;
+    struct Object objArray[OBJECT_ARRAY_LENGTH];
 
     while (1==1)
     {
         select {
             case mtff.sendBitBuffer(uint8_t tmpBitBuf[], uint32_t n):
-                t :> start;
                 memcpy(bitBuffer, tmpBitBuf, n*sizeof(uint8_t));
-
-                FloodFill((uint8_t* unsafe)bitBuffer, objArray, queue, objInfo, lu);
-
-                t :> end;
-                delay_milliseconds(50);
-                printf("Clock ticks (@100Mhz) = %d\n", (end - start));
                 break;
         }
-        stream <: 0;
+
+        // Do FloodFill Here
+        //FloodFill((uint8_t* unsafe)bitBuffer, objArray, &queue, lu);
+
+        ff2ot.sendObjects(objArray, OBJECT_ARRAY_LENGTH, num);
     }
 }}
 /*void DenoiseRow(
