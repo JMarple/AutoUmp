@@ -1,6 +1,6 @@
 #include "algs.h"
-//#include "detect_objects.h"
-
+#include "detect_objects.h"
+#include "queue.h"
 
 void DenoiseRow(
     uint32_t* top,

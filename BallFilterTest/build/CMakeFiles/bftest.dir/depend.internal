@@ -4,9 +4,23 @@
 CMakeFiles/bftest.dir/src/algs.c.o
  /home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.c
  /home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.h
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.h
+CMakeFiles/bftest.dir/src/detect_objects.c.o
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.c
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.h
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/main.hpp
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.h
+CMakeFiles/bftest.dir/src/queue.c.o
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.c
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.h
 CMakeFiles/bftest.dir/src/main.cpp.o
  /home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.h
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.h
  /home/tbadams45/XMOS/autoump/BallFilterTest/src/main.cpp
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/main.hpp
+ /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.h
  /usr/local/include/opencv/cxcore.h
  /usr/local/include/opencv2/calib3d.hpp
  /usr/local/include/opencv2/calib3d/calib3d_c.h

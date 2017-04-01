@@ -105,16 +105,68 @@ CMakeFiles/bftest.dir/src/algs.c.o.provides: CMakeFiles/bftest.dir/src/algs.c.o.
 CMakeFiles/bftest.dir/src/algs.c.o.provides.build: CMakeFiles/bftest.dir/src/algs.c.o
 
 
+CMakeFiles/bftest.dir/src/detect_objects.c.o: CMakeFiles/bftest.dir/flags.make
+CMakeFiles/bftest.dir/src/detect_objects.c.o: ../src/detect_objects.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/bftest.dir/src/detect_objects.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/bftest.dir/src/detect_objects.c.o   -c /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.c
+
+CMakeFiles/bftest.dir/src/detect_objects.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bftest.dir/src/detect_objects.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.c > CMakeFiles/bftest.dir/src/detect_objects.c.i
+
+CMakeFiles/bftest.dir/src/detect_objects.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bftest.dir/src/detect_objects.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.c -o CMakeFiles/bftest.dir/src/detect_objects.c.s
+
+CMakeFiles/bftest.dir/src/detect_objects.c.o.requires:
+
+.PHONY : CMakeFiles/bftest.dir/src/detect_objects.c.o.requires
+
+CMakeFiles/bftest.dir/src/detect_objects.c.o.provides: CMakeFiles/bftest.dir/src/detect_objects.c.o.requires
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/detect_objects.c.o.provides.build
+.PHONY : CMakeFiles/bftest.dir/src/detect_objects.c.o.provides
+
+CMakeFiles/bftest.dir/src/detect_objects.c.o.provides.build: CMakeFiles/bftest.dir/src/detect_objects.c.o
+
+
+CMakeFiles/bftest.dir/src/queue.c.o: CMakeFiles/bftest.dir/flags.make
+CMakeFiles/bftest.dir/src/queue.c.o: ../src/queue.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/bftest.dir/src/queue.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/bftest.dir/src/queue.c.o   -c /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.c
+
+CMakeFiles/bftest.dir/src/queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bftest.dir/src/queue.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.c > CMakeFiles/bftest.dir/src/queue.c.i
+
+CMakeFiles/bftest.dir/src/queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bftest.dir/src/queue.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.c -o CMakeFiles/bftest.dir/src/queue.c.s
+
+CMakeFiles/bftest.dir/src/queue.c.o.requires:
+
+.PHONY : CMakeFiles/bftest.dir/src/queue.c.o.requires
+
+CMakeFiles/bftest.dir/src/queue.c.o.provides: CMakeFiles/bftest.dir/src/queue.c.o.requires
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/queue.c.o.provides.build
+.PHONY : CMakeFiles/bftest.dir/src/queue.c.o.provides
+
+CMakeFiles/bftest.dir/src/queue.c.o.provides.build: CMakeFiles/bftest.dir/src/queue.c.o
+
+
 # Object files for target bftest
 bftest_OBJECTS = \
 "CMakeFiles/bftest.dir/src/main.cpp.o" \
-"CMakeFiles/bftest.dir/src/algs.c.o"
+"CMakeFiles/bftest.dir/src/algs.c.o" \
+"CMakeFiles/bftest.dir/src/detect_objects.c.o" \
+"CMakeFiles/bftest.dir/src/queue.c.o"
 
 # External object files for target bftest
 bftest_EXTERNAL_OBJECTS =
 
 bftest: CMakeFiles/bftest.dir/src/main.cpp.o
 bftest: CMakeFiles/bftest.dir/src/algs.c.o
+bftest: CMakeFiles/bftest.dir/src/detect_objects.c.o
+bftest: CMakeFiles/bftest.dir/src/queue.c.o
 bftest: CMakeFiles/bftest.dir/build.make
 bftest: /usr/local/lib/libopencv_shape.so.3.2.0
 bftest: /usr/local/lib/libopencv_stitching.so.3.2.0
@@ -133,7 +185,7 @@ bftest: /usr/local/lib/libopencv_imgcodecs.so.3.2.0
 bftest: /usr/local/lib/libopencv_imgproc.so.3.2.0
 bftest: /usr/local/lib/libopencv_core.so.3.2.0
 bftest: CMakeFiles/bftest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bftest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bftest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bftest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -143,6 +195,8 @@ CMakeFiles/bftest.dir/build: bftest
 
 CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/main.cpp.o.requires
 CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/algs.c.o.requires
+CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/detect_objects.c.o.requires
+CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/queue.c.o.requires
 
 .PHONY : CMakeFiles/bftest.dir/requires
 

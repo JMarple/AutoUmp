@@ -6,6 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/tbadams45/XMOS/autoump/BallFilterTest/src/algs.c" "/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles/bftest.dir/src/algs.c.o"
+  "/home/tbadams45/XMOS/autoump/BallFilterTest/src/detect_objects.c" "/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles/bftest.dir/src/detect_objects.c.o"
+  "/home/tbadams45/XMOS/autoump/BallFilterTest/src/queue.c" "/home/tbadams45/XMOS/autoump/BallFilterTest/build/CMakeFiles/bftest.dir/src/queue.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

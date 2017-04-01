@@ -150,6 +150,33 @@ src/algs.c.s:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.s
 .PHONY : src/algs.c.s
 
+src/detect_objects.o: src/detect_objects.c.o
+
+.PHONY : src/detect_objects.o
+
+# target to build an object file
+src/detect_objects.c.o:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/detect_objects.c.o
+.PHONY : src/detect_objects.c.o
+
+src/detect_objects.i: src/detect_objects.c.i
+
+.PHONY : src/detect_objects.i
+
+# target to preprocess a source file
+src/detect_objects.c.i:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/detect_objects.c.i
+.PHONY : src/detect_objects.c.i
+
+src/detect_objects.s: src/detect_objects.c.s
+
+.PHONY : src/detect_objects.s
+
+# target to generate assembly for a file
+src/detect_objects.c.s:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/detect_objects.c.s
+.PHONY : src/detect_objects.c.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -177,6 +204,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/queue.o: src/queue.c.o
+
+.PHONY : src/queue.o
+
+# target to build an object file
+src/queue.c.o:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/queue.c.o
+.PHONY : src/queue.c.o
+
+src/queue.i: src/queue.c.i
+
+.PHONY : src/queue.i
+
+# target to preprocess a source file
+src/queue.c.i:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/queue.c.i
+.PHONY : src/queue.c.i
+
+src/queue.s: src/queue.c.s
+
+.PHONY : src/queue.s
+
+# target to generate assembly for a file
+src/queue.c.s:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/queue.c.s
+.PHONY : src/queue.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +243,15 @@ help:
 	@echo "... src/algs.o"
 	@echo "... src/algs.i"
 	@echo "... src/algs.s"
+	@echo "... src/detect_objects.o"
+	@echo "... src/detect_objects.i"
+	@echo "... src/detect_objects.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/queue.o"
+	@echo "... src/queue.i"
+	@echo "... src/queue.s"
 .PHONY : help
 
 

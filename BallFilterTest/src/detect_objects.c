@@ -3,6 +3,7 @@
 #include <stdlib.h> // for abs()
 #include "detect_objects.h"
 #include "algs.h"
+#include "main.hpp"
 
 void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxY)
 {
@@ -418,7 +419,7 @@ void packObjects(
         buffer[numObjects*12] = 0xFF;
         buffer[numObjects*12+1] = 0xFF;
     }
-}}
+}
 
 int32_t unpackObjects(
     struct Object* objArray,

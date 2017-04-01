@@ -124,6 +124,9 @@ uint8_t getBitInPic(
     uint8_t* bitPicture,
     uint32_t bitIndex);
 
+int8_t setBitInPic(uint8_t* bitPicture, uint32_t bitIndex, uint8_t val);
+
+
 /*uint8_t getBitInByte(
     uint8_t byte,
     uint32_t bitLoc);*/

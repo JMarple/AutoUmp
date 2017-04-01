@@ -2,31 +2,54 @@ extern "C"
 {
 	#include <dirent.h>
 	#include "algs.h"
+	#include "detect_objects.h"
+	#include "queue.h"
 }
-#include<iostream>
-#include<stdio.h>
-#include<stdint.h>
-#include<opencv2/opencv.hpp>
-#include<string>
-#include<sstream>
-#include<algorithm>
-#include<termios.h>
-#include<unistd.h>
-
+#include <iostream>
+#include <stdio.h>
+#include <stdint.h>
+#include <opencv2/opencv.hpp>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <termios.h>
+#include <unistd.h>
+#include "main.hpp"
 
 using namespace cv;
 
 #define RED 0 
 #define GREEN 1
 #define BLUE 2
-#define IMG_WIDTH 320
-#define IMG_HEIGHT 240
 
-int32_t getNumFilesWithExtension(const char* folderPath, const char* fileExt);
+int32_t getNumFilesWithExtension(
+	const char* folderPath, 
+	const char* fileExt);
+
 int mygetch(void);
 
-void DenoiseInitLookup(struct DenoiseLookup* lu);
-void denoise(uint8_t* img, struct DenoiseLookup* lu);
+void DenoiseInitLookup(
+	struct DenoiseLookup* lu);
+
+void denoise(
+	uint8_t* img, 
+	struct DenoiseLookup* lu);
+
+// makes a horizontal or vertical line. color can be RED, GREEN, or BLUE
+void makeLine(
+	Mat* colorImage, 
+	uint16_t rowOrColumn, 
+	uint16_t color, 
+	uint16_t isVertical);
+
+// makes a rectangle. color can be RED, GREEN, or BLUE
+void makeBox(
+    Mat* colorImage,
+    uint16_t minX,
+    uint16_t maxX,
+    uint16_t minY,
+    uint16_t maxY, 
+    uint16_t color);
 
 
 /* 
@@ -114,27 +137,61 @@ int main(int argc, char** argv)
 		}
 
 		// floodfill (on bit image)
-/*		int32_t numObjects = scanPic(objArray, queue, newBitBuffer);
+		struct Object objArray[OBJECT_ARRAY_LENGTH];
+		initObjectArray(objArray, OBJECT_ARRAY_LENGTH);
+		
+		struct Queue queue;
+		queueInit(&queue);
+
+		int32_t numObjects = scanPic(objArray, &queue, bitImg);
 		if(numObjects == -1) // we hit more objects than we had space for and ended floodfill early
 		{
 			// TODO: handle exception
 			numObjects = OBJECT_ARRAY_LENGTH;
 		}
-		// trajectories
-*/
+
 		// draw boxes on image from floodfill
 		Mat newImg(IMG_HEIGHT, IMG_WIDTH,  CV_8UC1, newByteImg);
+		Mat newColorImg;
+		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
-		imwrite(imgWriteFp.str().c_str(), newImg);	
-		
+		for(int i = 0; i < numObjects; i++)
+		{
+			if (objArray[i].isBall == 1)
+			{
+				makeBox(
+					&newColorImg,
+					objArray[i].box[0], // + 8? 
+					objArray[i].box[1], // + 8? 
+					objArray[i].box[2],
+					objArray[i].box[3],
+					RED);
+			}
+			else
+			{
+				makeBox(
+					&newColorImg,
+					objArray[i].box[0], // + 8?
+					objArray[i].box[1], // + 8?
+					objArray[i].box[2],
+					objArray[i].box[3],
+					GREEN);
+			}
+		}
+
+
+		// trajectories
+
+		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')
 		{
-			imshow("a", newImg);
+			imshow("a", newColorImg);
 			waitKey(10);
-		    mygetch();
+			mygetch();
 			//getchar();
 		}
-		// draw arrows on image from trajectories
+
+		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
 }
 
@@ -248,3 +305,106 @@ int mygetch ( void )
 
   return ch;
 }
+
+
+// makes a horitzontal or vertical line
+void makeLine(Mat* colorImage, uint16_t rowOrColumn, uint16_t color, uint16_t isVertical)
+{
+    Vec3b bgr;
+    
+    if(color == RED)
+    {   
+        bgr.val[0] = 0; // blue
+        bgr.val[1] = 0; // green
+        bgr.val[2] = 255; // red
+    }   
+    else if(color == GREEN)
+    {   
+        bgr.val[0] = 0; // blue
+        bgr.val[1] = 255; // green
+        bgr.val[2] = 0; // red 
+    }   
+    else if(color == BLUE)
+    {   
+        bgr.val[0] = 255; // blue
+        bgr.val[1] = 0; // green
+        bgr.val[2] = 0; // red     
+    }   
+
+    if(isVertical)
+    {   
+        for(int i = 0; i < IMG_HEIGHT; i++)
+        {
+            colorImage->at<Vec3b>(Point(rowOrColumn, i)) = bgr;
+        }
+    }   
+    else
+    {   
+        for(int i = 0; i < IMG_WIDTH; i++)
+        {
+            colorImage->at<Vec3b>(Point(i, rowOrColumn)) = bgr;
+        }
+    }   
+}
+
+void makeBox(
+    Mat* colorImage,
+    uint16_t minX,
+    uint16_t maxX,
+    uint16_t minY,
+    uint16_t maxY, 
+    uint16_t color)
+{
+    if(minX < 0 || minX > IMG_WIDTH-1 ||
+        maxX < 0 || maxX > IMG_WIDTH-1 ||
+        minY < 0 || minY > IMG_HEIGHT-1 ||
+        maxY < 0 || maxY > IMG_HEIGHT-1)
+    {
+        printf("out of bounds. You gave me: minX %i, maxX %i, minY %i, maxY %i\n",
+            minX,
+            maxX,
+            minY,
+            maxY);
+        return;
+    }
+
+    Vec3b bgr;
+        
+    if(color == RED)
+    {
+        bgr.val[0] = 0; // blue
+        bgr.val[1] = 0; // green
+        bgr.val[2] = 255; // red
+    }   
+    else if(color == GREEN)
+    {
+        bgr.val[0] = 0; // blue
+        bgr.val[1] = 255; // green
+        bgr.val[2] = 0; // red 
+    }   
+    else if(color == BLUE)
+    {
+        bgr.val[0] = 255; // blue
+        bgr.val[1] = 0; // green
+        bgr.val[2] = 0; // red     
+    }
+
+    // the values we use to draw
+    int realMinX = max(0, (int)minX);
+    int realMaxX = min(IMG_WIDTH-1, (int)maxX);
+    int realMinY = max(0, (int)minY);
+    int realMaxY = min(IMG_HEIGHT-1, (int)maxY);
+
+    for(int i = realMinX; i < realMaxX; i++)
+    {
+        colorImage->at<Vec3b>(Point(i, realMinY)) = bgr;
+        colorImage->at<Vec3b>(Point(i, realMaxY)) = bgr;
+    }
+
+    for(int i = realMinY; i < realMaxY; i++)
+    {   
+        colorImage->at<Vec3b>(Point(realMinX, i)) = bgr;
+        colorImage->at<Vec3b>(Point(realMaxX, i)) = bgr;
+    }   
+}
+
