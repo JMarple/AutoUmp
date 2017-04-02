@@ -349,6 +349,27 @@ int32_t filterBalls(struct Object* objectArray, uint16_t length)
     return numBalls;
 }
 
+// filter out anything less than a 3x3 square 
+int32_t filterLarge(struct Object* objArray, int32_t length)
+{
+	int32_t numLarge = 0;
+	for(int i = 0; i < length; i++)
+	{
+		uint32_t* box = objArray[i].box;
+		if(((box[1] - box[0]) > 2) &&
+		   ((box[3] - box[2]) > 2))
+		{
+			objArray[i].isBall = 1;
+			numLarge++;
+		}
+		else
+		{
+			objArray[i].isBall = 0;
+		}
+	}
+	return numLarge;
+} 
+
 void objectInit(struct Object* obj)
 {
     obj->id = EMPTY_OBJECT_ID; // no object
