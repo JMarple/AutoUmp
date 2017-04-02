@@ -1,0 +1,9 @@
+23:24:52 **** Incremental Build of configuration Default for project ObjectPackerTest ****
+xmake CONFIG=Default all 
+Checking build modules
+No build modules used.
+xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
+Build Complete
+
+23:24:53 Build Finished (took 286ms)
+

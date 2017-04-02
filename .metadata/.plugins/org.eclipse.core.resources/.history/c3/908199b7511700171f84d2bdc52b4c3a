@@ -1,0 +1,16 @@
+#include "object_tracker.h"
+#include "detect_objects.h"
+
+void ObjectTrackerInit(struct ObjectTracker* tracker)
+{
+    for (int i = 0; i < OBJECTS_NUM; i++)
+    {
+        tracker->tracks[0]
+    }
+}
+
+void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct Object* objects)
+{
+
+}
+

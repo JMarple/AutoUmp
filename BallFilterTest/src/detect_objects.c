@@ -39,7 +39,8 @@ int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* bitPicture)
         }
         else // got something to look at
         {
-            for(int i = 0; i < 8; i++)
+            int i;
+            for(i = 0; i < 8; i++)
             {
                 // start bitVal = getBitInByte(bitPicture[byteIndex], i); // data is arranged 7 6 5 4 3 2 2 1 0 for each byte.
                 bitVal = bitPicture[byteIndex] << (7-i);
@@ -296,7 +297,8 @@ void computeCenter(struct Object* object)
 // computes center for an array of objects
 void computeCenters(struct Object* objectArray, int32_t length)
 {
-    for (int i = 0; i < length; i++)
+    int i;
+    for (i = 0; i < length; i++)
     {
         computeCenter(&objectArray[i]);
     }
@@ -353,7 +355,8 @@ int32_t filterBalls(struct Object* objectArray, uint16_t length)
 int32_t filterLarge(struct Object* objArray, int32_t length)
 {
 	int32_t numLarge = 0;
-	for(int i = 0; i < length; i++)
+	int i;
+	for(i = 0; i < length; i++)
 	{
 		uint32_t* box = objArray[i].box;
 		if(((box[1] - box[0]) > 2) &&
@@ -385,7 +388,8 @@ void objectInit(struct Object* obj)
 
 void initObjectArray(struct Object* objArray, uint16_t length)
 {
-    for (int i = 0; i < length; i ++)
+    int i;
+    for (i = 0; i < length; i ++)
     {
         objArray[i].id = EMPTY_OBJECT_ID;
         objArray[i].isBall = -1;
@@ -405,7 +409,8 @@ void packObjects(
     uint8_t* buffer,
     int32_t numObjects)
 {
-    for(int i = 0; i < numObjects; i++)
+    int i;
+    for(i = 0; i < numObjects; i++)
     {
         // these labels might not be correct, due to endianess...?????
         uint16_t centXLower = objArray[i].centX & 0xFF;
@@ -447,7 +452,8 @@ int32_t unpackObjects(
     uint8_t* buffer,
     uint16_t bufferLength)
 {
-    for(int i = 1; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
+    int i;
+    for(i = 1; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
     {
         uint8_t centXLower = buffer[i]; // each of these is flipped from what I would expect
         uint8_t centXUpper = buffer[i+1];
@@ -492,7 +498,8 @@ int32_t unpackCenters(
     uint8_t* buffer,
     uint16_t bufferLength)
 {
-    for(int i = 0; i < bufferLength; i+=4)
+    int i;
+    for(i = 0; i < bufferLength; i+=4)
     {
         uint8_t xLower = buffer[i];
         uint8_t xUpper = buffer[i+1];
@@ -511,7 +518,8 @@ int32_t unpackCenters(
 
 void printObjectArray(struct Object* objArray, uint16_t length)
 {
-    for(int i = 0; i < length; i++)
+    int i;
+    for(i = 0; i < length; i++)
     {
         printf("id: %i; box[0]: %i; box[1]: %i; box[2]: %i; box[3]: %i; centX: %i; centY: %i \n",
             objArray[i].id,

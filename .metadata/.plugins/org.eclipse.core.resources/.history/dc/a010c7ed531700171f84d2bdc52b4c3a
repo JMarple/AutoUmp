@@ -1,0 +1,42 @@
+#include "object_tracker.h"
+#include "detect_objects.h"
+#include <math.h>
+
+void ObjectTrackerInit(struct ObjectTracker* tracker)
+{
+    int i;
+    for (i = 0; i < OBJECTS_NUM; i++)
+    {
+        tracker->tracks[i].inUse = 0;
+    }
+}
+
+inline static float _computeCost(struct ObjectTrack* track, struct Object* object)
+{
+    // Cost is going to simply be distance between objects
+    return sqrt(
+        pow(track->x_pos - object->centX, 2) +
+        pow(track->y_pos - object->centY, 2));
+}
+
+void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct Object* objects)
+{
+    // Computes entire NxN cost matrix for
+    for (int x = 0; x < OBJECTS_NUM; x++)
+    {
+        for (int y = 0; y < OBJECTS_NUM; y++)
+        {
+            tracker->cost_matrix[x][y] =
+                _computeCost(&tracker->tracks[x], &objects[y]);
+        }
+    }
+
+    const int NEW_TRACK_COST = 1.0;
+
+    for (int x = 0; x < OBJECTS_NUM; x++)
+    {
+        tracker->cost_matrix[OBJECTS_NUM+1][x] = 1.0;
+        tracker->cost_matrix[y][OBJECTS_NUM+1] = 1.0;
+    }
+}
+

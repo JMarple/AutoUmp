@@ -22,7 +22,8 @@ void queueInit(struct Queue* q)
     q->head    = 0;
     q->tail    = 0;
     q->numElem = 0;
-    for(int i = 0; i < BUFFER_SIZE; i++)
+    int i;
+    for(i = 0; i < BUFFER_SIZE; i++)
     {
         q->arr[i] = 0;
     }

@@ -1,0 +1,17 @@
+#ifndef __OBJECT_TRACKER_H__
+#define __OBJECT_TRACKER_H__
+
+#define OBJECTS_NUM 100
+
+struct ObjectTracker
+{
+
+};
+
+void ObjectTrackerComputeCosts()
+{
+
+}
+
+
+#endif
