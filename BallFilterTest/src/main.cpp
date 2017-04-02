@@ -77,6 +77,8 @@ int main(int argc, char** argv)
 
 	int32_t numPng = getNumFilesWithExtension(folderPath.c_str(), ".png");
 
+	int32_t maxNumObjects = 0;
+	int32_t maxNumInterestingObjects = 0;
 	for(int32_t i = 0; i < numPng; i++)
 	{
 		//construct file paths for images
@@ -151,6 +153,17 @@ int main(int argc, char** argv)
 			numObjects = OBJECT_ARRAY_LENGTH;
 		}
 
+		if(numObjects > maxNumObjects)
+		{
+			 maxNumObjects = numObjects;
+		}
+
+		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
+		if(numInterestingObjects > maxNumInterestingObjects)
+		{
+			maxNumInterestingObjects = numInterestingObjects;
+		}
+
 		// draw boxes on image from floodfill
 		Mat newImg(IMG_HEIGHT, IMG_WIDTH,  CV_8UC1, newByteImg);
 		Mat newColorImg;
@@ -194,6 +207,9 @@ int main(int argc, char** argv)
 
 		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
+	
+	std::cout << "All Objects:         " << maxNumObjects << std::endl;
+	std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
 }
 
 void denoise(uint8_t* img, struct DenoiseLookup* lu){

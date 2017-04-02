@@ -16,7 +16,7 @@
 // represents an arbitrary object detected in our image
 struct Object
 {
-    uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
+    uint8_t  isBall; // -1 = not checked, 0 = no, 1 = larger than 3x3, 2 = yes
     uint16_t id; // id representing object
     uint32_t box[4]; // box[0]: minX. box[1]: maxX. box[2]: minY. box[3]: maxY
     uint16_t centX, centY;
@@ -77,6 +77,9 @@ void computeCenters(
     struct Object* objectArray,
     int32_t length);
 
+int32_t filterLarge(
+	struct Object* objectArray,
+	int32_t length);
 
 int32_t filterBalls(
     struct Object* objectArray,
