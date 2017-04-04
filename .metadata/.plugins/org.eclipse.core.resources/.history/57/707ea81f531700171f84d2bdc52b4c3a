@@ -1,0 +1,23 @@
+#include "object_tracker.h"
+#include "detect_objects.h"
+
+void ObjectTrackerInit(struct ObjectTracker* tracker)
+{
+    int i;
+    for (i = 0; i < OBJECTS_NUM; i++)
+    {
+        tracker->tracks[i].inUse = 0;
+    }
+}
+
+inline static float _computeCost(struct ObjectTrack* track, struct Object* object)
+{
+    // Cost is going to simply be distance between objects
+    return sqrt();
+}
+
+void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct Object* objects)
+{
+
+}
+

@@ -21,12 +21,13 @@ void DenoiseRow(
     uint32_t result   = 0;
     uint32_t outWord  = 0;
 
-    for (int i = 0; i < 10; i++)
+    int i;
+    for (i = 0; i < 10; i++)
     {
         //printf("Row %d, %x %x %x\n", i, top[i], cur[i], bot[i]);
     }
 
-    for (int i = 0; i < 320; i+=4)
+    for (i = 0; i < 320; i+=4)
     {
         int idx = i / 32;
         if (i % 32 == 0)

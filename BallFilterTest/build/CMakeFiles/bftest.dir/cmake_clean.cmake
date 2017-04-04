@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/bftest.dir/src/algs.c.o"
   "CMakeFiles/bftest.dir/src/detect_objects.c.o"
   "CMakeFiles/bftest.dir/src/queue.c.o"
+  "CMakeFiles/bftest.dir/src/object_tracker.c.o"
   "bftest.pdb"
   "bftest"
 )

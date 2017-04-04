@@ -87,24 +87,57 @@ void dataCapturingTemporaryThread(interface MasterToFloodFillInter server mtff, 
     }
 }}
 
-// "UI" tile
-void Tile0(chanend bluetoothChan, interface MasterToFloodFillInter server mtff)
+void ObjectTracker(interface FloodFillToObjectInter server tile0FF2OT[4], interface FloodFillToObjectInter server tile1FF20T[4])
 {
-    chan bt;
-    par
+    while (1==1)
     {
-        BluetoothThread(bt);
-        dataCapturingTemporaryThread(mtff, bt);
+        select
+        {
+            case tile0FF2OT[int i].sendObjects(struct Object objArray[], uint32_t n, int id):
+                printf("Get Message from id = %d\n", id);
+                break;
+
+            case tile1FF20T[int i].sendObjects(struct Object objArray[], uint32_t n, int id):
+                printf("Get Message from id = %d\n", id);
+                break;
+        }
     }
 }
 
+
+struct DenoiseLookup luTile0;
 struct DenoiseLookup luTile1;
+
+// "UI" tile
+void Tile0(chanend bluetoothChan,
+    interface MasterToFloodFillInter server tile0M2FF[4],
+    interface FloodFillToObjectInter server tile1FF2OT[4])
+{ unsafe {
+
+    interface FloodFillToObjectInter tile0FF2OT[4];
+
+    // Denoise Lookup table init
+    struct DenoiseLookup* unsafe lu = &luTile0;
+    if (lu == 0) printf("Lookup table out of memory!");
+    DenoiseInitLookup(lu);
+
+    par
+    {
+        BluetoothThread(bluetoothChan);
+        FloodFillThread(tile0M2FF[0], tile0FF2OT[0], lu, 5);
+        FloodFillThread(tile0M2FF[1], tile0FF2OT[1], lu, 6);
+        ObjectTracker(tile0FF2OT, tile1FF2OT);
+    }
+}}
 
 uint8_t gblBitImage10[320*240/8];
 uint8_t gblBitImage20[320*240/8];
 
 // "Camera" tile
-void Tile1(chanend bluetoothChan, interface MasterToFloodFillInter client mtff)
+void Tile1(
+    chanend bluetoothChan,
+    interface MasterToFloodFillInter client til0M2FF[4],
+    interface FloodFillToObjectInter client tile1FF2TO[4])
 { unsafe {
 
     printf("Booting AutoUmp...\n");
@@ -112,77 +145,45 @@ void Tile1(chanend bluetoothChan, interface MasterToFloodFillInter client mtff)
     OV07740_InitCameras();
     OV07740_ConfigureCameras();
 
-    streaming chan cmdStream1, cmdStream2;
-    chan ffStream1, ffStream2;
-    chan doStream1, doStream2; // detected objects
+    printf("Starting AutoUmp...\n");
 
-    struct Object objArray1[OBJECT_ARRAY_LENGTH];
-    struct Object objArray2[OBJECT_ARRAY_LENGTH];
+    streaming chan cameraStream[2];
 
-    initObjectArray(objArray1, OBJECT_ARRAY_LENGTH);
-    initObjectArray(objArray2, OBJECT_ARRAY_LENGTH);
-
-    struct Queue queue1;
-    struct Queue queue2;
-    queueInit(&queue1);
-    queueInit(&queue2);
-
-    // used to send information over via bluetooth
-    uint8_t objInfo1[OBJECT_ARRAY_LENGTH*12];
-    uint8_t objInfo2[OBJECT_ARRAY_LENGTH*12];
-    for (int i = 0; i < OBJECT_ARRAY_LENGTH*12; i++)
-    {
-        objInfo1[i] = 0;
-        objInfo2[i] = 0;
-    }
-
-    struct DenoiseLookup* unsafe lu = &luTile1;//(struct DenoiseLookup* unsafe) malloc(sizeof(struct DenoiseLookup));
-
+    // Denoise lookup table init
+    struct DenoiseLookup* unsafe lu = &luTile1;
     if (lu == 0) printf("Lookup table out of memory!");
-
     DenoiseInitLookup(lu);
+
+    interface MasterToFloodFillInter localM2FF[4];
 
     par
     {
         OV07740_MasterThread(
-            cmdStream1, cmdStream2,
-            ffStream1, ffStream2,
-            bluetoothChan,
-            (uint8_t* unsafe)objInfo1, (uint8_t* unsafe)objInfo2, mtff);
+            cameraStream, localM2FF, til0M2FF);
 
-        OV07740_GatherDataThread(cmdStream1,
+        OV07740_GatherDataThread(cameraStream[0],
             (port* unsafe)&cam1DATA);
 
-        OV07740_GatherDataThread(cmdStream2,
+        OV07740_GatherDataThread(cameraStream[1],
             (port* unsafe)&cam2DATA);
 
-    /*    FloodFillThread(
-            ffStream1,
-            mtff[0],
-            objArray1,
-            &queue1,
-            (uint8_t* unsafe)objInfo1,
-            gblBitImage10, lu);
-
-        FloodFillThread(
-            ffStream2,
-            mtff[1],
-            objArray2,
-            &queue2,
-            (uint8_t* unsafe)objInfo2,
-            gblBitImage20, lu);*/
+        FloodFillThread(localM2FF[0], tile1FF2TO[0], lu, 1);
+        FloodFillThread(localM2FF[1], tile1FF2TO[1], lu, 2);
+        FloodFillThread(localM2FF[2], tile1FF2TO[2], lu, 3);
+        FloodFillThread(localM2FF[3], tile1FF2TO[3], lu, 4);
     }
 }}
 
 int main()
 {
     chan bluetoothChan;
-    interface MasterToFloodFillInter mtff;
+    interface MasterToFloodFillInter M2FF[4];
+    interface FloodFillToObjectInter FF2OT[4];
 
     par
     {
-        on tile[0]: Tile0(bluetoothChan, mtff);
-        on tile[1]: Tile1(bluetoothChan, mtff);
+        on tile[0]: Tile0(bluetoothChan, M2FF, FF2OT);
+        on tile[1]: Tile1(bluetoothChan, M2FF, FF2OT);
     }
     return 0;
 }

@@ -89,99 +89,40 @@ void sendToBluetooth(chanend uart1, uint8_t* unsafe buf, int length)
     }
 }}
 
-void sendStuffAcross(streaming chanend data, chanend comm)
-{
-    while (1==1)
-    {
-
-    }
-}
-
 uint8_t gblImage1[320*240];
 uint8_t gblImage2[320*240];
 uint8_t gblBitImage1[320*240/8];
 uint8_t gblBitImage2[320*240/8];
 
 void OV07740_MasterThread(
-    streaming chanend cam1,
-    streaming chanend cam2,
-    chanend ff1,
-    chanend ff2,
-    chanend uart1,
-    uint8_t* unsafe objInfo1,
-    uint8_t* unsafe objInfo2,
-    interface MasterToFloodFillInter client mt22)
+    streaming chanend cams[],
+    interface MasterToFloodFillInter client m2ff_tile1[],
+    interface MasterToFloodFillInter client m2ff_tile0[])
 { unsafe {
 
-    uint8_t data, vsync = 1;
-    timer t;
-    uint32_t starttime, endtime;
-
-    int lc = 0;
-
-    // TESTING STRUCTS
-    struct Queue dumQ;
-    queueInit(&dumQ);
-    dummyQueue(&dumQ);
-    uint32_t myDummyArr[5];
-    for(int i = 0; i < 5; i++)
-    {
-        myDummyArr[i] = 0;
-    }
-    dummy2(myDummyArr);
-
-    // END TESTING STRUCTS
-
-    // Allocate memory for images
-    uint8_t* unsafe image1 = gblImage1;//malloc(320*240);
-    uint8_t* unsafe image2 = gblImage2;//malloc(320*240);
-    uint8_t* unsafe bitImage1;// = malloc(320*240/8);
-    uint8_t* unsafe bitImage2;// = malloc(320*240/8);
-
-    #define BIT_IMAGE_SIZE 1
-
-    uint8_t* unsafe bitImageArray[BIT_IMAGE_SIZE*2];
-
-    bitImageArray[0] = gblBitImage1;
-    bitImageArray[1] = gblBitImage2;
-
-    /*for (int i = 0; i < BIT_IMAGE_SIZE*2; i++)
-    {
-        bitImageArray[i] = malloc(320*240/8);
-        if (bitImageArray[i] == 0) printf("Ran out of memory\n");
-    }*/
-
-    // Defensive Check
-    if (image1 == 0 || image2 == 0)
-    {
-        printf("Out of memory!\n");
-        return;
-    }
-
     printf("Master Thread\n");
+
     while (1)
     {
         timer t;
-        uint32_t st, en;
+        uint32_t start, end;
+        t :> start;
 
-        /*OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, bitImage1, bitImage2);*/
+        OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+        m2ff_tile1[0].sendBitBuffer(gblBitImage1, 320*240/8);
+        m2ff_tile1[1].sendBitBuffer(gblBitImage2, 320*240/8);
 
-        OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
-        OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
+        OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+        m2ff_tile1[2].sendBitBuffer(gblBitImage2, 320*240/8);
+        m2ff_tile1[3].sendBitBuffer(gblBitImage2, 320*240/8);
 
+        OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+        m2ff_tile0[0].sendBitBuffer(gblBitImage2, 320*240/8);
+        m2ff_tile0[1].sendBitBuffer(gblBitImage2, 320*240/8);
 
-        for (int i = 0; i < 24; i++)
-        {
-            OV07740_GetFrame(cam1, cam2, image1, image2, gblBitImage1, gblBitImage2);
-            mt22.sendBitBuffer(gblBitImage1, 320*240/8);
-        }
+        t :> end;
+
+        printf("Returned 2 here %d\n", (end - start));
 
         /* use this if you just want to send background subtraction.
          * Remember you'll have to change bitimageviewer too.
