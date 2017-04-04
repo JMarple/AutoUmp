@@ -13,6 +13,7 @@ void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t m
     obj->box[2] = minY; // goes down height/rows of image
     obj->box[1] = maxX;
     obj->box[3] = maxY;
+	obj->numPixels = 1;
 }
 
 int32_t scanPic(struct Object* objArray, struct Queue* q, uint8_t* bitPicture)
@@ -100,6 +101,7 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
     uint32_t numElem = q->numElem;
     uint32_t* arr    = q->arr;
     uint32_t* box = currentObject->box;
+	uint16_t numPixels = currentObject->numPixels;// adds too much to stack?
 
     while(numElem > 0)
     {
@@ -139,7 +141,8 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            numPixels++;
+			uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
             uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
@@ -171,7 +174,8 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            numPixels++;
+			uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
             uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
@@ -203,7 +207,8 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            numPixels++;
+			uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
             uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
@@ -235,7 +240,8 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            numPixels++;
+			uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
             uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
@@ -250,6 +256,7 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
     q->head = head;
     q->tail = tail;
     q->numElem = numElem;
+	currentObject->numPixels = numPixels;
 }
 
 void updateObject(struct Object* object, uint32_t bitIndex)
@@ -355,6 +362,12 @@ int32_t filterLarge(struct Object* objArray, int32_t length)
 	int32_t numLarge = 0;
 	for(int i = 0; i < length; i++)
 	{
+		if(objArray[i].isBall == 0)
+		{
+			// already not a ball, move on
+			continue;
+		}		
+
 		uint32_t* box = objArray[i].box;
 		if(((box[1] - box[0]) > 2) &&
 		   ((box[3] - box[2]) > 2))
@@ -368,7 +381,74 @@ int32_t filterLarge(struct Object* objArray, int32_t length)
 		}
 	}
 	return numLarge;
-} 
+}
+
+// returns number of objects that are squarish (short/long > 0.5)
+int32_t filterSquare(struct Object* objArray, int32_t length)
+{
+	int32_t numSquare = 0;
+	for(int i = 0; i < length; i++)
+	{
+		if(objArray[i].isBall == 0)
+		{
+			// already ruled out, move on
+			continue;
+		}
+
+		uint32_t* box = objArray[i].box;
+		float xLength = box[1] - box[0];
+		float yLength = box[3] - box[2];
+		float ratio;	
+		if(xLength > yLength)
+		{
+			ratio = yLength / xLength;			
+		}
+		else 
+		{
+			ratio = xLength / yLength;
+		}
+
+		if(ratio > 0.5)
+		{
+			objArray[i].isBall = 1;
+			numSquare++;
+		}
+		else
+		{
+			objArray[i].isBall = 0;
+		}
+	}
+	return numSquare;
+}
+
+// eliminate spindly objects by comparing the number of white pixels in a bounding box with the number of pixels in a completely white square of the same area as the bounding box.
+int32_t filterFull(struct Object* objArray, int32_t length)
+{
+	int32_t numFull = 0;
+	for(int i = 0; i < length; i++)
+	{
+		if(objArray[i].isBall == 0) continue; // already marked not ball, move on		
+
+		uint32_t* box = objArray[i].box;
+		int32_t xLength = box[1] - box[0] + 1; // + 1 because we need to include max pixel
+		int32_t yLength = box[3] - box[2] + 1;
+		int32_t area = xLength * yLength;
+		
+		float ratio = (float)objArray[i].numPixels / (float)area;
+		//printf("numPixels: %i\n", objArray[i].numPixels);
+		//printf("ratio: %.3f\n", ratio);
+		if(ratio > 0.5)
+		{
+			objArray[i].isBall = 1;
+			numFull++;
+		}
+		else
+		{
+			objArray[i].isBall = 0;
+		}
+	}
+	return numFull;
+}
 
 void objectInit(struct Object* obj)
 {
@@ -381,6 +461,7 @@ void objectInit(struct Object* obj)
     obj->centX = 0;
     obj->centY = 0;
     obj->distanceFromCenter = 0;
+	obj->numPixels = 0;
 }
 
 void initObjectArray(struct Object* objArray, uint16_t length)
@@ -396,6 +477,7 @@ void initObjectArray(struct Object* objArray, uint16_t length)
         objArray[i].centX = 0;
         objArray[i].centY = 0;
         objArray[i].distanceFromCenter = 0;
+		objArray[i].numPixels = 0;
     }
 }
 
