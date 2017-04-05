@@ -16,9 +16,9 @@
 // represents an arbitrary object detected in our image
 struct Object
 {
-    uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
+    int8_t  isBall; // -1 = not checked, 0 = no, 1 = yes, -2 = merged into another object
     uint16_t id; // id representing object
-    uint32_t box[4]; // box[0]: minX. box[1]: maxX. box[2]: minY. box[3]: maxY
+    int32_t box[4]; // box[0]: minX. box[1]: maxX. box[2]: minY. box[3]: maxY
     uint16_t centX, centY;
     uint16_t distanceFromCenter;
 	uint16_t numPixels;
@@ -43,11 +43,11 @@ void objectInit(struct Object* obj);
 void objectOverwrite(
         struct Object* obj,
         uint16_t id,
-        uint8_t isBall,
-        uint32_t minX,
-        uint32_t maxX,
-        uint32_t minY,
-        uint32_t maxY);
+        int8_t isBall,
+        int32_t minX,
+        int32_t maxX,
+        int32_t minY,
+        int32_t maxY);
 
 int32_t scanPic(
     struct Object* objArray,
@@ -93,6 +93,14 @@ int32_t filterFull(
 int32_t filterBalls(
     struct Object* objectArray,
     uint16_t length);
+
+
+// returns error code
+int32_t mergeObjects(
+	struct Object* objectArray,
+	int32_t length);
+
+
 
 void getTwoCenters(
     struct Center* centerPair,

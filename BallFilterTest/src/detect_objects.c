@@ -5,7 +5,7 @@
 #include "algs.h"
 #include "main.hpp"
 
-void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxY)
+void objectOverwrite(struct Object* obj, uint16_t id, int8_t isBall, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY)
 {
     obj->id = id; // no object
     obj->isBall = isBall;
@@ -101,7 +101,7 @@ void floodFill(uint8_t* bitPicture, struct Queue* q, struct Object* currentObjec
     uint32_t tail = q->tail;
     uint32_t numElem = q->numElem;
     uint32_t* arr    = q->arr;
-    uint32_t* box = currentObject->box;
+    int32_t* box = currentObject->box;
 	uint16_t numPixels = currentObject->numPixels;// adds too much to stack?
 
     while(numElem > 0)
@@ -268,9 +268,9 @@ void updateObject(struct Object* object, uint32_t bitIndex)
     //uint32_t bitPos = bitIndex % 8;
 
 
-    uint16_t newY = bitIndex / IMG_WIDTH; // goes along rows/height of image
+    int32_t newY = bitIndex / IMG_WIDTH; // goes along rows/height of image
     //uint16_t newX = (bitIndex % IMG_WIDTH) + 7 - 2*bitPos; // theoretically, this converts from bitIndex to the pixelPosition
-    uint16_t newX = (bitIndex % IMG_WIDTH); // goes along columns/width of image
+    int32_t newX = (bitIndex % IMG_WIDTH); // goes along columns/width of image
 
     if(newX < object->box[0])
     {
@@ -365,13 +365,14 @@ int32_t filterLarge(struct Object* objArray, int32_t length)
 	int i;
 	for(i = 0; i < length; i++)
 	{
-		if(objArray[i].isBall == 0)
+		int32_t isBall = objArray[i].isBall;
+		if(isBall == -2 || isBall == 0)
 		{
 			// already not a ball, move on
 			continue;
 		}		
 
-		uint32_t* box = objArray[i].box;
+		int32_t* box = objArray[i].box;
 		if(((box[1] - box[0]) > 2) &&
 		   ((box[3] - box[2]) > 2))
 		{
@@ -398,7 +399,7 @@ int32_t filterSquare(struct Object* objArray, int32_t length)
 			continue;
 		}
 
-		uint32_t* box = objArray[i].box;
+		int32_t* box = objArray[i].box;
 		float xLength = box[1] - box[0];
 		float yLength = box[3] - box[2];
 		float ratio;	
@@ -430,7 +431,8 @@ int32_t filterFull(struct Object* objArray, int32_t length)
 	int32_t numFull = 0;
 	for(int i = 0; i < length; i++)
 	{
-		if(objArray[i].isBall == 0) continue; // already marked not ball, move on		
+		int32_t isBall = objArray[i].isBall;
+		if(isBall == -2 || isBall == 0) continue; // merged or already marked not ball, move on		
 
 		uint32_t* box = objArray[i].box;
 		int32_t xLength = box[1] - box[0] + 1; // + 1 because we need to include max pixel
@@ -452,6 +454,82 @@ int32_t filterFull(struct Object* objArray, int32_t length)
 	}
 	return numFull;
 }
+
+
+#define EXPAND 2
+int32_t mergeObjects(struct Object* objArray, int32_t length)
+{
+	// for each object
+	int i;
+	for(i = 0; i < length; i++)
+	{
+		if(objArray[i].isBall == -2) // merged
+		{
+			continue;
+		}
+		// compare with every other object
+		// (comparisons below i+1 have already been checked)
+		int j;
+		for(j = i+1; j < length; j++)
+		{
+			// get and expand bounds for both objects			
+			int32_t* box1 = objArray[i].box;
+			int32_t* box2 = objArray[j].box;
+			
+			box1[0] = box1[0] - EXPAND;
+			box1[1] = box1[1] + EXPAND;
+			box1[2] = box1[2] - EXPAND;
+			box1[3] = box1[3] + EXPAND;
+			
+			box2[0] = box2[0] - EXPAND;
+			box2[1] = box2[1] + EXPAND;
+			box2[2] = box2[2] - EXPAND;
+			box2[3] = box2[3] + EXPAND;
+			
+			// this checks for non-overlap
+			// http://stackoverflow.com/questions/306316/determine-if-two-rectangles-overlap-each-other
+
+			if((box1[0] > box2[1]) || (box1[1] < box2[0]) ||
+			   (box1[2] > box2[3]) || (box1[3] < box2[2]))
+			{
+				// no overlap
+				box2[0] = box2[0] + EXPAND;
+				box2[1] = box2[1] - EXPAND;
+				box2[2] = box2[2] + EXPAND;
+				box2[3] = box2[3] - EXPAND;
+
+				box1[0] = box1[0] + EXPAND;
+				box1[1] = box1[1] - EXPAND;
+				box1[2] = box1[2] + EXPAND;
+				box1[3] = box1[3] - EXPAND;
+
+				continue;
+			}
+			else
+			{
+				// we overlap! merge objects.
+				objArray[i].isBall = -2; // merge 1 (i) into 2 (j)
+				if(box1[0] < box2[0]) box2[0] = box1[0];
+				if(box1[1] > box2[1]) box2[1] = box1[1];
+				if(box1[2] < box2[2]) box2[2] = box1[2];
+				if(box1[3] > box2[3]) box2[3] = box1[3];
+	
+				box2[0] = box2[0] + EXPAND;
+				box2[1] = box2[1] - EXPAND;
+				box2[2] = box2[2] + EXPAND;
+				box2[3] = box2[3] - EXPAND;
+
+				box1[0] = box1[0] + EXPAND;
+				box1[1] = box1[1] - EXPAND;
+				box1[2] = box1[2] + EXPAND;
+				box1[3] = box1[3] - EXPAND;
+			}
+		}
+	}	
+
+} 
+
+
 
 void objectInit(struct Object* obj)
 {
@@ -552,10 +630,10 @@ int32_t unpackObjects(
 
         uint16_t centX = (centXUpper << 8) | centXLower;
         uint16_t centY = (centYUpper << 8) | centYLower;
-        uint16_t xMin = (xMinUpper << 8) | xMinLower;
-        uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
-        uint16_t yMin = (yMinUpper << 8) | yMinLower;
-        uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
+        int32_t xMin = (xMinUpper << 8) | xMinLower;
+        int32_t xMax = (xMaxUpper << 8) | xMaxLower;
+        int32_t yMin = (yMinUpper << 8) | yMinLower;
+        int32_t yMax = (yMaxUpper << 8) | yMaxLower;
         if(centX == 0xFFFF) // that's our cue -- we've hit our last object
         {
             return i/12+1; // num objects

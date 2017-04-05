@@ -46,11 +46,11 @@ void makeLine(
 
 void makeBox(
     Mat* colorImage,
-    uint16_t minX,
-    uint16_t maxX,
-    uint16_t minY,
-    uint16_t maxY, 
-    uint16_t color);
+    int32_t minX,
+    int32_t maxX,
+    int32_t minY,
+    int32_t maxY, 
+    int32_t color);
 
 
 /* 
@@ -162,25 +162,29 @@ int main(int argc, char** argv)
 			 maxNumObjects = numObjects;
 		}
 
+		mergeObjects(objArray, numObjects);
+
+
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
 		{
 			maxNumInterestingObjects = numInterestingObjects;
 		}
-
+/*
 		int32_t numSquarish = filterSquare(objArray, numObjects);
 		if(numSquarish > maxNumSquarish)
 		{
 			maxNumSquarish = numSquarish;
 		}
+*/
 
-		int32_t numFull = filterFull(objArray, numObjects);
+/*		int32_t numFull = filterFull(objArray, numObjects);
 		if(numFull > maxNumFull) 
 		{
 			maxNumFull = numFull;
 			maxNumFullImg = i;	
 		}
-
+*/
 		// draw boxes on image from floodfill
 		Mat newImg(IMG_HEIGHT, IMG_WIDTH,  CV_8UC1, newByteImg);
 		Mat newColorImg;
@@ -245,9 +249,9 @@ int main(int argc, char** argv)
 		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
 	
-	std::cout << "All Objects:         " << maxNumObjects << std::endl;
+//	std::cout << "All Objects:         " << maxNumObjects << std::endl;
 	std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
-	std::cout << "Num Squarish:        " << maxNumSquarish << std::endl;
+	//std::cout << "Num Squarish:        " << maxNumSquarish << std::endl;
 	std::cout << "Num Full             " << maxNumFull << "  (img " << maxNumFullImg << " )" << std::endl;
 }
 
@@ -413,11 +417,11 @@ void makeLine(Mat* colorImage, uint16_t rowOrColumn, uint16_t color, uint16_t is
 
 void makeBox(
     Mat* colorImage,
-    uint16_t minX,
-    uint16_t maxX,
-    uint16_t minY,
-    uint16_t maxY, 
-    uint16_t color)
+    int32_t minX,
+    int32_t maxX,
+    int32_t minY,
+    int32_t maxY, 
+    int32_t color)
 {
     if(minX < 0 || minX > IMG_WIDTH-1 ||
         maxX < 0 || maxX > IMG_WIDTH-1 ||
