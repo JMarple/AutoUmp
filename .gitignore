@@ -2,4 +2,8 @@ AutoUmp/.build
 AutoUmp/bin
 .metadata
 BallFilterTest/images/*/computed
+
 FloodFillViewer/build
+
+*/build
+*/bin
