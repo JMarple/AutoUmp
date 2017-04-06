@@ -1,7 +1,0 @@
-#include "object_tracker.h"
-
-void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, )
-{
-
-}
-
