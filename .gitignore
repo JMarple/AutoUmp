@@ -4,6 +4,7 @@ AutoUmp/bin
 BallFilterTest/images/*/computed
 
 FloodFillViewer/build
-
+MockUART/.build
 */build
+*/.build
 */bin
