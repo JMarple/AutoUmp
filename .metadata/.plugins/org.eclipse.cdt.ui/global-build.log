@@ -1,0 +1,108 @@
+02:05:03 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing floodFillAlg.xc
+../src/cameras/floodFillAlg.xc:27:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:28:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:29:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:51:36: warning: initialization from incompatible type without explicit cast is deprecated
+    uint8_t* unsafe newBitBuffer = &bitBuffer;
+                                   ^~~~~~~~~~
+Propagating analysis
+Creating dependencies for floodFillAlg.xc
+Compiling floodFillAlg.xc
+../src/cameras/floodFillAlg.xc:27:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:28:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:29:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:51:36: warning: initialization from incompatible type without explicit cast is deprecated
+    uint8_t* unsafe newBitBuffer = &bitBuffer;
+                                   ^~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+02:05:14 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+xmake[1]: `bin//AutoUmp.xe' is up to date.
+Build Complete
+02:06:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing floodFillAlg.xc
+../src/cameras/floodFillAlg.xc:27:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:28:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:29:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Propagating analysis
+Creating dependencies for floodFillAlg.xc
+Compiling floodFillAlg.xc
+../src/cameras/floodFillAlg.xc:27:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-2)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:28:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[(i-1)*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/cameras/floodFillAlg.xc:29:13: warning: pointer cast to type of larger alignment
+            (uint32_t* unsafe)&bitBuffer[i*IMG_WIDTH/8],
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creating AutoUmp.xe
+Build Complete
+02:07:18 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing ov07740.xc
+Propagating analysis
+Creating dependencies for ov07740.xc
+Compiling ov07740.xc
+Creating AutoUmp.xe
+Build Complete
+02:07:52 **** Incremental Build of configuration Default for project AutoUmp ****
+xmake CONFIG=Default all 
+Checking build modules
+Using build modules: lib_locks(2.0.3)
+Analyzing AutoUmp.xc
+In file included from ../src/AutoUmp.xc:7:
+.././src/cameras/ov07740.h:88:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+../src/AutoUmp.xc:125:27: warning: `localM2FF' not used in two parallel statements (byte range 8..12)
+            cameraStream, localM2FF, til0M2FF);
+                          ^~~~~~~~~
+../src/AutoUmp.xc:125:27: warning: `localM2FF' not used in two parallel statements (byte range 12..16)
+            cameraStream, localM2FF, til0M2FF);
+                          ^~~~~~~~~
+Propagating analysis
+Creating dependencies for AutoUmp.xc
+Compiling AutoUmp.xc
+In file included from ../src/AutoUmp.xc:7:
+.././src/cameras/ov07740.h:88:25: warning: 'OV7740_QVGA' defined but not used
+static struct SCCBPairs OV7740_QVGA[] =
+                        ^~~~~~~~~~~~~
+../src/AutoUmp.xc:125:27: warning: `localM2FF' not used in two parallel statements (byte range 8..12)
+            cameraStream, localM2FF, til0M2FF);
+                          ^~~~~~~~~
+../src/AutoUmp.xc:125:27: warning: `localM2FF' not used in two parallel statements (byte range 12..16)
+            cameraStream, localM2FF, til0M2FF);
+                          ^~~~~~~~~
+Creating AutoUmp.xe
+Build Complete

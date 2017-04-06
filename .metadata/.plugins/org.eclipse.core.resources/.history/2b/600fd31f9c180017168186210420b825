@@ -1,0 +1,14 @@
+#include "object_tracker.h"
+#include <stdio.h>
+
+int main()
+{
+    struct ObjectTracker tracker;
+    ObjectTrackerInit(&tracker);
+
+    // New Objects to associate with tracker.
+    struct ObjectArray objects;
+    ObjectArrayAdd(&objects, 5, 5, 20, 20);
+    printf("Test object_tracker.c\n");
+    return 0;
+}

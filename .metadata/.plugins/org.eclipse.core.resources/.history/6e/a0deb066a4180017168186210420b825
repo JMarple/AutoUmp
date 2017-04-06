@@ -1,0 +1,186 @@
+#include "object_tracker.h"
+#include <math.h>
+#include <string.h>
+#include <stdio.h>
+
+void ObjectTrackerInit(struct ObjectTracker* tracker)
+{
+    int i;
+    for (i = 0; i < OBJECTS_NUM; i++)
+    {
+        tracker->tracks[i].inUse = 0;
+    }
+}
+
+// Return -1 if error
+int ObjectArrayAdd(struct ObjectArray* array, int topx, int topy, int botx, int boty)
+{
+    if (array->objectNum >= OBJECTS_NUM) return -1;
+
+    array->objects[array->objectNum].box[0] = topx;
+    array->objects[array->objectNum].box[1] = topy;
+    array->objects[array->objectNum].box[2] = botx;
+    array->objects[array->objectNum].box[3] = boty;
+
+    array->objects[array->objectNum].centX = (topx + botx) / 2;
+    array->objects[array->objectNum].centY = (topy + boty) / 2;
+
+    array->objectNum++;
+}
+
+void ObjectArrayPrint(struct ObjectArray* array)
+{
+    printf("Array Size = %d\n", array->objectNum);
+
+    int x;
+    for (x = 0; x < array->objectNum; x++)
+    {
+        struct FoundObject* obj = &array->objects[x];
+
+        printf(" - Box: {%d, %d}, {%d %d} -> {%d, %d}\n",
+            obj->box[0], obj->box[1], obj->box[2], obj->box[3],
+            obj->centX, obj->centY);
+    }
+}
+
+void ObjectTrackerPrint(struct ObjectTracker* tracker)
+{
+    printf("Cost Matrix: \n");
+    int x, y;
+    for (x = 0; x < OBJECTS_NUM+1; x++)
+    {
+        for (y = 0; y < OBJECTS_NUM+1; y++)
+        {
+            printf("%f ", tracker->cost_matrix[x][y]);
+        }
+        printf("\n");
+    }
+}
+
+
+
+inline static float _computeCost(struct ObjectTrack* track, struct FoundObject* object)
+{
+    // Cost is distance between objects
+    return sqrt(
+        pow(track->x_pos - object->centX, 2) +
+        pow(track->y_pos - object->centY, 2));
+}
+
+void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct ObjectArray* objects)
+{
+    // Computes entire NxN cost matrix for
+    int x, y;
+    for (x = 0; x < OBJECTS_NUM; x++)
+    {
+        if (tracker->tracks[x].inUse == 0)
+        {
+            for (y = 0; y < OBJECTS_NUM; y++)
+                tracker->cost_matrix[x][y] = INFINITY;
+        }
+        else
+        {
+            for (y = 0; y < objects->objectNum; y++)
+            {
+                tracker->cost_matrix[x][y] =
+                    _computeCost(&tracker->tracks[x], &objects->objects[y]);
+            }
+        }
+    }
+
+    const float NEW_TRACK_COST = 1.0;
+
+    for (x = 0; x < OBJECTS_NUM; x++)
+    {
+        tracker->cost_matrix[OBJECTS_NUM][x] = NEW_TRACK_COST;
+        tracker->cost_matrix[x][OBJECTS_NUM] = NEW_TRACK_COST;
+    }
+}
+
+void dfsPrintPath(uint8_t path[], int len)
+{
+    printf("Path = ");
+    int i;
+    for (i = 0; i < len; i++)
+    {
+        printf("%d ", path[i]);
+    }
+    printf("\n");
+}
+
+// Depth First Search of the graph.  Calculate min cost.
+// Graph is the cost matrix
+// Col is the current col in the matrix being observered
+// seen[] is the true/false flag for if each row has an observed object yet
+// Note: The bottom row can have as many objects as it wants it's used next tickets to LA, or even Canada - that would be nice  as a "slack"
+// path[] is the current path being taken.
+static void _dfs(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1],
+    int col, float cost_sum, float* bestCost,
+    uint8_t seen[], uint8_t cur_path[], uint8_t best_path[])
+{
+    printf("Enterring DFS = %d %f\n", col, graph[col][OBJECTS_NUM]);
+
+    // Go through each row
+    int i;
+    for (i = 0; i < OBJECTS_NUM+1; i++)
+    {
+        // Check if this row has been used in previous columns.
+        if (seen[i] != 0) continue;
+
+        // If a spot on the matrix is set to INF, it can not be chosen
+        float tmpCost = graph[col][i];
+        printf("TmpCost = %d %f\n", i, tmpCost);
+        if (tmpCost == INFINITY) continue;
+        printf("Continueing..\n");
+
+        float thisCost = cost_sum + tmpCost;
+        cur_path[col] = i;
+
+        // If we reach the last column, calculate costs.
+        if (col + 1 >= OBJECTS_NUM+1)
+        {
+            // Add costs for not having certain rows being matched.
+            int s;
+            for (s = 0; s < OBJECTS_NUM; s++)
+            {
+                if (seen[s] == 0) thisCost += graph[OBJECTS_NUM][s];
+            }
+
+            // Update best cost/path if this current path is the best path.
+            if (thisCost < *bestCost)
+            {
+                *bestCost = thisCost;
+                memcpy(best_path, cur_path, OBJECTS_NUM+1);
+            }
+        }
+        // Branches here if there are more columns to search.
+        else
+        {
+            printf("DFS %d %d\n", i, col+1);
+
+            seen[i] = 1;
+            _dfs(graph,
+                col+1, thisCost, bestCost, seen, cur_path, best_path);
+            seen[i] = 0;
+        }
+    }
+}
+
+void ObjectTrackerAssociateData(struct ObjectTracker* tracker, struct ObjectArray* objects)
+{
+    float bestCost = INFINITY;
+    uint8_t tmpPath[OBJECTS_NUM+1];
+    uint8_t bestPath[OBJECTS_NUM+1];
+    uint8_t seen[OBJECTS_NUM+1];
+
+    memset(bestPath, 0, OBJECTS_NUM+1);
+
+    int i;
+    for (i = 0; i < OBJECTS_NUM+1; i++) seen[i] = 0;
+
+    _dfs(tracker->cost_matrix,
+        0, 0, &bestCost, seen, tmpPath, bestPath);
+
+    printf("Best Cost = %f\n", bestCost);
+    dfsPrintPath(bestPath, OBJECTS_NUM);
+}

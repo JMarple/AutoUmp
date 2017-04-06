@@ -22,12 +22,16 @@
 								</outputEntries>
 							</builder>
 							<tool id="com.xmos.cdt.xc.compiler.2044135747" name="com.xmos.cdt.xc.compiler" superClass="com.xmos.cdt.xc.compiler">
-								<option id="com.xmos.xc.compiler.option.include.paths.869297371" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.xc.compiler.option.include.paths.869297371" name="com.xmos.xc.compiler.option.include.paths" superClass="com.xmos.xc.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/xc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/clang&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src/cameras}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src/io}&quot;"/>
 								</option>
-								<option id="com.xmos.xc.compiler.option.defined.symbols.428673097" superClass="com.xmos.xc.compiler.option.defined.symbols" valueType="definedSymbols">
+								<option id="com.xmos.xc.compiler.option.defined.symbols.428673097" name="com.xmos.xc.compiler.option.defined.symbols" superClass="com.xmos.xc.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__XC__=1"/>
 									<listOptionValue builtIn="false" value="__llvm__=1"/>
 									<listOptionValue builtIn="false" value="__ATOMIC_RELAXED=0"/>
@@ -179,11 +183,15 @@
 								<inputType id="com.xmos.cdt.xc.compiler.input.1602920927" name="XC" superClass="com.xmos.cdt.xc.compiler.input"/>
 							</tool>
 							<tool id="com.xmos.cdt.c.compiler.842403187" name="com.xmos.cdt.c.compiler" superClass="com.xmos.cdt.c.compiler">
-								<option id="com.xmos.c.compiler.option.include.paths.2105643766" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.c.compiler.option.include.paths.2105643766" name="com.xmos.c.compiler.option.include.paths" superClass="com.xmos.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/clang&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src/cameras}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src/io}&quot;"/>
 								</option>
-								<option id="com.xmos.c.compiler.option.defined.symbols.74106546" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
+								<option id="com.xmos.c.compiler.option.defined.symbols.74106546" name="com.xmos.c.compiler.option.defined.symbols" superClass="com.xmos.c.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__llvm__=1"/>
 									<listOptionValue builtIn="false" value="__clang__=1"/>
 									<listOptionValue builtIn="false" value="__clang_major__=3"/>
@@ -482,12 +490,16 @@
 								<inputType id="com.xmos.cdt.c.compiler.input.c.768216315" name="C" superClass="com.xmos.cdt.c.compiler.input.c"/>
 							</tool>
 							<tool id="com.xmos.cdt.cxx.compiler.1999172263" name="com.xmos.cdt.cxx.compiler" superClass="com.xmos.cdt.cxx.compiler">
-								<option id="com.xmos.cxx.compiler.option.include.paths.1577628295" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
+								<option id="com.xmos.cxx.compiler.option.include.paths.1577628295" name="com.xmos.cxx.compiler.option.include.paths" superClass="com.xmos.cxx.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/clang&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${XMOS_TOOL_PATH}/target/include/c++/v1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src/cameras}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/AutoUmp/src/io}&quot;"/>
 								</option>
-								<option id="com.xmos.cxx.compiler.option.defined.symbols.2128580768" superClass="com.xmos.cxx.compiler.option.defined.symbols" valueType="definedSymbols">
+								<option id="com.xmos.cxx.compiler.option.defined.symbols.2128580768" name="com.xmos.cxx.compiler.option.defined.symbols" superClass="com.xmos.cxx.compiler.option.defined.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__llvm__=1"/>
 									<listOptionValue builtIn="false" value="__clang__=1"/>
 									<listOptionValue builtIn="false" value="__clang_major__=3"/>
@@ -886,4 +898,5 @@
 		<project id="lib_xassert.null.986642502" name="lib_xassert"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

@@ -1,6 +1,8 @@
 #include <xs1.h>
 #include <platform.h>
 #include <stdint.h>
+#include <string.h>
+#include "io.h"
 #include "hwlock.h"
 
 // Contains BT_TX, LED4, LED5 on bit 0, 2, 3 respectively
@@ -107,15 +109,33 @@ void BluetoothSendBuffer(uint8_t* buf, int length)
         BluetoothSendByte(buf[i]);
 }
 
-void BluetoothThread(chanend dataIn)
+void BluetoothThread(interface BluetoothInter server inter)
 {
     BluetoothInit();
 
-    uint8_t data;
+    uint8_t buffer[320*240/8];
+    int len;
 
     while (1)
     {
-        dataIn :> data;
-        BluetoothSendByte(data);
+        select
+        {
+            case inter.sendBuffer(uint8_t tmpbuffer[], int n):
+                memcpy(buffer, tmpbuffer, n*sizeof(uint8_t));
+                len = n;
+                break;
+        }
+
+        int i;
+        for (i = 0; i < len;)
+        {
+            select
+            {
+                default:
+                    BluetoothSendByte(buffer[i]);
+                    i++;
+                    break;
+            }
+        }
     }
 }

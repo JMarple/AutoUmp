@@ -1,0 +1,21 @@
+#include "object_tracker.h"
+#include <stdio.h>
+
+int main()
+{
+    struct ObjectTracker tracker;
+    ObjectTrackerInit(&tracker);
+
+    // New Objects to associate with tracker.
+    struct ObjectArray objects;
+    ObjectArrayAdd(&objects, 5, 5, 20, 20);
+    ObjectArrayAdd(&objects, 100, 78, 120, 108);
+    ObjectArrayPrint(&objects);
+
+    // Compute Cost Matrix
+    ObjectTrackerComputeCosts(&tracker, &objects);
+    ObjectTrackerPrint(&tracker);
+
+    printf("Test object_tracker.c\n");
+    return 0;
+}

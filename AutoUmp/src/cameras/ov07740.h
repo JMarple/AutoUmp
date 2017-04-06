@@ -2,7 +2,7 @@
 #define __OV07740_H__
 
 #include <stdint.h>
-#include "algs.h"
+#include "floodFillAlg.h"
 
 #define BACKGROUND_SUBTRACTION_THRESHOLD 10
 

@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h> // for abs()
 #include "detect_objects.h"
-#include "algs.h"
+#include "floodFillAlg.h"
 
 void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxY)
 {
@@ -113,7 +113,6 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
         head = (head + 1) % BUFFER_SIZE;
         numElem--;
         // END uint32_t indexBit = queueDequeue(q);
-
 
         // START looking at indexAbove
         uint32_t indexCurrent = indexBit-IMG_WIDTH;
@@ -383,6 +382,10 @@ void packObjects(
     uint8_t* unsafe buffer,
     int32_t numObjects)
 { unsafe {
+
+    buffer[0] = 0xFA;
+    buffer = &buffer[1];
+
     for(int i = 0; i < numObjects; i++)
     {
         // these labels might not be correct, due to endianess...?????

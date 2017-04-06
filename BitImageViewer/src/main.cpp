@@ -396,20 +396,16 @@ int main(int argc, char** argv)
             int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), size - indexPic);
             indexPic += len;
         }
-
-
-
-
-/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
+/* IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
 		// get object array
 		while (indexObjects < sizeObjects)
 		{
 			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
 			indexObjects += len;
 		}
-*/	
+*/
 
-	
+
         for (int idx = 0; idx < size; idx++)
         {
             uint8_t data = currentImage[idx];
@@ -420,7 +416,7 @@ int main(int argc, char** argv)
             }
         }
 
-/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT 
+/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
 		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
 		int32_t numBalls = filterBalls(objArray, numObjects);
 */
@@ -460,7 +456,7 @@ int main(int argc, char** argv)
 					GREEN);
 			}
 		}
-*/
+/**/
 
 //		imshow("a", M);
 		imshow("a", M_color);
@@ -490,7 +486,7 @@ int main(int argc, char** argv)
     	{
         	objectBuffer[i] = 0;
 		}	
-*/
+/**/
 	}
 
     RS232_CloseComport(COM_PORT);
