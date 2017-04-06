@@ -26,7 +26,7 @@ using namespace cv;
 
 struct Object
 {
-    uint8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
+    int8_t  isBall; // -1 = not checked, 0 = no, 1 = yes
     uint16_t id; // id representing object
     uint16_t box[4]; // box[0]: minX. box[1]: maxX. box[2]: minY. box[3]: maxY
     uint16_t centX, centY;
@@ -40,7 +40,9 @@ int32_t filterBalls(struct Object* objectArray, uint16_t length)
 	int32_t numBalls = 0;
 	for (int i = 0; i < length; i++)
 	{
-		// if object is smaller than possible for our ball
+        if(objectArray[i].isBall == -2) continue; 
+        
+        // if object is smaller than possible for our ball
 		if(objectArray[i].box[1] - objectArray[i].box[0] < 5 ||
 			objectArray[i].box[3] - objectArray[i].box[2] < 5)
 		{
@@ -236,42 +238,37 @@ int32_t unpackObjects(
 
     printf("\n");
 
-    for(int i = 0; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
-    {
-        uint8_t centXLower = buffer[i]; // each of these is flipped from what I would expect 
-        uint8_t centXUpper = buffer[i+1];
-        uint8_t centYLower = buffer[i+2];
-        uint8_t centYUpper = buffer[i+3];
-		uint8_t xMinLower  = buffer[i+4];
-		uint8_t xMinUpper  = buffer[i+5];
-		uint8_t xMaxLower  = buffer[i+6];
-		uint8_t xMaxUpper  = buffer[i+7];
-		uint8_t yMinLower  = buffer[i+8];
-		uint8_t yMinUpper  = buffer[i+9];
-		uint8_t yMaxLower  = buffer[i+10];
-		uint8_t yMaxUpper  = buffer[i+11];
 
-		uint16_t centX = (centXUpper << 8) | centXLower;
-		uint16_t centY = (centYUpper << 8) | centYLower;
+    #define NB 9 // num objects per byte
+    for(int i = 0; i < bufferLength; i+=NB) 
+    {
+		uint8_t xMinLower  = buffer[i];
+		uint8_t xMinUpper  = buffer[i+1];
+		uint8_t xMaxLower  = buffer[i+2];
+		uint8_t xMaxUpper  = buffer[i+3];
+		uint8_t yMinLower  = buffer[i+4];
+		uint8_t yMinUpper  = buffer[i+5];
+		uint8_t yMaxLower  = buffer[i+6];
+		uint8_t yMaxUpper  = buffer[i+7];
+
 		uint16_t xMin = (xMinUpper << 8) | xMinLower;
 		uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
 		uint16_t yMin = (yMinUpper << 8) | yMinLower;
 		uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
-		if(centX == 0xFFFF) // that's our cue -- we've hit our last object
+		uint8_t  markVal = buffer[i+8];
+        if(xMin == 0xFFFF) // that's our cue -- we've hit our last object
 		{
-			return i/12+1; // num objects
+			return i/NB+1; // num objects
 			break;
 		}
 
-        objArray[i/12].centX = centX;
-        objArray[i/12].centY = centY;
-		objArray[i/12].box[0] = xMin;
-		objArray[i/12].box[1] = xMax;
-		objArray[i/12].box[2] = yMin;
-		objArray[i/12].box[3] = yMax;	
-	
+		objArray[i/NB].box[0] = xMin;
+		objArray[i/NB].box[1] = xMax;
+		objArray[i/NB].box[2] = yMin;
+		objArray[i/NB].box[3] = yMax;	
+	    objArray[i/NB].isBall = markVal;
 	}
-	return bufferLength/12; // num objects
+	return bufferLength/NB; // num objects
 }
 
 void packCenters(
@@ -425,13 +422,13 @@ int main(int argc, char** argv)
 			{
 				makeBox(
 					&M_color,
-					objArray[i].box[0], // + 8 because we're offset that much... for every box
-					objArray[i].box[1], // + 8 " " " ... " " 
+					objArray[i].box[0], 
+					objArray[i].box[1],  
 					objArray[i].box[2],
 					objArray[i].box[3],
 					RED);
 			}
-			else
+			else if(objArray[i].isBall != -2)
 			{
 				makeBox(
 					&M_color,

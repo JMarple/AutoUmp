@@ -56,7 +56,7 @@ void ObjectTracker(
 
                     printf("\n");*/
 
-                    btInter.sendBuffer(buffer, 3000);
+                    btInter.sendBuffer(buffer, 250*9);
                     //memcpy(buffer, bitBuffer, m);
                     //btInter.sendBuffer(buffer, m);
                 }
