@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;MockUART/src/stack.xc&apos;" deleteContents="false" description="Delete resource &apos;MockUART/src/stack.xc&apos;" element1="/MockUART/src/stack.xc" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1490727795150"/>
-</session>

@@ -472,12 +472,10 @@
 <fInfo name="computeCenters" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
   <arg num="0" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1" specialize="false">
     <values>
-      <value type="unknown"/>
     </values>
   </arg>
 </fInfo>
@@ -602,6 +600,18 @@
   </arg>
 </fInfo>
 <fInfo name="main" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="0">
+</fInfo>
+<fInfo name="mergeObjects" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="2">
+  <arg num="0" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1" specialize="false">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
 </fInfo>
 <fInfo name="objectInit" global="true" specialize="false" noreturn="false" doNotSpecialize="false" numParams="1">
   <arg num="0" specialize="false">
@@ -851,13 +861,13 @@
   </arg>
   <arg num="1" specialize="true">
     <values>
-      <value type="intval"><intval isSigned="true" val="3000"/></value>
+      <value type="intval"><intval isSigned="true" val="2250"/></value>
     </values>
   </arg>
  <specializations>
    <specialization id="0">
     <arg num="0"><values><value type="unknown"/></values></arg>
-    <arg num="1"><values><value type="intval"><intval isSigned="true" val="3000"/></value></values></arg>
+    <arg num="1"><values><value type="intval"><intval isSigned="true" val="2250"/></value></values></arg>
    </specialization>
  </specializations>
 </fInfo>

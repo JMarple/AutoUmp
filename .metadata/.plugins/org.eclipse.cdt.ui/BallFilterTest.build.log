@@ -1,6 +1,0 @@
-17:20:23 **** Incremental Build of configuration Default for project BallFilterTest ****
-make all 
-make: *** No rule to make target 'all'.  Stop.
-
-17:20:23 Build Finished (took 90ms)
-

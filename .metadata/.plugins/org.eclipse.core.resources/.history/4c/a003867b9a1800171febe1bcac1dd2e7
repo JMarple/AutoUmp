@@ -1,7 +1,0 @@
-#include "object_tracker.h"
-
-int main()
-{
-
-    return 0;
-}
