@@ -1,7 +1,50 @@
 # Notes on testing
-... I've had to reconstruct this, as I didn't save the file when I took notes...
+
+# Can our trajectory matching algorithm handle lots of objects dropping in and out?
+
+# Drop the frame if there's a certain number of "balls" in it?
+Look at 09. Lots of "balls" detected even though there's no balls in the image. With a person moving around, this is what's going to happen.
+
+Maybe if there are >8 balls in image, drop? 
+The only concern here is: what do you do if the batter is swinging and this happens? We need to collect that data.
+
+Will also drop the frame if there are < 2 balls in it?
+
+
+## Can check the "fullness" of the square
+If you count the number of pixels in an object, and then divide that number by the area of the bounding box, then you can use a eliminate long strandy objects 
+
+## Measure squareness?
+If short/long < 0.5, then not our ball
+
+## Timing of trajectory
+How long does the trajectory matching take for 2 objects? 4? 8? 16? If we reduce the number of objects enough will it be fast enough to do the rest?
+
+## Larger pixel requirement
+If we can determine a higher number of pixels that are always seen, we should be able to reduce the number of objects further.
+This seems unlikely, given that some balls are too small right now (see 27). But we would need to test more. 
+
+## Minimum pixel requirement
+Can we eliminate objects that are larger than a particular size in either direction, because for the bottom of the strike zone (or near to it) we'll never see a ball that big?
+
+## Objects on edge
+If we eliminate objects on the edge, we will reduce some objects, but it's unclear how many/how useful it would be.
+
+## Object clustering
+Can we detect object clustering, and eliminate objects that are within some radius of each other? Will only ever be two balls. If there are >3 objects in some radius, then eliminate all objects from consideration in a radius around the combined center of mass.i
+This might cause isues if the ball is near the catcher's mitt, a la test 07.
+Also wouldn't do much in the case of 28, but that's probably fine, because if you only have ~2 objects in there then you're (hopefully) it won't add too much to the calculations.
+
+centroids = calculateCentroids(largeObjects)
+for i in centroids:
+	
+
 
 # Notes on results of testing
+Balls from pitcher: 25, 28, 30, 32, 33, 36-41, 51-52, 54, 56-58, 60-64, 66, 68-72, 74-79, 80, 82-83, 85-89, 91-92     
+Balls from catcher: 26-27, 29, 31, 34-35, 53, 55, 59-65, 67, 73, 81, 84, 90, 93
+Misc no Balls: 9-23, 42-50
+
 This document contains notes on what each folder is.
 lines that say "good" indicate ones I think we could/should use.
 lines that say "wah" indicate some confusing behavior.

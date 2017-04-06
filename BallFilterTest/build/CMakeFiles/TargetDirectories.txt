@@ -1,3 +1,0 @@
-/home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles/bftest.dir
-/home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles/denoisemain.dir
-/home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles/testmain.dir

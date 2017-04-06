@@ -23,6 +23,9 @@ using namespace cv;
 #define RED 0 
 #define GREEN 1
 #define BLUE 2
+#define YELLOW 3
+
+
 
 int32_t getNumFilesWithExtension(
 	const char* folderPath, 
@@ -37,21 +40,19 @@ void denoise(
 	uint8_t* img, 
 	struct DenoiseLookup* lu);
 
-// makes a horizontal or vertical line. color can be RED, GREEN, or BLUE
 void makeLine(
 	Mat* colorImage, 
 	uint16_t rowOrColumn, 
 	uint16_t color, 
 	uint16_t isVertical);
 
-// makes a rectangle. color can be RED, GREEN, or BLUE
 void makeBox(
     Mat* colorImage,
-    uint16_t minX,
-    uint16_t maxX,
-    uint16_t minY,
-    uint16_t maxY, 
-    uint16_t color);
+    int32_t minX,
+    int32_t maxX,
+    int32_t minY,
+    int32_t maxY, 
+    int32_t color);
 
 int _clip(int val, int max)
 {
@@ -89,6 +90,9 @@ int main(int argc, char** argv)
 
 	int32_t maxNumObjects = 0;
 	int32_t maxNumInterestingObjects = 0;
+	int32_t maxNumSquarish = 0;
+	int32_t maxNumFull = 0;
+	int32_t maxNumFullImg = 0; // which picture did maxNumFull appear?
 	for(int32_t i = 0; i < numPng; i++)
 	{
 		//construct file paths for images
@@ -102,26 +106,26 @@ int main(int argc, char** argv)
 		readImage = imread(imgReadFp.str().c_str(), IMREAD_GRAYSCALE);
 		uint8_t* byteImg = readImage.data;
 
-		for(int i = 0; i < IMG_HEIGHT*IMG_WIDTH; i++)
+		for(int j = 0; j < IMG_HEIGHT*IMG_WIDTH; j++)
 		{
-			byteImg[i] = byteImg[i]/255; // convert to 0s and 1s;
+			byteImg[j] = byteImg[j]/255; // convert to 0s and 1s;
 		}
 
 		// convert to bit image
 		int32_t bitImgSize = IMG_HEIGHT*IMG_WIDTH/8;
 		uint8_t bitImg[bitImgSize];
 		
-		for(int i = 0; i < bitImgSize; i++)
+		for(int j = 0; j < bitImgSize; j++)
 		{
-			bitImg[i] = 0; // clear
+			bitImg[j] = 0; // clear
 		}
 	
-		for(int i = 0; i < bitImgSize; i++)
+		for(int j = 0; j < bitImgSize; j++)
 		{
-			for(int j = 0; j < 8; j++)
+			for(int k = 0; k < 8; k++)
 			{
 				// this assumes that first pixel is stored in LSB.
-				bitImg[i] |= (byteImg[i*8 + j] & 0b1) << j;
+				bitImg[j] |= (byteImg[j*8 + k] & 0b1) << k;
 			}
 		}
 
@@ -134,18 +138,18 @@ int main(int argc, char** argv)
 
 		// convert back to byte image here so we can draw later
 		uint8_t newByteImg[IMG_HEIGHT*IMG_WIDTH];
-		for(int i = 0; i < IMG_HEIGHT*IMG_WIDTH; i++)
+		for(int j = 0; j < IMG_HEIGHT*IMG_WIDTH; j++)
 		{
-			newByteImg[i] = 0; // clear
+			newByteImg[j] = 0; // clear
 		}
 
-		for(int i = 0; i < bitImgSize; i++)
+		for(int j = 0; j < bitImgSize; j++)
 		{
-			uint8_t data = bitImg[i];
-			for(int j = 0; j < 8; j++)
+			uint8_t data = bitImg[j];
+			for(int k = 0; k < 8; k++)
 			{
 				// assumes first pixel (pixel 0)  is in LSB
-				newByteImg[i*8 + j] = ((data >> j) & 0b1)*255;
+				newByteImg[j*8 + k] = ((data >> k) & 0b1)*255;
 			}
 		}
 
@@ -168,12 +172,29 @@ int main(int argc, char** argv)
 			 maxNumObjects = numObjects;
 		}
 
+		mergeObjects(objArray, numObjects);
+
+
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
 		{
 			maxNumInterestingObjects = numInterestingObjects;
 		}
+/*
+		int32_t numSquarish = filterSquare(objArray, numObjects);
+		if(numSquarish > maxNumSquarish)
+		{
+			maxNumSquarish = numSquarish;
+		}
+*/
 
+/*		int32_t numFull = filterFull(objArray, numObjects);
+		if(numFull > maxNumFull) 
+		{
+			maxNumFull = numFull;
+			maxNumFullImg = i;	
+		}
+*/
 		// draw boxes on image from floodfill
 		Mat newImg(IMG_HEIGHT, IMG_WIDTH,  CV_8UC1, newByteImg);
 		Mat newColorImg;
@@ -185,21 +206,41 @@ int main(int argc, char** argv)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0], // + 8? 
-					objArray[i].box[1], // + 8? 
-					objArray[i].box[2],
-					objArray[i].box[3],
+					objArray[i].box[0]-1 , // + 8? 
+					objArray[i].box[1]+1, // + 8? 
+					objArray[i].box[2]-1,
+					objArray[i].box[3]+1,
 					RED);
 			}
-			else
+			else if(objArray[i].isBall == 0)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0], // + 8?
-					objArray[i].box[1], // + 8?
-					objArray[i].box[2],
-					objArray[i].box[3],
+					objArray[i].box[0]-1, // + 8?
+					objArray[i].box[1]+1, // + 8?
+					objArray[i].box[2]-1,
+					objArray[i].box[3]+1,
 					GREEN);
+			}
+			else if(objArray[i].isBall == 2)
+			{
+				makeBox(
+					&newColorImg,
+					objArray[i].box[0]-1, // + 8?
+					objArray[i].box[1]+1, // + 8?
+					objArray[i].box[2]-1,
+					objArray[i].box[3]+1,
+					BLUE);
+			}
+			else if(objArray[i].isBall == 3)
+			{
+				makeBox(
+					&newColorImg,
+					objArray[i].box[0]-1, // + 8?
+					objArray[i].box[1]+1, // + 8?
+					objArray[i].box[2]-1,
+					objArray[i].box[3]+1,
+					YELLOW);	
 			}
 		}
 
@@ -268,8 +309,10 @@ int main(int argc, char** argv)
 		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
 	
-	std::cout << "All Objects:         " << maxNumObjects << std::endl;
+//	std::cout << "All Objects:         " << maxNumObjects << std::endl;
 	std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
+	//std::cout << "Num Squarish:        " << maxNumSquarish << std::endl;
+	std::cout << "Num Full             " << maxNumFull << "  (img " << maxNumFullImg << " )" << std::endl;
 }
 
 void denoise(uint8_t* img, struct DenoiseLookup* lu){
@@ -403,10 +446,18 @@ void makeLine(Mat* colorImage, uint16_t rowOrColumn, uint16_t color, uint16_t is
     }   
     else if(color == BLUE)
     {   
-        bgr.val[0] = 255; // blue
-        bgr.val[1] = 0; // green
-        bgr.val[2] = 0; // red     
-    }   
+        bgr.val[0] = 0xFF; // blue
+        bgr.val[1] = 0xF2; // green
+        bgr.val[2] = 0x00; // red     
+    }  
+
+    else if(color == YELLOW)
+    {
+        bgr.val[0] = 0x00;
+        bgr.val[1] = 0xD8;
+        bgr.val[2] = 0xFF; 
+    }
+ 
 
     if(isVertical)
     {   
@@ -426,11 +477,11 @@ void makeLine(Mat* colorImage, uint16_t rowOrColumn, uint16_t color, uint16_t is
 
 void makeBox(
     Mat* colorImage,
-    uint16_t minX,
-    uint16_t maxX,
-    uint16_t minY,
-    uint16_t maxY, 
-    uint16_t color)
+    int32_t minX,
+    int32_t maxX,
+    int32_t minY,
+    int32_t maxY, 
+    int32_t color)
 {
     if(minX < 0 || minX > IMG_WIDTH-1 ||
         maxX < 0 || maxX > IMG_WIDTH-1 ||
@@ -461,10 +512,17 @@ void makeBox(
     }   
     else if(color == BLUE)
     {
-        bgr.val[0] = 255; // blue
-        bgr.val[1] = 0; // green
-        bgr.val[2] = 0; // red     
+        bgr.val[0] = 0xFF; // blue
+        bgr.val[1] = 0xF2; // green
+        bgr.val[2] = 0x00; // red     
     }
+
+	else if(color == YELLOW)
+	{
+		bgr.val[0] = 0x00;
+		bgr.val[1] = 0xD8;
+		bgr.val[2] = 0xFF;
+	}
 
     // the values we use to draw
     int realMinX = max(0, (int)minX);
@@ -474,7 +532,7 @@ void makeBox(
 
     for(int i = realMinX; i < realMaxX; i++)
     {
-        colorImage->at<Vec3b>(Point(i, realMinY)) = bgr;
+		colorImage->at<Vec3b>(Point(i, realMinY)) = bgr;
         colorImage->at<Vec3b>(Point(i, realMaxY)) = bgr;
     }
 

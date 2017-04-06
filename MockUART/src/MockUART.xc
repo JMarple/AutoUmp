@@ -13,58 +13,92 @@ struct gameState
     uint8_t isBottom;
     uint8_t home;
     uint8_t away;
+    float lastBallx;
+    float lastBally;
+    float kzoneTop;
+    float kzoneBot;
 };
-
-float lastBallx;
-float lastBally;
 
 void initGameState(struct gameState* unsafe  gs)
 { unsafe {
-    gs->balls    = 0;
-    gs->strikes  = 0;
-    gs->outs     = 0;
-    gs->height   = 0;
-    gs->inning   = 0;
-    gs->isBottom = 0;
-    gs->home     = 0;
-    gs->away     = 0;
+    gs->balls     = 0;
+    gs->strikes   = 0;
+    gs->outs      = 0;
+    gs->height    = 0;
+    gs->inning    = 0;
+    gs->isBottom  = 0;
+    gs->home      = 0;
+    gs->away      = 0;
+    gs->lastBallx = 0.0;
+    gs->lastBally = 0.0;
+    gs->kzoneTop  = 0.0;
+    gs->kzoneBot  = 0.0;
 }}
 
 void copyGameState(struct gameState* unsafe new, struct gameState* unsafe old)
 { unsafe {
-    new->balls    = old->balls;
-    new->strikes  = old->strikes;
-    new->outs     = old->outs;
-    new->height   = old->height;
-    new->inning   = old->inning;
-    new->isBottom = old->isBottom;
-    new->home     = old->home;
-    new->away     = old->away;
+    new->balls     = old->balls;
+    new->strikes   = old->strikes;
+    new->outs      = old->outs;
+    new->height    = old->height;
+    new->inning    = old->inning;
+    new->isBottom  = old->isBottom;
+    new->home      = old->home;
+    new->away      = old->away;
+    new->lastBallx = old->lastBallx;
+    new->lastBally = old->lastBally;
+    new->kzoneTop  = old->kzoneTop;
+    new->kzoneBot  = old->kzoneBot;
 }}
 
 /* stack definition */
 #define STACK_SIZE 100
-struct gameState commandStack[STACK_SIZE];
-int16_t top = -1;
-uint8_t numElem;
+struct Stack {
+    struct gameState states[STACK_SIZE];
+    int32_t top;
+    int32_t numElem;
+};
+
+void stackInit(struct Stack* unsafe stack)
+{ unsafe {
+    for(int i = 0; i < STACK_SIZE; i++)
+    {
+        initGameState(&stack->states[i]);
+    }
+    stack->top = -1;
+    stack->numElem = 0;
+}}
 
 // overwrites the oldest state
-void stackPush(struct gameState* stack, struct gameState* unsafe state)
+void stackPush(struct Stack* unsafe stack, struct gameState* unsafe state)
 { unsafe {
-    copyGameState(&stack[top], state);
-    top++;
+    stack->top = (stack->top + 1) % STACK_SIZE; // index
+    copyGameState(&stack->states[stack->top], state);
+    if(stack->numElem < STACK_SIZE) // if it's greater, than we're overwriting right now.
+    {
+        stack->numElem++;
+    }
 }}
 
 // fills state with value of top of stack
-int8_t stackPop(struct gameState* stack, struct gameState* unsafe state)
+int8_t stackPop(struct Stack* unsafe stack, struct gameState* unsafe state)
 { unsafe {
-    if(top == -1)
+    if(stack->numElem == 0)
     {
         return -1; // error, nothing in queue
     }
 
-    copyGameState(state, &stack[top]);
-    top--;
+    copyGameState(state, &stack->states[stack->top]);
+
+    if(stack->top == 0)
+    {
+        stack->top = STACK_SIZE - 1;
+    }
+    else
+    {
+        stack->top--;
+    }
+    stack->numElem--;
     return 0;
 }}
 /* end stack definition */
@@ -73,7 +107,7 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
 { unsafe {
     char output[40];
 
-    /* Format: B_S_O_HH_XX.XXX_YY.YYY_HS_AS_IIT
+    /* Format: B_S_O_HH_XX.XXX_YY.YYY_HS_AS_II_T_KT.KT_KB.KB
      * Where:
      *  B is ball count
      *  S is strike count
@@ -84,6 +118,8 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
      *  HS is home score
      *  AS is away score
      *  IIT is inning number of "t" or "b" for top/bottom
+     *  KT.KT. is KZone top from look up table
+     *  KB.KB is KZone bottom from lookup table
      */
     char topOrBot;
     if(currentGameState->isBottom)
@@ -95,23 +131,25 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
     {
         topOrBot = 't';
     }
-    snprintf(output, 40, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d%c\n",
+    snprintf(output, 40, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d %c %05.2f %05.2f\n",
             currentGameState->balls,
             currentGameState->strikes,
             currentGameState->outs,
             currentGameState->height,
-            lastBallx,
-            lastBally,
+            currentGameState->lastBallx,
+            currentGameState->lastBally,
             currentGameState->home,
             currentGameState->away,
             currentGameState->inning,
-            topOrBot);
+            topOrBot,
+            currentGameState->kzoneTop,
+            currentGameState->kzoneBot);
 
     for (int i = 0; i < 40; i++)
     {
         x <: output[i];
 
-        if (output[i] == '\n') break;
+        if (output[i] == '!') break;
     }
 }}
 
@@ -135,7 +173,7 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
  *  7: inning increment
  *  8: away score increment
  */
-void getGameStatus(streaming chanend x, struct gameState* unsafe currentGameState)
+void getGameStatus(streaming chanend x, struct Stack* unsafe stack, struct gameState* unsafe currentGameState)
 { unsafe {
     // Parse message.
     char input[40];
@@ -143,56 +181,51 @@ void getGameStatus(streaming chanend x, struct gameState* unsafe currentGameStat
     for (int i = 0; i < 40; i++)
     {
        x :> input[i];
-       if (input[i] == '\n') break;
+       if (input[i] == '!') break;
     }
 
     // update information
-    switch(input[0])
+    switch(input[1])
     {
         case '0': // change height
-            stackPush(commandStack, currentGameState);
-            uint8_t high = input[2] - '0';
-            uint8_t low  = input[3] - '0';
+            stackPush(stack, currentGameState);
+            uint8_t high = input[3] - '0';
+            uint8_t low  = input[4] - '0';
             currentGameState->height = high*10 + low;
             break;
 
         case '1': // ball increment
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             currentGameState->balls = (currentGameState->balls + 1) % 4;
             break;
 
         case '2': // strike increment
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             currentGameState->strikes = (currentGameState->strikes + 1) % 3;
             break;
 
         case '3': // out increment
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             currentGameState->outs = (currentGameState->outs + 1) % 3;
             break;
 
         case '4': // clear count
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             currentGameState->balls   = 0;
             currentGameState->strikes = 0;
-            currentGameState->outs    = 0;
             break;
 
         case '5': // undo
-            int16_t err = stackPop(commandStack, currentGameState);
-            /*if(err) // stack empty
-            {
-                break;
-            }*/
+            int16_t err = stackPop(stack, currentGameState);
             break;
 
         case '6': // home score increment
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             currentGameState->home++;
             break;
 
         case '7': // inning increment
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             if(currentGameState->isBottom)
             {
                 currentGameState->isBottom = 0; // set to top of inning
@@ -205,7 +238,7 @@ void getGameStatus(streaming chanend x, struct gameState* unsafe currentGameStat
             break;
 
         case '8': // away score increment
-            stackPush(commandStack, currentGameState);
+            stackPush(stack, currentGameState);
             currentGameState->away++;
             break;
 
@@ -240,18 +273,43 @@ void getGameStatus(streaming chanend x, struct gameState* unsafe currentGameStat
 
 void testing(chanend x, struct gameState* unsafe currentGameState)
 { unsafe {
+    float coords[5][2];
+    // 24, 35
+    // 12, 12
+    // 36, 66
+    // 16.5, 44
+    // 29.5, 28
+    coords[0][0] = 24.0;
+    coords[0][1] = 35.0;
+    coords[1][0] = 12.0;
+    coords[1][1] = 12.0;
+    coords[2][0] = 36.0;
+    coords[2][1] = 66.0;
+    coords[3][0] = 16.5;
+    coords[3][1] = 44.0;
+    coords[4][0] = 29.5;
+    coords[4][1] = 28.0;
+
+
+    int32_t i = 0;
     while (1==1)
     {
+        currentGameState->lastBallx = coords[i][0];
+        currentGameState->lastBally = coords[i][1];
         sendGameStatus(x, currentGameState);
-        delay_milliseconds(200);
+        delay_milliseconds(4000);
+        i = (i + 1) % 5;
     }
 }}
 
-void receivedData(streaming chanend y, struct gameState* unsafe currentGameState)
+void receivedData(
+        streaming chanend y,
+        struct gameState* unsafe currentGameState,
+        struct Stack* unsafe stack)
 { unsafe {
     while (1==1)
     {
-        getGameStatus(y, currentGameState);
+        getGameStatus(y, stack, currentGameState);
         //printf("DtaOut = %c\n", input);
     }
 }}
@@ -262,20 +320,17 @@ int main()
     chan x;
     streaming chan y;
     struct gameState currentGameState;
+    struct Stack stack;
 
 
     // initialize
-    for(int i = 0; i < STACK_SIZE; i++)
-    {
-        initGameState(&commandStack[i]);
-    }
-
+    stackInit(&stack);
     initGameState((struct gameState* unsafe)(&currentGameState));
     currentGameState.balls = 2;
     currentGameState.strikes = 1;
     currentGameState.height = 72;
-    lastBallx = 24.000;
-    lastBally = 39.000;
+    currentGameState.kzoneTop = 50.0;
+    currentGameState.kzoneBot = 20.0;
 
     struct gameState* unsafe tmpState = (struct gameState* unsafe)&currentGameState;
 
@@ -283,7 +338,7 @@ int main()
     {
         BluetoothTxThread(x);
         testing(x, tmpState);
-        receivedData(y, tmpState);
+        receivedData(y, tmpState, (struct Stack* unsafe)&stack);
         BluetoothRxThread(y);
     }
     return 0;

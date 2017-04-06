@@ -1,1 +1,0 @@
-/usr/bin/cc      CMakeFiles/test.dir/src/testmain.c.o CMakeFiles/test.dir/src/object_tracker.c.o  -o test -rdynamic 
