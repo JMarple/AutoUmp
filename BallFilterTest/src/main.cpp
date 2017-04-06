@@ -4,8 +4,6 @@ extern "C"
 	#include "algs.h"
 	#include "detect_objects.h"
 	#include "queue.h"
-    #include "object_tracker.h"
-    #include "hungarian.h"
 }
 #include <iostream>
 #include <stdio.h>
@@ -54,12 +52,6 @@ void makeBox(
     int32_t maxY, 
     int32_t color);
 
-int _clip(int val, int max)
-{
-   if (val < 0) val = 0;
-   if (val >= max) val = max-1;
-   return val;
-}
 
 /* 
 Takes in a folder, reads through background subtracted images.
@@ -83,18 +75,18 @@ int main(int argc, char** argv)
 	folderPathOss << argv[1] << "/" << argv[2] << "/";
 	std::string folderPath = folderPathOss.str();
 	
-    struct ObjectTracker tracker;
-    ObjectTrackerInit(&tracker);
 
 	int32_t numPng = getNumFilesWithExtension(folderPath.c_str(), ".png");
 
 	int32_t maxNumObjects = 0;
+	int32_t maxNumMerged = 0;
 	int32_t maxNumInterestingObjects = 0;
 	int32_t maxNumSquarish = 0;
 	int32_t maxNumFull = 0;
 	int32_t maxNumFullImg = 0; // which picture did maxNumFull appear?
 	for(int32_t i = 0; i < numPng; i++)
 	{
+		std::cout << "---------------- File " << i << " ----------------" << std::endl;
 		//construct file paths for images
 		std::ostringstream imgReadFp; 
 		std::ostringstream imgWriteFp;
@@ -172,8 +164,11 @@ int main(int argc, char** argv)
 			 maxNumObjects = numObjects;
 		}
 
-		mergeObjects(objArray, numObjects);
-
+		int32_t numMerged = mergeObjects(objArray, numObjects);
+		if(numMerged > maxNumMerged)
+		{
+			maxNumMerged = numMerged;
+		}
 
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
@@ -200,103 +195,63 @@ int main(int argc, char** argv)
 		Mat newColorImg;
 		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
-		for(int i = 0; i < numObjects; i++)
+		for(int j = 0; j < numObjects; j++)
 		{
-			if (objArray[i].isBall == 1)
+			if (objArray[j].isBall == 1)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1 , // + 8? 
-					objArray[i].box[1]+1, // + 8? 
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1 , // + 8? 
+					objArray[j].box[1]+1, // + 8? 
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					RED);
 			}
-			else if(objArray[i].isBall == 0)
+			else if(objArray[j].isBall == 0)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1, // + 8?
-					objArray[i].box[1]+1, // + 8?
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					GREEN);
 			}
-			else if(objArray[i].isBall == 2)
+			else if(objArray[j].isBall == 2)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1, // + 8?
-					objArray[i].box[1]+1, // + 8?
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					BLUE);
 			}
-			else if(objArray[i].isBall == 3)
+			else if(objArray[j].isBall == 3)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1, // + 8?
-					objArray[i].box[1]+1, // + 8?
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					YELLOW);	
 			}
 		}
 
-		// trajectories
-		struct ObjectArray objs;
-		ObjectArrayInit(&objs);
-		int q;
-		for (q = 0; q < numObjects; q++)
+		for(int j = 0; j < numObjects; j++)
 		{
-		    if (q >= OBJECTS_NUM) break;
-		    ObjectArrayAdd(&objs, objArray[q].box[0], objArray[q].box[2],
-                objArray[q].box[1], objArray[q].box[3]);
+			if(objArray[j].isBall != -2)
+			{
+				std::cout << "Object " << j << ", (x1, y1) = (" 
+					<< objArray[j].box[0] << ", " << objArray[j].box[2] << "). (x2, y2) = ("
+					<< objArray[j].box[1] << ", " << objArray[j].box[3] << ")." << std::endl;
+			}
 		}
 
-//		ObjectArrayPrint(&objs);
-        /*ObjectTrackerComputeCosts(&tracker, &objs);
-        //ObjectTrackerAssociateData(&tracker, &objs);
-        ObjectTrackerPrint(&tracker);
-        hungarian_t prob;
-        hungarian_init(&prob, (int*)tracker.cost_matrix, OBJECTS_NUM, OBJECTS_NUM);
-        //hungarian_print_rating(&prob);
-        hungarian_solve(&prob);
-        //hungarian_print_assignment(&prob);
 
-        for (q = 0; q < objs.objectNum; q++)
-        {
-            int trackMatch = prob.a[q];
+		// trajectories
 
-            if (tracker.tracks[trackMatch].inUse == 0)
-            {
-                printf("Adding track! %d\n", i);
-                ObjectTrackerAddTrack(&tracker,
-                    objs.objects[q].centX, objs.objects[q].centY);
-            }
-            else
-            {
-                printf("Updating track! %d\n", i);
-                ObjectTrackerUpdateTrack(&tracker, i,
-                    objs.objects[q].centX, objs.objects[q].centY, 1);
-            }
-        }
-
-        for (q = 0; q < OBJECTS_NUM; q++)
-        {
-            if (tracker.tracks[q].inUse == 0) continue;
-
-            makeBox(
-                &newColorImg,
-                _clip(tracker.tracks[q].filter.x_pos - 10, 320),
-                _clip(tracker.tracks[q].filter.x_pos + 10, 320),
-                _clip(tracker.tracks[q].filter.y_pos - 10, 240),
-                _clip(tracker.tracks[q].filter.y_pos + 10, 240),
-                BLUE);
-        }
-
-        hungarian_fini(&prob);*/
 		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')
 		{

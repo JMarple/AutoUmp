@@ -105,7 +105,7 @@ int8_t stackPop(struct Stack* unsafe stack, struct gameState* unsafe state)
 
 void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
 { unsafe {
-    char output[40];
+    char output[46];
 
     /* Format: B_S_O_HH_XX.XXX_YY.YYY_HS_AS_II_T_KT.KT_KB.KB
      * Where:
@@ -131,7 +131,7 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
     {
         topOrBot = 't';
     }
-    snprintf(output, 40, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d %c %05.2f %05.2f\n",
+    snprintf(output, 46, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d %c %05.2f %05.2f\n",
             currentGameState->balls,
             currentGameState->strikes,
             currentGameState->outs,
@@ -145,7 +145,7 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
             currentGameState->kzoneTop,
             currentGameState->kzoneBot);
 
-    for (int i = 0; i < 40; i++)
+    for (int i = 0; i < 46; i++)
     {
         x <: output[i];
 
@@ -176,9 +176,9 @@ void sendGameStatus(chanend x, struct gameState* unsafe currentGameState)
 void getGameStatus(streaming chanend x, struct Stack* unsafe stack, struct gameState* unsafe currentGameState)
 { unsafe {
     // Parse message.
-    char input[40];
+    char input[46];
 
-    for (int i = 0; i < 40; i++)
+    for (int i = 0; i < 46; i++)
     {
        x :> input[i];
        if (input[i] == '!') break;
@@ -326,7 +326,7 @@ int main()
     // initialize
     stackInit(&stack);
     initGameState((struct gameState* unsafe)(&currentGameState));
-    currentGameState.balls = 2;
+    currentGameState.balls = 3;
     currentGameState.strikes = 1;
     currentGameState.height = 72;
     currentGameState.kzoneTop = 50.0;
