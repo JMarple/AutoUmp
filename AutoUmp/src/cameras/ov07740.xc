@@ -7,7 +7,7 @@
 
 #include "ov07740.h"
 #include "sccb.h"
-#include "algs.h"
+#include "floodFillAlg.h"
 
 // All clocks used by the cameras
 on tile[1]: clock camCLK = XS1_CLKBLK_1;
@@ -102,60 +102,23 @@ void OV07740_MasterThread(
 
     printf("Master Thread\n");
 
+    // First frame init
+    OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+    OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+
     while (1)
     {
-        timer t;
-        uint32_t start, end;
-        t :> start;
-
         OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
         m2ff_tile1[0].sendBitBuffer(gblBitImage1, 320*240/8);
         m2ff_tile1[1].sendBitBuffer(gblBitImage2, 320*240/8);
 
         OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
-        m2ff_tile1[2].sendBitBuffer(gblBitImage2, 320*240/8);
-        m2ff_tile1[3].sendBitBuffer(gblBitImage2, 320*240/8);
-
-        OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
-        m2ff_tile0[0].sendBitBuffer(gblBitImage2, 320*240/8);
+        m2ff_tile0[0].sendBitBuffer(gblBitImage1, 320*240/8);
         m2ff_tile0[1].sendBitBuffer(gblBitImage2, 320*240/8);
 
-        t :> end;
-
-        printf("Returned 2 here %d\n", (end - start));
-
-        /* use this if you just want to send background subtraction.
-         * Remember you'll have to change bitimageviewer too.
-        for (int i = 0; i < BIT_IMAGE_SIZE; i++)
-        {
-            sendToBluetooth(uart1, bitImageArray[i], 240*40);
-            delay(2250000*10);
-        }
-        printf("Captured set of frames\n");
-
-        */
-
-        /*
-         * Use this stuff if you want to send denoise/floodfill.
-         * Remember you'll have to change bitimageviewer too.
-         */
-
-        // Send bit images to floodfill.
-        //ff1 <: bitImageArray[0];
-        //ff2 <: bitImageArray[1];
-
-
-        //int x;
-        //ff1 :> x;
-        //ff2 :> x;
-
-        //sendToBluetooth(uart1, (uint8_t* unsafe)image1, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)image2, 240*320);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)bitImageArray[0], 240*40);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo1, OBJECT_ARRAY_LENGTH*12);
-
-        //sendToBluetooth(uart1, (uint8_t* unsafe)bitImage2, 240*40);
-        //sendToBluetooth(uart1, (uint8_t* unsafe)objInfo2, OBJECT_ARRAY_LENGTH*12);
+        OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+        m2ff_tile0[2].sendBitBuffer(gblBitImage1, 320*240/8);
+        m2ff_tile0[3].sendBitBuffer(gblBitImage2, 320*240/8);
     }
 }}
 
@@ -227,23 +190,23 @@ void OV07740_GetFrame(
     {
         // Send current byte row to threads
         cam1 <: (uint32_t)&((uint8_t* unsafe)image1)[y*320];
-        //cam2 <: (uint32_t)&((uint8_t* unsafe)image2)[y*320];
+        cam2 <: (uint32_t)&((uint8_t* unsafe)image2)[y*320];
 
         // Send current bit row to threads.
         cam1 <: (uint32_t)&((uint8_t* unsafe)bitimage1)[y*40];
-        //cam2 <: (uint32_t)&((uint8_t* unsafe)bitimage2)[y*40];
+        cam2 <: (uint32_t)&((uint8_t* unsafe)bitimage2)[y*40];
 
         unsigned count = waitForHREF(AU_HREF2, AU_HREF2);
 
         count += 11;
 
         cam1 <: count;
-        //cam2 <: count;
+        cam2 <: count;
 
         // Wait for cameras to finish computing data.
         int x;
         cam1 :> x;
-        //cam2 :> x;
+        cam2 :> x;
     }
 }}
 
@@ -327,5 +290,3 @@ int OV07740_ConfigureCameras()
 
     return 1;
 }}
-
-

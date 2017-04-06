@@ -1,6 +1,6 @@
-23:24:53 **** Incremental Build of configuration Default for project lib_xassert ****
+17:20:24 **** Incremental Build of configuration Default for project lib_xassert ****
 xmake -f .makefile all 
 ** Module only - only builds as part of application **
 
-23:24:53 Build Finished (took 82ms)
+17:20:24 Build Finished (took 80ms)
 

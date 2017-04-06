@@ -5,11 +5,10 @@
 <fDef name="OV07740_GatherDataThread" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="OV07740_GetFrame" global="true" noreturn="false" doNotSpecialize="false" numParams="6"/>
 <fDef name="OV07740_InitCameras" global="true" noreturn="false" doNotSpecialize="false" numParams="0"/>
-<fDef name="OV07740_MasterThread" global="true" noreturn="false" doNotSpecialize="false" numParams="8"/>
+<fDef name="OV07740_MasterThread" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
-<fDef name="sendStuffAcross" global="true" noreturn="true" doNotSpecialize="false" numParams="2"/>
 <fDef name="sendToBluetooth" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
 <fDef name="waitForVSync" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fCall name="delay_ticks_longlong" global="true" numArgs="1">
@@ -69,34 +68,6 @@
     </values>
   </arg>
 </fCall>
-<fCall name="queueInit" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="dummyQueue" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="dummy2" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="printf" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
 <fCall name="printf" global="true" numArgs="1">
   <arg num="0">
     <values>
@@ -106,13 +77,13 @@
 </fCall>
 <fCall name="OV07740_GetFrame" global="true" numArgs="6">
   <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2">
@@ -138,13 +109,13 @@
 </fCall>
 <fCall name="OV07740_GetFrame" global="true" numArgs="6">
   <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2">
@@ -170,13 +141,13 @@
 </fCall>
 <fCall name="OV07740_GetFrame" global="true" numArgs="6">
   <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2">
@@ -200,15 +171,39 @@
     </values>
   </arg>
 </fCall>
-<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+<fCall name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" numArgs="2">
   <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2">
@@ -232,15 +227,39 @@
     </values>
   </arg>
 </fCall>
-<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+<fCall name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" numArgs="2">
   <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="2">
@@ -264,67 +283,15 @@
     </values>
   </arg>
 </fCall>
-<fCall name="OV07740_GetFrame" global="true" numArgs="6">
+<fCall name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" numArgs="2">
   <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
     <values>
+      <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
     <values>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="5">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="OV07740_GetFrame" global="true" numArgs="6">
-  <arg num="0">
-    <passThroughArg param="0" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="1">
-    <passThroughArg param="1" caller="OV07740_MasterThread" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="5">
-    <values>
-      <value type="unknown"/>
+      <value type="intval"><intval isSigned="true" val="9600"/></value>
     </values>
   </arg>
 </fCall>

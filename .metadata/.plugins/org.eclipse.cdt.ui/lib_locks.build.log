@@ -1,6 +1,6 @@
-23:24:53 **** Incremental Build of configuration Default for project lib_locks ****
+14:47:40 **** Incremental Build of configuration Default for project lib_locks ****
 xmake -f .makefile all 
 ** Module only - only builds as part of application **
 
-23:24:53 Build Finished (took 75ms)
+14:47:40 Build Finished (took 82ms)
 

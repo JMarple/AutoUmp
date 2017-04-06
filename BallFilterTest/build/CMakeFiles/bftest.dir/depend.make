@@ -3,8 +3,6 @@
 
 CMakeFiles/bftest.dir/src/algs.c.o: ../src/algs.c
 CMakeFiles/bftest.dir/src/algs.c.o: ../src/algs.h
-CMakeFiles/bftest.dir/src/algs.c.o: ../src/detect_objects.h
-CMakeFiles/bftest.dir/src/algs.c.o: ../src/queue.h
 
 CMakeFiles/bftest.dir/src/detect_objects.c.o: ../src/algs.h
 CMakeFiles/bftest.dir/src/detect_objects.c.o: ../src/detect_objects.c
@@ -12,18 +10,21 @@ CMakeFiles/bftest.dir/src/detect_objects.c.o: ../src/detect_objects.h
 CMakeFiles/bftest.dir/src/detect_objects.c.o: ../src/main.hpp
 CMakeFiles/bftest.dir/src/detect_objects.c.o: ../src/queue.h
 
-CMakeFiles/bftest.dir/src/object_tracker.c.o: ../src/detect_objects.h
+CMakeFiles/bftest.dir/src/hungarian.c.o: ../src/hungarian.c
+CMakeFiles/bftest.dir/src/hungarian.c.o: ../src/hungarian.h
+
 CMakeFiles/bftest.dir/src/object_tracker.c.o: ../src/object_tracker.c
 CMakeFiles/bftest.dir/src/object_tracker.c.o: ../src/object_tracker.h
-CMakeFiles/bftest.dir/src/object_tracker.c.o: ../src/queue.h
 
 CMakeFiles/bftest.dir/src/queue.c.o: ../src/queue.c
 CMakeFiles/bftest.dir/src/queue.c.o: ../src/queue.h
 
 CMakeFiles/bftest.dir/src/main.cpp.o: ../src/algs.h
 CMakeFiles/bftest.dir/src/main.cpp.o: ../src/detect_objects.h
+CMakeFiles/bftest.dir/src/main.cpp.o: ../src/hungarian.h
 CMakeFiles/bftest.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/bftest.dir/src/main.cpp.o: ../src/main.hpp
+CMakeFiles/bftest.dir/src/main.cpp.o: ../src/object_tracker.h
 CMakeFiles/bftest.dir/src/main.cpp.o: ../src/queue.h
 CMakeFiles/bftest.dir/src/main.cpp.o: /usr/local/include/opencv/cxcore.h
 CMakeFiles/bftest.dir/src/main.cpp.o: /usr/local/include/opencv2/calib3d.hpp

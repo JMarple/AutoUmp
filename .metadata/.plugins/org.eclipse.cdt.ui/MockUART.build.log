@@ -1,9 +1,9 @@
-23:24:52 **** Incremental Build of configuration Default for project MockUART ****
+14:47:39 **** Incremental Build of configuration Default for project MockUART ****
 xmake CONFIG=Default all 
 Checking build modules
 Using build modules: lib_locks(2.0.3)
 xmake[1]: `bin//MockUART.xe' is up to date.
 Build Complete
 
-23:24:52 Build Finished (took 372ms)
+14:47:39 Build Finished (took 424ms)
 

@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/denoisemain.dir/src/denoisemain.c.o CMakeFiles/denoisemain.dir/src/algs.c.o  -o denoisemain -rdynamic 

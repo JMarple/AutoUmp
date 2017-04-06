@@ -115,12 +115,39 @@ bftest/fast:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/build
 .PHONY : bftest/fast
 
+#=============================================================================
+# Target rules for targets named denoisemain
+
+# Build rule for target.
+denoisemain: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 denoisemain
+.PHONY : denoisemain
+
+# fast build rule for target.
+denoisemain/fast:
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/build
+.PHONY : denoisemain/fast
+
+#=============================================================================
+# Target rules for targets named testmain
+
+# Build rule for target.
+testmain: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testmain
+.PHONY : testmain
+
+# fast build rule for target.
+testmain/fast:
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/build
+.PHONY : testmain/fast
+
 src/algs.o: src/algs.c.o
 .PHONY : src/algs.o
 
 # target to build an object file
 src/algs.c.o:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.o
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/src/algs.c.o
 .PHONY : src/algs.c.o
 
 src/algs.i: src/algs.c.i
@@ -129,6 +156,7 @@ src/algs.i: src/algs.c.i
 # target to preprocess a source file
 src/algs.c.i:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.i
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/src/algs.c.i
 .PHONY : src/algs.c.i
 
 src/algs.s: src/algs.c.s
@@ -137,7 +165,32 @@ src/algs.s: src/algs.c.s
 # target to generate assembly for a file
 src/algs.c.s:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/algs.c.s
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/src/algs.c.s
 .PHONY : src/algs.c.s
+
+src/denoisemain.o: src/denoisemain.c.o
+.PHONY : src/denoisemain.o
+
+# target to build an object file
+src/denoisemain.c.o:
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/src/denoisemain.c.o
+.PHONY : src/denoisemain.c.o
+
+src/denoisemain.i: src/denoisemain.c.i
+.PHONY : src/denoisemain.i
+
+# target to preprocess a source file
+src/denoisemain.c.i:
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/src/denoisemain.c.i
+.PHONY : src/denoisemain.c.i
+
+src/denoisemain.s: src/denoisemain.c.s
+.PHONY : src/denoisemain.s
+
+# target to generate assembly for a file
+src/denoisemain.c.s:
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/src/denoisemain.c.s
+.PHONY : src/denoisemain.c.s
 
 src/detect_objects.o: src/detect_objects.c.o
 .PHONY : src/detect_objects.o
@@ -162,6 +215,33 @@ src/detect_objects.s: src/detect_objects.c.s
 src/detect_objects.c.s:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/detect_objects.c.s
 .PHONY : src/detect_objects.c.s
+
+src/hungarian.o: src/hungarian.c.o
+.PHONY : src/hungarian.o
+
+# target to build an object file
+src/hungarian.c.o:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/hungarian.c.o
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/hungarian.c.o
+.PHONY : src/hungarian.c.o
+
+src/hungarian.i: src/hungarian.c.i
+.PHONY : src/hungarian.i
+
+# target to preprocess a source file
+src/hungarian.c.i:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/hungarian.c.i
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/hungarian.c.i
+.PHONY : src/hungarian.c.i
+
+src/hungarian.s: src/hungarian.c.s
+.PHONY : src/hungarian.s
+
+# target to generate assembly for a file
+src/hungarian.c.s:
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/hungarian.c.s
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/hungarian.c.s
+.PHONY : src/hungarian.c.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -193,6 +273,7 @@ src/object_tracker.o: src/object_tracker.c.o
 # target to build an object file
 src/object_tracker.c.o:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/object_tracker.c.o
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/object_tracker.c.o
 .PHONY : src/object_tracker.c.o
 
 src/object_tracker.i: src/object_tracker.c.i
@@ -201,6 +282,7 @@ src/object_tracker.i: src/object_tracker.c.i
 # target to preprocess a source file
 src/object_tracker.c.i:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/object_tracker.c.i
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/object_tracker.c.i
 .PHONY : src/object_tracker.c.i
 
 src/object_tracker.s: src/object_tracker.c.s
@@ -209,6 +291,7 @@ src/object_tracker.s: src/object_tracker.c.s
 # target to generate assembly for a file
 src/object_tracker.c.s:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/object_tracker.c.s
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/object_tracker.c.s
 .PHONY : src/object_tracker.c.s
 
 src/queue.o: src/queue.c.o
@@ -235,6 +318,30 @@ src/queue.c.s:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/queue.c.s
 .PHONY : src/queue.c.s
 
+src/testmain.o: src/testmain.c.o
+.PHONY : src/testmain.o
+
+# target to build an object file
+src/testmain.c.o:
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/testmain.c.o
+.PHONY : src/testmain.c.o
+
+src/testmain.i: src/testmain.c.i
+.PHONY : src/testmain.i
+
+# target to preprocess a source file
+src/testmain.c.i:
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/testmain.c.i
+.PHONY : src/testmain.c.i
+
+src/testmain.s: src/testmain.c.s
+.PHONY : src/testmain.s
+
+# target to generate assembly for a file
+src/testmain.c.s:
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/src/testmain.c.s
+.PHONY : src/testmain.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,14 +349,22 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... bftest"
+	@echo "... denoisemain"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... testmain"
 	@echo "... src/algs.o"
 	@echo "... src/algs.i"
 	@echo "... src/algs.s"
+	@echo "... src/denoisemain.o"
+	@echo "... src/denoisemain.i"
+	@echo "... src/denoisemain.s"
 	@echo "... src/detect_objects.o"
 	@echo "... src/detect_objects.i"
 	@echo "... src/detect_objects.s"
+	@echo "... src/hungarian.o"
+	@echo "... src/hungarian.i"
+	@echo "... src/hungarian.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -259,6 +374,9 @@ help:
 	@echo "... src/queue.o"
 	@echo "... src/queue.i"
 	@echo "... src/queue.s"
+	@echo "... src/testmain.o"
+	@echo "... src/testmain.i"
+	@echo "... src/testmain.s"
 .PHONY : help
 
 

@@ -1,0 +1,10 @@
+#include "algs.h"
+
+int main()
+{
+    uint32_t top[10];
+    uint32_t cur[10];
+    uint32_t bot[10];
+
+    return 0;
+}

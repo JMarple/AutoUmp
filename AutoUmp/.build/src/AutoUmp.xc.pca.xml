@@ -1,15 +1,15 @@
 <preCompilationAnalysis file="../src/AutoUmp.xc">
+<fDef name="ObjectTracker" global="true" noreturn="true" doNotSpecialize="false" numParams="3"/>
 <fDef name="Tile0" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="Tile1" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="_safe_memcmp" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
 <fDef name="_safe_memmove" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
 <fDef name="_safe_memset" global="true" noreturn="false" doNotSpecialize="true" numParams="3"/>
-<fDef name="dataCapturingTemporaryThread" global="true" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="delay_microseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_milliseconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="delay_seconds" global="true" noreturn="false" doNotSpecialize="true" numParams="1"/>
 <fDef name="main" global="true" noreturn="false" doNotSpecialize="false" numParams="0"/>
-<fDef name="sendBitBuffer" global="true" interface="MasterToFloodFillInter" noreturn="false" doNotSpecialize="false" numParams="2"/>
+<fDef name="sendBuffer" global="true" interface="BluetoothInter" noreturn="false" doNotSpecialize="false" numParams="2"/>
 <fDef name="sendToBluetoothTemporary" global="true" noreturn="false" doNotSpecialize="false" numParams="3"/>
 <fCall name="delay_ticks_longlong" global="true" numArgs="1">
   <arg num="0">
@@ -101,84 +101,27 @@
     </values>
   </arg>
 </fCall>
-<fCall name="DenoiseInitLookup" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="__builtin_memcpy_xc" global="true" numArgs="3">
+<fCall name="_safe_memset" global="true" numArgs="3">
   <arg num="0">
     <values>
       <value type="unknown"/>
     </values>
   </arg>
   <arg num="1">
-    <passThroughArg param="0" caller="sendBitBuffer" global="true" interface="MasterToFloodFillInter"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="turnOnLED6" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="1"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="DenoiseRow" global="true" numArgs="4">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="2">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="3">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="turnOnLED6" global="true" numArgs="1">
-  <arg num="0">
     <values>
       <value type="intval"><intval isSigned="true" val="0"/></value>
     </values>
   </arg>
+  <arg num="2">
+    <values>
+      <value type="intval"><intval isSigned="true" val="3000"/></value>
+    </values>
+  </arg>
 </fCall>
-<fCall name="printf" global="true" numArgs="1">
+<fCall name="packObjects" global="true" numArgs="3">
   <arg num="0">
     <values>
       <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="delay_milliseconds" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="intval"><intval isSigned="true" val="10"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="sendToBluetoothTemporary" global="true" numArgs="3">
-  <arg num="0">
-    <passThroughArg param="1" caller="dataCapturingTemporaryThread" global="true"/>
-    <values>
     </values>
   </arg>
   <arg num="1">
@@ -188,11 +131,23 @@
   </arg>
   <arg num="2">
     <values>
-      <value type="intval"><intval isSigned="true" val="9600"/></value>
+      <value type="unknown"/>
     </values>
   </arg>
 </fCall>
-<fCall name="printf" global="true" numArgs="1">
+<fCall name="sendBuffer" global="true" interface="BluetoothInter" numArgs="2">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="intval"><intval isSigned="true" val="3000"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="DenoiseInitLookup" global="true" numArgs="1">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -202,19 +157,112 @@
 <fCall name="BluetoothThread" global="true" numArgs="1" impId="0">
   <arg num="0">
     <values>
-      <value type="unknown"/>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
     </values>
   </arg>
 </fCall>
-<fCall name="dataCapturingTemporaryThread" global="true" numArgs="2" impId="1">
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="1">
   <arg num="0">
-    <passThroughArg param="1" caller="Tile0" global="true"/>
     <values>
+      <value type="interface"/>
     </values>
   </arg>
   <arg num="1">
     <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="intval"><intval isSigned="true" val="3"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="2">
+  <arg num="0">
+    <values>
+      <value type="interface"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="interface"><interfaceInfo index="1" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="intval"><intval isSigned="true" val="4"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="3">
+  <arg num="0">
+    <values>
+      <value type="interface"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="interface"><interfaceInfo index="2" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="intval"><intval isSigned="true" val="5"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="4">
+  <arg num="0">
+    <values>
+      <value type="interface"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="interface"><interfaceInfo index="3" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="3">
+    <values>
+      <value type="intval"><intval isSigned="true" val="6"/></value>
+    </values>
+  </arg>
+</fCall>
+<fCall name="ObjectTracker" global="true" numArgs="3" impId="5">
+  <arg num="0">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/><interfaceInfo index="1" type="chan" isYielding="false"/><interfaceInfo index="2" type="chan" isYielding="false"/><interfaceInfo index="3" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="interface"/>
     </values>
   </arg>
 </fCall>
@@ -229,44 +277,6 @@
 </fCall>
 <fCall name="OV07740_ConfigureCameras" global="true" numArgs="0">
 </fCall>
-<fCall name="initObjectArray" global="true" numArgs="2">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="intval"><intval isSigned="true" val="250"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="initObjectArray" global="true" numArgs="2">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="intval"><intval isSigned="true" val="250"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="queueInit" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
-<fCall name="queueInit" global="true" numArgs="1">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-</fCall>
 <fCall name="printf" global="true" numArgs="1">
   <arg num="0">
     <values>
@@ -281,7 +291,24 @@
     </values>
   </arg>
 </fCall>
-<fCall name="OV07740_MasterThread" global="true" numArgs="8" impId="2">
+<fCall name="OV07740_MasterThread" global="true" numArgs="3" impId="6">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/><interfaceInfo index="1" type="chan" isYielding="false"/><interfaceInfo index="2" type="chan" isYielding="false"/><interfaceInfo index="3" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
+      <value type="interface"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="OV07740_GatherDataThread" global="true" numArgs="2" impId="7">
   <arg num="0">
     <values>
       <value type="unknown"/>
@@ -290,6 +317,30 @@
   <arg num="1">
     <values>
       <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="OV07740_GatherDataThread" global="true" numArgs="2" impId="8">
+  <arg num="0">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="unknown"/>
+    </values>
+  </arg>
+</fCall>
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="9">
+  <arg num="0">
+    <values>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+    </values>
+  </arg>
+  <arg num="1">
+    <values>
+      <value type="interface"/>
     </values>
   </arg>
   <arg num="2">
@@ -299,75 +350,53 @@
   </arg>
   <arg num="3">
     <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="4">
-    <passThroughArg param="0" caller="Tile1" global="true"/>
-    <values>
-    </values>
-  </arg>
-  <arg num="5">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="6">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="7">
-    <passThroughArg param="1" caller="Tile1" global="true"/>
-    <values>
+      <value type="intval"><intval isSigned="true" val="1"/></value>
     </values>
   </arg>
 </fCall>
-<fCall name="OV07740_GatherDataThread" global="true" numArgs="2" impId="3">
+<fCall name="FloodFillThread" global="true" numArgs="4" impId="10">
   <arg num="0">
     <values>
-      <value type="unknown"/>
+      <value type="interface"><interfaceInfo index="1" type="chan" isYielding="false"/></value>
     </values>
   </arg>
   <arg num="1">
     <values>
+      <value type="interface"/>
+    </values>
+  </arg>
+  <arg num="2">
+    <values>
       <value type="unknown"/>
     </values>
   </arg>
+  <arg num="3">
+    <values>
+      <value type="intval"><intval isSigned="true" val="2"/></value>
+    </values>
+  </arg>
 </fCall>
-<fCall name="OV07740_GatherDataThread" global="true" numArgs="2" impId="4">
+<fCall name="Tile0" global="true" numArgs="2" impId="11">
   <arg num="0">
     <values>
-      <value type="unknown"/>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/><interfaceInfo index="1" type="chan" isYielding="false"/><interfaceInfo index="2" type="chan" isYielding="false"/><interfaceInfo index="3" type="chan" isYielding="false"/></value>
     </values>
   </arg>
   <arg num="1">
     <values>
-      <value type="unknown"/>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/><interfaceInfo index="1" type="chan" isYielding="false"/><interfaceInfo index="2" type="chan" isYielding="false"/><interfaceInfo index="3" type="chan" isYielding="false"/></value>
     </values>
   </arg>
 </fCall>
-<fCall name="Tile0" global="true" numArgs="2" impId="5">
+<fCall name="Tile1" global="true" numArgs="2" impId="12">
   <arg num="0">
     <values>
-      <value type="unknown"/>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/><interfaceInfo index="1" type="chan" isYielding="false"/><interfaceInfo index="2" type="chan" isYielding="false"/><interfaceInfo index="3" type="chan" isYielding="false"/></value>
     </values>
   </arg>
   <arg num="1">
     <values>
-      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
-    </values>
-  </arg>
-</fCall>
-<fCall name="Tile1" global="true" numArgs="2" impId="6">
-  <arg num="0">
-    <values>
-      <value type="unknown"/>
-    </values>
-  </arg>
-  <arg num="1">
-    <values>
-      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/></value>
+      <value type="interface"><interfaceInfo index="0" type="chan" isYielding="false"/><interfaceInfo index="1" type="chan" isYielding="false"/><interfaceInfo index="2" type="chan" isYielding="false"/><interfaceInfo index="3" type="chan" isYielding="false"/></value>
     </values>
   </arg>
 </fCall>

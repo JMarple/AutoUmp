@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/jmarple/code/AutoUmp/BallFilterTest/build
 CMakeFiles/bftest.dir/all:
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/depend
 	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles  1 2 3 4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles  1 2 3 4 5 6
 	@echo "Built target bftest"
 .PHONY : CMakeFiles/bftest.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/bftest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bftest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/bftest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 0
 .PHONY : CMakeFiles/bftest.dir/rule
@@ -85,6 +85,76 @@ CMakeFiles/bftest.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/bftest.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/denoisemain.dir
+
+# All Build rule for target.
+CMakeFiles/denoisemain.dir/all:
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/depend
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles  7 8
+	@echo "Built target denoisemain"
+.PHONY : CMakeFiles/denoisemain.dir/all
+
+# Include target in all.
+all: CMakeFiles/denoisemain.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/denoisemain.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/denoisemain.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 0
+.PHONY : CMakeFiles/denoisemain.dir/rule
+
+# Convenience name for target.
+denoisemain: CMakeFiles/denoisemain.dir/rule
+.PHONY : denoisemain
+
+# clean rule for target.
+CMakeFiles/denoisemain.dir/clean:
+	$(MAKE) -f CMakeFiles/denoisemain.dir/build.make CMakeFiles/denoisemain.dir/clean
+.PHONY : CMakeFiles/denoisemain.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/denoisemain.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/testmain.dir
+
+# All Build rule for target.
+CMakeFiles/testmain.dir/all:
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/depend
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles  9 10 11
+	@echo "Built target testmain"
+.PHONY : CMakeFiles/testmain.dir/all
+
+# Include target in all.
+all: CMakeFiles/testmain.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testmain.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/testmain.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles 0
+.PHONY : CMakeFiles/testmain.dir/rule
+
+# Convenience name for target.
+testmain: CMakeFiles/testmain.dir/rule
+.PHONY : testmain
+
+# clean rule for target.
+CMakeFiles/testmain.dir/clean:
+	$(MAKE) -f CMakeFiles/testmain.dir/build.make CMakeFiles/testmain.dir/clean
+.PHONY : CMakeFiles/testmain.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/testmain.dir/clean
 .PHONY : clean
 
 #=============================================================================

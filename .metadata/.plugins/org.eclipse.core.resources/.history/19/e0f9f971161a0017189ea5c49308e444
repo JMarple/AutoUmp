@@ -1,0 +1,7 @@
+#include "algs.h"
+
+int main()
+{
+    uint32_t top[10];
+    return 0;
+}

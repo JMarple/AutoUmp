@@ -164,13 +164,37 @@ CMakeFiles/bftest.dir/src/object_tracker.c.o.provides: CMakeFiles/bftest.dir/src
 
 CMakeFiles/bftest.dir/src/object_tracker.c.o.provides.build: CMakeFiles/bftest.dir/src/object_tracker.c.o
 
+CMakeFiles/bftest.dir/src/hungarian.c.o: CMakeFiles/bftest.dir/flags.make
+CMakeFiles/bftest.dir/src/hungarian.c.o: ../src/hungarian.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jmarple/code/AutoUmp/BallFilterTest/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/bftest.dir/src/hungarian.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bftest.dir/src/hungarian.c.o   -c /home/jmarple/code/AutoUmp/BallFilterTest/src/hungarian.c
+
+CMakeFiles/bftest.dir/src/hungarian.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bftest.dir/src/hungarian.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/jmarple/code/AutoUmp/BallFilterTest/src/hungarian.c > CMakeFiles/bftest.dir/src/hungarian.c.i
+
+CMakeFiles/bftest.dir/src/hungarian.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bftest.dir/src/hungarian.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/jmarple/code/AutoUmp/BallFilterTest/src/hungarian.c -o CMakeFiles/bftest.dir/src/hungarian.c.s
+
+CMakeFiles/bftest.dir/src/hungarian.c.o.requires:
+.PHONY : CMakeFiles/bftest.dir/src/hungarian.c.o.requires
+
+CMakeFiles/bftest.dir/src/hungarian.c.o.provides: CMakeFiles/bftest.dir/src/hungarian.c.o.requires
+	$(MAKE) -f CMakeFiles/bftest.dir/build.make CMakeFiles/bftest.dir/src/hungarian.c.o.provides.build
+.PHONY : CMakeFiles/bftest.dir/src/hungarian.c.o.provides
+
+CMakeFiles/bftest.dir/src/hungarian.c.o.provides.build: CMakeFiles/bftest.dir/src/hungarian.c.o
+
 # Object files for target bftest
 bftest_OBJECTS = \
 "CMakeFiles/bftest.dir/src/main.cpp.o" \
 "CMakeFiles/bftest.dir/src/algs.c.o" \
 "CMakeFiles/bftest.dir/src/detect_objects.c.o" \
 "CMakeFiles/bftest.dir/src/queue.c.o" \
-"CMakeFiles/bftest.dir/src/object_tracker.c.o"
+"CMakeFiles/bftest.dir/src/object_tracker.c.o" \
+"CMakeFiles/bftest.dir/src/hungarian.c.o"
 
 # External object files for target bftest
 bftest_EXTERNAL_OBJECTS =
@@ -180,6 +204,7 @@ bftest: CMakeFiles/bftest.dir/src/algs.c.o
 bftest: CMakeFiles/bftest.dir/src/detect_objects.c.o
 bftest: CMakeFiles/bftest.dir/src/queue.c.o
 bftest: CMakeFiles/bftest.dir/src/object_tracker.c.o
+bftest: CMakeFiles/bftest.dir/src/hungarian.c.o
 bftest: CMakeFiles/bftest.dir/build.make
 bftest: /usr/local/lib/libopencv_calib3d.so.3.1.0
 bftest: /usr/local/lib/libopencv_core.so.3.1.0
@@ -255,6 +280,7 @@ CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/algs.c.o.requires
 CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/detect_objects.c.o.requires
 CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/queue.c.o.requires
 CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/object_tracker.c.o.requires
+CMakeFiles/bftest.dir/requires: CMakeFiles/bftest.dir/src/hungarian.c.o.requires
 .PHONY : CMakeFiles/bftest.dir/requires
 
 CMakeFiles/bftest.dir/clean:

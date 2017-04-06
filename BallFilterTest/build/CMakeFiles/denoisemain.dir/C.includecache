@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jmarple/code/AutoUmp/BallFilterTest/src/algs.c
+algs.h
+/home/jmarple/code/AutoUmp/BallFilterTest/src/algs.h
+
+/home/jmarple/code/AutoUmp/BallFilterTest/src/algs.h
+stdint.h
+-
+
+/home/jmarple/code/AutoUmp/BallFilterTest/src/denoisemain.c
+algs.h
+/home/jmarple/code/AutoUmp/BallFilterTest/src/algs.h
+time.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+

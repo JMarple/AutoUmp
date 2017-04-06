@@ -1,0 +1,27 @@
+#include "algs.h"
+#include <time.h>
+
+int main()
+{
+    struct DenoiseLookup* lu = (struct DenoiseLookup*) malloc(sizeof(struct DenoiseLookup));
+    if (lu == 0) printf("Lookup table out of memory!");
+    DenoiseInitLookup(lu);
+
+    uint32_t top[10];
+    uint32_t cur[10];
+    uint32_t bot[10];
+
+    srand(time(NULL));
+
+    int i;
+    for (i = 0; i < 10; i++)
+    {
+        top[i] = rand();
+        cur[i] = rand();
+        bot[i] = rand();
+    }
+
+    DenoiseRowOld();
+
+    return 0;
+}

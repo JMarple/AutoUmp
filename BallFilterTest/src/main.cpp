@@ -4,6 +4,8 @@ extern "C"
 	#include "algs.h"
 	#include "detect_objects.h"
 	#include "queue.h"
+    #include "object_tracker.h"
+    #include "hungarian.h"
 }
 #include <iostream>
 #include <stdio.h>
@@ -51,6 +53,12 @@ void makeBox(
     uint16_t maxY, 
     uint16_t color);
 
+int _clip(int val, int max)
+{
+   if (val < 0) val = 0;
+   if (val >= max) val = max-1;
+   return val;
+}
 
 /* 
 Takes in a folder, reads through background subtracted images.
@@ -74,6 +82,8 @@ int main(int argc, char** argv)
 	folderPathOss << argv[1] << "/" << argv[2] << "/";
 	std::string folderPath = folderPathOss.str();
 	
+    struct ObjectTracker tracker;
+    ObjectTrackerInit(&tracker);
 
 	int32_t numPng = getNumFilesWithExtension(folderPath.c_str(), ".png");
 
@@ -193,9 +203,59 @@ int main(int argc, char** argv)
 			}
 		}
 
-
 		// trajectories
+		struct ObjectArray objs;
+		ObjectArrayInit(&objs);
+		int q;
+		for (q = 0; q < numObjects; q++)
+		{
+		    if (q >= OBJECTS_NUM) break;
+		    ObjectArrayAdd(&objs, objArray[q].box[0], objArray[q].box[2],
+                objArray[q].box[1], objArray[q].box[3]);
+		}
 
+//		ObjectArrayPrint(&objs);
+        /*ObjectTrackerComputeCosts(&tracker, &objs);
+        //ObjectTrackerAssociateData(&tracker, &objs);
+        ObjectTrackerPrint(&tracker);
+        hungarian_t prob;
+        hungarian_init(&prob, (int*)tracker.cost_matrix, OBJECTS_NUM, OBJECTS_NUM);
+        //hungarian_print_rating(&prob);
+        hungarian_solve(&prob);
+        //hungarian_print_assignment(&prob);
+
+        for (q = 0; q < objs.objectNum; q++)
+        {
+            int trackMatch = prob.a[q];
+
+            if (tracker.tracks[trackMatch].inUse == 0)
+            {
+                printf("Adding track! %d\n", i);
+                ObjectTrackerAddTrack(&tracker,
+                    objs.objects[q].centX, objs.objects[q].centY);
+            }
+            else
+            {
+                printf("Updating track! %d\n", i);
+                ObjectTrackerUpdateTrack(&tracker, i,
+                    objs.objects[q].centX, objs.objects[q].centY, 1);
+            }
+        }
+
+        for (q = 0; q < OBJECTS_NUM; q++)
+        {
+            if (tracker.tracks[q].inUse == 0) continue;
+
+            makeBox(
+                &newColorImg,
+                _clip(tracker.tracks[q].filter.x_pos - 10, 320),
+                _clip(tracker.tracks[q].filter.x_pos + 10, 320),
+                _clip(tracker.tracks[q].filter.y_pos - 10, 240),
+                _clip(tracker.tracks[q].filter.y_pos + 10, 240),
+                BLUE);
+        }
+
+        hungarian_fini(&prob);*/
 		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')
 		{

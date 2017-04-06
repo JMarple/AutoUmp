@@ -1,0 +1,9 @@
+#include "object_tracker.h"
+#include <stdio.h>
+
+int main()
+{
+    struct ObjectTracker tracker;
+    printf("Test object_tracker.c\n");
+    return 0;
+}
