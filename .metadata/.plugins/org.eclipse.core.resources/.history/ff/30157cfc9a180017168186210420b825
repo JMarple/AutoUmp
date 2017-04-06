@@ -1,8 +1,0 @@
-#include "object_tracker.h"
-#include <stdio.h>
-
-int main()
-{
-    printf("Test object_tracker.c\n");
-    return 0;
-}

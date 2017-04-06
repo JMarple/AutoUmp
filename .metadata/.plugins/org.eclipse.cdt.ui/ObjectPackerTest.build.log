@@ -1,9 +1,0 @@
-14:47:39 **** Build of configuration Default for project ObjectPackerTest ****
-xmake CONFIG=Default all 
-Checking build modules
-No build modules used.
-xmake[1]: `bin//ObjectPackerTest.xe' is up to date.
-Build Complete
-
-14:47:40 Build Finished (took 319ms)
-
