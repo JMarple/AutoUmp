@@ -470,8 +470,12 @@ int32_t mergeObjects(struct Object* objArray, int32_t length)
 		// compare with every other object
 		// (comparisons below i+1 have already been checked)
 		int j;
-		for(j = i+1; j < length; j++)
+		for(j = 0; j < length; j++)
 		{
+			if((objArray[j].isBall == -2) || (i == j))
+			{
+				continue;
+			}
 			// get and expand bounds for both objects			
 			int32_t* box1 = objArray[i].box;
 			int32_t* box2 = objArray[j].box;

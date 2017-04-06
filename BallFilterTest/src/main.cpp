@@ -79,12 +79,14 @@ int main(int argc, char** argv)
 	int32_t numPng = getNumFilesWithExtension(folderPath.c_str(), ".png");
 
 	int32_t maxNumObjects = 0;
+	int32_t maxNumMerged = 0;
 	int32_t maxNumInterestingObjects = 0;
 	int32_t maxNumSquarish = 0;
 	int32_t maxNumFull = 0;
 	int32_t maxNumFullImg = 0; // which picture did maxNumFull appear?
 	for(int32_t i = 0; i < numPng; i++)
 	{
+		std::cout << "---------------- File " << i << " ----------------" << std::endl;
 		//construct file paths for images
 		std::ostringstream imgReadFp; 
 		std::ostringstream imgWriteFp;
@@ -162,8 +164,11 @@ int main(int argc, char** argv)
 			 maxNumObjects = numObjects;
 		}
 
-		mergeObjects(objArray, numObjects);
-
+		int32_t numMerged = mergeObjects(objArray, numObjects);
+		if(numMerged > maxNumMerged)
+		{
+			maxNumMerged = numMerged;
+		}
 
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
@@ -190,47 +195,57 @@ int main(int argc, char** argv)
 		Mat newColorImg;
 		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
-		for(int i = 0; i < numObjects; i++)
+		for(int j = 0; j < numObjects; j++)
 		{
-			if (objArray[i].isBall == 1)
+			if (objArray[j].isBall == 1)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1 , // + 8? 
-					objArray[i].box[1]+1, // + 8? 
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1 , // + 8? 
+					objArray[j].box[1]+1, // + 8? 
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					RED);
 			}
-			else if(objArray[i].isBall == 0)
+			else if(objArray[j].isBall == 0)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1, // + 8?
-					objArray[i].box[1]+1, // + 8?
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					GREEN);
 			}
-			else if(objArray[i].isBall == 2)
+			else if(objArray[j].isBall == 2)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1, // + 8?
-					objArray[i].box[1]+1, // + 8?
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					BLUE);
 			}
-			else if(objArray[i].isBall == 3)
+			else if(objArray[j].isBall == 3)
 			{
 				makeBox(
 					&newColorImg,
-					objArray[i].box[0]-1, // + 8?
-					objArray[i].box[1]+1, // + 8?
-					objArray[i].box[2]-1,
-					objArray[i].box[3]+1,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
 					YELLOW);	
+			}
+		}
+
+		for(int j = 0; j < numObjects; j++)
+		{
+			if(objArray[j].isBall != -2)
+			{
+				std::cout << "Object " << j << ", (x1, y1) = (" 
+					<< objArray[j].box[0] << ", " << objArray[j].box[2] << "). (x2, y2) = ("
+					<< objArray[j].box[1] << ", " << objArray[j].box[3] << ")." << std::endl;
 			}
 		}
 
