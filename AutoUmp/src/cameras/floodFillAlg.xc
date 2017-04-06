@@ -61,8 +61,10 @@ int FloodFill(
     if ((ed-st) > 4500000)
         printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
 
+    mergeObjects(objArray, numObjects);
+
     //findCenters
-    computeCenters(objArray, numObjects);
+    //computeCenters(objArray, numObjects);
 
     // COMMENT IF VIEWING BACKGROUND SUBTRACTION
     //packObjects(objArray, bitBuffer, numObjects);

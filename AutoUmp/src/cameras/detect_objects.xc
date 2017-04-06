@@ -4,7 +4,7 @@
 #include "detect_objects.h"
 #include "floodFillAlg.h"
 
-void objectOverwrite(struct Object* obj, uint16_t id, uint8_t isBall, uint32_t minX, uint32_t maxX, uint32_t minY, uint32_t maxY)
+void objectOverwrite(struct Object* obj, uint16_t id, int8_t isBall, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY)
 {
     obj->id = id; // no object
     obj->isBall = isBall;
@@ -98,7 +98,7 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
     uint32_t tail = q->tail;
     uint32_t numElem = q->numElem;
     uint32_t* unsafe arr    = q->arr;
-    uint32_t* unsafe box = currentObject->box;
+    int32_t* unsafe box = currentObject->box;
 
     while(numElem > 0)
     {
@@ -137,8 +137,8 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
-            uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
+            int16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            int16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
             if(newX > box[1]) box[1] = newX;
@@ -169,8 +169,8 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
-            uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
+            int16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            int16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
             if(newX > box[1]) box[1] = newX;
@@ -201,8 +201,8 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
-            uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
+            int16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            int16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
             if(newX > box[1]) box[1] = newX;
@@ -233,8 +233,8 @@ void floodFill(uint8_t* unsafe bitPicture, struct Queue* q, struct Object* curre
             // END setBitInPic(bitPicture, indexCurrent, 0);
 
             // START updateObject(currentObject, indexCurrent);
-            uint16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
-            uint16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
+            int16_t newY = indexCurrent / IMG_WIDTH; // goes along rows/height of image
+            int16_t newX = (indexCurrent % IMG_WIDTH); // goes along columns/width of image
 
             if(newX < box[0]) box[0] = newX;
             if(newX > box[1]) box[1] = newX;
@@ -258,9 +258,9 @@ void updateObject(struct Object* object, uint32_t bitIndex)
     //uint32_t bitPos = bitIndex % 8;
 
 
-    uint16_t newY = bitIndex / IMG_WIDTH; // goes along rows/height of image
+    int16_t newY = bitIndex / IMG_WIDTH; // goes along rows/height of image
     //uint16_t newX = (bitIndex % IMG_WIDTH) + 7 - 2*bitPos; // theoretically, this converts from bitIndex to the pixelPosition
-    uint16_t newX = (bitIndex % IMG_WIDTH); // goes along columns/width of image
+    int16_t newX = (bitIndex % IMG_WIDTH); // goes along columns/width of image
 
     if(newX < object->box[0])
     {
@@ -386,13 +386,9 @@ void packObjects(
     buffer[0] = 0xFA;
     buffer = &buffer[1];
 
+    #define NB 9 // num bytes per object
     for(int i = 0; i < numObjects; i++)
     {
-        // these labels might not be correct, due to endianess...?????
-        uint16_t centXLower = objArray[i].centX & 0xFF;
-        uint16_t centXUpper = objArray[i].centX >> 8;
-        uint16_t centYLower = objArray[i].centY & 0xFF;
-        uint16_t centYUpper = objArray[i].centY >> 8;
         uint16_t minXLower  = objArray[i].box[0] & 0xFF;
         uint16_t minXUpper  = objArray[i].box[0] >> 8;
         uint16_t maxXLower  = objArray[i].box[1] & 0xFF;
@@ -401,25 +397,23 @@ void packObjects(
         uint16_t minYUpper  = objArray[i].box[2] >> 8;
         uint16_t maxYLower  = objArray[i].box[3] & 0xFF;
         uint16_t maxYUpper  = objArray[i].box[3] >> 8;
+        uint8_t  markVal    = objArray[i].isBall;
 
-        buffer[i*12] = centXLower;
-        buffer[i*12 + 1] = centXUpper;
-        buffer[i*12 + 2] = centYLower;
-        buffer[i*12 + 3] = centYUpper;
-        buffer[i*12 + 4] = minXLower;
-        buffer[i*12 + 5] = minXUpper;
-        buffer[i*12 + 6] = maxXLower;
-        buffer[i*12 + 7] = maxXUpper;
-        buffer[i*12 + 8] = minYLower;
-        buffer[i*12 + 9] = minYUpper;
-        buffer[i*12 + 10] = maxYLower;
-        buffer[i*12 + 11] = maxYUpper;
+        buffer[i*NB] = minXLower;
+        buffer[i*NB + 1] = minXUpper;
+        buffer[i*NB + 2] = maxXLower;
+        buffer[i*NB + 3] = maxXUpper;
+        buffer[i*NB + 4] = minYLower;
+        buffer[i*NB + 5] = minYUpper;
+        buffer[i*NB + 6] = maxYLower;
+        buffer[i*NB + 7] = maxYUpper;
+        buffer[i*NB + 8] = markVal;
     }
 
     if(numObjects < OBJECT_ARRAY_LENGTH)
     {
-        buffer[numObjects*12] = 0xFF;
-        buffer[numObjects*12+1] = 0xFF;
+        buffer[numObjects*NB] = 0xFF;
+        buffer[numObjects*NB+1] = 0xFF;
     }
 }}
 
@@ -584,3 +578,77 @@ inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t
     return 0;
 }}
 
+
+int32_t mergeObjects(struct Object* unsafe objArray, int32_t length)
+{ unsafe {
+
+    #define EXPAND 2
+
+    // for each object
+    int i;
+    for(i = 0; i < length; i++)
+    {
+        if(objArray[i].isBall == -2) // merged
+        {
+            continue;
+        }
+        // compare with every other object
+        // (comparisons below i+1 have already been checked)
+        int j;
+        for(j = i+1; j < length; j++)
+        {
+            // get and expand bounds for both objects
+            int32_t* unsafe box1 = objArray[i].box;
+            int32_t* unsafe box2 = objArray[j].box;
+
+            box1[0] = box1[0] - EXPAND;
+            box1[1] = box1[1] + EXPAND;
+            box1[2] = box1[2] - EXPAND;
+            box1[3] = box1[3] + EXPAND;
+
+            box2[0] = box2[0] - EXPAND;
+            box2[1] = box2[1] + EXPAND;
+            box2[2] = box2[2] - EXPAND;
+            box2[3] = box2[3] + EXPAND;
+
+            // this checks for non-overlap
+            // http://stackoverflow.com/questions/306316/determine-if-two-rectangles-overlap-each-other
+
+            if((box1[0] > box2[1]) || (box1[1] < box2[0]) ||
+               (box1[2] > box2[3]) || (box1[3] < box2[2]))
+            {
+                // no overlap
+                box2[0] = box2[0] + EXPAND;
+                box2[1] = box2[1] - EXPAND;
+                box2[2] = box2[2] + EXPAND;
+                box2[3] = box2[3] - EXPAND;
+
+                box1[0] = box1[0] + EXPAND;
+                box1[1] = box1[1] - EXPAND;
+                box1[2] = box1[2] + EXPAND;
+                box1[3] = box1[3] - EXPAND;
+
+                continue;
+            }
+            else
+            {
+                // we overlap! merge objects.
+                objArray[i].isBall = -2; // merge 1 (i) into 2 (j)
+                if(box1[0] < box2[0]) box2[0] = box1[0];
+                if(box1[1] > box2[1]) box2[1] = box1[1];
+                if(box1[2] < box2[2]) box2[2] = box1[2];
+                if(box1[3] > box2[3]) box2[3] = box1[3];
+
+                box2[0] = box2[0] + EXPAND;
+                box2[1] = box2[1] - EXPAND;
+                box2[2] = box2[2] + EXPAND;
+                box2[3] = box2[3] - EXPAND;
+
+                box1[0] = box1[0] + EXPAND;
+                box1[1] = box1[1] - EXPAND;
+                box1[2] = box1[2] + EXPAND;
+                box1[3] = box1[3] - EXPAND;
+            }
+        }
+    }
+}}
