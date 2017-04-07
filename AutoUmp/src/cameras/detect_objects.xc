@@ -588,7 +588,7 @@ int32_t mergeObjects(struct Object* unsafe objArray, int32_t length)
     int i;
     for(i = 0; i < length; i++)
     {
-        if(objArray[i].isBall == -2) // merged
+        if(objArray[i].isBall == 0) // merged
         {
             continue;
         }
@@ -633,7 +633,7 @@ int32_t mergeObjects(struct Object* unsafe objArray, int32_t length)
             else
             {
                 // we overlap! merge objects.
-                objArray[i].isBall = -2; // merge 1 (i) into 2 (j)
+                objArray[i].isBall = 0; // merge 1 (i) into 2 (j)
                 if(box1[0] < box2[0]) box2[0] = box1[0];
                 if(box1[1] > box2[1]) box2[1] = box1[1];
                 if(box1[2] < box2[2]) box2[2] = box1[2];

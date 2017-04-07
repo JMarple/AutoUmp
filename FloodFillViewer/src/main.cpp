@@ -40,7 +40,7 @@ int32_t filterBalls(struct Object* objectArray, uint16_t length)
 	int32_t numBalls = 0;
 	for (int i = 0; i < length; i++)
 	{
-        if(objectArray[i].isBall == -2) continue; 
+        if(objectArray[i].isBall == 0) continue; 
         
         // if object is smaller than possible for our ball
 		if(objectArray[i].box[1] - objectArray[i].box[0] < 5 ||
@@ -428,7 +428,7 @@ int main(int argc, char** argv)
 					objArray[i].box[3],
 					RED);
 			}
-			else if(objArray[i].isBall != -2)
+			else if(objArray[i].isBall != 0)
 			{
 				makeBox(
 					&M_color,

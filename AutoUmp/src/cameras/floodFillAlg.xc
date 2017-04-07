@@ -19,8 +19,9 @@ int FloodFill(
 { unsafe {
 
     timer t;
-    uint32_t st, ed;
+    uint32_t st, ed, wait;
     t :> st;
+    wait = st + 4500000;
     for (int i = 2; i < IMG_HEIGHT; i++)
     {
         DenoiseRow(
@@ -58,11 +59,12 @@ int FloodFill(
     }
     t :> ed;
 
+    mergeObjects(objArray, numObjects);
+
     if ((ed-st) > 4500000)
         printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
 
-    mergeObjects(objArray, numObjects);
-
+    t when timerafter(st) :> void;
     //findCenters
     //computeCenters(objArray, numObjects);
 

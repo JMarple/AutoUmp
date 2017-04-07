@@ -8,12 +8,50 @@
 #include "io.h"
 #include "floodFillAlg.h"
 #include "game.h"
-#include "object_tracker.h"
 
 extern in buffered port:32 cam1DATA;
 extern in buffered port:32 cam2DATA;
 
 struct DenoiseLookup luTile0;
+
+void ObjectTracker(
+    interface ObjectTrackerToGameInter client ot2g,
+    interface FloodFillToObjectInter server tile0FF2OT[4],
+    interface FloodFillToObjectInter server tile1FF2OT[4])
+{
+    int loopCount = 0;
+    uint8_t buffer[320*240/8];
+    struct Object objArrayTmp[250];
+
+    while(1==1)
+    {
+        select
+        {
+            case tile0FF2OT[int i].sendObjects(struct Object objArray[], uint32_t n, uint8_t bitBuffer[], uint32_t m, int id):
+                if (i != 0) break;
+
+                loopCount++;
+
+                if(loopCount % 1 == 0)
+                {
+                    for(int i = 0; i < 250; i++)
+                    {
+                        objArrayTmp[i] = objArray[i];
+                    }
+                    memset(buffer, 0, 3000);
+                    packObjects(objArrayTmp, buffer, n);
+
+                    ot2g.forwardBuffer(buffer, 250*9);
+                    //btInter.sendBuffer(buffer, 250*9);
+
+                }
+                break;
+
+            case tile1FF2OT[int i].sendObjects(struct Object objArray[], uint32_t n, uint8_t bitBuffer[], uint32_t m, int id):
+                break;
+        }
+    }
+}
 
 void sendToBluetoothTemporary(chanend uart1, uint8_t* unsafe buf, int length)
 { unsafe {
