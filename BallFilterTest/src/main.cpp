@@ -96,7 +96,7 @@ int main(int argc, char** argv)
 
 	for(int32_t i = 0; i < numPng; i++)
 	{
-		std::cout << "---------------- File " << i << " ----------------" << std::endl;
+		//std::cout << "---------------- File " << i << " ----------------" << std::endl;
 		//construct file paths for images
 		std::ostringstream imgReadFp; 
 		std::ostringstream imgWriteFp;
@@ -173,18 +173,7 @@ int main(int argc, char** argv)
 		{
 			 maxNumObjects = numObjects;
 		}
-/*
-		printf("$$$$$$$$$$$$ Print out non 0, non 1 $$$$$$$$$$\n");
-		for(int k = 0; k < numObjects; k++)
-		{
-			if(objArray[k].isBall != 0 && objArray[k].isBall != 1)
-			{
-				printf("isBall == %i\n", objArray[k].isBall);
-			}
-		}
-
-		printf("ENDDDDDDDDDDD\n");
-*/
+		
 		int32_t numMerged = mergeObjects(objArray, numObjects);
 		if(numMerged > maxNumMerged)
 		{
@@ -236,7 +225,7 @@ int main(int argc, char** argv)
 			}
 			else if(objArray[j].isBall != 0)
 			{
-				printf("isBall == %i\n", objArray[j].isBall);
+			//	printf("isBall == %i\n", objArray[j].isBall);
 				makeBox(
 					&newColorImg,
 					objArray[j].box[0]-1, // + 8?

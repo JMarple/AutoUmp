@@ -59,7 +59,7 @@ int FloodFill(
     }
     t :> ed;
 
-    mergeObjects(objArray, numObjects);
+    if(numObjects < 50) mergeObjects(objArray, numObjects);
 
     if ((ed-st) > 4500000)
         printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
