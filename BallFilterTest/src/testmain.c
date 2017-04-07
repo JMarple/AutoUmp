@@ -21,10 +21,7 @@ int main()
     ObjectTrackerPrint(&tracker);
 
     // Associate Data
-    //ObjectTrackerAssociateData(&tracker, &objects);
-
-
-
+    ObjectTrackerAssociateData(&tracker, &objects);
 
     printf("Test object_tracker.c\n");
     return 0;

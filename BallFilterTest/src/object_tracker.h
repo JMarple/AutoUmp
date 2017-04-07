@@ -3,7 +3,8 @@
 
 #include <stdint.h>
 
-#define OBJECTS_NUM 20
+#define OBJECTS_NUM 10
+#define OBJECTS_HISTORY 10
 #define OBJECTS_MAX_TRACK_LEN 20
 
 struct AlphaBetaFilter
@@ -26,13 +27,16 @@ struct ObjectTrack
     // Frames in use.
     uint32_t totalFramesCount;
 
+    uint32_t deadFrames;
+
+    struct AlphaBetaFilter history[OBJECTS_HISTORY];
     struct AlphaBetaFilter filter;
 };
 
 struct ObjectTracker
 {
     struct ObjectTrack tracks[OBJECTS_NUM];
-    int cost_matrix[OBJECTS_NUM][OBJECTS_NUM];
+    float cost_matrix[OBJECTS_NUM+1][OBJECTS_NUM+1];
 };
 
 struct FoundObject

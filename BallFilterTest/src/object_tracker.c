@@ -7,7 +7,7 @@
 void AlphaBetaFilterInit(struct AlphaBetaFilter* filter,
     float x_pos, float y_pos)
 {
-    filter->alpha = 1;
+    filter->alpha = 0.95;
     filter->beta = 0.3;
     filter->x_pos = x_pos;
     filter->y_pos = y_pos;
@@ -45,15 +45,17 @@ void ObjectTrackerInit(struct ObjectTracker* tracker)
 // Returns -1 if track buffer is full
 int ObjectTrackerAddTrack(struct ObjectTracker* tracker, int xpos, int ypos)
 {
+    static int idCounter = 1;
     int i;
     for (i = 0; i < OBJECTS_NUM; i++)
     {
         if (tracker->tracks[i].inUse == 0)
         {
             // TODO: Create Unique ID generator
-            tracker->tracks[i].id = 0;
+            tracker->tracks[i].id = idCounter++;
+            tracker->tracks[i].deadFrames = 0;
             tracker->tracks[i].inUse = 1;
-            tracker->tracks[i].totalFramesCount = 1;
+            tracker->tracks[i].totalFramesCount = 0;
             AlphaBetaFilterInit(&tracker->tracks[i].filter, xpos, ypos);
             return i;
         }
@@ -79,6 +81,13 @@ int ObjectTrackerUpdateTrack(struct ObjectTracker* tracker, int n, int xpos, int
     if (tracker == 0) return -1;
     if (tracker->tracks[n].inUse == 0) return -1;
 
+    struct AlphaBetaFilter* f =
+        &tracker->tracks[n].history[tracker->tracks[n].totalFramesCount % OBJECTS_HISTORY];
+
+    f->x_pos = tracker->tracks[n].filter.x_pos;
+    f->y_pos = tracker->tracks[n].filter.y_pos;
+
+    tracker->tracks[n].deadFrames = 0;
     tracker->tracks[n].totalFramesCount++;
 
     AlphaBetaFilterUpdate(&tracker->tracks[n].filter, xpos, ypos, dT);
@@ -133,11 +142,11 @@ void ObjectTrackerPrint(struct ObjectTracker* tracker)
 {
     printf("Cost Matrix: \n");
     int x, y;
-    for (x = 0; x < OBJECTS_NUM; x++)
+    for (x = 0; x < OBJECTS_NUM+1; x++)
     {
-        for (y = 0; y < OBJECTS_NUM; y++)
+        for (y = 0; y < OBJECTS_NUM+1; y++)
         {
-            printf("%d ", tracker->cost_matrix[x][y]);
+            printf("%010f ", tracker->cost_matrix[x][y]);
         }
         printf("\n");
     }
@@ -159,13 +168,15 @@ void ObjectTrackerPrint(struct ObjectTracker* tracker)
 inline static float _computeCost(struct ObjectTrack* track, struct FoundObject* object)
 {
     // Cost is distance between objects
-    return sqrt(
+    return
         pow(track->filter.x_pos - object->centX, 2) +
-        pow(track->filter.y_pos - object->centY, 2));
+        pow(track->filter.y_pos - object->centY, 2);
 }
 
 void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct ObjectArray* objects)
 {
+    const float SLACK_VALUE = 4000.00;
+
     // Computes entire NxN cost matrix for
     int x, y;
     for (x = 0; x < OBJECTS_NUM; x++)
@@ -174,7 +185,7 @@ void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct ObjectArray
         if (tracker->tracks[x].inUse == 0)
         {
             for (y = 0; y < OBJECTS_NUM; y++)
-                tracker->cost_matrix[x][y] = 1000;
+                tracker->cost_matrix[x][y] = INFINITY;
         }
         else
         {
@@ -183,12 +194,19 @@ void ObjectTrackerComputeCosts(struct ObjectTracker* tracker, struct ObjectArray
                 tracker->cost_matrix[x][y] =
                     _computeCost(&tracker->tracks[x], &objects->objects[y]);
 
-                //if (tracker->cost_matrix[x][y] > 50) tracker->cost_matrix[x][y] = INT_MAX;
+                if (tracker->cost_matrix[x][y] > SLACK_VALUE) tracker->cost_matrix[x][y] = INFINITY;
             }
             for (y = objects->objectNum; y < OBJECTS_NUM; y++)
-                tracker->cost_matrix[x][y] = INT_MAX;
+                tracker->cost_matrix[x][y] = INFINITY;
         }
     }
+
+    for (x = 0; x < OBJECTS_NUM; x++)
+    {
+        tracker->cost_matrix[x][OBJECTS_NUM] = SLACK_VALUE;
+        tracker->cost_matrix[OBJECTS_NUM][x] = SLACK_VALUE;
+    }
+
 }
 
 void dfsPrintPath(uint8_t path[], int len)
@@ -200,55 +218,6 @@ void dfsPrintPath(uint8_t path[], int len)
         printf("%d ", path[i]);
     }
     printf("\n");
-}
-
-// Find minimum in each col
-/*static float _findMinimumInCol(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1], int n)
-{
-    int i;
-    float lowest = INFINITY;
-    for (i = 0; i < OBJECTS_NUM+1; i++)
-    {
-        int val = graph[i][n];
-        if (val < lowest) lowest = val;
-    }
-
-    return lowest;
-}
-
-static float _findMinimumInRow(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1], int n)
-{
-    int i;
-    float lowest = INFINITY;
-    for (i = 0; i < OBJECTS_NUM+1; i++)
-    {
-        int val = graph[n][i];
-        if (val < lowest) lowest = val;
-    }
-
-    return lowest;
-}
-
-static void _hugarianStep1(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1])
-{
-    int i, j;
-    for (i = 0; i < OBJECTS_NUM; i++)
-    {
-        float lowest = _findMinimumInCol(graph, i);
-
-        for (j = 0; j < OBJECTS_NUM; j++) graph[j][i] -= lowest;
-    }
-}
-
-static void _hugarianStep2(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1])
-{
-    int i, j;
-    for (i = 0; i < OBJECTS_NUM; i++)
-    {
-        float lowest = _findMinimumInRow(graph, i);
-
-        for (j = 0; j < OBJECTS_NUM; j++) graph[i][j] -= lowest;
-    }
 }
 
 // Depth First Search of the graph.  Calculate min cost.
@@ -265,13 +234,11 @@ static void _dfs(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1],
     int i;
     for (i = 0; i < OBJECTS_NUM+1; i++)
     {
-        if (col == 0)
-            printf("_dfs %d %d\n", i, col);
         // Check if this row has been used in previous columns.
         if (seen[i] != 0 && i < OBJECTS_NUM) continue;
 
         // If a spot on the matrix is set to INF, it can not be chosen
-        float tmpCost = graph[col][i];
+        float tmpCost = graph[i][col];
         if (tmpCost == INFINITY) continue;
 
         float thisCost = cost_sum + tmpCost;
@@ -284,8 +251,11 @@ static void _dfs(float graph[OBJECTS_NUM+1][OBJECTS_NUM+1],
             int s;
             for (s = 0; s < OBJECTS_NUM; s++)
             {
-                if (seen[s] == 0) thisCost += graph[OBJECTS_NUM][s];
+                if (seen[s] == 0) thisCost += graph[s][OBJECTS_NUM];
             }
+
+            printf("Cost = %f ... ", thisCost);
+            dfsPrintPath(cur_path, 10);
 
             // Update best cost/path if this current path is the best path.
             if (thisCost < *bestCost)
@@ -321,6 +291,7 @@ int ObjectTrackerAssociateData(struct ObjectTracker* tracker, struct ObjectArray
     ObjectTrackerPredictTracks(tracker, dT);
 
     printf("Start DFS\n");
+
     // Search for minimal cost path.
     _dfs(tracker->cost_matrix,
         0, 0, &bestCost, seen, tmpPath, bestPath);
@@ -352,7 +323,14 @@ int ObjectTrackerAssociateData(struct ObjectTracker* tracker, struct ObjectArray
         if (!trackFound && tracker->tracks[i].inUse == 1)
         {
             printf("Deleting track! %d\n", i);
-            ObjectTrackerDeleteTrack(tracker, i);
+            if (tracker->tracks[i].totalFramesCount > 1 && tracker->tracks[i].deadFrames < 2)
+            {
+                tracker->tracks[i].deadFrames++;
+            }
+            else
+            {
+                ObjectTrackerDeleteTrack(tracker, i);
+            }
         }
     }
 
@@ -369,11 +347,12 @@ int ObjectTrackerAssociateData(struct ObjectTracker* tracker, struct ObjectArray
         else
         {
             printf("Updating track! %d\n", i);
-            ObjectTrackerUpdateTrack(tracker, i,
+            ObjectTrackerUpdateTrack(tracker, bestPath[i],
                 objects->objects[i].centX, objects->objects[i].centY, dT);
         }
     }
 
+
     printf("Best Cost = %f\n", bestCost);
     dfsPrintPath(bestPath, OBJECTS_NUM);
-}*/
+}

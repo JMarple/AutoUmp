@@ -3,6 +3,7 @@ extern "C"
 	#include <dirent.h>
 	#include "algs.h"
 	#include "detect_objects.h"
+    #include "object_tracker.h"
 	#include "queue.h"
 }
 #include <iostream>
@@ -22,8 +23,6 @@ using namespace cv;
 #define GREEN 1
 #define BLUE 2
 #define YELLOW 3
-
-
 
 int32_t getNumFilesWithExtension(
 	const char* folderPath, 
@@ -52,6 +51,12 @@ void makeBox(
     int32_t maxY, 
     int32_t color);
 
+int _clip(int val, int max)
+{
+    if (val > max) return max;
+    if (val < 0) return 0;
+    return val;
+}
 
 /* 
 Takes in a folder, reads through background subtracted images.
@@ -84,6 +89,11 @@ int main(int argc, char** argv)
 	int32_t maxNumSquarish = 0;
 	int32_t maxNumFull = 0;
 	int32_t maxNumFullImg = 0; // which picture did maxNumFull appear?
+
+	struct ObjectTracker tracker;
+    ObjectTrackerInit(&tracker);
+
+
 	for(int32_t i = 0; i < numPng; i++)
 	{
 		std::cout << "---------------- File " << i << " ----------------" << std::endl;
@@ -175,6 +185,9 @@ int main(int argc, char** argv)
 		{
 			maxNumInterestingObjects = numInterestingObjects;
 		}
+
+
+
 /*
 		int32_t numSquarish = filterSquare(objArray, numObjects);
 		if(numSquarish > maxNumSquarish)
@@ -190,12 +203,15 @@ int main(int argc, char** argv)
 			maxNumFullImg = i;	
 		}
 */
+
+
+
 		// draw boxes on image from floodfill
 		Mat newImg(IMG_HEIGHT, IMG_WIDTH,  CV_8UC1, newByteImg);
 		Mat newColorImg;
 		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
-		for(int j = 0; j < numObjects; j++)
+		/*for(int j = 0; j < numObjects; j++)
 		{
 			if (objArray[j].isBall == 1)
 			{
@@ -206,16 +222,6 @@ int main(int argc, char** argv)
 					objArray[j].box[2]-1,
 					objArray[j].box[3]+1,
 					RED);
-			}
-			else if(objArray[j].isBall == 0)
-			{
-				makeBox(
-					&newColorImg,
-					objArray[j].box[0]-1, // + 8?
-					objArray[j].box[1]+1, // + 8?
-					objArray[j].box[2]-1,
-					objArray[j].box[3]+1,
-					GREEN);
 			}
 			else if(objArray[j].isBall == 2)
 			{
@@ -237,9 +243,60 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					YELLOW);	
 			}
-		}
+		}*/
 
-		for(int j = 0; j < numObjects; j++)
+	    // Convert array into something the tracker can use
+        struct ObjectArray objects;
+        ObjectArrayInit(&objects);
+        for (int i = 0; i < numObjects; i++)
+        {
+            if (objArray[i].isBall == 0) continue;
+            printf("objArray.isball = %d\n", objArray[i].isBall);
+
+            ObjectArrayAdd(&objects,
+                objArray[i].box[0],
+                objArray[i].box[2],
+                objArray[i].box[1],
+                objArray[i].box[3]);
+        }
+        ObjectArrayPrint(&objects);
+
+        // trajectories
+        // Compute cost matrix
+        ObjectTrackerComputeCosts(&tracker, &objects);
+        ObjectTrackerPrint(&tracker);
+
+        // Associate Data
+        ObjectTrackerAssociateData(&tracker, &objects);
+
+        int q;
+	    for (int q = 0; q < OBJECTS_NUM; q++)
+	    {
+	        if (tracker.tracks[q].inUse == 0) continue;
+
+	        const int BOX_PADDING = 10;
+	        const int LITTLE_BOX_PADDING = 3;
+	        makeBox(
+                &newColorImg,
+                _clip(tracker.tracks[q].filter.x_pos - BOX_PADDING, 319),
+                _clip(tracker.tracks[q].filter.x_pos + BOX_PADDING, 319),
+                _clip(tracker.tracks[q].filter.y_pos - BOX_PADDING, 239),
+                _clip(tracker.tracks[q].filter.y_pos + BOX_PADDING, 239),
+                tracker.tracks[q].id % 6);
+
+	        for (int w = 0; w < tracker.tracks[q].totalFramesCount; w++)
+	        {
+                makeBox(
+                    &newColorImg,
+                    _clip(tracker.tracks[q].history[w].x_pos - LITTLE_BOX_PADDING, 319),
+                    _clip(tracker.tracks[q].history[w].x_pos + LITTLE_BOX_PADDING, 319),
+                    _clip(tracker.tracks[q].history[w].y_pos - LITTLE_BOX_PADDING, 239),
+                    _clip(tracker.tracks[q].history[w].y_pos + LITTLE_BOX_PADDING, 239),
+                    tracker.tracks[q].id % 6);
+	        }
+	    }
+
+		/*for(int j = 0; j < numObjects; j++)
 		{
 			if(objArray[j].isBall != -2)
 			{
@@ -247,10 +304,8 @@ int main(int argc, char** argv)
 					<< objArray[j].box[0] << ", " << objArray[j].box[2] << "). (x2, y2) = ("
 					<< objArray[j].box[1] << ", " << objArray[j].box[3] << ")." << std::endl;
 			}
-		}
+		}*/
 
-
-		// trajectories
 
 		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')
@@ -478,6 +533,19 @@ void makeBox(
 		bgr.val[1] = 0xD8;
 		bgr.val[2] = 0xFF;
 	}
+	else if (color == 4)
+	{
+	    bgr.val[0] = 0xFF;
+	    bgr.val[1] = 0x00;
+	    bgr.val[2] = 0xFF;
+	}
+    else if (color == 5)
+	{
+	    bgr.val[0] = 0xCC;
+	    bgr.val[1] = 0xCC;
+	    bgr.val[2] = 0xCC;
+	}
+
 
     // the values we use to draw
     int realMinX = max(0, (int)minX);

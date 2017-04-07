@@ -366,7 +366,7 @@ int32_t filterLarge(struct Object* objArray, int32_t length)
 	for(i = 0; i < length; i++)
 	{
 		int32_t isBall = objArray[i].isBall;
-		if(isBall == -2 || isBall == 0)
+		if(isBall == 0)
 		{
 			// already not a ball, move on
 			continue;
@@ -391,7 +391,8 @@ int32_t filterLarge(struct Object* objArray, int32_t length)
 int32_t filterSquare(struct Object* objArray, int32_t length)
 {
 	int32_t numSquare = 0;
-	for(int i = 0; i < length; i++)
+	int i;
+	for(i = 0; i < length; i++)
 	{
 		if(objArray[i].isBall == 0)
 		{
@@ -429,7 +430,8 @@ int32_t filterSquare(struct Object* objArray, int32_t length)
 int32_t filterFull(struct Object* objArray, int32_t length)
 {
 	int32_t numFull = 0;
-	for(int i = 0; i < length; i++)
+	int i;
+	for(i = 0; i < length; i++)
 	{
 		int32_t isBall = objArray[i].isBall;
 		if(isBall == -2 || isBall == 0) continue; // merged or already marked not ball, move on		
@@ -463,7 +465,7 @@ int32_t mergeObjects(struct Object* objArray, int32_t length)
 	int i;
 	for(i = 0; i < length; i++)
 	{
-		if(objArray[i].isBall == -2) // merged
+		if(objArray[i].isBall == 0) // merged
 		{
 			continue;
 		}
@@ -472,7 +474,7 @@ int32_t mergeObjects(struct Object* objArray, int32_t length)
 		int j;
 		for(j = 0; j < length; j++)
 		{
-			if((objArray[j].isBall == -2) || (i == j))
+			if((objArray[j].isBall == 0) || (i == j))
 			{
 				continue;
 			}
@@ -512,7 +514,7 @@ int32_t mergeObjects(struct Object* objArray, int32_t length)
 			else
 			{
 				// we overlap! merge objects.
-				objArray[i].isBall = -2; // merge 1 (i) into 2 (j)
+				objArray[i].isBall = 0; // merge 1 (i) into 2 (j)
 				if(box1[0] < box2[0]) box2[0] = box1[0];
 				if(box1[1] > box2[1]) box2[1] = box1[1];
 				if(box1[2] < box2[2]) box2[2] = box1[2];
