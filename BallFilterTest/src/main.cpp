@@ -173,20 +173,31 @@ int main(int argc, char** argv)
 		{
 			 maxNumObjects = numObjects;
 		}
+/*
+		printf("$$$$$$$$$$$$ Print out non 0, non 1 $$$$$$$$$$\n");
+		for(int k = 0; k < numObjects; k++)
+		{
+			if(objArray[k].isBall != 0 && objArray[k].isBall != 1)
+			{
+				printf("isBall == %i\n", objArray[k].isBall);
+			}
+		}
 
+		printf("ENDDDDDDDDDDD\n");
+*/
 		int32_t numMerged = mergeObjects(objArray, numObjects);
 		if(numMerged > maxNumMerged)
 		{
 			maxNumMerged = numMerged;
 		}
-
+/*
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
 		{
 			maxNumInterestingObjects = numInterestingObjects;
 		}
 
-
+*/
 
 /*
 		int32_t numSquarish = filterSquare(objArray, numObjects);
@@ -211,7 +222,7 @@ int main(int argc, char** argv)
 		Mat newColorImg;
 		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
-		/*for(int j = 0; j < numObjects; j++)
+		for(int j = 0; j < numObjects; j++)
 		{
 			if (objArray[j].isBall == 1)
 			{
@@ -223,18 +234,9 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					RED);
 			}
-			else if(objArray[j].isBall == 2)
+			else if(objArray[j].isBall != 0)
 			{
-				makeBox(
-					&newColorImg,
-					objArray[j].box[0]-1, // + 8?
-					objArray[j].box[1]+1, // + 8?
-					objArray[j].box[2]-1,
-					objArray[j].box[3]+1,
-					BLUE);
-			}
-			else if(objArray[j].isBall == 3)
-			{
+				printf("isBall == %i\n", objArray[j].isBall);
 				makeBox(
 					&newColorImg,
 					objArray[j].box[0]-1, // + 8?
@@ -243,8 +245,8 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					YELLOW);	
 			}
-		}*/
-
+		}
+/*
 	    // Convert array into something the tracker can use
         struct ObjectArray objects;
         ObjectArrayInit(&objects);
@@ -295,17 +297,7 @@ int main(int argc, char** argv)
                     tracker.tracks[q].id % 6);
 	        }
 	    }
-
-		/*for(int j = 0; j < numObjects; j++)
-		{
-			if(objArray[j].isBall != -2)
-			{
-				std::cout << "Object " << j << ", (x1, y1) = (" 
-					<< objArray[j].box[0] << ", " << objArray[j].box[2] << "). (x2, y2) = ("
-					<< objArray[j].box[1] << ", " << objArray[j].box[3] << ")." << std::endl;
-			}
-		}*/
-
+*/
 
 		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')

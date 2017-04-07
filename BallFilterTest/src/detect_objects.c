@@ -434,7 +434,7 @@ int32_t filterFull(struct Object* objArray, int32_t length)
 	for(i = 0; i < length; i++)
 	{
 		int32_t isBall = objArray[i].isBall;
-		if(isBall == -2 || isBall == 0) continue; // merged or already marked not ball, move on		
+		if(isBall == 0) continue; // merged or already marked not ball, move on		
 
 		uint32_t* box = objArray[i].box;
 		int32_t xLength = box[1] - box[0] + 1; // + 1 because we need to include max pixel
@@ -461,78 +461,85 @@ int32_t filterFull(struct Object* objArray, int32_t length)
 #define EXPAND 2
 int32_t mergeObjects(struct Object* objArray, int32_t length)
 {
-	// for each object
-	int i;
-	for(i = 0; i < length; i++)
-	{
-		if(objArray[i].isBall == 0) // merged
-		{
-			continue;
-		}
-		// compare with every other object
-		// (comparisons below i+1 have already been checked)
-		int j;
-		for(j = 0; j < length; j++)
-		{
-			if((objArray[j].isBall == 0) || (i == j))
-			{
-				continue;
-			}
-			// get and expand bounds for both objects			
-			int32_t* box1 = objArray[i].box;
-			int32_t* box2 = objArray[j].box;
-			
-			box1[0] = box1[0] - EXPAND;
-			box1[1] = box1[1] + EXPAND;
-			box1[2] = box1[2] - EXPAND;
-			box1[3] = box1[3] + EXPAND;
-			
-			box2[0] = box2[0] - EXPAND;
-			box2[1] = box2[1] + EXPAND;
-			box2[2] = box2[2] - EXPAND;
-			box2[3] = box2[3] + EXPAND;
-			
-			// this checks for non-overlap
-			// http://stackoverflow.com/questions/306316/determine-if-two-rectangles-overlap-each-other
-
-			if((box1[0] > box2[1]) || (box1[1] < box2[0]) ||
-			   (box1[2] > box2[3]) || (box1[3] < box2[2]))
-			{
-				// no overlap
-				box2[0] = box2[0] + EXPAND;
-				box2[1] = box2[1] - EXPAND;
-				box2[2] = box2[2] + EXPAND;
-				box2[3] = box2[3] - EXPAND;
-
-				box1[0] = box1[0] + EXPAND;
-				box1[1] = box1[1] - EXPAND;
-				box1[2] = box1[2] + EXPAND;
-				box1[3] = box1[3] - EXPAND;
-
-				continue;
-			}
-			else
-			{
-				// we overlap! merge objects.
-				objArray[i].isBall = 0; // merge 1 (i) into 2 (j)
-				if(box1[0] < box2[0]) box2[0] = box1[0];
-				if(box1[1] > box2[1]) box2[1] = box1[1];
-				if(box1[2] < box2[2]) box2[2] = box1[2];
-				if(box1[3] > box2[3]) box2[3] = box1[3];
 	
-				box2[0] = box2[0] + EXPAND;
-				box2[1] = box2[1] - EXPAND;
-				box2[2] = box2[2] + EXPAND;
-				box2[3] = box2[3] - EXPAND;
+	int foundIntersection = 0;
 
-				box1[0] = box1[0] + EXPAND;
-				box1[1] = box1[1] - EXPAND;
-				box1[2] = box1[2] + EXPAND;
-				box1[3] = box1[3] - EXPAND;
+	do
+	{
+		foundIntersection = 0;
+		// for each object
+		int i;
+		for(i = 0; i < length; i++)
+		{
+			if(objArray[i].isBall == 0) // merged
+			{
+				continue;
+			}
+			// compare with every other object
+			// (comparisons below i+1 have already been checked)
+			int j;
+			for(j = 0; j < length; j++)
+			{
+				if((objArray[j].isBall == 0) || (i == j))
+				{
+					continue;
+				}
+				// get and expand bounds for both objects			
+				int32_t* box1 = objArray[i].box;
+				int32_t* box2 = objArray[j].box;
+				
+				box1[0] = box1[0] - EXPAND;
+				box1[1] = box1[1] + EXPAND;
+				box1[2] = box1[2] - EXPAND;
+				box1[3] = box1[3] + EXPAND;
+				
+				box2[0] = box2[0] - EXPAND;
+				box2[1] = box2[1] + EXPAND;
+				box2[2] = box2[2] - EXPAND;
+				box2[3] = box2[3] + EXPAND;
+				
+				// this checks for non-overlap
+				// http://stackoverflow.com/questions/306316/determine-if-two-rectangles-overlap-each-other
+
+				if((box1[0] > box2[1]) || (box1[1] < box2[0]) ||
+				   (box1[2] > box2[3]) || (box1[3] < box2[2]))
+				{
+					// no overlap
+					box2[0] = box2[0] + EXPAND;
+					box2[1] = box2[1] - EXPAND;
+					box2[2] = box2[2] + EXPAND;
+					box2[3] = box2[3] - EXPAND;
+
+					box1[0] = box1[0] + EXPAND;
+					box1[1] = box1[1] - EXPAND;
+					box1[2] = box1[2] + EXPAND;
+					box1[3] = box1[3] - EXPAND;
+
+					continue;
+				}
+				else
+				{
+					foundIntersection = 1;
+					// we overlap! merge objects.
+					objArray[j].isBall = 0; // merge 2 (j) into 1 (i)
+					if(box2[0] < box1[0]) box1[0] = box2[0];
+					if(box2[1] > box1[1]) box1[1] = box2[1];
+					if(box2[2] < box1[2]) box1[2] = box2[2];
+					if(box2[3] > box1[3]) box1[3] = box2[3];
+		
+					box2[0] = box2[0] + EXPAND;
+					box2[1] = box2[1] - EXPAND;
+					box2[2] = box2[2] + EXPAND;
+					box2[3] = box2[3] - EXPAND;
+
+					box1[0] = box1[0] + EXPAND;
+					box1[1] = box1[1] - EXPAND;
+					box1[2] = box1[2] + EXPAND;
+					box1[3] = box1[3] - EXPAND;
+				}
 			}
 		}
-	}	
-
+	} while (foundIntersection);	
 } 
 
 
