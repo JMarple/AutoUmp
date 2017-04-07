@@ -137,28 +137,22 @@ void DenoiseRow(
         int idx = i / 32;
         if (i % 32 == 0)
         {
-            printf("Loading with idx = %d\n", idx);
             curWord |= (cur[idx] << 1);
             topWord = top[idx];
             botWord = bot[idx];
-            printf("Loaded = %x %x %x\n", curWord, topWord, botWord);
         }
         else if (i % 32 == 4)
         {
-            printf("Loading bonus %x -> ", curWord);
             uint32_t tmp = (cur[idx] & 0x80000000) >> 3;
             curWord |= tmp;
-            printf("%x\n", curWord);
         }
         else if (i % 32 == 8 && (idx+1) < 10)
         {
             uint32_t tmp = (cur[idx+1] & 0b1) << 25;
             curWord |= tmp;
-            printf("New = %x\n", curWord);
         }
 
         uint32_t res = lu->cur[curWord & 0x3F].bot[botWord & 0xF].top[topWord & 0xF];
-        printf("c=%d %x, %x %x %x\n", i, res, curWord& 0x3F, botWord& 0xF, topWord& 0xF);
 
         res <<= 28;
         outWord |= res;
@@ -167,7 +161,6 @@ void DenoiseRow(
         if (i % 32 == 28)
         {
             cur[idx] = outWord;
-            printf("Out = %x\n", outWord);
         }
 
         outWord >>= 4;
