@@ -7,6 +7,8 @@
 #include "ov07740.h"
 #include "io.h"
 #include "floodFillAlg.h"
+#include "game.h"
+#include "object_tracker.h"
 
 extern in buffered port:32 cam1DATA;
 extern in buffered port:32 cam2DATA;
@@ -21,53 +23,6 @@ void sendToBluetoothTemporary(chanend uart1, uint8_t* unsafe buf, int length)
     }
 }}
 
-void ObjectTracker(
-    interface BluetoothInter client btInter,
-    interface FloodFillToObjectInter server tile0FF2OT[4],
-    interface FloodFillToObjectInter server tile1FF20T[4])
-{
-    int loopCount = 0;
-
-    uint8_t buffer[320*240/8];
-    struct Object objArrayTmp[250];
-
-    while (1==1)
-    {
-        select
-        {
-            case tile0FF2OT[int i].sendObjects(struct Object objArray[], uint32_t n, uint8_t bitBuffer[], uint32_t m, int id):
-                if (i != 0) break;
-
-                loopCount++;
-
-                if (loopCount % 1 == 0)
-                {
-                    for (int i = 0; i < 250; i++)
-                    {
-                        objArrayTmp[i] = objArray[i];
-                    }
-                    memset(buffer, 0, 3000);
-                    packObjects(objArrayTmp, buffer, n);
-
-                    /*for (int i = 0; i < 36; i++)
-                    {
-                        printf("%x ", buffer[i]);
-                    }
-
-                    printf("\n");*/
-
-                    btInter.sendBuffer(buffer, 250*9);
-                    //memcpy(buffer, bitBuffer, m);
-                    //btInter.sendBuffer(buffer, m);
-                }
-                break;
-
-            case tile1FF20T[int i].sendObjects(struct Object objArray[], uint32_t n, uint8_t bitBuffer[], uint32_t m, int id):
-                break;
-        }
-    }
-}
-
 struct DenoiseLookup luTile0;
 struct DenoiseLookup luTile1;
 
@@ -79,6 +34,7 @@ void Tile0(
 
     interface FloodFillToObjectInter tile0FF2OT[4];
     interface BluetoothInter btInter;
+    interface ObjectTrackerToGameInter ot2g;
 
     // Denoise Lookup table init
     struct DenoiseLookup* unsafe lu = &luTile0;
@@ -91,7 +47,8 @@ void Tile0(
         FloodFillThread(tile0M2FF[1], tile0FF2OT[1], lu, 4);
         FloodFillThread(tile0M2FF[2], tile0FF2OT[2], lu, 5);
         FloodFillThread(tile0M2FF[3], tile0FF2OT[3], lu, 6);
-        ObjectTracker(btInter, tile0FF2OT, tile1FF2OT);
+        ObjectTracker(/*btInter*/ot2g, tile0FF2OT, tile1FF2OT);
+        GameThread(ot2g, btInter);
     }
 }}
 
