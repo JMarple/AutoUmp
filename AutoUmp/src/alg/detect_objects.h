@@ -37,8 +37,6 @@ struct CenterPair
     int32_t totalDistanceFromCenter; // absolute value. x direction. summed of both centers
 };
 
-void objectInit(struct Object* obj);
-
 void objectOverwrite(
         struct Object* obj,
         uint16_t id,
@@ -58,29 +56,13 @@ void floodFill(
     struct Queue* q,
     struct Object* currentObject);
 
-void detectObjects(
-    uint8_t* row_above,
-    uint8_t* row_current,
-    uint8_t* row_below,
-    uint32_t length,
-    uint8_t*  id,
-    uint8_t rowNum,
-    struct Object* objArray);
-
 void updateObject(
     struct Object* object,
     uint32_t bitIndex);
 
-void computeCenter(struct Object* object);
-
 void computeCenters(
     struct Object* objectArray,
     int32_t length);
-
-
-int32_t filterBalls(
-    struct Object* objectArray,
-    uint16_t length);
 
 void getTwoCenters(
     struct Center* centerPair,
@@ -92,51 +74,20 @@ void initObjectArray(
     struct Object* objArray,
     uint16_t length);
 
-void packBoundingBoxes(
-    struct Object* objArray,
-    uint8_t* unsafe buffer,
-    int32_t numObjects);
-
 void packObjects(
     struct Object* objArray,
     uint8_t* unsafe buffer,
     int32_t numObjects);
 
-int32_t unpackObjects(
-    struct Object* objArray,
-    uint8_t* unsafe buffer,
-    uint16_t bufferLength);
-
-int32_t unpackCenters(
-    struct Object* objArray,
-    uint8_t* unsafe buffer,
-    uint16_t bufferLength);
-
-void printObjectArray(
-    struct Object* objArray,
-    uint16_t length);
-
-void printCenters(
-    struct Object* objArray,
-    uint16_t length);
-
 uint8_t getBitInPic(
     uint8_t* unsafe bitPicture,
     uint32_t bitIndex);
-
-/*uint8_t getBitInByte(
-    uint8_t byte,
-    uint32_t bitLoc);*/
 
 inline int8_t setBitInPic(
     uint8_t* unsafe bitPicture,
     uint32_t bitIndex,
     uint8_t val);
 
-/*int8_t setBitInByte(
-    uint8_t* unsafe byte,
-    uint8_t bitLoc,
-    uint8_t bitVal);*/
 int32_t mergeObjects(struct Object* unsafe objArray, int32_t length);
 
 #endif /* DETECT_OBJECTS_H_ */

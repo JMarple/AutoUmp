@@ -7,6 +7,7 @@
 
 #include "detect_objects.h"
 #include "queue.h"
+#include "interfaces.h"
 
 struct DenoiseRowLU2
 {
@@ -25,17 +26,7 @@ struct DenoiseLookup
 
 #define FLOOD_FILL_CORES 8
 
-interface MasterToFloodFillInter
-{
-    void sendBitBuffer(uint8_t bitBuffer[], uint32_t n);
-};
-
-interface FloodFillToObjectInter
-{
-    void sendObjects(struct Object objArray[], uint32_t n, uint8_t bitBuffer[], uint32_t m, int id);
-};
-
-int FloodFill(
+int FloodFillMain(
     uint8_t* unsafe bitBuffer,
     struct Object* objArray,
     struct Queue* queue,
@@ -58,11 +49,6 @@ uint8_t inline DenoiseAndFlipByte(
     uint8_t cur,
     uint8_t right,
     uint8_t bot);
-
-void JustinDenoiseRow(
-    uint32_t* unsafe top,
-    uint32_t* unsafe cur,
-    uint32_t* unsafe bot);
 
 
 void DenoiseInitLookup(struct DenoiseLookup* unsafe lu);

@@ -5,6 +5,7 @@ extern "C"
 	#include "detect_objects.h"
     #include "object_tracker.h"
 	#include "queue.h"
+	#include "simple_object_tracker.h"
 }
 #include <iostream>
 #include <stdio.h>
@@ -179,6 +180,8 @@ int main(int argc, char** argv)
 		{
 			maxNumMerged = numMerged;
 		}
+
+		filterToMiddle(objArray, numObjects);
 /*
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
@@ -223,7 +226,7 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					RED);
 			}
-			else if(objArray[j].isBall != 0)
+			else if(objArray[j].isBall == 3)
 			{
 			//	printf("isBall == %i\n", objArray[j].isBall);
 				makeBox(
@@ -234,6 +237,19 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					YELLOW);	
 			}
+			else if(objArray[j].isBall != 0)
+			{
+			//	printf("isBall == %i\n", objArray[j].isBall);
+				makeBox(
+					&newColorImg,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
+					GREEN);	
+			}
+
+
 		}
 /*
 	    // Convert array into something the tracker can use
@@ -297,6 +313,12 @@ int main(int argc, char** argv)
 			//getchar();
 		}
 
+		makeBox(&newColorImg, 
+				80,
+				240,
+				60,
+				180,
+				BLUE);
 		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
 	

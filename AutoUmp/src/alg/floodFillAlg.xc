@@ -7,11 +7,10 @@
 
 #include "floodFillAlg.h"
 #include "detect_objects.h"
-#include "find_balls.h"
 
 // bitBuffer is an entire bit image
 // objCenters will be filled with objCenters ready to be sent over UART
-int FloodFill(
+int FloodFillMain(
     uint8_t* unsafe bitBuffer,
     struct Object* objArray,
     struct Queue* queue,
@@ -59,7 +58,7 @@ int FloodFill(
     }
     t :> ed;
 
-    if(numObjects < 50) mergeObjects(objArray, numObjects);
+    mergeObjects(objArray, numObjects);
 
     if ((ed-st) > 4500000)
         printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
@@ -92,7 +91,7 @@ void FloodFillThread(
                 memcpy(bitBuffer, tmpBitBuf, n*sizeof(uint8_t));
                 break;
         }
-        int numObjects = FloodFill((uint8_t* unsafe)bitBuffer, objArray, &queue, lu);
+        int numObjects = FloodFillMain((uint8_t* unsafe)bitBuffer, objArray, &queue, lu);
 
         ff2ot.sendObjects(objArray, numObjects, bitBuffer, 320*240/8, num);
     }

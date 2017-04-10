@@ -283,20 +283,14 @@ void updateObject(struct Object* object, uint32_t bitIndex)
     }
 }
 
-// computes the center of a particular object
-void computeCenter(struct Object* object)
-{
-    object->centX = (object->box[0] + object->box[1])/2;
-    object->centY = (object->box[2] + object->box[3])/2;
-    object->distanceFromCenter = abs(object->centX - IMG_WIDTH/2);
-}
-
 // computes center for an array of objects
 void computeCenters(struct Object* objectArray, int32_t length)
 {
     for (int i = 0; i < length; i++)
     {
-        computeCenter(&objectArray[i]);
+        objectArray[i].centX = (objectArray[i].box[0] + objectArray[i].box[1])/2;
+        objectArray[i].centY = (objectArray[i].box[2] + objectArray[i].box[3])/2;
+        objectArray[i].distanceFromCenter = abs(objectArray[i].centX - IMG_WIDTH/2);
     }
 }
 
@@ -313,51 +307,6 @@ void getTwoCenters(struct Center* centerPair, struct Object* objectArray, struct
         }
         i++;
     }
-}
-
-// marks each object: is it a ball or not?
-int32_t filterBalls(struct Object* objectArray, uint16_t length)
-{
-    uint8_t i = 0;
-    int32_t numBalls = 0;
-    while((objectArray[i].id != EMPTY_OBJECT_ID) && (i < length))
-    {
-        // if object is smaller than possible for our ball
-        if(objectArray[i].box[1] - objectArray[i].box[0] < 5 ||
-            objectArray[i].box[3] - objectArray[i].box[2] < 5)
-        {
-            objectArray[i].isBall = 0;
-        }
-
-        // if the object is on the edge of the image
-        // (where edge is defined as 2 pixel width surrounding edge)
-        else if(objectArray[i].box[0] < 2 || objectArray[i].box[2] < 2 ||
-            objectArray[i].box[1] > IMG_WIDTH-3 || objectArray[i].box[3] > IMG_HEIGHT-3)
-        {
-            objectArray[i].isBall = 0;
-        }
-
-        else // it's a ball
-        {
-            objectArray[i].isBall = 1;
-            numBalls++;
-        }
-        i++;
-    }
-    return numBalls;
-}
-
-void objectInit(struct Object* obj)
-{
-    obj->id = EMPTY_OBJECT_ID; // no object
-    obj->isBall = -1;
-    obj->box[0] = 0; // goes along width/columns of image
-    obj->box[2] = 0; // goes down height/rows of image
-    obj->box[1] = 0;
-    obj->box[3] = 0;
-    obj->centX = 0;
-    obj->centY = 0;
-    obj->distanceFromCenter = 0;
 }
 
 void initObjectArray(struct Object* objArray, uint16_t length)
@@ -417,112 +366,6 @@ void packObjects(
     }
 }}
 
-int32_t unpackObjects(
-    struct Object* objArray,
-    uint8_t* unsafe buffer,
-    uint16_t bufferLength)
-{ unsafe {
-    for(int i = 1; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
-    {
-        uint8_t centXLower = buffer[i]; // each of these is flipped from what I would expect
-        uint8_t centXUpper = buffer[i+1];
-        uint8_t centYLower = buffer[i+2];
-        uint8_t centYUpper = buffer[i+3];
-        uint8_t xMinLower  = buffer[i+4];
-        uint8_t xMinUpper  = buffer[i+5];
-        uint8_t xMaxLower  = buffer[i+6];
-        uint8_t xMaxUpper  = buffer[i+7];
-        uint8_t yMinLower  = buffer[i+8];
-        uint8_t yMinUpper  = buffer[i+9];
-        uint8_t yMaxLower  = buffer[i+10];
-        uint8_t yMaxUpper  = buffer[i+11];
-
-        uint16_t centX = (centXUpper << 8) | centXLower;
-        uint16_t centY = (centYUpper << 8) | centYLower;
-        uint16_t xMin = (xMinUpper << 8) | xMinLower;
-        uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
-        uint16_t yMin = (yMinUpper << 8) | yMinLower;
-        uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
-        if(centX == 0xFFFF) // that's our cue -- we've hit our last object
-        {
-            return i/12+1; // num objects
-            break;
-        }
-
-        objArray[i/12].centX = centX;
-        objArray[i/12].centY = centY;
-        objArray[i/12].box[0] = xMin;
-        objArray[i/12].box[1] = xMax;
-        objArray[i/12].box[2] = yMin;
-        objArray[i/12].box[3] = yMax;
-
-    }
-    return bufferLength/12; // num objects
-}}
-
-
-
-int32_t unpackCenters(
-    struct Object* objArray,
-    uint8_t* unsafe buffer,
-    uint16_t bufferLength)
-{ unsafe {
-    for(int i = 0; i < bufferLength; i+=4)
-    {
-        uint8_t xLower = buffer[i];
-        uint8_t xUpper = buffer[i+1];
-        uint8_t yLower = buffer[i+2];
-        uint8_t yUpper = buffer[i+3];
-
-        uint16_t centX = (xUpper << 8) | xLower;
-        uint16_t centY = (yUpper << 8) | yLower;
-
-        objArray[i/4].centX = centX;
-        objArray[i/4].centY = centY;
-    }
-    return bufferLength/4; // num objects
-}}
-
-
-void printObjectArray(struct Object* objArray, uint16_t length)
-{
-    for(int i = 0; i < length; i++)
-    {
-        printf("id: %i; box[0]: %i; box[1]: %i; box[2]: %i; box[3]: %i; centX: %i; centY: %i \n",
-            objArray[i].id,
-            objArray[i].box[0],
-            objArray[i].box[1],
-            objArray[i].box[2],
-            objArray[i].box[3],
-            objArray[i].centX,
-            objArray[i].centY);
-        i++;
-    }
-}
-
-void printCenters(struct Object* objArray, uint16_t length)
-{
-    uint16_t i = 0;
-    while((i < length) && (objArray[i].centX != 65535))
-    {
-        printf("centX: %x; centY: %x \n",
-            objArray[i].centX,
-            objArray[i].centY);
-        i++;
-    }
-    printf("\n");
-}
-
-
-// bitLoc is the bit location. 7 for MSB, 0 for LSB, etc.
-/*uint8_t getBitInByte(uint8_t byte, uint32_t bitLoc)
-{
-    byte = byte << (7-bitLoc);
-    byte = byte >> 7;
-
-    return byte;
-}*/
-
 // given a certain bitIndex, get that bit (stored in a byte).
 // so a bitIndex of 4 will get the 4th bit.
 uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
@@ -542,20 +385,6 @@ uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
 
     return val;
 }}
-
-
-// bitLoc is the bit location. 7 for MSB, 0 for LSB, etc.
-//int8_t setBitInByte(uint8_t* unsafe byte, uint8_t bitLoc, uint8_t bitVal)
-//{ unsafe {
-//    /*if(bitVal > 1 || bitLoc > 7)
-//    {
-//        return FUNC_ERROR;
-//    }*/
-//    //http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c
-//    *byte = (*byte & ~(1 << bitLoc)) | (bitVal << bitLoc);
-//
-//    return 0;
-//}}
 
 // given a certain bitIndex, set that bit to either 0 or 1.
 inline int8_t setBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex, uint8_t val)

@@ -404,11 +404,11 @@ int main(int argc, char** argv)
 		}
 		
         int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
-		int32_t numBalls = filterBalls(objArray, numObjects);
+		/*int32_t numBalls = filterBalls(objArray, numObjects);*/
 
 /** uncomment this to print out data that's unpacked
         printCenters(objArray, numObjects);*/
-		//printObjectArray(objArray, numObjects);
+		printObjectArray(objArray, numObjects);
 
 
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
@@ -428,7 +428,7 @@ int main(int argc, char** argv)
 					objArray[i].box[3],
 					RED);
 			}
-			else if(objArray[i].isBall != 0)
+			else if(objArray[i].isBall == 3)
 			{
 				makeBox(
 					&M_color,
@@ -437,6 +437,16 @@ int main(int argc, char** argv)
 					objArray[i].box[2],
 					objArray[i].box[3],
 					GREEN);
+			}
+			else if(objArray[i].isBall != 0)
+			{
+				makeBox(
+					&M_color,
+					objArray[i].box[0],
+					objArray[i].box[1],
+					objArray[i].box[2],
+					objArray[i].box[3],
+					RED);
 			}
 		}
 

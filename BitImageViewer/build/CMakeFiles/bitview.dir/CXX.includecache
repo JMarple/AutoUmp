@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/jmarple/code/AutoUmp/BitImageViewer/src/main.cpp
+/home/tbadams45/XMOS/autoump/BitImageViewer/src/main.cpp
 serial/rs232.h
-/home/jmarple/code/AutoUmp/BitImageViewer/src/serial/rs232.h
+/home/tbadams45/XMOS/autoump/BitImageViewer/src/serial/rs232.h
 cstdint
 -
 iostream
@@ -28,7 +28,7 @@ opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
 -
 
-/home/jmarple/code/AutoUmp/BitImageViewer/src/serial/rs232.h
+/home/tbadams45/XMOS/autoump/BitImageViewer/src/serial/rs232.h
 stdio.h
 -
 string.h
@@ -101,6 +101,8 @@ opencv2/core/utility.hpp
 /usr/local/include/opencv2/opencv2/core/utility.hpp
 opencv2/core/optim.hpp
 /usr/local/include/opencv2/opencv2/core/optim.hpp
+opencv2/core/ovx.hpp
+/usr/local/include/opencv2/opencv2/core/ovx.hpp
 
 /usr/local/include/opencv2/core/affine.hpp
 opencv2/core.hpp
@@ -174,8 +176,6 @@ immintrin.h
 immintrin.h
 -
 Intrin.h
--
-arm_neon.h
 -
 arm_neon.h
 -
@@ -269,6 +269,10 @@ cstdio
 /usr/local/include/opencv2/core/optim.hpp
 opencv2/core.hpp
 /usr/local/include/opencv2/core/opencv2/core.hpp
+
+/usr/local/include/opencv2/core/ovx.hpp
+cvdef.h
+/usr/local/include/opencv2/core/cvdef.h
 
 /usr/local/include/opencv2/core/persistence.hpp
 opencv2/core/types.hpp
@@ -1267,56 +1271,4 @@ opencv2/videostab/global_motion.hpp
 /usr/local/include/opencv2/videostab/opencv2/videostab/global_motion.hpp
 opencv2/videostab/log.hpp
 /usr/local/include/opencv2/videostab/opencv2/videostab/log.hpp
-
-/usr/local/include/opencv2/viz.hpp
-opencv2/viz/types.hpp
--
-opencv2/viz/widgets.hpp
--
-opencv2/viz/viz3d.hpp
--
-opencv2/viz/vizcore.hpp
--
-
-/usr/local/include/opencv2/viz/types.hpp
-string
--
-opencv2/core.hpp
--
-opencv2/core/affine.hpp
--
-
-/usr/local/include/opencv2/viz/viz3d.hpp
-opencv2/core.hpp
--
-opencv2/viz/types.hpp
--
-opencv2/viz/widgets.hpp
--
-
-/usr/local/include/opencv2/viz/vizcore.hpp
-opencv2/viz/types.hpp
--
-opencv2/viz/widgets.hpp
--
-opencv2/viz/viz3d.hpp
--
-
-/usr/local/include/opencv2/viz/widgets.hpp
-opencv2/viz/types.hpp
--
-
-/usr/local/include/opencv2/xfeatures2d.hpp
-opencv2/features2d.hpp
-/usr/local/include/opencv2/opencv2/features2d.hpp
-opencv2/xfeatures2d/nonfree.hpp
-/usr/local/include/opencv2/opencv2/xfeatures2d/nonfree.hpp
-
-/usr/local/include/opencv2/xfeatures2d/cuda.hpp
-opencv2/core/cuda.hpp
-/usr/local/include/opencv2/xfeatures2d/opencv2/core/cuda.hpp
-
-/usr/local/include/opencv2/xfeatures2d/nonfree.hpp
-opencv2/features2d.hpp
-/usr/local/include/opencv2/xfeatures2d/opencv2/features2d.hpp
 

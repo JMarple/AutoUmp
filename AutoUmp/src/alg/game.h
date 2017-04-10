@@ -1,15 +1,10 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
-#include "io.h"
 #include <stdint.h>
+#include "io.h"
+#include "interfaces.h"
 #define STACK_SIZE 100
-
-interface ObjectTrackerToGameInter
-{
-    void forwardBuffer(uint8_t buffer[], int n);
-};
-
 
 struct gameState
 {
