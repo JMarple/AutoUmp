@@ -195,6 +195,7 @@ int main(int argc, char** argv)
 
         struct ObjectArray newObjectArray; 
         ObjectArrayInit(&newObjectArray);
+		filterLarge(objArray, numObjects);
 		filterToMiddle(objArray, &newObjectArray, numObjects);
 		
 		

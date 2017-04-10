@@ -154,9 +154,11 @@ int updateTrack(struct ObjectTrack* track, struct ObjectArray* objectArray, uint
 	// decide if we need to calculate the intersection
 	int32_t idx = track->lastFrame - 1;
 	int32_t twoFramesAgo = (idx % OBJECTS_HISTORY + OBJECTS_HISTORY) % OBJECTS_HISTORY;
-	if(track->history[track->lastFrame].centX > IMG_WIDTH/2 && 
-		track->totalFramesCount >= 2 &&
-		track->history[twoFramesAgo].centX <= IMG_WIDTH/2)
+	if(track->lastFrame >= 0 &&
+        track->totalFramesCount >= 2 &&
+        track->history[track->lastFrame].centX > IMG_WIDTH/2 &&
+        track->history[twoFramesAgo].centX <= IMG_WIDTH/2 &&
+        track->history[track->lastFrame].centX - track->history[twoFramesAgo].centX > 0)
 	{
 		return 1;
 	}
