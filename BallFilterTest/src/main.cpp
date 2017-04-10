@@ -68,7 +68,9 @@ Provide a function to also draw lines for tracking
 */
 int main(int argc, char** argv)
 {
-	// args: ./bftest <absolute file path to "images" folder> <specific test case folder name> 
+
+
+// args: ./bftest <absolute file path to "images" folder> <specific test case folder name> 
 	// we're assuming <SOME_PATH>/images/01, <SOME_PATH>/images/02, etc.
 	if(argc != 4)
 	{
@@ -91,13 +93,22 @@ int main(int argc, char** argv)
 	int32_t maxNumFull = 0;
 	int32_t maxNumFullImg = 0; // which picture did maxNumFull appear?
 
-	struct ObjectTracker tracker;
-    ObjectTrackerInit(&tracker);
+	//struct ObjectTracker tracker;
+    //ObjectTrackerInit(&tracker);
 
+	struct ObjectTrack track;
+	ObjectTrackInit(&track, 0);
+	int skip = 0;	
 
 	for(int32_t i = 0; i < numPng; i++)
 	{
-		//std::cout << "---------------- File " << i << " ----------------" << std::endl;
+		if(skip)
+		{
+			skip--;
+			continue;
+		}
+
+	//std::cout << "---------------- File " << i << " ----------------" << std::endl;
 		//construct file paths for images
 		std::ostringstream imgReadFp; 
 		std::ostringstream imgWriteFp;
@@ -181,7 +192,13 @@ int main(int argc, char** argv)
 			maxNumMerged = numMerged;
 		}
 
-		filterToMiddle(objArray, numObjects);
+
+        struct ObjectArray newObjectArray; 
+        ObjectArrayInit(&newObjectArray);
+		filterToMiddle(objArray, &newObjectArray, numObjects);
+		
+		
+
 /*
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
@@ -214,6 +231,17 @@ int main(int argc, char** argv)
 		Mat newColorImg;
 		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
+
+		int32_t result = updateTrack(&track, &newObjectArray, 0);
+		if(result == 1)
+		{
+			makeLine(&newColorImg, track.history[track.lastFrame].centX, GREEN, 1);
+			ObjectTrackInit(&track, 0);
+			skip = 20;	
+		}
+
+
+		
 		for(int j = 0; j < numObjects; j++)
 		{
 			if (objArray[j].isBall == 1)
