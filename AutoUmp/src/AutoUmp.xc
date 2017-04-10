@@ -7,7 +7,7 @@
 #include "io.h"
 #include "floodFillAlg.h"
 #include "objectTrackerAlg.h"
-#include "game.h"
+#include "gameAlg.h"
 
 extern in buffered port:32 cam1DATA;
 extern in buffered port:32 cam2DATA;

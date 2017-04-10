@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <timer.h>
 #include "io.h"
-#include "game.h"
+#include "gameAlg.h"
 
 void GameThread(
     interface ObjectTrackerToGameInter server ot2g,

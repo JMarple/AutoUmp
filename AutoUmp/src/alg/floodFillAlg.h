@@ -5,9 +5,9 @@
 #define IMG_HEIGHT 240
 #define OBJECT_ARRAY_LENGTH 250
 
+#include "interfaces.h"
 #include "detect_objects.h"
 #include "queue.h"
-#include "interfaces.h"
 
 struct DenoiseRowLU2
 {

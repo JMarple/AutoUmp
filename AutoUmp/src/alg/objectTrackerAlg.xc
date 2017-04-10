@@ -1,6 +1,7 @@
 #include "objectTrackerAlg.h"
 #include "interfaces.h"
 #include "floodFillAlg.h"
+#include "detect_objects.h"
 #include <xs1.h>
 #include <platform.h>
 #include <stdio.h>
@@ -24,6 +25,8 @@ void ObjectTracker(
     uint32_t intersectionRight; // y val, at x = 160, from left camera
     uint32_t intersectFlagLeft = 0;
     uint32_t intersectFlagRight = 0;
+    uint32_t skipLeft = 0;
+    uint32_t skipRight = 0;
 
 
     // by virtue of the fact that we only are tracking one object in each.
@@ -39,11 +42,13 @@ void ObjectTracker(
         select
         {
             case tile0FF2OT[int i].sendObjects(struct Object objArray[], uint32_t numObjects, uint8_t bitBuffer[], uint32_t m, int id):
-                if (i != 1) break;
-
-
                 if(i % 2 == 0) // left camera
                 {
+                    if(skipLeft)
+                    {
+                        skipLeft--;
+                    }
+
                     for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
                     {
                         objArrayTmpLeft[i] = objArray[i];
@@ -55,16 +60,24 @@ void ObjectTracker(
                     filterToMiddle(objArrayTmpLeft, &objArrayLeft, numObjects);
 
                     //select the object that best matches the current track/a ball
-                    //int result = updateTrack(&trackLeft, &objArrayLeft);
+                    int result = updateTrack(&trackLeft, &objArrayLeft, 0);
 
                     //if result == 0, then track updated fine (either we add a new object to it or count a dead frame)
-                    //else if result == 1, then object has been missing for 3 frames and we need to calulate intersection and reinit track
-                        // calculateIntersection()
-                        // ObjectTrackInit()
-                        // intersectFlagLeft = 1;
+                    if(result == 1) // time to calculate the intersection!
+                    {
+                        intersectionLeft =  calculateIntersection(&trackLeft);
+                        ObjectTrackInit(&trackLeft, 0);
+                        intersectFlagLeft = 1;
+                        skipLeft = FRAME_SKIP;
+                    }
                 }
                 else // right camera
                 {
+                    if(skipRight)
+                    {
+                        skipRight--;
+                    }
+
                     for(int i = 0; i < 250; i++)
                     {
                         objArrayTmpRight[i] = objArray[i];
@@ -72,9 +85,20 @@ void ObjectTracker(
 
                     ObjectArrayInit((struct ObjectArray* unsafe)&objArrayRight);
                     filterToMiddle(objArrayTmpRight, &objArrayRight, numObjects);
+
+                    int result = updateTrack(&trackRight, &objArrayRight, 0);
+
+                    if(result == 1)
+                    {
+                        intersectionRight = calculateIntersection(&trackRight);
+                        ObjectTrackInit(&trackRight, 0);
+                        intersectFlagRight = 1;
+                        skipRight = FRAME_SKIP;
+                    }
                 }
 
                 // send data over UART
+                if (i != 1) break;
 
                 loopCount++;
                 if(loopCount % 1 == 0)
@@ -89,14 +113,60 @@ void ObjectTracker(
                 break;
 
             case tile1FF2OT[int i].sendObjects(struct Object objArray[], uint32_t numObjects, uint8_t bitBuffer[], uint32_t m, int id):
-                /*if(i % 2 == 0) // left camera
+                if(i % 2 == 0) // left camera
                 {
+                    if(skipLeft)
+                    {
+                        skipLeft--;
+                    }
 
+                    for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
+                    {
+                        objArrayTmpLeft[i] = objArray[i];
+                    }
+
+                    ObjectArrayInit((struct ObjectArray* unsafe)&objArrayLeft);
+
+                    //reduces objArray to objArrayLeft, which just has objects in the middle for this frame.
+                    filterToMiddle(objArrayTmpLeft, &objArrayLeft, numObjects);
+
+                    //select the object that best matches the current track/a ball
+                    int result = updateTrack(&trackLeft, &objArrayLeft, 0);
+
+                    //if result == 0, then track updated fine (either we add a new object to it or count a dead frame)
+                    if(result == 1) // time to calculate the intersection!
+                    {
+                        intersectionLeft =  calculateIntersection(&trackLeft);
+                        ObjectTrackInit(&trackLeft, 0);
+                        intersectFlagLeft = 1;
+                        skipLeft = FRAME_SKIP;
+                    }
                 }
                 else // right camera
                 {
+                    if(skipRight)
+                    {
+                        skipRight--;
+                    }
 
-                }*/
+                    for(int i = 0; i < 250; i++)
+                    {
+                        objArrayTmpRight[i] = objArray[i];
+                    }
+
+                    ObjectArrayInit((struct ObjectArray* unsafe)&objArrayRight);
+                    filterToMiddle(objArrayTmpRight, &objArrayRight, numObjects);
+
+                    int result = updateTrack(&trackRight, &objArrayRight, 0);
+
+                    if(result == 1)
+                    {
+                        intersectionRight = calculateIntersection(&trackRight);
+                        ObjectTrackInit(&trackRight, 0);
+                        intersectFlagRight = 1;
+                        skipRight = FRAME_SKIP;
+                    }
+                }
                 break;
         }
 
@@ -121,11 +191,12 @@ void ObjectTrackInit(struct ObjectTrack* unsafe track, uint32_t id)
     track->totalFramesCount = 0;
     track->head = 0;
     track->deadFrames = 0;
+    track->lastFrame = -1;
 }}
 
 
 // Return -1 if error
-int ObjectArrayAdd(struct ObjectArray* unsafe array, int topLx, int topLy, int botRx, int botRy)
+int ObjectArrayAdd(struct ObjectArray* unsafe array, int32_t topLx, int32_t topLy, int32_t botRx, int32_t botRy)
 { unsafe {
     if (array->objectNum >= OBJECTS_NUM) return -1;
 
@@ -175,4 +246,120 @@ int filterToMiddle(struct Object* unsafe objArray, struct ObjectArray* unsafe ne
     }
 
     return 0;
+}}
+
+
+int updateTrack(struct ObjectTrack* unsafe track, struct ObjectArray* unsafe objectArray, uint32_t trackID)
+{ unsafe {
+    // check for empty array
+    if(objectArray->objectNum == 0)
+    {
+        track->deadFrames++;
+    }
+    else if(objectArray->objectNum == 1)
+    {
+        if(track->totalFramesCount == 0)
+        {
+            addToHistory(track, &objectArray->objects[0]);
+        }
+        else
+        {
+            // check: is it a valid object?
+            // valid is defined as: moved to the right, and less than 20 pixels change in y
+            if(isValid(&track->history[track->lastFrame], &objectArray->objects[0]))
+            {
+                // add to history
+                addToHistory(track, &objectArray->objects[0]);
+            }
+            else
+            {
+                track->deadFrames++;
+            }
+        }
+    }
+    else { // more than one object in objectArray
+        struct FoundObject bestObject;
+        struct FoundObject tmpObject;
+        int32_t bestObjectIndex = -1;
+
+        // find the best object
+        for(int i = 0; i < objectArray->objectNum; i++)
+        {
+            tmpObject = objectArray->objects[i];
+            if(isValid(&track->history[track->lastFrame], &tmpObject))
+            {
+                if(bestObjectIndex == -1)
+                {
+                    bestObject = tmpObject;
+                    bestObjectIndex = i;
+                }
+                else
+                {
+                    if(tmpObject.centX > bestObject.centX)
+                    {
+                        bestObject = tmpObject;
+                        bestObjectIndex = i;
+                    }
+                }
+            }
+        }
+
+        if(bestObjectIndex == -1) track->deadFrames++;
+        else
+        {
+            addToHistory(track, &bestObject);
+        }
+    }
+
+    if(track->deadFrames > 2)
+    {
+        ObjectTrackInit(track, trackID);
+    }
+
+    // decide if we need to calculate the intersection
+    int32_t idx = track->lastFrame - 1;
+    int32_t twoFramesAgo = (idx % OBJECTS_HISTORY + OBJECTS_HISTORY) % OBJECTS_HISTORY;
+    if(track->lastFrame >= 0 &&
+        track->history[track->lastFrame].centX > IMG_WIDTH/2 &&
+        track->totalFramesCount >= 2 &&
+        track->history[twoFramesAgo].centX <= IMG_WIDTH/2)
+    {
+        return 1;
+    }
+
+    return 0;
+}}
+
+int32_t isValid(struct FoundObject* unsafe obj1, struct FoundObject* unsafe obj2)
+{ unsafe {
+    if((obj2->centX - obj1->centX > 0) &&
+        ((obj2->centY - obj1->centY < 20) || (obj1->centY - obj2->centY < 20)))
+    {
+        return 1;
+    }
+    else return 0;
+}}
+
+int32_t addToHistory(struct ObjectTrack* unsafe track, struct FoundObject* unsafe obj)
+{ unsafe {
+    track->history[track->head] = *obj;
+    if(track->totalFramesCount < OBJECTS_HISTORY) track->totalFramesCount++;
+    track->head = (track->head + 1) % OBJECTS_HISTORY;
+    track->lastFrame = (track->lastFrame + 1) % OBJECTS_HISTORY;
+
+    return 0;
+}}
+
+float calculateIntersection(struct ObjectTrack* unsafe track)
+{ unsafe {
+    int32_t lastFrameIndex = track->lastFrame;
+    int32_t twoFramesAgoIndex = ((lastFrameIndex - 1) % OBJECTS_HISTORY + OBJECTS_HISTORY) % OBJECTS_HISTORY;
+    struct FoundObject f0 = track->history[twoFramesAgoIndex];
+    struct FoundObject f1 = track->history[lastFrameIndex];
+
+    float interX = (double)IMG_WIDTH / 2.0;
+    float m = ((float)f1.centY - (float)f0.centY) / ((float)f1.centX - f0.centX);
+    float interY = (float)f0.centY + m * (interX - (float)f0.centX);
+
+    return interY;
 }}

@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "io.h"
 #include "interfaces.h"
+
 #define STACK_SIZE 100
 
 struct gameState
@@ -22,14 +23,15 @@ struct gameState
     float kzoneBot;
 };
 
-struct Stack {
+struct Stack
+{
     struct gameState states[STACK_SIZE];
     int32_t top;
     int32_t numElem;
 };
 
 void initGameState(
-        struct gameState* unsafe  gs);
+        struct gameState* unsafe gs);
 
 void copyGameState(
         struct gameState* unsafe new,
@@ -53,11 +55,10 @@ void sendGameStatus(
 void getGameStatus(
         streaming chanend x,
         struct Stack* unsafe stack,
-        struct gameState* unsafe currentGameState);
+        struct gameState* unsafe currentGameStatus);
 
 void GameThread(
-    interface ObjectTrackerToGameInter server ot2g,
-    interface BluetoothInter client btInter);
-
+        interface ObjectTrackerToGameInter server ot2g,
+        interface BluetoothInter client btInter);
 
 #endif
