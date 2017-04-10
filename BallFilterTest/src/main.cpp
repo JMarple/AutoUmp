@@ -235,7 +235,11 @@ int main(int argc, char** argv)
 		int32_t result = updateTrack(&track, &newObjectArray, 0);
 		if(result == 1)
 		{
-			makeLine(&newColorImg, track.history[track.lastFrame].centX, GREEN, 1);
+			makeLine(&newColorImg, 160, BLUE, 1);
+			float intersection = calculateIntersection(&track);
+			printf("Intersection: %.3f\n", intersection);
+			makeLine(&newColorImg, round32_t(intersection), GREEN, 0);
+			//makeLine(&newColorImg, track.history[track.lastFrame].centX, GREEN, 1);
 			ObjectTrackInit(&track, 0);
 			skip = 20;	
 		}
@@ -332,6 +336,13 @@ int main(int argc, char** argv)
 	    }
 */
 
+		makeBox(&newColorImg, 
+				80,
+				240,
+				60,
+				180,
+				BLUE);
+
 		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')
 		{
@@ -340,20 +351,13 @@ int main(int argc, char** argv)
 			mygetch();
 			//getchar();
 		}
-
-		makeBox(&newColorImg, 
-				80,
-				240,
-				60,
-				180,
-				BLUE);
 		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
 	
 //	std::cout << "All Objects:         " << maxNumObjects << std::endl;
-	std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
+	//std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
 	//std::cout << "Num Squarish:        " << maxNumSquarish << std::endl;
-	std::cout << "Num Full             " << maxNumFull << "  (img " << maxNumFullImg << " )" << std::endl;
+	//std::cout << "Num Full             " << maxNumFull << "  (img " << maxNumFullImg << " )" << std::endl;
 }
 
 void denoise(uint8_t* img, struct DenoiseLookup* lu){

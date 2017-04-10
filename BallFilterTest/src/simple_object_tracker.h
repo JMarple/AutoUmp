@@ -8,6 +8,8 @@
 #define OBJECTS_HISTORY 10
 #define OBJECTS_MAX_TRACK_LEN 20
 
+#define round32_t(x) ((x)>=0?(int32_t)((x)+0.5):(int32_t)((x)-0.5))
+
 struct FoundObject
 {
     uint32_t box[4];
@@ -48,5 +50,6 @@ int filterToMiddle(struct Object* objArray, struct ObjectArray* newObjArray, int
 int updateTrack(struct ObjectTrack* track, struct ObjectArray* objectArray, uint32_t trackID);
 int32_t isValid(struct FoundObject* obj1, struct FoundObject* obj2);
 int32_t addToHistory(struct ObjectTrack* track, struct FoundObject* obj);
-
+float calculateIntersection(struct ObjectTrack* track);
+void printTrack(struct ObjectTrack* track);
 #endif

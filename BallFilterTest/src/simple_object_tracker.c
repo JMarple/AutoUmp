@@ -2,6 +2,7 @@
 #include "detect_objects.h"
 #include "main.hpp"
 #include <stdint.h>
+#include <stdio.h>
 
 void ObjectArrayInit(struct ObjectArray* array)
 {
@@ -92,6 +93,7 @@ int updateTrack(struct ObjectTrack* track, struct ObjectArray* objectArray, uint
 		if(track->totalFramesCount == 0)
 		{
 			addToHistory(track, &objectArray->objects[0]);
+			//printTrack(track);
 		}
 		else
 		{
@@ -101,6 +103,7 @@ int updateTrack(struct ObjectTrack* track, struct ObjectArray* objectArray, uint
 			{
 				// add to history
 				addToHistory(track, &objectArray->objects[0]);
+				//printTrack(track);
 			}
 			else 
 			{
@@ -139,6 +142,7 @@ int updateTrack(struct ObjectTrack* track, struct ObjectArray* objectArray, uint
 		else
 		{
 			addToHistory(track, &bestObject);
+			//printTrack(track);
 		}	
 	}
 
@@ -176,6 +180,38 @@ int32_t addToHistory(struct ObjectTrack* track, struct FoundObject* obj)
 {
 	track->history[track->head] = *obj;
 	if(track->totalFramesCount < OBJECTS_HISTORY) track->totalFramesCount++;
-	track->head = (track->head + 1) & OBJECTS_HISTORY;
-	track->lastFrame = (track->lastFrame + 1) & OBJECTS_HISTORY;
+	track->head = (track->head + 1) % OBJECTS_HISTORY;
+	track->lastFrame = (track->lastFrame + 1) % OBJECTS_HISTORY;
+}
+
+float calculateIntersection(struct ObjectTrack* track)
+{
+    int32_t lastFrameIndex = track->lastFrame;
+    int32_t twoFramesAgoIndex = ((lastFrameIndex - 1) % OBJECTS_HISTORY + OBJECTS_HISTORY) % OBJECTS_HISTORY;
+	struct FoundObject f0 = track->history[twoFramesAgoIndex];
+	struct FoundObject f1 = track->history[lastFrameIndex];
+
+	printf("f0.centX %i, f0.centY %i, f1.centX %i, f1.centY %i\n", f0.centX, f0.centY, f1.centX, f1.centY);
+
+	float interX = (double)IMG_WIDTH / 2.0;
+	float m = ((float)f1.centY - (float)f0.centY) / ((float)f1.centX - f0.centX);
+	float interY = (float)f0.centY + m * (interX - (float)f0.centX);
+
+	return interY;
+}
+
+
+void printTrack(struct ObjectTrack* track)
+{
+	int i = track->totalFramesCount;
+	int idx = track->lastFrame;
+	printf("Printing %i objects in track in reverse order. (idx = %i)\n", i, idx);
+	while(i > 0)
+	{
+		struct FoundObject f = track->history[idx];
+		printf("x: %i, y: %i\n", f.centX, f.centY);
+		idx = ((idx - 1) % OBJECTS_HISTORY + OBJECTS_HISTORY) % OBJECTS_HISTORY;
+		printf("(idx = %i)\n", idx);
+		i--;
+	}
 } 
