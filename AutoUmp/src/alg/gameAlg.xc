@@ -55,6 +55,13 @@ void GameThread(
                 btInter.sendBuffer(tmpBuffer, 250*9);
                 break;
 
+            case ot2g.forwardIntersection(uint8_t buffer[], int n):
+                for(int j = 0; j < n; j++)
+                {
+                    tmpBuffer[j] = buffer[j];
+                }
+                btInter.sendBuffer(tmpBuffer, n);
+                break;
         }
 
         /*

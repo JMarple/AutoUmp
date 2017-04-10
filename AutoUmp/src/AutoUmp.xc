@@ -14,8 +14,6 @@ extern in buffered port:32 cam2DATA;
 
 struct DenoiseLookup luTile0;
 
-
-
 void sendToBluetoothTemporary(chanend uart1, uint8_t* unsafe buf, int length)
 { unsafe {
     for (int i = 0; i < length; i++)

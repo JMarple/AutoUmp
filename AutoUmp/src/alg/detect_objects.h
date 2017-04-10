@@ -89,5 +89,9 @@ inline int8_t setBitInPic(
     uint8_t val);
 
 int32_t mergeObjects(struct Object* unsafe objArray, int32_t length);
+int32_t filterLarge(struct Object* unsafe objArray, int32_t length);
+void packIntersection(float intersection, uint8_t* unsafe buffer);
+uint16_t unpackIntersection(
+        uint8_t* unsafe buffer);
 
 #endif /* DETECT_OBJECTS_H_ */

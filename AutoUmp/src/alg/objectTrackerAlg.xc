@@ -15,14 +15,15 @@ void ObjectTracker(
 { unsafe {
     int loopCount = 0;
     uint8_t buffer[320*240/8];
+    uint8_t interBuffer[3] = {0xFB, 0, 0};
     struct Object objArrayTmpLeft[OBJECT_ARRAY_LENGTH];
     struct Object objArrayTmpRight[OBJECT_ARRAY_LENGTH];
 
     struct ObjectArray objArrayLeft;
     struct ObjectArray objArrayRight;
 
-    uint32_t intersectionLeft; // y val, at x = 160, from left camera
-    uint32_t intersectionRight; // y val, at x = 160, from left camera
+    float intersectionLeft = 0.0; // y val, at x = 160, from left camera
+    float intersectionRight = 0.0; // y val, at x = 160, from left camera
     uint32_t intersectFlagLeft = 0;
     uint32_t intersectFlagRight = 0;
     uint32_t skipLeft = 0;
@@ -36,7 +37,6 @@ void ObjectTracker(
     ObjectTrackInit(&trackLeft,  0);
     ObjectTrackInit(&trackRight, 1);
 
-
     while(1==1)
     {
         select
@@ -48,11 +48,17 @@ void ObjectTracker(
                     {
                         skipLeft--;
                     }
+                    else
+                    {
+                        intersectionLeft = 0.0;
+                    }
 
                     for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
                     {
                         objArrayTmpLeft[i] = objArray[i];
                     }
+
+                    //filterLarge(objArrayTmpLeft, numObjects);
 
                     ObjectArrayInit((struct ObjectArray* unsafe)&objArrayLeft);
 
@@ -66,22 +72,32 @@ void ObjectTracker(
                     if(result == 1) // time to calculate the intersection!
                     {
                         intersectionLeft =  calculateIntersection(&trackLeft);
+                        //packIntersection(intersectionLeft, interBuffer);
+                        //uint16_t inter = unpackIntersection(interBuffer);
                         ObjectTrackInit(&trackLeft, 0);
                         intersectFlagLeft = 1;
                         skipLeft = FRAME_SKIP;
+
+                        /*if(skipRight)
+                        {
+                            printf("found intersection 0! Left Cam: %.3f, Right Cam: %.3f\n", intersectionLeft, intersectionRight);
+                        }*/
                     }
                 }
                 else // right camera
                 {
-                    if(skipRight)
+                    if(skipRight) skipRight--;
+                    else
                     {
-                        skipRight--;
+                        intersectionRight = 0.0;
                     }
 
                     for(int i = 0; i < 250; i++)
                     {
                         objArrayTmpRight[i] = objArray[i];
                     }
+
+                    //filterLarge(objArrayTmpRight, numObjects);
 
                     ObjectArrayInit((struct ObjectArray* unsafe)&objArrayRight);
                     filterToMiddle(objArrayTmpRight, &objArrayRight, numObjects);
@@ -91,9 +107,15 @@ void ObjectTracker(
                     if(result == 1)
                     {
                         intersectionRight = calculateIntersection(&trackRight);
+                        packIntersection(intersectionRight, interBuffer);
                         ObjectTrackInit(&trackRight, 0);
                         intersectFlagRight = 1;
                         skipRight = FRAME_SKIP;
+
+                        /*if(skipLeft)
+                        {
+                            printf("found intersection 1! Left Cam: %.3f, Right Cam: %.3f\n", intersectionLeft, intersectionRight);
+                        }*/
                     }
                 }
 
@@ -107,8 +129,12 @@ void ObjectTracker(
                     packObjects(objArrayTmpRight, buffer, numObjects);
 
                     ot2g.forwardBuffer(buffer, OBJECT_ARRAY_LENGTH*9);
-                    //btInter.sendBuffer(buffer, 250*9);
 
+                    ot2g.forwardIntersection(interBuffer, 3);
+                    interBuffer[1] = 0;
+                    interBuffer[2] = 0;
+
+                    //btInter.sendBuffer(buffer, 250*9);
                 }
                 break;
 
@@ -119,11 +145,17 @@ void ObjectTracker(
                     {
                         skipLeft--;
                     }
+                    else
+                    {
+                        intersectionLeft = 0.0;
+                    }
 
                     for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
                     {
                         objArrayTmpLeft[i] = objArray[i];
                     }
+
+                    filterLarge(objArrayTmpLeft, numObjects);
 
                     ObjectArrayInit((struct ObjectArray* unsafe)&objArrayLeft);
 
@@ -137,9 +169,18 @@ void ObjectTracker(
                     if(result == 1) // time to calculate the intersection!
                     {
                         intersectionLeft =  calculateIntersection(&trackLeft);
+                        packIntersection(intersectionLeft, interBuffer);
+                        //uint16_t inter = unpackIntersection(interBuffer);
+                        //printf("%f %i\n", intersectionLeft, inter);
                         ObjectTrackInit(&trackLeft, 0);
                         intersectFlagLeft = 1;
                         skipLeft = FRAME_SKIP;
+
+                        /*if(skipRight)
+                        {
+                            //send
+                            printf("found intersection 2! Left Cam: %.3f, Right Cam: %.3f\n", intersectionLeft, intersectionRight);
+                        }*/
                     }
                 }
                 else // right camera
@@ -148,11 +189,17 @@ void ObjectTracker(
                     {
                         skipRight--;
                     }
+                    else
+                    {
+                        intersectionRight = 0.0;
+                    }
 
                     for(int i = 0; i < 250; i++)
                     {
                         objArrayTmpRight[i] = objArray[i];
                     }
+
+                    filterLarge(objArrayTmpRight, numObjects);
 
                     ObjectArrayInit((struct ObjectArray* unsafe)&objArrayRight);
                     filterToMiddle(objArrayTmpRight, &objArrayRight, numObjects);
@@ -162,9 +209,15 @@ void ObjectTracker(
                     if(result == 1)
                     {
                         intersectionRight = calculateIntersection(&trackRight);
+                        packIntersection(intersectionRight, interBuffer);
                         ObjectTrackInit(&trackRight, 0);
                         intersectFlagRight = 1;
                         skipRight = FRAME_SKIP;
+
+                        /*if(skipLeft)
+                        {
+                            printf("found intersection 3! Left Cam: %.3f, Right Cam: %.3f\n", intersectionLeft, intersectionRight);
+                        }*/
                     }
                 }
                 break;
@@ -322,7 +375,8 @@ int updateTrack(struct ObjectTrack* unsafe track, struct ObjectArray* unsafe obj
     if(track->lastFrame >= 0 &&
         track->history[track->lastFrame].centX > IMG_WIDTH/2 &&
         track->totalFramesCount >= 2 &&
-        track->history[twoFramesAgo].centX <= IMG_WIDTH/2)
+        track->history[twoFramesAgo].centX <= IMG_WIDTH/2 &&
+        track->history[track->lastFrame].centX - track->history[twoFramesAgo].centX > 0)
     {
         return 1;
     }

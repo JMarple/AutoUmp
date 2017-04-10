@@ -17,6 +17,7 @@ interface FloodFillToObjectInter
 interface ObjectTrackerToGameInter
 {
     void forwardBuffer(uint8_t buffer[], int n);
+    void forwardIntersection(uint8_t buffer[], int n);
 };
 
 

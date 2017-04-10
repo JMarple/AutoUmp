@@ -3,6 +3,7 @@
 #include <stdlib.h> // for abs()
 #include "detect_objects.h"
 #include "floodFillAlg.h"
+#include "objectTrackerAlg.h" // for round(x)
 
 void objectOverwrite(struct Object* obj, uint16_t id, int8_t isBall, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY)
 {
@@ -366,6 +367,32 @@ void packObjects(
     }
 }}
 
+void packIntersection(
+        float intersection,
+        uint8_t* unsafe buffer
+        )
+{ unsafe {
+    uint16_t inter = round(intersection);
+
+    uint16_t interUpper = inter >> 8;
+    uint16_t interLower = inter & 0xFF;
+
+    buffer[0] = 0xFB;
+    buffer[1] = interUpper;
+    buffer[2] = interLower;
+}}
+
+uint16_t unpackIntersection(
+        uint8_t* unsafe buffer)
+{ unsafe {
+    uint16_t interUpper = buffer[1];
+    uint16_t interLower = buffer[2];
+
+    uint16_t intersection = (interUpper << 8) | interLower;
+
+    return intersection;
+}}
+
 // given a certain bitIndex, get that bit (stored in a byte).
 // so a bitIndex of 4 will get the 4th bit.
 uint8_t getBitInPic(uint8_t* unsafe bitPicture, uint32_t bitIndex)
@@ -492,4 +519,35 @@ int32_t mergeObjects(struct Object* unsafe objArray, int32_t length)
             }
         }
     //} while(foundIntersection);
+
+    return 0;
+}}
+
+// filter out anything less than a 3x3 square
+int32_t filterLarge(struct Object* unsafe objArray, int32_t length)
+{ unsafe {
+    int32_t numLarge = 0;
+    int i;
+    for(i = 0; i < length; i++)
+    {
+        int32_t isBall = objArray[i].isBall;
+        if(isBall == 0)
+        {
+            // already not a ball, move on
+            continue;
+        }
+
+        int32_t* box = objArray[i].box;
+        if(((box[1] - box[0]) > 2) &&
+           ((box[3] - box[2]) > 2))
+        {
+            objArray[i].isBall = 1;
+            numLarge++;
+        }
+        else
+        {
+            objArray[i].isBall = 0;
+        }
+    }
+    return numLarge;
 }}

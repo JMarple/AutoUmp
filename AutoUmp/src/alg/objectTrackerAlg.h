@@ -9,6 +9,9 @@
 #define OBJECTS_MAX_TRACK_LEN 20
 #define FRAME_SKIP 20
 
+
+#define round(x) ((x)>=0?(uint16_t)((x)+0.5):(uint16_t)((x)-0.5))
+
 struct FoundObject
 {
     uint32_t box[4];
