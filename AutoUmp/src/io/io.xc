@@ -26,6 +26,8 @@ on tile[0]: out port LED_SDI = XS1_PORT_1J;
 // Battery status port, 1 = battery is fine, 0 = battery is low
 on tile[0]: in port BAT_STATUS = XS1_PORT_1L;
 
+// Timing used for LED_SDI
+uint32_t t_cycle = 2500;
 
 // There is only one instance of an io port on each xmos board
 // so it's represented as a "singleton" here.
@@ -136,6 +138,82 @@ void BluetoothThread(interface BluetoothInter server inter)
                     i++;
                     break;
             }
+        }
+    }
+}
+
+uint8_t LED0 = 0;
+uint8_t LED1 = 0;
+uint8_t LED2 = 0;
+
+#define FALLING_SDI 0
+#define RISING_BIT 1
+#define FALLING_BIT 2
+#define RISING_SDI 3
+#include <stdio.h>
+void TLC59731Thread()
+{
+    timer tlcTimer;
+    int mode = RISING_SDI;
+    int counter = 0;
+
+    uint32_t start_time;
+    tlcTimer :> start_time;
+    start_time += t_cycle;
+
+    uint32_t data;
+    data = 0x3A000000;
+
+    while (1)
+    {
+        select
+        {
+            case tlcTimer when timerafter(start_time) :> void:
+                switch (mode)
+                {
+                    // Rising edge that occurs for every bit
+                    case RISING_SDI:
+                        LED_SDI <: 1;
+                        start_time += t_cycle * 0.1;
+                        mode = FALLING_SDI;
+                        break;
+
+                    // Falling edge that occurs for every bit
+                    case FALLING_SDI:
+                        LED_SDI <: 0;
+                        start_time += t_cycle * 0.3;
+                        mode = RISING_BIT;
+                        break;
+
+                    // If data bit is 1, have a rising edge.
+                    // Otherwise stay zero
+                    case RISING_BIT:
+                        LED_SDI <: (data >> (31-counter)) & 0b1;
+                        counter++;
+                        start_time += t_cycle * 0.2;
+                        mode = FALLING_BIT;
+                        break;
+
+                    // If the data bit was high, go low.
+                    case FALLING_BIT:
+                        LED_SDI <: 0;
+                        mode = RISING_SDI;
+                        if (counter >= 32)
+                        {
+                            counter = 0;
+                            start_time += t_cycle * 9.0;
+                            LED0++;
+                            LED1++;
+                            LED2++;
+                            data = (0x3A << 24) | (LED0 << 16) | (LED1 << 8) | (LED2);
+                        }
+                        else
+                        {
+                            start_time += t_cycle * 0.4;
+                        }
+                        break;
+                }
+                break;
         }
     }
 }

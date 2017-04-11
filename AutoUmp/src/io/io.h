@@ -7,7 +7,7 @@ interface BluetoothInter
 };
 
 void BluetoothThread(interface BluetoothInter server inter);
-
+void TLC59731Thread();
 void turnOnLED6(int val);
 void turnOnLED5(int val);
 void turnOnLED4(int val);
