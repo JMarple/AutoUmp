@@ -1,0 +1,7 @@
+CC = g++
+CFLAGS = -Wall -std=c++11
+
+SRC = $(wildcard src/*.cpp) $(wildcard src/serial/*.c)
+
+all:
+	$(CC) $(CFLAGS) $(SRC) -Isrc/serial -o auview

@@ -2,3 +2,11 @@ AutoUmp/.build
 AutoUmp/bin
 .metadata
 BallFilterTest/images/*/computed
+
+FloodFillViewer/build
+MockUART/.build
+*/build
+*/.build
+*/bin
+.swp
+IntersectionViewer/tests

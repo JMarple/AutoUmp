@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "floodFillAlg.h"
+#include "interfaces.h"
 
 #define BACKGROUND_SUBTRACTION_THRESHOLD 10
 

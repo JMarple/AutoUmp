@@ -5,6 +5,7 @@ extern "C"
 	#include "detect_objects.h"
     #include "object_tracker.h"
 	#include "queue.h"
+	#include "simple_object_tracker.h"
 }
 #include <iostream>
 #include <stdio.h>
@@ -67,7 +68,9 @@ Provide a function to also draw lines for tracking
 */
 int main(int argc, char** argv)
 {
-	// args: ./bftest <absolute file path to "images" folder> <specific test case folder name> 
+
+
+// args: ./bftest <absolute file path to "images" folder> <specific test case folder name> 
 	// we're assuming <SOME_PATH>/images/01, <SOME_PATH>/images/02, etc.
 	if(argc != 4)
 	{
@@ -90,13 +93,22 @@ int main(int argc, char** argv)
 	int32_t maxNumFull = 0;
 	int32_t maxNumFullImg = 0; // which picture did maxNumFull appear?
 
-	struct ObjectTracker tracker;
-    ObjectTrackerInit(&tracker);
+	//struct ObjectTracker tracker;
+    //ObjectTrackerInit(&tracker);
 
+	struct ObjectTrack track;
+	ObjectTrackInit(&track, 0);
+	int skip = 0;	
 
 	for(int32_t i = 0; i < numPng; i++)
 	{
-		std::cout << "---------------- File " << i << " ----------------" << std::endl;
+		if(skip)
+		{
+			skip--;
+			continue;
+		}
+
+	//std::cout << "---------------- File " << i << " ----------------" << std::endl;
 		//construct file paths for images
 		std::ostringstream imgReadFp; 
 		std::ostringstream imgWriteFp;
@@ -173,20 +185,29 @@ int main(int argc, char** argv)
 		{
 			 maxNumObjects = numObjects;
 		}
-
+		
 		int32_t numMerged = mergeObjects(objArray, numObjects);
 		if(numMerged > maxNumMerged)
 		{
 			maxNumMerged = numMerged;
 		}
 
+
+        struct ObjectArray newObjectArray; 
+        ObjectArrayInit(&newObjectArray);
+		filterLarge(objArray, numObjects);
+		filterToMiddle(objArray, &newObjectArray, numObjects);
+		
+		
+
+/*
 		int32_t numInterestingObjects = filterLarge(objArray, numObjects);
 		if(numInterestingObjects > maxNumInterestingObjects)
 		{
 			maxNumInterestingObjects = numInterestingObjects;
 		}
 
-
+*/
 
 /*
 		int32_t numSquarish = filterSquare(objArray, numObjects);
@@ -211,7 +232,22 @@ int main(int argc, char** argv)
 		Mat newColorImg;
 		cvtColor(newImg, newColorImg, cv::COLOR_GRAY2BGR);
 
-		/*for(int j = 0; j < numObjects; j++)
+
+		int32_t result = updateTrack(&track, &newObjectArray, 0);
+		if(result == 1)
+		{
+			makeLine(&newColorImg, 160, BLUE, 1);
+			float intersection = calculateIntersection(&track);
+			printf("Intersection: %.3f\n", intersection);
+			makeLine(&newColorImg, round32_t(intersection), GREEN, 0);
+			//makeLine(&newColorImg, track.history[track.lastFrame].centX, GREEN, 1);
+			ObjectTrackInit(&track, 0);
+			skip = 20;	
+		}
+
+
+		
+		for(int j = 0; j < numObjects; j++)
 		{
 			if (objArray[j].isBall == 1)
 			{
@@ -223,18 +259,9 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					RED);
 			}
-			else if(objArray[j].isBall == 2)
-			{
-				makeBox(
-					&newColorImg,
-					objArray[j].box[0]-1, // + 8?
-					objArray[j].box[1]+1, // + 8?
-					objArray[j].box[2]-1,
-					objArray[j].box[3]+1,
-					BLUE);
-			}
 			else if(objArray[j].isBall == 3)
 			{
+			//	printf("isBall == %i\n", objArray[j].isBall);
 				makeBox(
 					&newColorImg,
 					objArray[j].box[0]-1, // + 8?
@@ -243,8 +270,21 @@ int main(int argc, char** argv)
 					objArray[j].box[3]+1,
 					YELLOW);	
 			}
-		}*/
+			else if(objArray[j].isBall != 0)
+			{
+			//	printf("isBall == %i\n", objArray[j].isBall);
+				makeBox(
+					&newColorImg,
+					objArray[j].box[0]-1, // + 8?
+					objArray[j].box[1]+1, // + 8?
+					objArray[j].box[2]-1,
+					objArray[j].box[3]+1,
+					GREEN);	
+			}
 
+
+		}
+/*
 	    // Convert array into something the tracker can use
         struct ObjectArray objects;
         ObjectArrayInit(&objects);
@@ -295,17 +335,14 @@ int main(int argc, char** argv)
                     tracker.tracks[q].id % 6);
 	        }
 	    }
+*/
 
-		/*for(int j = 0; j < numObjects; j++)
-		{
-			if(objArray[j].isBall != -2)
-			{
-				std::cout << "Object " << j << ", (x1, y1) = (" 
-					<< objArray[j].box[0] << ", " << objArray[j].box[2] << "). (x2, y2) = ("
-					<< objArray[j].box[1] << ", " << objArray[j].box[3] << ")." << std::endl;
-			}
-		}*/
-
+		makeBox(&newColorImg, 
+				80,
+				240,
+				60,
+				180,
+				BLUE);
 
 		// step through frame by frame, if user asked for it
 		if(argv[3][0] == 'f')
@@ -315,14 +352,13 @@ int main(int argc, char** argv)
 			mygetch();
 			//getchar();
 		}
-
 		imwrite(imgWriteFp.str().c_str(), newColorImg);	
 	}
 	
 //	std::cout << "All Objects:         " << maxNumObjects << std::endl;
-	std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
+	//std::cout << "Interesting Objects: " << maxNumInterestingObjects << std::endl;
 	//std::cout << "Num Squarish:        " << maxNumSquarish << std::endl;
-	std::cout << "Num Full             " << maxNumFull << "  (img " << maxNumFullImg << " )" << std::endl;
+	//std::cout << "Num Full             " << maxNumFull << "  (img " << maxNumFullImg << " )" << std::endl;
 }
 
 void denoise(uint8_t* img, struct DenoiseLookup* lu){
