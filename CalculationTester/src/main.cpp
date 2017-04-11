@@ -39,6 +39,43 @@ float deg2rad(float deg)
 }
 
 
+struct PointThar kZoneLocationNew(float intersectionLeft, float intersectionRight)
+{
+    float cameraSeparationIn = 13.25; // inches, for protoype board
+    float fieldOfViewDeg = 80.0; // degrees
+    float resolution = 240.0; // pixels
+    float camHeightM = 0.065; // meters. for protoype board, 25.0mm + 40.0mm
+
+    float inToM = 0.0254; // inches to meters multiplication factor
+    float mToIn = 1.0/inToM;
+
+	float cameraSeparationM = cameraSeparationIn * inToM; 
+
+	struct PointThar camLeft;
+	camLeft.x = 0 - cameraSeparationM/2;
+	camLeft.y = camHeightM;
+
+	float offsetRadLeft = deg2rad(35.0); // (180-80)/2 - 15
+	float offsetRadRight = deg2rad(35.0); // (180-80)/2 - 15
+	float eachPixelRad = deg2rad(fieldOfViewDeg / resolution);
+	
+	float omega_L = offsetRadLeft + (resolution - intersectionLeft) * eachPixelRad; // radians
+	float omega_R = offsetRadRight + (intersectionRight) * eachPixelRad; // radians
+	float omega_B = PI - omega_L - omega_R;
+	
+	float L_side = cameraSeparationM * sin(omega_R) / sin(omega_B);
+
+	struct PointThar result;
+	result.x = camLeft.x + L_side * cos(omega_L);
+	result.y = camLeft.y + L_side * sin(omega_L);
+
+	// convert to inches
+	result.x = result.x * mToIn;
+	result.y = result.y * mToIn;
+
+	return result;
+}
+
 struct PointThar kZoneLocation(float intersectionLeft, float intersectionRight)
 {
     float cameraSeparationIn = 13.25; // inches, for protoype board
@@ -82,8 +119,8 @@ struct PointThar kZoneLocation(float intersectionLeft, float intersectionRight)
     result.y = rightSlope * (result.x - RX0) + RY0;
 
     // convert to inches
-    result.x = result.x * mToIn;
-    result.y = result.y * mToIn;
+    //result.x = result.x * mToIn;
+    //result.y = result.y * mToIn;
 
     return result;
 }
@@ -91,7 +128,7 @@ struct PointThar kZoneLocation(float intersectionLeft, float intersectionRight)
 
 int main(int argc, char** argv)
 {
-   	std::ofstream file;
+  	std::ofstream file;
 	file.open("../intersection_possibilities.csv");
 	file << "left_pix, right_pix, x_calc, y_calc\n";
 	for(int i = 0; i < 240; i++)
@@ -100,7 +137,7 @@ int main(int argc, char** argv)
 		for(int j = 0; j < 240; j++)
 		{
 			int iRight = j;
-			struct PointThar p = kZoneLocation(i, j);
+			struct PointThar p = kZoneLocationNew(i, j);
 			file << i << "," << j << "," << p.x << "," << p.y << "\n";
 		}
 	} 

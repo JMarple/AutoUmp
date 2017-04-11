@@ -396,42 +396,30 @@ struct Point kZoneLocation(float intersectionLeft, float intersectionRight)
     float cameraSeparationIn = 13.25; // inches, for protoype board
     float fieldOfViewDeg = 80.0; // degrees
     float resolution = 240.0; // pixels
-    float camHeightM = 0.065; // mm. for protoype board, 25.0mm + 40.0mm
+    float camHeightM = 0.065; // meters. for protoype board, 25.0mm + 40.0mm
 
     float inToM = 0.0254; // inches to meters multiplication factor
     float mToIn = 1.0/inToM;
 
-    // define camera locations in meters. Origin is in the iddle of the plate. We're assuming they're equal distances away from the center.
-    struct Point camL, camR;
-    camL.x = 0-inToM*cameraSeparationIn/2;
-    camL.y = camHeightM; // (25.0 mm + )
-    camR.x = camL.x + (cameraSeparationIn*inToM);
-    camR.y = camHeightM;
+    float cameraSeparationM = cameraSeparationIn * inToM;
 
-    float offsetRadLeft  = deg2rad(((180.0 - fieldOfViewDeg) / 2.0) - 15.0);
-    float offsetRadRight = deg2rad(((180.0 - fieldOfViewDeg) / 2.0) + 15.0);
-    float eachpixelrad = deg2rad(fieldOfViewDeg / resolution);
-    float r = 1.5;
+    struct Point camLeft;
+    camLeft.x = 0 - cameraSeparationM/2;
+    camLeft.y = camHeightM;
 
-    // find line for left camera
-    float LX0 = camL.x;
-    float LX1 = camL.y + r * cos((eachpixelrad * intersectionLeft) + offsetRadLeft);
-    float LY0 = camL.x;
-    float LY1 = camL.y + r * sin((eachpixelrad * intersectionLeft) + offsetRadLeft);
+    float offsetRadLeft = deg2rad(35.0); // (180-80)/2 - 15
+    float offsetRadRight = deg2rad(35.0); // (180-80)/2 - 15
+    float eachPixelRad = deg2rad(fieldOfViewDeg / resolution);
 
-    // find line for right camera
-    float RX0 = camR.x;
-    float RX1 = camR.x + r * cos((eachpixelrad * intersectionRight) + offsetRadRight);
-    float RY0 = camR.y;
-    float RY1 = camR.x + r * sin((eachpixelrad * intersectionRight) + offsetRadRight);
+    float omega_L = offsetRadLeft + (resolution - intersectionLeft) * eachPixelRad; // radians
+    float omega_R = offsetRadRight + (intersectionRight) * eachPixelRad; // radians
+    float omega_B = PI - omega_L - omega_R;
 
-    // find intersection between lines
-    float leftSlope  = (LY1 - LY0) / (LX1 - LX0);
-    float rightSlope = (RY1 - RY0) / (RX1 - RX0);
+    float L_side = cameraSeparationM * sin(omega_R) / sin(omega_B);
 
     struct Point result;
-    result.x = (leftSlope * LX0 - LY0 - rightSlope * RX0 + RY0) / (leftSlope - rightSlope);
-    result.y = rightSlope * (result.x - RX0) + RY0;
+    result.x = camLeft.x + L_side * cos(omega_L);
+    result.y = camLeft.y + L_side * sin(omega_L);
 
     // convert to inches
     result.x = result.x * mToIn;
