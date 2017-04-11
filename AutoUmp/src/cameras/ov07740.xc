@@ -105,6 +105,10 @@ void OV07740_MasterThread(
     // First frame init
     OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
     OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+    OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+    OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+    OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
+
 
     while (1)
     {
@@ -112,13 +116,19 @@ void OV07740_MasterThread(
         m2ff_tile1[0].sendBitBuffer(gblBitImage1, 320*240/8);
         m2ff_tile1[1].sendBitBuffer(gblBitImage2, 320*240/8);
 
+        //delay_milliseconds(50);
+
         OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
         m2ff_tile0[0].sendBitBuffer(gblBitImage1, 320*240/8);
         m2ff_tile0[1].sendBitBuffer(gblBitImage2, 320*240/8);
 
+//        delay_milliseconds(50);
+
         OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);
         m2ff_tile0[2].sendBitBuffer(gblBitImage1, 320*240/8);
         m2ff_tile0[3].sendBitBuffer(gblBitImage2, 320*240/8);
+//        delay_milliseconds(50);
+
     }
 }}
 

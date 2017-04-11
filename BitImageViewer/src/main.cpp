@@ -482,7 +482,7 @@ int main(int argc, char** argv)
 		}
 		else // not saving frames
 		{
-        	printf("Frame recieved!\n");
+        	//printf("Frame recieved!\n");
 		}
        
  

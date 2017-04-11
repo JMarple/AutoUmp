@@ -51,7 +51,8 @@ int8_t stackPop(
 
 void sendGameStatus(
         interface BluetoothInter client btInter,
-        struct gameState* unsafe currentGameState);
+        struct gameState* unsafe currentGameState,
+        uint16_t* unsafe intersections);
 
 void getGameStatus(
         streaming chanend x,

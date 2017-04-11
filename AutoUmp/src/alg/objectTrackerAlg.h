@@ -11,6 +11,8 @@
 #define FRAME_WAIT 10
 #define PI 3.14159265359
 
+#define round(x) ((x)>=0?(uint16_t)((x)+0.5):(uint16_t)((x)-0.5))
+
 
 struct Point
 {
@@ -19,13 +21,11 @@ struct Point
 
 interface ObjectTrackerToGameInter
 {
+    void forwardImg(uint8_t buffer[], int n);
     void forwardBuffer(uint8_t buffer[], int n);
     void forwardIntersection(uint8_t buffer[], int n);
-    void sendPitch(struct Point point);
+    void sendPitch(struct Point point, uint16_t leftIntersect, uint16_t rightIntersect);
 };
-
-
-#define round(x) ((x)>=0?(uint16_t)((x)+0.5):(uint16_t)((x)-0.5))
 
 struct FoundObject
 {

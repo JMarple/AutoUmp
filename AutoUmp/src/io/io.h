@@ -6,7 +6,11 @@ interface BluetoothInter
     void sendBuffer(uint8_t buffer[], int n);
 };
 
-#define BAUD_RATE 57600
+// BLUETOOTH
+//#define BAUD_RATE 57600
+
+// UART
+#define BAUD_RATE 921600
 #define BT_CLOCK_TICKS (100000000 / BAUD_RATE)
 
 void BluetoothTxThread(interface BluetoothInter server inter);

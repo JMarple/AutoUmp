@@ -71,7 +71,7 @@ void ObjectTracker(
                     if(result == 1) // time to calculate the intersection!
                     {
                         intersectionLeft =  calculateIntersection(&trackLeft);
-                        packIntersection(intersectionLeft, interBuffer);
+                        //packIntersection(intersectionLeft, interBuffer);
                         ObjectTrackInit(&trackLeft, 0);
                         skipLeft = FRAME_SKIP;
                         waitingLeft = FRAME_WAIT;
@@ -99,7 +99,7 @@ void ObjectTracker(
                     if(result == 1)
                     {
                         intersectionRight = calculateIntersection(&trackRight);
-                        //packIntersection(intersectionRight, interBuffer);
+                        packIntersection(intersectionRight, interBuffer);
                         ObjectTrackInit(&trackRight, 0);
                         skipRight = FRAME_SKIP;
                         waitingRight = FRAME_WAIT;
@@ -107,13 +107,13 @@ void ObjectTracker(
                 }
 
                 // send data over UART
-                if (i != 0) break;
+                if (i != 1) break;
 
                 loopCount++;
                 if(loopCount % 1 == 0)
                 {
                     memset(buffer, 0, OBJECT_ARRAY_LENGTH*9);
-                    packObjects(objArrayTmpLeft, buffer, numObjects);
+                    packObjects(objArrayTmpRight, buffer, numObjects);
 
                     ot2g.forwardBuffer(buffer, OBJECT_ARRAY_LENGTH*9);
 
@@ -121,7 +121,13 @@ void ObjectTracker(
                     interBuffer[1] = 0;
                     interBuffer[2] = 0;
 
-                    //btInter.sendBuffer(buffer, 250*9);
+                    // forward bitBuffer
+/*                    memset(buffer, 0, 320*240/8);
+                    for(int j = 0; j < 320*240/8; j++)
+                    {
+                        buffer[j] = bitBuffer[j];
+                    }
+                    ot2g.forwardImg(buffer, 320*240/8); */
                 }
                 break;
 
@@ -152,7 +158,7 @@ void ObjectTracker(
                     if(result == 1) // time to calculate the intersection!
                     {
                         intersectionLeft =  calculateIntersection(&trackLeft);
-                        packIntersection(intersectionLeft, interBuffer);
+                        //packIntersection(intersectionLeft, interBuffer);
                         ObjectTrackInit(&trackLeft, 0);
                         skipLeft = FRAME_SKIP;
                         waitingLeft = FRAME_WAIT;
@@ -193,8 +199,10 @@ void ObjectTracker(
         {
             //printf("found intersection! Left Cam: %.3f, Right Cam: %.3f\n", intersectionLeft, intersectionRight);
             struct Point pitch = kZoneLocation(intersectionLeft, intersectionRight);
-            printf("x: %.3f, y: %.3f, coord(%.3f, %.3f)\n", pitch.x, pitch.y, intersectionLeft, intersectionRight);
-            ot2g.sendPitch(pitch);
+            uint16_t lIntersect = round(intersectionLeft);
+            uint16_t rIntersect = round(intersectionRight);
+            //printf("x: %.3f, y: %.3f, coord(%.3f, %.3f)\n", pitch.x, pitch.y, intersectionLeft, intersectionRight);
+            ot2g.sendPitch(pitch, lIntersect, rIntersect);
             waitingLeft  = 0;
             waitingRight = 0;
         }
@@ -396,7 +404,7 @@ struct Point kZoneLocation(float intersectionLeft, float intersectionRight)
     float cameraSeparationIn = 13.25; // inches, for protoype board
     float fieldOfViewDeg = 80.0; // degrees
     float resolution = 240.0; // pixels
-    float camHeightM = 0.065; // meters. for protoype board, 25.0mm + 40.0mm
+    float camHeightM = 0.070; // meters. for protoype board, 25.0mm + 40.0mm.
 
     float inToM = 0.0254; // inches to meters multiplication factor
     float mToIn = 1.0/inToM;

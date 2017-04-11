@@ -5,6 +5,8 @@
 #include "gameAlg.h"
 #include "objectTrackerAlg.h"
 
+#define NUM_CHAR 54
+
 void GameThread(
     interface ObjectTrackerToGameInter server ot2g,
     interface BluetoothInter client btInter)
@@ -41,13 +43,24 @@ void GameThread(
     coords[4][0] = 29.5;
     coords[4][1] = 28.0;
 
-    uint8_t tmpBuffer[250*9];
+    //uint8_t tmpBuffer[250*9];
+    uint8_t tmpBuffer[320*240/8];
+    struct Point point;
+    uint16_t intersect[2]; // 0 == left, 1 == right
 
     int32_t i = 0;
     while(1==1)
     {
         select
         {
+            case ot2g.forwardImg(uint8_t buffer[], int n):
+                for(int j = 0; j < n; j++)
+                {
+                    tmpBuffer[j] = buffer[j];
+                }
+                btInter.sendBuffer(tmpBuffer, n);
+                break;
+
             case ot2g.forwardBuffer(uint8_t buffer[], int n):
                 for(int j = 0; j < 250*9; j++)
                 {
@@ -64,8 +77,14 @@ void GameThread(
                 btInter.sendBuffer(tmpBuffer, n);
                 break;
 
-            case ot2g.sendPitch(struct Point point):
-                //printf("(Origin ground, middle of plate) x: %.3f, y: %.3f\n", point.x, point.y);
+            case ot2g.sendPitch(struct Point tmpPoint, uint16_t tmpLeftIntersect, uint16_t tmpRightIntersect):
+                currentGameState.lastBallx = tmpPoint.x;
+                currentGameState.lastBally = tmpPoint.y;
+
+                intersect[0] = tmpLeftIntersect;
+                intersect[1] = tmpRightIntersect;
+
+                sendGameStatus(btInter, &currentGameState, intersect);
 
                 break;
         }
@@ -96,9 +115,12 @@ void GameThread(
  *  KT.KT. is KZone top from look up table
  *  KB.KB is KZone bottom from lookup table
  */
-void sendGameStatus(interface BluetoothInter client btInter, struct gameState* unsafe currentGameState)
+void sendGameStatus(
+        interface BluetoothInter client btInter,
+        struct gameState* unsafe currentGameState,
+        uint16_t* unsafe intersections)
 { unsafe {
-    char output[46];
+    char output[NUM_CHAR];
 
     char topOrBot;
     if(currentGameState->isBottom)
@@ -110,7 +132,7 @@ void sendGameStatus(interface BluetoothInter client btInter, struct gameState* u
     {
         topOrBot = 't';
     }
-    snprintf(output, 46, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d %c %05.2f %05.2f\n",
+    snprintf(output, NUM_CHAR, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d %c %05.2f %05.2f %03d %03d\n",
             currentGameState->balls,
             currentGameState->strikes,
             currentGameState->outs,
@@ -122,12 +144,13 @@ void sendGameStatus(interface BluetoothInter client btInter, struct gameState* u
             currentGameState->inning,
             topOrBot,
             currentGameState->kzoneTop,
-            currentGameState->kzoneBot);
-
+            currentGameState->kzoneBot,
+            intersections[0],
+            intersections[1]);
 
     printf("sending %s\n", output);
 
-    btInter.sendBuffer(output, 46);
+    btInter.sendBuffer(output, NUM_CHAR);
 }}
 
 
@@ -153,9 +176,9 @@ void sendGameStatus(interface BluetoothInter client btInter, struct gameState* u
 void getGameStatus(streaming chanend x, struct Stack* unsafe stack, struct gameState* unsafe currentGameState)
 { unsafe {
     // Parse message.
-    char input[46];
+    char input[NUM_CHAR];
 
-    for (int i = 0; i < 46; i++)
+    for (int i = 0; i < NUM_CHAR; i++)
     {
        x :> input[i];
        if (input[i] == '!') break;

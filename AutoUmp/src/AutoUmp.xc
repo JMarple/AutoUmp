@@ -39,9 +39,12 @@ void Tile0(
     struct DenoiseLookup* unsafe lu = &luTile0;
     DenoiseInitLookup(lu);
 
+    streaming chan x;
+
     par
     {
-        BluetoothThread(btInter);
+        BluetoothTxThread(btInter);
+        BluetoothRxThread(x);
         FloodFillThread(tile0M2FF[0], tile0FF2OT[0], lu, 3);
         FloodFillThread(tile0M2FF[1], tile0FF2OT[1], lu, 4);
         FloodFillThread(tile0M2FF[2], tile0FF2OT[2], lu, 5);

@@ -21,6 +21,7 @@ int FloodFillMain(
     uint32_t st, ed, wait;
     t :> st;
     wait = st + 4500000;
+
     for (int i = 2; i < IMG_HEIGHT; i++)
     {
         DenoiseRow(
@@ -60,15 +61,17 @@ int FloodFillMain(
 
     mergeObjects(objArray, numObjects);
 
+
     if ((ed-st) > 4500000)
-        printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
+    {
+        //printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
+        return -1;
+    }
+
 
     t when timerafter(st) :> void;
-    //findCenters
-    //computeCenters(objArray, numObjects);
 
-    // COMMENT IF VIEWING BACKGROUND SUBTRACTION
-    //packObjects(objArray, bitBuffer, numObjects);
+    //int numObjects = 0;
     return numObjects;
 }}
 
@@ -91,6 +94,7 @@ void FloodFillThread(
                 memcpy(bitBuffer, tmpBitBuf, n*sizeof(uint8_t));
                 break;
         }
+
         int numObjects = FloodFillMain((uint8_t* unsafe)bitBuffer, objArray, &queue, lu);
 
         ff2ot.sendObjects(objArray, numObjects, bitBuffer, 320*240/8, num);
