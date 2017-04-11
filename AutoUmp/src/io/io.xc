@@ -202,7 +202,7 @@ void BluetoothRxThread(streaming chanend dataOut)
                 if (counter >= 8)
                 {
                     mode = WAITING_FOR_START_BIT;
-                    // TODO: DO SOMETHING HERE WITH CURRENTBYTE
+                    dataOut <: currentByte;
                     break;
                 }
 
@@ -226,8 +226,9 @@ uint8_t LED2 = 0;
 #define RISING_SDI 3
 
 [[combinable]]
-void TLC59731Thread()
+void TLC59731Thread(interface LEDInter server led)
 {
+    turnOnLED6(1);
     timer tlcTimer;
     int mode = RISING_SDI;
     int counter = 0;
@@ -243,6 +244,24 @@ void TLC59731Thread()
     {
         select
         {
+            case led.setLED(uint8_t r, uint8_t g, uint8_t b):
+                LED2 = r;
+                LED1 = g;
+                LED0 = b;
+                break;
+
+            case led.setR(uint8_t r):
+                LED2 = r;
+                break;
+
+            case led.setG(uint8_t g):
+                LED1 = g;
+                break;
+
+            case led.setB(uint8_t b):
+                LED0 = b;
+                break;
+
             case tlcTimer when timerafter(start_time) :> void:
                 switch (mode)
                 {

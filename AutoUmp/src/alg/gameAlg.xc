@@ -7,22 +7,22 @@
 
 void GameThread(
     interface ObjectTrackerToGameInter server ot2g,
-    interface BluetoothInter client btInter)
+    interface BluetoothInter client btTx,
+    streaming chanend btRx,
+    interface LEDInter client inter)
 { unsafe {
 
     printf("Game Thread\n");
-    struct gameState currentGameState;
+
     struct Stack stack;
-
     stackInit(&stack);
-    initGameState((struct gameState* unsafe)(&currentGameState));
 
+    struct gameState currentGameState;
+    struct gameState* unsafe tmpState = (struct gameState* unsafe)&currentGameState;
+    initGameState((struct gameState* unsafe)(&currentGameState));
     currentGameState.height = 72;
     currentGameState.kzoneTop = 50.0;
     currentGameState.kzoneBot = 20.0;
-
-    struct gameState* unsafe tmpState = (struct gameState* unsafe)&currentGameState;
-
 
     float coords[5][2];
     // 24, 35
@@ -43,6 +43,10 @@ void GameThread(
 
     uint8_t tmpBuffer[250*9];
 
+    char input[46];
+    int bufIndex = 0;
+    uint8_t curByte = 0;
+
     int32_t i = 0;
     while(1==1)
     {
@@ -53,7 +57,7 @@ void GameThread(
                 {
                     tmpBuffer[j] = buffer[j];
                 }
-                btInter.sendBuffer(tmpBuffer, 250*9);
+                btTx.sendBuffer(tmpBuffer, 250*9);
                 break;
 
             case ot2g.forwardIntersection(uint8_t buffer[], int n):
@@ -61,19 +65,36 @@ void GameThread(
                 {
                     tmpBuffer[j] = buffer[j];
                 }
-                btInter.sendBuffer(tmpBuffer, n);
+                btTx.sendBuffer(tmpBuffer, n);
                 break;
+
 
             case ot2g.sendPitch(struct Point point):
                 //printf("(Origin ground, middle of plate) x: %.3f, y: %.3f\n", point.x, point.y);
+                break;
 
+            // Recieved from RX
+            case btRx :> curByte:
+                input[bufIndex] = curByte;
+                bufIndex++;
+
+                if (curByte == '!')
+                {
+                    getGameStatus(
+                        input,
+                        bufIndex,
+                        (struct Stack* unsafe)&stack,
+                        (struct gameState* unsafe)&currentGameState);
+
+                    bufIndex = 0;
+                }
                 break;
         }
 
         /*
         currentGameState.lastBallx = coords[i][0];
         currentGameState.lastBally = coords[i][1];
-        sendGameStatus(btInter, &currentGameState);
+        sendGameStatus(btTx, &currentGameState);
         delay_milliseconds(4000);
         i = (i + 1) % 5;*/
     }
@@ -110,6 +131,7 @@ void sendGameStatus(interface BluetoothInter client btInter, struct gameState* u
     {
         topOrBot = 't';
     }
+
     snprintf(output, 46, "%01d %01d %01d %02d %06.3f %06.3f %02d %02d %02d %c %05.2f %05.2f\n",
             currentGameState->balls,
             currentGameState->strikes,
@@ -150,16 +172,16 @@ void sendGameStatus(interface BluetoothInter client btInter, struct gameState* u
  *  7: inning increment
  *  8: away score increment
  */
-void getGameStatus(streaming chanend x, struct Stack* unsafe stack, struct gameState* unsafe currentGameState)
+void getGameStatus(uint8_t* input, int len, struct Stack* unsafe stack, struct gameState* unsafe currentGameState)
 { unsafe {
     // Parse message.
-    char input[46];
+    /*char input[46];
 
     for (int i = 0; i < 46; i++)
     {
        x :> input[i];
        if (input[i] == '!') break;
-    }
+    }*/
 
     // update information
     switch(input[1])
