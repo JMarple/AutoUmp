@@ -3,6 +3,7 @@
 #include <timer.h>
 #include "io.h"
 #include "gameAlg.h"
+#include "objectTrackerAlg.h"
 
 void GameThread(
     interface ObjectTrackerToGameInter server ot2g,
@@ -61,6 +62,11 @@ void GameThread(
                     tmpBuffer[j] = buffer[j];
                 }
                 btInter.sendBuffer(tmpBuffer, n);
+                break;
+
+            case ot2g.sendPitch(struct Point point):
+                //printf("(Origin ground, middle of plate) x: %.3f, y: %.3f\n", point.x, point.y);
+
                 break;
         }
 

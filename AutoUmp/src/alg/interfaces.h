@@ -14,12 +14,6 @@ interface FloodFillToObjectInter
     void sendObjects(struct Object objArray[], uint32_t n, uint8_t bitBuffer[], uint32_t m, int id);
 };
 
-interface ObjectTrackerToGameInter
-{
-    void forwardBuffer(uint8_t buffer[], int n);
-    void forwardIntersection(uint8_t buffer[], int n);
-};
-
 
 
 #endif

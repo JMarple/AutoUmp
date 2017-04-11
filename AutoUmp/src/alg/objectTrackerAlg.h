@@ -8,6 +8,21 @@
 #define OBJECTS_HISTORY 10
 #define OBJECTS_MAX_TRACK_LEN 20
 #define FRAME_SKIP 20
+#define FRAME_WAIT 10
+#define PI 3.14159265359
+
+
+struct Point
+{
+    float x, y;
+};
+
+interface ObjectTrackerToGameInter
+{
+    void forwardBuffer(uint8_t buffer[], int n);
+    void forwardIntersection(uint8_t buffer[], int n);
+    void sendPitch(struct Point point);
+};
 
 
 #define round(x) ((x)>=0?(uint16_t)((x)+0.5):(uint16_t)((x)-0.5))
@@ -57,6 +72,9 @@ int updateTrack(struct ObjectTrack* unsafe track, struct ObjectArray* unsafe obj
 int32_t isValid(struct FoundObject* unsafe obj1, struct FoundObject* unsafe obj2);
 int32_t addToHistory(struct ObjectTrack* unsafe track, struct FoundObject* unsafe obj);
 float calculateIntersection(struct ObjectTrack* unsafe track);
+struct Point kZoneLocation(float intersectionLeft, float intersectionRight);
+float deg2rad(float deg);
+
 
 
 #endif

@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "io.h"
 #include "interfaces.h"
+#include "objectTrackerAlg.h"
 
 #define STACK_SIZE 100
 
