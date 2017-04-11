@@ -18,7 +18,7 @@ USED_MODULES = lib_locks
 # xcc for the final link (mapping) stage.
 
 # use 10417 for 9600bps (for bluetooth). For UART, use 108.
-XCC_FLAGS = -O2 -g -DBT_CLOCK_TICKS=108
+XCC_FLAGS = -O2 -g
 
 # The XCORE_ARM_PROJECT variable, if set to 1, configures this
 # project to create both xCORE and ARM binaries.
