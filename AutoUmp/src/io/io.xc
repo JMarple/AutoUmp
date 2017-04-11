@@ -16,7 +16,7 @@ on tile[0]: out port AU_LED6 = XS1_PORT_1O;
 
 // Contains Button1, Button2, BT_RX on bit 0, 1, 2 respectively
 on tile[0]: in port IOPortIn1 = XS1_PORT_4E;
-const uint8_t AU_BT_RX = 0b0001;
+const uint8_t AU_BT_RX = 0b0100;
 
 // XTAG UART Stream
 on tile[0]: out port X_TX = XS1_PORT_1M;
@@ -129,7 +129,7 @@ void BluetoothSendBuffer(uint8_t* buf, int length)
         BluetoothSendByte(buf[i]);
 }
 
-void BluetoothThread(interface BluetoothInter server inter)
+void BluetoothTxThread(interface BluetoothInter server inter)
 {
     BluetoothInit();
 
@@ -160,6 +160,62 @@ void BluetoothThread(interface BluetoothInter server inter)
     }
 }
 
+#define WAITING_FOR_START_BIT 0
+#define GATHERING_DATA 1
+#include <stdio.h>
+
+[[combinable]]
+void BluetoothRxThread(streaming chanend dataOut)
+{
+    uint32_t cur;
+    IOPortIn1 :> cur;
+    int mode = WAITING_FOR_START_BIT;
+    int counter = 0;
+    uint8_t currentByte;
+
+    timer btTimer;
+    uint32_t start_time;
+    btTimer :> start_time;
+
+    while (1)
+    {
+        select
+        {
+            // Look for start bit
+            case (mode == WAITING_FOR_START_BIT) => IOPortIn1 when pinsneq(cur) :> cur:
+                if ((cur & AU_BT_RX) != 0) break;
+
+                btTimer :> start_time;
+                start_time += BT_CLOCK_TICKS * 1.5;
+
+                mode = GATHERING_DATA;
+                counter = 0;
+                currentByte = 0;
+                break;
+
+            // Gathering data
+            case (mode == GATHERING_DATA) => btTimer when timerafter(start_time) :> start_time:
+
+                IOPortIn1 :> cur;
+
+                // Stop-bit
+                if (counter >= 8)
+                {
+                    mode = WAITING_FOR_START_BIT;
+                    // TODO: DO SOMETHING HERE WITH CURRENTBYTE
+                    break;
+                }
+
+                cur = ((cur & AU_BT_RX) > 0);
+                cur = cur << counter;
+                currentByte |= cur;
+                counter++;
+                start_time += BT_CLOCK_TICKS;
+                break;
+        }
+    }
+}
+
 uint8_t LED0 = 0;
 uint8_t LED1 = 0;
 uint8_t LED2 = 0;
@@ -168,7 +224,8 @@ uint8_t LED2 = 0;
 #define RISING_BIT 1
 #define FALLING_BIT 2
 #define RISING_SDI 3
-#include <stdio.h>
+
+[[combinable]]
 void TLC59731Thread()
 {
     timer tlcTimer;
@@ -220,9 +277,6 @@ void TLC59731Thread()
                         {
                             counter = 0;
                             start_time += t_cycle * 9.0;
-                            LED0++;
-                            LED1++;
-                            LED2++;
                             data = (0x3A << 24) | (LED0 << 16) | (LED1 << 8) | (LED2);
                         }
                         else
