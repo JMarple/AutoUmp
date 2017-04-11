@@ -336,6 +336,13 @@ void printObjectArray(struct Object* objArray, uint16_t length)
     printf("\n");
 }
 
+void CallBackFunc(int event, int x, int y, int flags, void* userdata)
+{
+    if (event == EVENT_LBUTTONDOWN)
+    {
+        std::cout << "Left button clicked at " << x << ", " << y << std::endl;
+    }
+}
 
 int main(int argc, char** argv)
 {
@@ -459,6 +466,7 @@ int main(int argc, char** argv)
 /**/
 
 //		imshow("a", M);
+        setMouseCallback("a", CallBackFunc, NULL);
 		imshow("a", M_color);
         waitKey(10);
 
