@@ -54,13 +54,12 @@ void sendGameStatus(
         struct gameState* unsafe currentGameState,
         uint16_t* unsafe intersections);
 
-void getGameStatus(
-        streaming chanend x,
-        struct Stack* unsafe stack,
-        struct gameState* unsafe currentGameStatus);
+void getGameStatus(uint8_t* input, int len, struct Stack* unsafe stack, struct gameState* unsafe currentGameState);
 
 void GameThread(
         interface ObjectTrackerToGameInter server ot2g,
-        interface BluetoothInter client btInter);
+        interface BluetoothInter client btTx,
+        streaming chanend btRx,
+        interface LEDInter client inter);
 
 #endif

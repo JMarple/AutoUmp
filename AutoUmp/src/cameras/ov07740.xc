@@ -100,7 +100,7 @@ void OV07740_MasterThread(
     interface MasterToFloodFillInter client m2ff_tile0[])
 { unsafe {
 
-    printf("Master Thread\n");
+    //printf("Master Thread\n");
 
     // First frame init
     OV07740_GetFrame(cams[0], cams[1], gblImage1, gblImage2, gblBitImage1, gblBitImage2);

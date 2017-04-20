@@ -467,6 +467,7 @@ int main(int argc, char** argv)
 
 //		imshow("a", M);
         setMouseCallback("a", CallBackFunc, NULL);
+		printf("showing an image\n");
 		imshow("a", M_color);
         waitKey(10);
 

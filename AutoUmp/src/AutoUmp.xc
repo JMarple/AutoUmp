@@ -32,8 +32,10 @@ void Tile0(
 { unsafe {
 
     interface FloodFillToObjectInter tile0FF2OT[4];
-    interface BluetoothInter btInter;
+    interface BluetoothInter btTx;
     interface ObjectTrackerToGameInter ot2g;
+    interface LEDInter led;
+    streaming chan btRx;
 
     // Denoise Lookup table init
     struct DenoiseLookup* unsafe lu = &luTile0;
@@ -43,14 +45,20 @@ void Tile0(
 
     par
     {
-        BluetoothTxThread(btInter);
-        BluetoothRxThread(x);
+        [[combine]]
+        par
+        {
+            BluetoothRxThread(btRx);
+           // TLC59731Thread(led);
+        }
+
+        BluetoothTxThread(btTx);
         FloodFillThread(tile0M2FF[0], tile0FF2OT[0], lu, 3);
         FloodFillThread(tile0M2FF[1], tile0FF2OT[1], lu, 4);
         FloodFillThread(tile0M2FF[2], tile0FF2OT[2], lu, 5);
         FloodFillThread(tile0M2FF[3], tile0FF2OT[3], lu, 6);
         ObjectTracker(/*btInter*/ot2g, tile0FF2OT, tile1FF2OT);
-        GameThread(ot2g, btInter);
+        GameThread(ot2g, btTx, btRx, led);
     }
 }}
 
@@ -63,12 +71,12 @@ void Tile1(
     interface FloodFillToObjectInter client tile1FF2TO[4])
 { unsafe {
 
-    printf("Booting AutoUmp...\n");
+    //printf("Booting AutoUmp...\n");
 
     OV07740_InitCameras();
     OV07740_ConfigureCameras();
 
-    printf("Starting AutoUmp...\n");
+    //printf("Starting AutoUmp...\n");
 
     streaming chan cameraStream[2];
 

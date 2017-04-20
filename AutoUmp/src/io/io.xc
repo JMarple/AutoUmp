@@ -143,6 +143,8 @@ void BluetoothTxThread(interface BluetoothInter server inter)
             case inter.sendBuffer(uint8_t tmpbuffer[], int n):
                 memcpy(buffer, tmpbuffer, n*sizeof(uint8_t));
                 len = n;
+                //printf("send buffer %s\n", buffer);
+                //printf("sent %i bytes\n", len);
                 break;
         }
 
@@ -157,6 +159,7 @@ void BluetoothTxThread(interface BluetoothInter server inter)
                     break;
             }
         }
+
     }
 }
 
@@ -202,7 +205,7 @@ void BluetoothRxThread(streaming chanend dataOut)
                 if (counter >= 8)
                 {
                     mode = WAITING_FOR_START_BIT;
-                    // TODO: DO SOMETHING HERE WITH CURRENTBYTE
+                    dataOut <: currentByte;
                     break;
                 }
 
@@ -226,8 +229,9 @@ uint8_t LED2 = 0;
 #define RISING_SDI 3
 
 [[combinable]]
-void TLC59731Thread()
+void TLC59731Thread(interface LEDInter server led)
 {
+
     timer tlcTimer;
     int mode = RISING_SDI;
     int counter = 0;
@@ -243,6 +247,24 @@ void TLC59731Thread()
     {
         select
         {
+            case led.setLED(uint8_t r, uint8_t g, uint8_t b):
+                LED2 = r;
+                LED1 = g;
+                LED0 = b;
+                break;
+
+            case led.setR(uint8_t r):
+                LED2 = r;
+                break;
+
+            case led.setG(uint8_t g):
+                LED1 = g;
+                break;
+
+            case led.setB(uint8_t b):
+                LED0 = b;
+                break;
+
             case tlcTimer when timerafter(start_time) :> void:
                 switch (mode)
                 {

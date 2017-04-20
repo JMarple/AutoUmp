@@ -6,11 +6,19 @@ interface BluetoothInter
     void sendBuffer(uint8_t buffer[], int n);
 };
 
-// BLUETOOTH
-//#define BAUD_RATE 57600
+interface LEDInter
+{
+    void setLED(uint8_t r, uint8_t g, uint8_t b);
+    void setR(uint8_t r);
+    void setG(uint8_t g);
+    void setB(uint8_t b);
+};
 
 // UART
-#define BAUD_RATE 921600
+//#define BAUD_RATE 921600
+
+// BLUETOOTH
+#define BAUD_RATE 9600
 #define BT_CLOCK_TICKS (100000000 / BAUD_RATE)
 
 void BluetoothTxThread(interface BluetoothInter server inter);
@@ -19,7 +27,7 @@ void BluetoothTxThread(interface BluetoothInter server inter);
 void BluetoothRxThread(streaming chanend dataOut);
 
 [[combinable]]
-void TLC59731Thread();
+ void TLC59731Thread(interface LEDInter server led);
 
 void turnOnLED6(int val);
 void turnOnLED5(int val);

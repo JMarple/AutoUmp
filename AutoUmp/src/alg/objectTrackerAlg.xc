@@ -75,6 +75,10 @@ void ObjectTracker(
                         ObjectTrackInit(&trackLeft, 0);
                         skipLeft = FRAME_SKIP;
                         waitingLeft = FRAME_WAIT;
+
+                        uint8_t dbg[13];
+                        snprintf(dbg, 13, " LI: %03.3f \n", intersectionLeft);
+                        ot2g.forwardBuffer(dbg, 13);
                     }
                 }
                 else // right camera
@@ -103,16 +107,20 @@ void ObjectTracker(
                         ObjectTrackInit(&trackRight, 0);
                         skipRight = FRAME_SKIP;
                         waitingRight = FRAME_WAIT;
+
+                        uint8_t dbg[13];
+                        snprintf(dbg, 13, " RI: %03.3f \n", intersectionRight);
+                        ot2g.forwardBuffer(dbg, 13);
                     }
                 }
 
                 // send data over UART
-                if (i != 1) break;
+                if (i != 0) break;
 
                 loopCount++;
-                if(loopCount % 1 == 0)
+                if(loopCount % 2 == 0)
                 {
-                    memset(buffer, 0, OBJECT_ARRAY_LENGTH*9);
+/*                    memset(buffer, 0, OBJECT_ARRAY_LENGTH*9);
                     packObjects(objArrayTmpRight, buffer, numObjects);
 
                     ot2g.forwardBuffer(buffer, OBJECT_ARRAY_LENGTH*9);
@@ -120,9 +128,9 @@ void ObjectTracker(
                     ot2g.forwardIntersection(interBuffer, 3);
                     interBuffer[1] = 0;
                     interBuffer[2] = 0;
-
+*/
                     // forward bitBuffer
-/*                    memset(buffer, 0, 320*240/8);
+ /*                   memset(buffer, 0, 320*240/8);
                     for(int j = 0; j < 320*240/8; j++)
                     {
                         buffer[j] = bitBuffer[j];
@@ -162,6 +170,10 @@ void ObjectTracker(
                         ObjectTrackInit(&trackLeft, 0);
                         skipLeft = FRAME_SKIP;
                         waitingLeft = FRAME_WAIT;
+
+                        uint8_t dbg[13];
+                        snprintf(dbg, 13, " LI: %03.3f \n", intersectionLeft);
+                        ot2g.forwardBuffer(dbg, 13);
                     }
                 }
                 else // right camera
@@ -190,6 +202,10 @@ void ObjectTracker(
                         ObjectTrackInit(&trackRight, 0);
                         skipRight = FRAME_SKIP;
                         waitingRight = FRAME_WAIT;
+
+                        uint8_t dbg[13];
+                        snprintf(dbg, 13, " RI: %03.3f \n", intersectionRight);
+                        ot2g.forwardBuffer(dbg, 13);
                     }
                 }
                 break;
@@ -202,6 +218,7 @@ void ObjectTracker(
             uint16_t lIntersect = round(intersectionLeft);
             uint16_t rIntersect = round(intersectionRight);
             //printf("x: %.3f, y: %.3f, coord(%.3f, %.3f)\n", pitch.x, pitch.y, intersectionLeft, intersectionRight);
+
             ot2g.sendPitch(pitch, lIntersect, rIntersect);
             waitingLeft  = 0;
             waitingRight = 0;
@@ -432,6 +449,10 @@ struct Point kZoneLocation(float intersectionLeft, float intersectionRight)
     // convert to inches
     result.x = result.x * mToIn;
     result.y = result.y * mToIn;
+
+    result.x = result.x + 24;
+    if(result.x > 48) result.x = 48;
+    if(result.x < 0) result.x = 0;
 
     return result;
 }
