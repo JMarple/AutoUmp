@@ -14,10 +14,10 @@ void GameThread(
     interface LEDInter client inter)
 { unsafe {
 
-    char dbg[6];
-    snprintf(dbg, 6, "Hello\n");
-    btTx.sendBuffer(dbg, 6);
-    btTx.sendBuffer(dbg, 6);
+    //char dbg[6];
+    //snprintf(dbg, 6, "Hello\n");
+    //btTx.sendBuffer(dbg, 6);
+    //btTx.sendBuffer(dbg, 6);
     //printf("%s -- Game Thread\n", dbg);
 
     struct Stack stack;
@@ -59,13 +59,13 @@ void GameThread(
     uint8_t curByte = 0;
 
     int32_t i = 0;
-
+/*
     sendGameStatus(btTx, &currentGameState, intersect);
     delay_milliseconds(50);
     sendGameStatus(btTx, &currentGameState, intersect);
     delay_milliseconds(50);
     sendGameStatus(btTx, &currentGameState, intersect);
-    delay_milliseconds(50);
+    delay_milliseconds(50);*/
     while(1==1)
     {
         select

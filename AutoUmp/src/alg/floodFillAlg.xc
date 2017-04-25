@@ -44,7 +44,7 @@ int FloodFillMain(
         bitBuffer[i * IMG_WIDTH/8] = 0;
         bitBuffer[(i+1)*IMG_WIDTH/8-1] = 0;
     }
-
+/*
     // copy data
     // operate on new data
     //uint8_t newBitBuffer[IMG_HEIGHT*IMG_WIDTH/8];
@@ -67,12 +67,12 @@ int FloodFillMain(
         //printf("CRITICAL: Taking too long to run floodfill = %d\n", (ed-st));
         return -1;
     }
-
+*/
 
     t when timerafter(st) :> void;
 
-    //int numObjects = 0;
-    return numObjects;
+    int numObjects = 0;
+    //return numObjects;
 }}
 
 

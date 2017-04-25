@@ -46,12 +46,15 @@ void ObjectTracker(
         select
         {
             case tile0FF2OT[int i].sendObjects(struct Object objArray[], uint32_t numObjects, uint8_t bitBuffer[], uint32_t m, int id):
-                if(i % 2 == 0) // left camera
+/*                if(i % 2 == 0) // left camera
                 {
-                    if(skipLeft) skipLeft--;
-                    else intersectionLeft = 0.0;
-
                     if(waitingLeft) waitingLeft--;
+                    if(skipLeft)
+                    {
+                        skipLeft--;
+                        break;
+                    }
+                    else intersectionLeft = 0.0;
 
                     for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
                     {
@@ -78,15 +81,19 @@ void ObjectTracker(
 
                         uint8_t dbg[13];
                         snprintf(dbg, 13, " LI: %03.3f \n", intersectionLeft);
+                        //printf("dbg %s\n", dbg);
                         ot2g.forwardBuffer(dbg, 13);
                     }
                 }
                 else // right camera
                 {
-                    if(skipRight) skipRight--;
-                    else intersectionRight = 0.0;
-
                     if(waitingRight) waitingRight--;
+                    if(skipRight)
+                    {
+                        skipRight--;
+                        break;
+                    }
+                    else intersectionRight = 0.0;
 
                     for(int i = 0; i < 250; i++)
                     {
@@ -110,42 +117,37 @@ void ObjectTracker(
 
                         uint8_t dbg[13];
                         snprintf(dbg, 13, " RI: %03.3f \n", intersectionRight);
+                        //printf("dbg %s\n", dbg);
                         ot2g.forwardBuffer(dbg, 13);
                     }
                 }
-
+*/
                 // send data over UART
                 if (i != 0) break;
 
                 loopCount++;
-                if(loopCount % 2 == 0)
+                if(loopCount % 1 == 0)
                 {
-/*                    memset(buffer, 0, OBJECT_ARRAY_LENGTH*9);
-                    packObjects(objArrayTmpRight, buffer, numObjects);
-
-                    ot2g.forwardBuffer(buffer, OBJECT_ARRAY_LENGTH*9);
-
-                    ot2g.forwardIntersection(interBuffer, 3);
-                    interBuffer[1] = 0;
-                    interBuffer[2] = 0;
-*/
                     // forward bitBuffer
- /*                   memset(buffer, 0, 320*240/8);
+                    memset(buffer, 0, 320*240/8);
                     for(int j = 0; j < 320*240/8; j++)
                     {
                         buffer[j] = bitBuffer[j];
                     }
-                    ot2g.forwardImg(buffer, 320*240/8); */
+                    ot2g.forwardImg(buffer, 320*240/8);
                 }
                 break;
 
             case tile1FF2OT[int i].sendObjects(struct Object objArray[], uint32_t numObjects, uint8_t bitBuffer[], uint32_t m, int id):
-                if(i % 2 == 0) // left camera
+ /*               if(i % 2 == 0) // left camera
                 {
-                    if(skipLeft) skipLeft--;
-                    else intersectionLeft = 0.0;
-
                     if(waitingLeft) waitingLeft--;
+                    if(skipLeft)
+                    {
+                      skipLeft--;
+                      break;
+                    }
+                    else intersectionLeft = 0.0;
 
                     for(int i = 0; i < OBJECT_ARRAY_LENGTH; i++)
                     {
@@ -173,15 +175,19 @@ void ObjectTracker(
 
                         uint8_t dbg[13];
                         snprintf(dbg, 13, " LI: %03.3f \n", intersectionLeft);
+                        //printf("dbg %s\n", dbg);
                         ot2g.forwardBuffer(dbg, 13);
                     }
                 }
                 else // right camera
                 {
-                    if(skipRight) skipRight--;
-                    else intersectionRight = 0.0;
-
                     if(waitingRight) waitingRight--;
+                    if(skipRight)
+                    {
+                        skipRight--;
+                        break;
+                    }
+                    else intersectionRight = 0.0;
 
                     for(int i = 0; i < 250; i++)
                     {
@@ -205,12 +211,13 @@ void ObjectTracker(
 
                         uint8_t dbg[13];
                         snprintf(dbg, 13, " RI: %03.3f \n", intersectionRight);
+                        //printf("dbg %s\n", dbg);
                         ot2g.forwardBuffer(dbg, 13);
                     }
-                }
+                }*/
                 break;
         }
-
+/*
         if(waitingLeft && waitingRight)
         {
             //printf("found intersection! Left Cam: %.3f, Right Cam: %.3f\n", intersectionLeft, intersectionRight);
@@ -222,7 +229,7 @@ void ObjectTracker(
             ot2g.sendPitch(pitch, lIntersect, rIntersect);
             waitingLeft  = 0;
             waitingRight = 0;
-        }
+        }*/
     }
 }}
 

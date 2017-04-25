@@ -143,7 +143,6 @@ void BluetoothTxThread(interface BluetoothInter server inter)
             case inter.sendBuffer(uint8_t tmpbuffer[], int n):
                 memcpy(buffer, tmpbuffer, n*sizeof(uint8_t));
                 len = n;
-                //printf("send buffer %s\n", buffer);
                 //printf("sent %i bytes\n", len);
                 break;
         }
@@ -154,6 +153,7 @@ void BluetoothTxThread(interface BluetoothInter server inter)
             select
             {
                 default:
+                    //printf("%c ", buffer[i]);
                     BluetoothSendByte(buffer[i]);
                     i++;
                     break;

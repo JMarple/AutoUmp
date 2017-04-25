@@ -226,68 +226,6 @@ void makeBox(
 	}
 }
     
-int32_t unpackObjects(
-    struct Object* objArray,
-    uint8_t* buffer,
-    uint16_t bufferLength)
-{
-    for(int i = 1; i < bufferLength; i+=12) // i = 1 because I think there's a 0 byte at the front
-    {
-        uint8_t centXLower = buffer[i]; // each of these is flipped from what I would expect 
-        uint8_t centXUpper = buffer[i+1];
-        uint8_t centYLower = buffer[i+2];
-        uint8_t centYUpper = buffer[i+3];
-		uint8_t xMinLower  = buffer[i+4];
-		uint8_t xMinUpper  = buffer[i+5];
-		uint8_t xMaxLower  = buffer[i+6];
-		uint8_t xMaxUpper  = buffer[i+7];
-		uint8_t yMinLower  = buffer[i+8];
-		uint8_t yMinUpper  = buffer[i+9];
-		uint8_t yMaxLower  = buffer[i+10];
-		uint8_t yMaxUpper  = buffer[i+11];
-
-		uint16_t centX = (centXUpper << 8) | centXLower;
-		uint16_t centY = (centYUpper << 8) | centYLower;
-		uint16_t xMin = (xMinUpper << 8) | xMinLower;
-		uint16_t xMax = (xMaxUpper << 8) | xMaxLower;
-		uint16_t yMin = (yMinUpper << 8) | yMinLower;
-		uint16_t yMax = (yMaxUpper << 8) | yMaxLower;
-		if(centX == 0xFFFF) // that's our cue -- we've hit our last object
-		{
-			return i/12+1; // num objects
-			break;
-		}
-
-        objArray[i/12].centX = centX;
-        objArray[i/12].centY = centY;
-		objArray[i/12].box[0] = xMin;
-		objArray[i/12].box[1] = xMax;
-		objArray[i/12].box[2] = yMin;
-		objArray[i/12].box[3] = yMax;	
-	
-	}
-	return bufferLength/12; // num objects
-}
-
-void packCenters(
-    struct Object* objArray,
-    uint8_t* buffer,
-    int32_t numObjects)
-{
-    for(int i = 0; i < numObjects; i++)
-    {
-        uint8_t xLower = objArray[i].centX & 0xFF;
-        uint8_t xUpper = objArray[i].centX >> 8;
-        uint8_t yLower = objArray[i].centY & 0xFF;
-        uint8_t yUpper = objArray[i].centY >> 8;
-
-        buffer[i*4] = xLower;
-        buffer[i*4 + 1] = xUpper;
-        buffer[i*4 + 2] = yLower;
-        buffer[i*4 + 3] = yUpper;
-    }
-}
-
 void initObjectArray(struct Object* objArray, uint16_t length)
 {
     for (int i = 0; i < length; i ++)
@@ -302,38 +240,6 @@ void initObjectArray(struct Object* objArray, uint16_t length)
         objArray[i].centY = 0;
         objArray[i].distanceFromCenter = 0;
     }
-}
-
-void printCenters(struct Object* objArray, uint16_t length)
-{
-    uint16_t i = 0;
-    while((i < length) && (objArray[i].centX != 65535))
-    {
-        printf("centX: %x; centY: %x. decimal %i, %i \n",
-            objArray[i].centX,
-            objArray[i].centY,
-			objArray[i].centX,
-			objArray[i].centY);
-        i++;
-    }
-    printf("\n");
-}
-
-
-void printObjectArray(struct Object* objArray, uint16_t length)
-{
-    for(int i = 0; i < length; i++)
-    {
-        printf("minX: %i; maxX: %i; minY: %i; maxY: %i; centX: %i; centY: %i \n",
-            objArray[i].box[0],
-            objArray[i].box[1],
-            objArray[i].box[2],
-            objArray[i].box[3],
-            objArray[i].centX,
-            objArray[i].centY);
-        i++;
-    }
-    printf("\n");
 }
 
 void CallBackFunc(int event, int x, int y, int flags, void* userdata)
@@ -377,41 +283,15 @@ int main(int argc, char** argv)
     const int32_t size = 40*240;
     uint8_t currentImage[size];
     int32_t indexPic = 0;
-	int32_t indexObjects = 0;
-	const int32_t sizeObjects = 250*12; // 250 objects * 12 bytes to represent the center
-	uint8_t objectBuffer[sizeObjects];
-
-	for(int i = 0; i < sizeObjects; i++)
-	{
-		objectBuffer[i] = 0;
-	}
-	struct Object objArray[250];
-	initObjectArray(objArray, 250);
-
-    while (1==1)
+    
+	while (1==1)
     {
- 		for(int i = 0; i < sizeObjects; i++)
-		{
-			objectBuffer[i] = 0;
-		}
-		struct Object objArray[250];
-		initObjectArray(objArray, 250);
-
         // Get frame from UART
         while (indexPic < size)
         {
             int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), size - indexPic);
             indexPic += len;
         }
-/* IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
-		// get object array
-		while (indexObjects < sizeObjects)
-		{
-			int len = RS232_PollComport(COM_PORT, &(objectBuffer[indexObjects]), sizeObjects - indexObjects);
-			indexObjects += len;
-		}
-*/
-
 
         for (int idx = 0; idx < size; idx++)
         {
@@ -423,50 +303,10 @@ int main(int argc, char** argv)
             }
         }
 
-/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
-		int32_t numObjects = unpackObjects(objArray, objectBuffer, sizeObjects);
-		int32_t numBalls = filterBalls(objArray, numObjects);
-*/
-
-
-/** uncomment this to print out data that's unpacked
-        printCenters(objArray, numObjects);
-		printObjectArray(objArray, numObjects);
-*/
-
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		//makeLine(&M_color, 160, GREEN, 1);
 
-
-/** IF NO OBJECTS BEING SENT, COMMENT THIS SECTION OUT
-		// show data
-		for(int i = 0; i < numObjects; i++)
-		{
-			if (objArray[i].isBall == 1)
-			{
-				makeBox(
-					&M_color,
-					objArray[i].box[0] + 8, // + 8 because we're offset that much... for every box
-					objArray[i].box[1] + 8, // + 8 " " " ... " " 
-					objArray[i].box[2],
-					objArray[i].box[3],
-					RED);
-			}
-			else
-			{
-				makeBox(
-					&M_color,
-					objArray[i].box[0] + 8,
-					objArray[i].box[1] + 8,
-					objArray[i].box[2],
-					objArray[i].box[3],
-					GREEN);
-			}
-		}
-/**/
-
-//		imshow("a", M);
-        setMouseCallback("a", CallBackFunc, NULL);
+        //setMouseCallback("a", CallBackFunc, NULL);
 		printf("showing an image\n");
 		imshow("a", M_color);
         waitKey(10);
@@ -486,16 +326,7 @@ int main(int argc, char** argv)
         	//printf("Frame recieved!\n");
 		}
        
- 
 		indexPic = 0;
-
-/* IF NO OBJECTS, COMMENT THIS SETION OUT
-		indexObjects = 0;
-	    for(int i = 0; i < sizeObjects; i++)
-    	{
-        	objectBuffer[i] = 0;
-		}	
-/**/
 	}
 
     RS232_CloseComport(COM_PORT);

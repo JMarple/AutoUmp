@@ -15,10 +15,10 @@ interface LEDInter
 };
 
 // UART
-//#define BAUD_RATE 921600
+#define BAUD_RATE 921600
 
 // BLUETOOTH
-#define BAUD_RATE 9600
+//#define BAUD_RATE 9600
 #define BT_CLOCK_TICKS (100000000 / BAUD_RATE)
 
 void BluetoothTxThread(interface BluetoothInter server inter);
