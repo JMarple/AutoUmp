@@ -14,10 +14,10 @@ void GameThread(
     interface LEDInter client inter)
 { unsafe {
 
-    //char dbg[6];
-    //snprintf(dbg, 6, "Hello\n");
-    //btTx.sendBuffer(dbg, 6);
-    //btTx.sendBuffer(dbg, 6);
+    char dbg[6];
+    snprintf(dbg, 6, "Hello\n");
+    btTx.sendBuffer(dbg, 6);
+    btTx.sendBuffer(dbg, 6);
     //printf("%s -- Game Thread\n", dbg);
 
     struct Stack stack;
@@ -48,7 +48,7 @@ void GameThread(
     coords[4][1] = 28.0;
 
     //uint8_t tmpBuffer[250*9];
-    uint8_t tmpBuffer[320*240/8];
+    uint8_t tmpBuffer[320*240/8 + 240*3];
     struct Point point;
     point.x = 3.0;
     point.y = 5.0;
@@ -59,13 +59,13 @@ void GameThread(
     uint8_t curByte = 0;
 
     int32_t i = 0;
-/*
+
     sendGameStatus(btTx, &currentGameState, intersect);
     delay_milliseconds(50);
     sendGameStatus(btTx, &currentGameState, intersect);
     delay_milliseconds(50);
     sendGameStatus(btTx, &currentGameState, intersect);
-    delay_milliseconds(50);*/
+    delay_milliseconds(50);
     while(1==1)
     {
         select

@@ -280,12 +280,35 @@ int main(int argc, char** argv)
 	// general init
     Mat M(240, 320, CV_8UC1, Scalar(0, 0, 0));
 	Mat M_color;
-    const int32_t size = 40*240;
+    const int32_t size = 40*240 + 240*3;
     uint8_t currentImage[size];
     int32_t indexPic = 0;
     
 	while (1==1)
     {
+		memset(currentImage, 0, 320*240/8 + 240*3);
+		while (1)	
+		{
+			indexPic = 0;
+			int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), 1);
+			if (*currentImage == 0xFA) break;	
+		}
+
+		while (1)	
+		{
+			indexPic = 1;
+			int len = RS232_PollComport(COM_PORT, &(currentImage[indexPic]), 1);
+			if (len > 0) break;
+		}
+
+		indexPic = 2;
+
+		if (currentImage[1] != 0) 
+		{
+			printf("Wrong Line number = %d\n", currentImage[1]);
+			continue;
+		}
+
         // Get frame from UART
         while (indexPic < size)
         {
@@ -293,7 +316,32 @@ int main(int argc, char** argv)
             indexPic += len;
         }
 
-        for (int idx = 0; idx < size; idx++)
+		for (int row = 0; row < 240; row++)	
+		{
+			if (currentImage[row*43] != 0xFA) 
+			{
+				printf("Improper start-bit %x\n", currentImage[row*33]);
+				break;
+			}
+
+			if (currentImage[row*43+1] != row)
+			{	
+				printf("Row %d does not match given %d\n", row, currentImage[row*43+1]);
+				break;
+			}
+
+			for (int col = 0; col < 40; col++)
+			{
+				uint8_t data = currentImage[row*43 + 2 + col];		
+
+				for (int i = 0; i < 8; i++)
+				{
+				   M.data[row*320 + col*8 + i] = ((data >> i) & 0b1)*255;
+				}
+			}
+		}
+
+        /*for (int idx = 0; idx < size; idx++)
         {
             uint8_t data = currentImage[idx];
 
@@ -301,7 +349,7 @@ int main(int argc, char** argv)
             {
                M.data[idx*8 + i] = ((data >> i) & 0b1)*255;
             }
-        }
+        }*/
 
 		cvtColor(M, M_color, cv::COLOR_GRAY2BGR);
 		//makeLine(&M_color, 160, GREEN, 1);

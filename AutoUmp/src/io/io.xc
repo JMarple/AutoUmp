@@ -133,7 +133,7 @@ void BluetoothTxThread(interface BluetoothInter server inter)
 {
     BluetoothInit();
 
-    uint8_t buffer[320*240/8];
+    uint8_t buffer[320*240/8 + 240*3];
     int len;
 
     while (1)
