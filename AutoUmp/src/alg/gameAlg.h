@@ -8,6 +8,12 @@
 
 #define STACK_SIZE 100
 
+struct kzone
+{
+    float top;
+    float bot;
+};
+
 struct gameState
 {
     uint8_t balls;
@@ -55,6 +61,9 @@ void sendGameStatus(
         uint16_t* unsafe intersections);
 
 void getGameStatus(uint8_t* input, int len, struct Stack* unsafe stack, struct gameState* unsafe currentGameState);
+
+int callPitch(
+        struct gameState* unsafe currentGamestate);
 
 void GameThread(
         interface ObjectTrackerToGameInter server ot2g,

@@ -7,12 +7,21 @@
 
 #define NUM_CHAR 54
 
+struct kzone kzoneArray[29]; // 0th index holds kzone for person of height 48 inches. Goes up 1 inch for each index increase
+
 void GameThread(
     interface ObjectTrackerToGameInter server ot2g,
     interface BluetoothInter client btTx,
     streaming chanend btRx,
     interface LEDInter client inter)
 { unsafe {
+    // init kzone array
+    for(int i = 0; i < 29; i++)
+    {
+        kzoneArray[i].bot = (48+i) * 0.325;
+        kzoneArray[i].top = (48+i) * 0.713;
+    }
+    // end init kzone array
 
     char dbg[6];
     snprintf(dbg, 6, "Hello\n");
@@ -27,8 +36,8 @@ void GameThread(
     struct gameState* unsafe tmpState = (struct gameState* unsafe)&currentGameState;
     initGameState((struct gameState* unsafe)(&currentGameState));
     currentGameState.height = 72;
-    currentGameState.kzoneTop = 50.0;
-    currentGameState.kzoneBot = 20.0;
+    currentGameState.kzoneTop = 51.0;
+    currentGameState.kzoneBot = 23.4;
 
     float coords[5][2];
     // 24, 35
@@ -95,12 +104,39 @@ void GameThread(
                 break;
 
             case ot2g.sendPitch(struct Point tmpPoint, uint16_t tmpLeftIntersect, uint16_t tmpRightIntersect):
-
+                stackPush(&stack, &currentGameState);
 				currentGameState.lastBallx = tmpPoint.x;
                 currentGameState.lastBally = tmpPoint.y;
 
                 intersect[0] = tmpLeftIntersect;
                 intersect[1] = tmpRightIntersect;
+
+                int isStrike = callPitch(&currentGameState); // 1 if strike, 0 if ball
+
+                if(isStrike)
+                {
+                    currentGameState.strikes = (currentGameState.strikes + 1) % 3;
+                    if(currentGameState.strikes == 0)
+                    {
+                        currentGameState.outs = (currentGameState.outs + 1) % 3;
+                        if(currentGameState.outs == 0)
+                        {
+                            if(currentGameState.isBottom)
+                            {
+                                currentGameState.isBottom = 0; // set to top of inning
+                                currentGameState.inning++;
+                            }
+                            else
+                            {
+                                currentGameState.isBottom = 1;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    currentGameState.balls = (currentGameState.balls + 1) % 4;
+                }
 
                 sendGameStatus(btTx, &currentGameState, intersect);
                 //printf("(Origin ground, middle of plate) x: %.3f, y: %.3f\n", point.x, point.y);
@@ -232,6 +268,8 @@ void getGameStatus(uint8_t* input, int len, struct Stack* unsafe stack, struct g
             uint8_t high = input[3] - '0';
             uint8_t low  = input[4] - '0';
             currentGameState->height = high*10 + low;
+            currentGameState->kzoneTop = kzoneArray[currentGameState->height - 48].top;
+            currentGameState->kzoneBot = kzoneArray[currentGameState->height - 48].bot;
             break;
 
         case '1': // ball increment
@@ -363,5 +401,25 @@ int8_t stackPop(struct Stack* unsafe stack, struct gameState* unsafe state)
     }
     stack->numElem--;
     return 0;
+}}
+
+int callPitch(struct gameState* unsafe currentGameState)
+{ unsafe {
+    float kzoneTop  = currentGameState->kzoneTop;
+    float kzoneBot  = currentGameState->kzoneBot;
+    float kzoneLeft =  24.0 - (13.5 / 2.0);
+    float kzoneRight = 24.0 + (13.5 / 2.0);
+
+    float pitchX = currentGameState->lastBallx;
+    float pitchY = currentGameState->lastBally;
+
+    int isStrike = 1;
+    if(pitchX < kzoneLeft || pitchX > kzoneRight ||
+            pitchY < kzoneBot || pitchY > kzoneTop)
+    {
+        isStrike = 0;
+    }
+
+    return isStrike;
 }}
 
