@@ -121,6 +121,8 @@ void GameThread(
                         currentGameState.outs = (currentGameState.outs + 1) % 3;
                         if(currentGameState.outs == 0)
                         {
+                            currentGameState.strikes = 0;
+                            currentGameState.balls = 0;
                             if(currentGameState.isBottom)
                             {
                                 currentGameState.isBottom = 0; // set to top of inning
