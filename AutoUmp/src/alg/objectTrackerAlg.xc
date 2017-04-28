@@ -470,6 +470,8 @@ struct Point kZoneLocation(float intersectionLeft, float intersectionRight)
     result.x = result.x + 24;
     if(result.x > 48) result.x = 48;
     if(result.x < 0) result.x = 0;
+    result.y = result.y - 16;
+    if(result.y < 1) result.y = 1;
 
     return result;
 }

@@ -138,6 +138,10 @@ void GameThread(
                 else
                 {
                     currentGameState.balls = (currentGameState.balls + 1) % 4;
+                    if(currentGameState.balls == 0)
+                    {
+                        currentGameState.strikes = 0;
+                    }
                 }
 
                 sendGameStatus(btTx, &currentGameState, intersect);
@@ -411,13 +415,14 @@ int callPitch(struct gameState* unsafe currentGameState)
     float kzoneBot  = currentGameState->kzoneBot;
     float kzoneLeft =  24.0 - (13.5 / 2.0);
     float kzoneRight = 24.0 + (13.5 / 2.0);
+    float radiusBall = 2.9 / 2.0;
 
     float pitchX = currentGameState->lastBallx;
     float pitchY = currentGameState->lastBally;
 
     int isStrike = 1;
-    if(pitchX < kzoneLeft || pitchX > kzoneRight ||
-            pitchY < kzoneBot || pitchY > kzoneTop)
+    if(pitchX < (kzoneLeft-radiusBall) || pitchX > (kzoneRight+radiusBall) ||
+            pitchY < (kzoneBot-radiusBall) || pitchY > (kzoneTop+radiusBall))
     {
         isStrike = 0;
     }
